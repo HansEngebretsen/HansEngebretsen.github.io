@@ -46,7 +46,7 @@ nav {
     max-width:100px;
     z-index:3;
     @include breakpoint(baby-bear){
-        margin-top:100px;
+        margin-top:10%;
     }
     // As a sidebar instead of page-centered
     .work & {
@@ -76,6 +76,9 @@ nav {
     @include breakpoint(baby-bear){
         .hans-clicked & { margin-top:210px; }
         .hans-clicked.index &  { margin-top:215px; }
+    }
+    @include breakpoint(baby-baby-bear){
+        .hans-clicked.index & { margin-top:315px;margin-bottom:30px;display:block;}
     }
 }
 // Inner-menu container main page ul 
@@ -226,8 +229,12 @@ footer {
     padding: .7em .2em;
     margin:0 auto;
     text-align:center;
-    transition:all .5s 1s;
+    transition:margin-bottom .5s 1s, opacity 400ms;
+    opacity:1;
     overflow:hidden;
+    @include breakpoint(baby-baby-bear){
+        .hans-clicked.index & { opacity:0;}
+    }
 
     &.loaded   { margin-bottom:0; }
     a {
@@ -252,6 +259,11 @@ footer {
         p {
             color: $dark-grey;
             font-size: .75em;
+            @include breakpoint(baby-bear){
+                color:rgba(136,136,136,.7);
+                line-height:1.35em;
+                font-size:.8em;
+            }
         }
         .bio {
             margin:0 auto;
@@ -311,7 +323,7 @@ footer {
         transition:opacity 600ms;
 
         .bio {
-            margin-top:-90px;
+            margin-top:-108px;
             transition:margin-top 400ms;
 
         }

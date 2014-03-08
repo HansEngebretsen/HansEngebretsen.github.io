@@ -12,6 +12,9 @@
   @else if $point == baby-bear {
     @media (max-width: 450px)  { @content; }
   }
+  @else if $point == baby-baby-bear {
+    @media (max-width: 370px)  { @content; }
+  }
 }
 
 // Colors
