@@ -37,6 +37,9 @@ h2    { color: $dark-grey; font-size: .75em;}
     transition-property:opacity;
     transition-duration:.7s;
  }
+ .strikethrough {
+    text-decoration:line-through;
+ }
 
 // Self portrait and main navigation container
 nav {
