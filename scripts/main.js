@@ -8,9 +8,13 @@ $( document ).ready(function() {
 	   $('body').toggleClass('hans-clicked');
 	   $('#txt-rotate').toggleClass('txt-rotate');
   });
-
+  $('.project-container li').click(function() {
+  $(this).toggleClass('active');
+});
   
 });
+
+
 $('#social-toggle').click(function(e) {
       e.preventDefault();
       $('.internal-nav-wrap').toggleClass('social-clicked');
