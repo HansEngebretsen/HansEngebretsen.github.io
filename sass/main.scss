@@ -438,9 +438,18 @@ footer {
         padding-top:3px;
         line-height:1;
         transition:bottom 200ms;
-
+        &.back { 
+            display:none;
+            top:0; 
+            position:relative;
+            bottom:auto;
+            text-indent:-9999px;
+            &:after { content:"<"; position:absolute; top:2px; left:2px; text-indent:0px;}
+        }
     }
+
      .active  {
+        .button.back { display:block; }
         .description {
             max-width:200px;
             transition:.3s all;
