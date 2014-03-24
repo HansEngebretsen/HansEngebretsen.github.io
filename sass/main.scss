@@ -463,6 +463,7 @@ footer {
 
 
 .project-container li:hover .button { bottom:20px; }
+.project-container li.active:hover .button { bottom:0px; }
 .project-container li:hover .description, .project-container .active .desciription { padding:1.5em 0; height:auto; }
 
 .preview-image {
@@ -501,7 +502,6 @@ footer {
     overflow:hidden;
     transition:height 120ms;
     .active & { height:400px; max-width:66%; transition:none;}
-    .active & { height:200px; }
     li:hover & {height:100%;}
 }
 
