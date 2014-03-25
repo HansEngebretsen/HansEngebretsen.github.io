@@ -1,24 +1,34 @@
 $( document ).ready(function() {
 	
+  // IN transitions
   $('.work #profile-image').addClass('bounceInLeft');
   $('#navigation-menu').addClass('unfolded');
   $('body').addClass('loaded');
+
+  // Navigation
   $('#hans-toggle').click(function(e) {
 	   e.preventDefault();
 	   $('body').toggleClass('hans-clicked');
-	   $('#txt-rotate').toggleClass('txt-rotate');
   });
-  $('.project-container li').click(function() {
-  $(this).toggleClass('active');
-});
+
   
 });
+  // Project Containers
 
-
+$('.preview-image, .project-container .more').click(function() {
+      $(this).parents('li').addClass('active');
+});
+$('.project-container .back').click(function(e) {
+  e.preventDefault();
+  $(this).parents('li').removeClass('active');
+});
+// Navigation
 $('#social-toggle').click(function(e) {
       e.preventDefault();
       $('.internal-nav-wrap').toggleClass('social-clicked');
     });
+
+// Nav toggle on mobile
 $('#nav-toggle').click(function(e) {
       e.preventDefault();
       $('body').addClass('menu-clicked');
@@ -28,7 +38,7 @@ $('.close-toggle').click(function(e) {
       $('body').removeClass('menu-clicked');
       $('body').removeClass('hans-clicked');
     });
-
+// 
 // Typing Text Function
 var TxtRotate = function(el, toRotate, period) {
   this.toRotate = toRotate;
@@ -70,19 +80,23 @@ TxtRotate.prototype.tick = function() {
     that.tick();
   }, delta);
 };
-
-window.onload = function() {
-  var elements = document.getElementsByClassName('txt-rotate');
-  for (var i=0; i<elements.length; i++) {
-    var toRotate = elements[i].getAttribute('data-rotate');
-    var period = elements[i].getAttribute('data-period');
-    if (toRotate) {
-      new TxtRotate(elements[i], JSON.parse(toRotate), period);
+// Only start when clicked, and don't run multiple instances
+$('#hans-toggle').click(function() {
+  if ( !$('#hans-toggle').data('clicked') ) {
+    var elements = document.getElementsByClassName('txt-rotate');
+    
+    for (var i=0; i<elements.length; i++) {
+      var toRotate = elements[i].getAttribute('data-rotate');
+      var period = elements[i].getAttribute('data-period');
+      if (toRotate) {
+        new TxtRotate(elements[i], JSON.parse(toRotate), period);
+      }
     }
+    // INJECT CSS
+    var css = document.createElement("style");
+    css.type = "text/css";
+    css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+    document.body.appendChild(css);
   }
-  // INJECT CSS
-  var css = document.createElement("style");
-  css.type = "text/css";
-  css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
-  document.body.appendChild(css);
-};
+  $(this).data('clicked', true);
+});

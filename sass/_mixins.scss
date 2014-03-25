@@ -9,6 +9,9 @@
   @else if $point == mama-bear {
     @media (max-width: 1250px) { @content; }
   }
+  @else if $point == big-brother-bear {
+    @media (min-width: 950px) { @content; }
+  }
   @else if $point == baby-bear {
     @media (max-width: 450px)  { @content; }
   }
@@ -33,6 +36,7 @@ $darker-grey: #222;
 $dark-grey:rgba(136, 136, 136, 0.5);
 $dark-grey-hex: rgb(40,40,40);
 $off-white:#aaa;
+$half-white:rgba(255,255,255,.55);
 $black: rgb(10,10,10);
 
 //Reusables
@@ -83,5 +87,26 @@ $black: rgb(10,10,10);
     color:white;
     font-size:13px;
     background-color:rgba(100, 100, 100, 0.2);
+  }
+}
+
+//Animations
+@keyframes bouncey-bounce {
+  0% {
+    left: 10px;
+  }
+  30% {
+    left: 15px;
+
+
+  }
+   50% {
+    left: 10px;
+  }
+   70% {
+    left: -2px;
+  }
+  100% {
+    left: 10px;
   }
 }

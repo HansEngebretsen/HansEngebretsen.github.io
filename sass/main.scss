@@ -207,7 +207,7 @@ nav {
         width:100%; 
         height:100%; 
         visibility:hidden;
-        z-index:1;
+        z-index:10;
         opacity:0; 
 
         background-color:rgba($darker-grey, .93);
@@ -368,19 +368,19 @@ footer {
         &:hover { color:$orange; };
     }
 }
+
 .project-container {
-        margin:0;
-        padding:0;
         @extend %clearfix;
+        margin:0;
         position:relative;
+        padding:0;
         overflow:hidden;
     li {
+        display:block;
         width:48%;
         @include breakpoint(brother-bear){ width:100%; }
-        display:block;
         min-height:200px;
         
-       
         margin-bottom:20px;
         margin-right:2%;
         overflow:hidden;
@@ -391,23 +391,21 @@ footer {
         background-color:$dark-light-grey;
         cursor:pointer;
         &:nth-child(even){margin-right:0;}
-        &.active { cursor:auto; }
+        &.active { cursor:auto; position: initial; }
     }
-    li.active {
-        position: initial;
+    h4 {
+        margin:0;
+        text-align:right;
+        font-size:1.5em;
+        @include breakpoint(big-brother-bear){ font-size:1.7em; }
+        color:$half-white;
+        font-weight:normal;
     }
     .project-wrap {
-        padding:25px;
-        padding-top:20px;
-        transition:.3s all;
-    }  
-    h4 {
-        text-align:right;
-        color:rgba(white,.55);
-        font-weight:normal;
-        font-size:1.5em;
-        margin:0;
-    }
+    padding:25px;
+    padding-top:20px;
+    transition:.3s all;
+}
     .description {
         display:block;
         width:75%;
@@ -427,36 +425,66 @@ footer {
     }
     .button {
         position:absolute;
-        border-width:2.5px;
-        left: 20px;
-        bottom:-30px;
-        font-size:20px;
-        padding:0; 
-        border-radius:50%;
         width:25px; 
         height:25px;
+        padding:0; 
         padding-top:3px;
+        left: 20px;
+        bottom:-30px;
+
+        font-size:20px;
+        border-width:2.5px;
+        border-radius:50%;
         line-height:1;
         transition:bottom 200ms;
         &.back { 
             display:none;
-            top:0; 
+            top:25px; 
             position:relative;
+            position:absolute;
             bottom:auto;
             text-indent:-9999px;
-            &:after { content:"<"; position:absolute; top:2px; left:2px; text-indent:0px;}
+            width:2em; 
+            height:2em;
+            z-index:3;
+            @include breakpoint(baby-bear){font-size:1.2em;}
+            &:hover {
+                color:$half-white;
+                background-color:inherit;
+                &:after { animation: bouncey-bounce 400ms linear; }
+            }
+             &:active {
+                background: rgba(white,.9);
+                color:$dark-light-grey;
+            }
+            &:after { 
+                top:.3em; 
+                left:.35em; 
+            }
         }
     }
 
      .active  {
         .button.back { display:block; }
+        .button.more { display:none; }
         .description {
             max-width:200px;
             transition:.3s all;
+            height:auto;
+            padding:1.5em 0;
+        }
+        h4 {
+            @include breakpoint(brother-bear){ text-align:center; }
+        }
+        .description {
+            @include breakpoint(brother-bear){ max-width:100%; width:100%;text-align:center;
+            padding:0 1em;  }
+
         }
         .project-wrap {
             position:absolute;
             width:98%;
+            @include breakpoint(brother-bear){ width:100%; }
             height:100%;
             border-radius:4px;
             border-top:1px solid rgba(black,.8); 
@@ -473,7 +501,7 @@ footer {
 
 .project-container li:hover .button { bottom:20px; }
 .project-container li.active:hover .button { bottom:0px; }
-.project-container li:hover .description, .project-container .active .desciription { padding:1.5em 0; height:auto; }
+.project-container li:hover .description, .project-container .active .description { padding:1.5em 0; height:auto; }
 
 .preview-image {
     width:100%;
@@ -487,8 +515,9 @@ footer {
     background-repeat:no-repeat;
     opacity:.3;
     max-width:600px;
+    border-radius:4px;
     transition:height 120ms ease-in-out, opacity 100ms, background-position 120ms;
-    .active & { opacity:1; background-size:contain; background-position:bottom; height:400px; transition:none;}
+    .active & { opacity:1;  position:relative; background-position:bottom; height:400px; transition:none; }
     li:hover &{ filter:blur(4px);opacity:.07; }
     li.active:hover &{ filter:none;opacity:inherit; }
     .posters & { background-image: url('../img/Portfolio/Posters/10.jpg'); }
@@ -510,7 +539,7 @@ footer {
     height:144px;
     overflow:hidden;
     transition:height 120ms;
-    .active & { height:400px; max-width:66%; transition:none;}
+    .active & { height:auto; position:relative; max-width:66%; transition:none;@include breakpoint(brother-bear){ margin-top:2em; max-width:100%; }}
     li:hover & {height:100%;}
 }
 
@@ -528,6 +557,11 @@ footer {
             padding-left:.5em;
         }
     }
+}
+.content {
+    display:none;
+    .active & {display:block}
+    img { width:98%}
 }
 .close-toggle {
     display:inline-block;
@@ -582,21 +616,32 @@ footer {
 
 .button, a.button {
     padding:.5em 1em;
-    border:.04em solid white;
+    border:.04em solid $half-white;
     display:inline-block;
     text-decoration:none;
-    color: white;
+    color: $half-white;
     border-radius:.4em;
     background:transparent;
     transition:background 200ms;
     &:hover {
-        background: rgba(white,.4);
+        background: $half-white;
+        color:$dark-light-grey;
+    }
+    &.back { 
+        text-indent:-9999px;
+        &:after { 
+            content:"<"; 
+            position:absolute; 
+            text-indent:0px; 
+            font-size:1.23em;
+        }
     }
 
 }
 .container {
     padding-right:10px;
     padding-left:30px;
+    @include breakpoint(baby-bear){ padding-left:10px; }
     transition:all 400ms;
     width:100%;
     transition:all 200ms;
