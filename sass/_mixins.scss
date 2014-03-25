@@ -3,6 +3,9 @@
   @if $point == papa-bear {
     @media (max-width: 750px) { @content; }
   }
+  @if $point == min-papa-bear {
+    @media (min-width: 800px) { @content; }
+  }
   @if $point == brother-bear {
     @media (max-width: 650px) { @content; }
   }
