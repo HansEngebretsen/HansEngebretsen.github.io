@@ -107,7 +107,7 @@
             text-indent:-9999px;
             width:2em; 
             height:2em;
-            z-index:3;
+            z-index:4;
             @include breakpoint(baby-bear){ font-size:1.2em; }
             &:hover {
                 color:$half-white;
@@ -152,7 +152,7 @@
             border-top:1px solid rgba(black,.8); 
             top:0;
             left:0;
-            z-index:2;
+            z-index:3;
             background-color:$dark-light-grey;
             transition:.3s all;
         }

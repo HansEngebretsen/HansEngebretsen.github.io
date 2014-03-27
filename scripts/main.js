@@ -14,7 +14,7 @@ $( document ).ready(function() {
 
 // Project Containers
 $('.preview-image, .project-container .more').on('click', function(){
-      $('html,body').animate({scrollTop: 0 }, 400);
+      $('html,body').animate({scrollTop: $('.project-container').offset().top}, 400);
       $(this).parents('li').addClass('active');
 });
 $('.project-container .back').click(function(e) {

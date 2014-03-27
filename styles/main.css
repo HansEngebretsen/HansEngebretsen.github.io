@@ -601,7 +601,7 @@ footer {
       text-indent: -9999px;
       width: 2em;
       height: 2em;
-      z-index: 3; }
+      z-index: 4; }
       @media (max-width: 450px) {
         .project-container .button.back {
           font-size: 1.2em; } }
@@ -644,7 +644,7 @@ footer {
     border-top: 1px solid rgba(0, 0, 0, 0.8);
     top: 0;
     left: 0;
-    z-index: 2;
+    z-index: 3;
     background-color: #282828;
     -webkit-transition: 0.3s all;
     transition: 0.3s all; }
