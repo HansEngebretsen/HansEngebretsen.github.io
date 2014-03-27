@@ -15,6 +15,9 @@
   @else if $point == big-brother-bear {
     @media (min-width: 950px) { @content; }
   }
+  @else if $point == not-mobile {
+    @media (min-width: 450px)  { @content; }
+  }
   @else if $point == baby-bear {
     @media (max-width: 450px)  { @content; }
   }
@@ -100,8 +103,6 @@ $black: rgb(10,10,10);
   }
   30% {
     left: 15px;
-
-
   }
    50% {
     left: 10px;

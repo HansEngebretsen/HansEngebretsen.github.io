@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 	
-  // IN transitions
+  // Loaded transitions
   $('.work #profile-image').addClass('bounceInLeft');
   $('#navigation-menu').addClass('unfolded');
   $('body').addClass('loaded');
@@ -10,23 +10,23 @@ $( document ).ready(function() {
 	   e.preventDefault();
 	   $('body').toggleClass('hans-clicked');
   });
-
-  
 });
-  // Project Containers
 
-$('.preview-image, .project-container .more').click(function() {
+// Project Containers
+$('.preview-image, .project-container .more').on('click', function(){
+      $('html,body').animate({scrollTop: 0 }, 400);
       $(this).parents('li').addClass('active');
 });
 $('.project-container .back').click(function(e) {
   e.preventDefault();
   $(this).parents('li').removeClass('active');
 });
+
 // Navigation
 $('#social-toggle').click(function(e) {
       e.preventDefault();
       $('.internal-nav-wrap').toggleClass('social-clicked');
-    });
+  });
 
 // Nav toggle on mobile
 $('#nav-toggle').click(function(e) {
@@ -38,7 +38,8 @@ $('.close-toggle').click(function(e) {
       $('body').removeClass('menu-clicked');
       $('body').removeClass('hans-clicked');
     });
-// 
+
+
 // Typing Text Function
 var TxtRotate = function(el, toRotate, period) {
   this.toRotate = toRotate;
