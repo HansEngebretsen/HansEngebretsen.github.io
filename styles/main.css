@@ -521,8 +521,8 @@ footer {
 
 .project-container {
   margin: 0;
-  position: relative;
   padding: 0;
+  position: relative;
   overflow: hidden; }
   .project-container li {
     display: block;
@@ -555,9 +555,7 @@ footer {
         font-size: 1.7em; } }
   .project-container .project-wrap {
     padding: 25px;
-    padding-top: 20px;
-    -webkit-transition: 0.3s all;
-    transition: 0.3s all; }
+    padding-top: 20px; }
     @media (min-width: 800px) {
       .project-container .project-wrap {
         padding-left: 70px; } }
@@ -577,13 +575,13 @@ footer {
     -webkit-transition: all 200ms;
     transition: all 200ms; }
   .project-container .button {
-    position: absolute;
     width: 25px;
     height: 25px;
     padding: 0;
     padding-top: 3px;
-    left: 20px;
+    position: absolute;
     bottom: -30px;
+    left: 20px;
     font-size: 20px;
     border-width: 2.5px;
     border-radius: 50%;
@@ -651,12 +649,6 @@ footer {
         width: 100%;
         padding-top: 3em; } }
 
-.project-container li:hover .button {
-  bottom: 20px; }
-
-.project-container li.active:hover .button {
-  bottom: 0px; }
-
 .project-container li:hover .description, .project-container .active .description {
   padding: 1.5em 0;
   height: auto; }
@@ -673,9 +665,7 @@ footer {
   background-repeat: no-repeat;
   opacity: 0.3;
   max-width: 600px;
-  border-radius: 4px;
-  -webkit-transition: height 120ms ease-in-out, opacity 100ms, background-position 120ms;
-  transition: height 120ms ease-in-out, opacity 100ms, background-position 120ms; }
+  border-radius: 4px; }
   .active .preview-image {
     opacity: 1;
     position: relative;
@@ -684,10 +674,6 @@ footer {
     transition: none;
     border: 1px solid rgba(0, 0, 0, 0.4);
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2); }
-  li:hover .preview-image {
-    -webkit-filter: blur(4px);
-    filter: blur(4px);
-    opacity: 0.07; }
   li.active:hover .preview-image {
     -webkit-filter: none;
     filter: none;
