@@ -649,7 +649,7 @@ footer {
         width: 100%;
         padding-top: 3em; } }
 
-.project-container li:hover .description, .project-container .active .description {
+.project-container .active .description {
   padding: 1.5em 0;
   height: auto; }
 
@@ -716,8 +716,6 @@ footer {
       .active .preview-image-wrap {
         margin-top: 2em;
         max-width: 100%; } }
-  li:hover .preview-image-wrap {
-    height: 100%; }
   li.active:hover .preview-image-wrap {
     height: auto; }
 

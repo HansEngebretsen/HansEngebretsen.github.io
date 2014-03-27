@@ -164,8 +164,9 @@
 @include breakpoint(not-mobile){ 
     .project-container li:hover .button { bottom:20px; }
     .project-container li.active:hover .button { bottom:0px; }
+    .project-container li:hover .description { padding:1.5em 0; height:auto; }
 }
-.project-container li:hover .description, .project-container .active .description { padding:1.5em 0; height:auto; }
+ .project-container .active .description { padding:1.5em 0; height:auto; }
 
 .preview-image {
     width:100%;
@@ -212,7 +213,7 @@
         transition:none;
         @include breakpoint(brother-bear){ margin-top:2em; max-width:100%; }
     }
-    li:hover & { height:100%; }
+    @include breakpoint(not-mobile) { li:hover & { height:100%; } }
     li.active:hover & {height:auto;}
 }
 
