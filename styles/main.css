@@ -577,6 +577,7 @@ ____________________________________________________________________
   margin: 0;
   padding: 0;
   position: relative;
+  min-height: 1400px;
   overflow: hidden; }
   .project-container li {
     display: block;
