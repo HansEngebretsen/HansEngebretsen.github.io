@@ -3,6 +3,9 @@
   @if $point == huge-screen {
     @media (max-width: 1250px) { @content; }
   }
+  @else if $point == min-huge-screen {
+    @media (max-width: 1100px) { @content; }
+  }
   @else if $point == big-screen {
     @media (max-width: 950px) { @content; }
   }

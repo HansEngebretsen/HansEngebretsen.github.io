@@ -155,6 +155,7 @@ ____________________________________________________________________
             padding:1.5em 0;
             font-size:1em;
             @include breakpoint(min-normal-screen){ font-size:.6em; }
+            @include breakpoint(min-huge-screen){ max-width:200px; }
 
         }
         h4 {
