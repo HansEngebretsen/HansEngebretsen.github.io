@@ -1,27 +1,30 @@
 // Breakpoints
 @mixin breakpoint($point) {
-  @if $point == papa-bear {
-    @media (max-width: 750px) { @content; }
-  }
-  @if $point == min-papa-bear {
-    @media (min-width: 800px) { @content; }
-  }
-  @if $point == brother-bear {
-    @media (max-width: 650px) { @content; }
-  }
-  @else if $point == mama-bear {
+  @if $point == huge-screen {
     @media (max-width: 1250px) { @content; }
   }
-  @else if $point == big-brother-bear {
+  @else if $point == big-screen {
+    @media (max-width: 950px) { @content; }
+  }
+  @else if $point == min-big-screen {
     @media (min-width: 950px) { @content; }
+  }
+  @else if $point == normal-screen {
+    @media (max-width: 750px) { @content; }
+  }
+  @else if $point == min-normal-screen {
+    @media (min-width: 800px) { @content; }
+  }
+  @if $point == tablet {
+    @media (max-width: 650px) { @content; }
   }
   @else if $point == not-mobile {
     @media (min-width: 450px)  { @content; }
   }
-  @else if $point == baby-bear {
+  @else if $point == phone {
     @media (max-width: 450px)  { @content; }
   }
-  @else if $point == baby-baby-bear {
+  @else if $point == baby-phone {
     @media (max-width: 370px)  { @content; }
   }
 }

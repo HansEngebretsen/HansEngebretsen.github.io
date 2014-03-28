@@ -1,35 +1,46 @@
 /*! 
-** High five from this guy (http://www.youtube.com/watch?v=OZBWfyYtYQY) for checking out my source code:  ** 
-This is my compiled css. It's minified, preprocessed and compressed via sass/grunt 
-to see the hand written stuff, hit up the root dir/sass/ and you can see how I organizse my sass
-*/
 
+** You're a boss for checking out the source - you seriously deserve a few min with this guyy: (http://www.youtube.com/watch?v=OZBWfyYtYQY) 
+I really did write all this in vanilla css apart from a few nested styles, and some color/breakpoint variables/mixins. 
+I'm pretty clueless when it comes to databases, and it would have taken me longer to use some trendy tech to make this thing happen.
+It's minified, preprocessed and compressed via sass/grunt to see the hand written stuff, hit up the root dir/sass/ or just hit up github
+It's also not the prettiest thing, after all I'm the only one who has to deal with it.
+
+*/
 
 @import "mixins";
 @import "icon-font";
 @import "animations";
 
-// Global & General styles
+/*
+____________________________________________________________________
+    
+    BASE STYLINGS 
+        - foundational stylings
+        - modular elements
+____________________________________________________________________
+*/
 * {
    box-sizing:border-box;
 }
 html {
+    height:100%;
+    position:relative;
+    //
     font-family: 'Lekton', sans-serif;
     font-size: 18px;
-    height:100%;
     background-color: $darker-grey;
-    
     color: $off-white;
-    position:relative;
-
+    
     // Insert top line for the nav-toggle at breakpoint
-    @include breakpoint(brother-bear){border-top:6px solid black;}
+    @include breakpoint(tablet){border-top:6px solid black;}
 }
 body  { @extend %clearfix; height:100%; }
 h1,h2 { font-weight: 200; margin: 0.4em 0; }
 h1    { font-size: 1em; }
 h2    { color: $dark-grey; font-size: .75em;}
 
+// Modular Elements
 .image-wrap {
     @extend %circle-image-outline;
     background: $grey;
@@ -37,8 +48,40 @@ h2    { color: $dark-grey; font-size: .75em;}
     transition-duration:.7s;
     .index & { opacity:0; }
     .index.loaded & { opacity:1; }
- }
- .strikethrough { text-decoration:line-through; }
+}
+.button, a.button {
+    display:inline-block;
+    padding:.5em 1em;
+    border-radius:.4em;
+    text-decoration:none;
+    border:.04em solid $half-white;
+    background:transparent;
+    color: $half-white;
+    transition:background 200ms;
+    &:hover {
+        background: $half-white;
+        color:$dark-light-grey;
+    }
+    &.back { 
+        text-indent:-9999px;
+        &:after { 
+            content:"<"; 
+            position:absolute; 
+            text-indent:0px; 
+            font-size:1.23em;
+        }
+    }
+}
+.strikethrough { text-decoration:line-through; }
+/*
+____________________________________________________________________
+    
+    MAIN PAGE STYLINGS
+        - Navigation
+        - Hans-Clicked states
+        - Footer
+____________________________________________________________________
+*/
 
 // Self portrait and main navigation container
 nav {
@@ -47,36 +90,36 @@ nav {
     margin-top:120px;
     max-width:100px;
     z-index:3;
-    @include breakpoint(baby-bear){ margin-top:10%; }
-    // As a sidebar instead of page-centered
+    @include breakpoint(phone){ margin-top:10%; }
+    // Functioning as a sidebar instead of page-centered
     .work & {
         float:left;
-        margin:.75em 0px 0px 1em;
+        margin:1.75em 0 0 2em;
     }
 }
 // Outer-menu container around main page nav 
 .internal-nav-wrap {
     height:121px; 
-    overflow:hidden;
     margin-top:0px;
+    overflow:hidden;
     transition:margin-top 200ms, height 200ms;
 
     &.social-clicked   { height:141px; }
     .hans-clicked &    { margin-top:70px; height:141px; }
     
-    @include breakpoint(papa-bear){
+    @include breakpoint(normal-screen){
         .hans-clicked & { margin-top:70px; }
         .hans-clicked.index &    { margin-top:150px; }
     }
-    @include breakpoint(brother-bear){
+    @include breakpoint(tablet){
         .hans-clicked & { margin-top:100px; }
     }
    
-    @include breakpoint(baby-bear){
+    @include breakpoint(phone){
         .hans-clicked & { margin-top:210px; }
         .hans-clicked.index &  { margin-top:215px; }
     }
-    @include breakpoint(baby-baby-bear){
+    @include breakpoint(baby-phone){
         .hans-clicked.index & { margin-top:315px; margin-bottom:30px; display:block;}
     }
 }
@@ -95,7 +138,7 @@ nav {
     .social-clicked &.unfolded {
         margin-top:-62px;
         // Additional margin for additional padding
-        @include breakpoint(baby-bear){
+        @include breakpoint(phone){
             margin-top:-77px;
         }
     }
@@ -108,8 +151,7 @@ nav {
     }
 }
 
-
-// Each menu items
+// Main menu links
 .menu li {
     display:block;
     // Pre-margin for sliding down on load
@@ -140,7 +182,7 @@ nav {
         color:$off-white;
         transition:all 100ms ease-in-out, color 100ms;
         // Extra padding for chunky thumbs on mobile
-        @include breakpoint(baby-bear){
+        @include breakpoint(phone){
             padding-top:.5em;
             padding-bottom:.5em;
         }
@@ -194,7 +236,7 @@ nav {
 .social a:hover:before {left:5px;}
 
 // Main Navigation mobile --> inner page --> compressed
-@include breakpoint(brother-bear){
+@include breakpoint(tablet) {
     .overlay {
         position:fixed;
         left:0; 
@@ -204,7 +246,6 @@ nav {
         visibility:hidden;
         z-index:10;
         opacity:0; 
-
         background-color:rgba($darker-grey, .93);
         transition: opacity 0.5s, visibility 0s 0.5s;
         // Show overlay on click
@@ -225,12 +266,13 @@ footer {
     width:100%;
     padding: .7em .2em;
     margin:0 auto;
+    //
     text-align:center;
     transition:margin-bottom .5s 1s, opacity 400ms;
     opacity:1;
     overflow:hidden;
     .work & { position:relative; }
-    @include breakpoint(baby-baby-bear){
+    @include breakpoint(baby-phone){
         .hans-clicked.index & { opacity:0;}
     }
 
@@ -256,7 +298,7 @@ footer {
         p {
             color: $dark-grey;
             font-size: .75em;
-            @include breakpoint(baby-bear){
+            @include breakpoint(phone){
                 color:rgba(136,136,136,.7);
                 line-height:1.35em;
                 font-size:.8em;
@@ -291,7 +333,7 @@ footer {
         height:90%;
         width:100%;
         z-index:-1;
-
+        //
         opacity:.059;
         background-image:url('../img/me.jpg');
         background-size:cover;
@@ -308,7 +350,6 @@ footer {
         @include breakpoint (mama-bear){
             .index & { margin-top:150px; }
         }
-
     }
     .container{
         margin-left:100%;
@@ -338,40 +379,15 @@ footer {
 @import "work";
 
 
-
-.button, a.button {
-    padding:.5em 1em;
-    border:.04em solid $half-white;
-    display:inline-block;
-    text-decoration:none;
-    color: $half-white;
-    border-radius:.4em;
-    background:transparent;
-    transition:background 200ms;
-    &:hover {
-        background: $half-white;
-        color:$dark-light-grey;
-    }
-    &.back { 
-        text-indent:-9999px;
-        &:after { 
-            content:"<"; 
-            position:absolute; 
-            text-indent:0px; 
-            font-size:1.23em;
-        }
-    }
-
-}
 .container {
     padding-right:10px;
-    padding-left:30px;
-    @include breakpoint(baby-bear){ padding-left:10px; }
+    padding-left:2.5em;
+    @include breakpoint(tablet){ padding-left:10px; }
     transition:all 400ms;
     width:100%;
     transition:all 200ms;
 }
 .container-wrap {
     overflow:hidden;
-    @include breakpoint(brother-bear){width:100%;}
+    @include breakpoint(tablet){width:100%;}
 }
