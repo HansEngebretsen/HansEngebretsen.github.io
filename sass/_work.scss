@@ -48,7 +48,7 @@ ____________________________________________________________________
         margin:0;
         padding:0;
         position:relative;
-        min-height:1400px;
+        &.project-active { min-height:1400px; }
         overflow:hidden;
     li {
         display:block;
@@ -266,7 +266,6 @@ ____________________________________________________________________
     .active & {
         display:block;
         width:66%;
-        padding:20px 0;
         @include breakpoint(big-screen){
             padding:20px 0;
             width:100%;
@@ -276,7 +275,8 @@ ____________________________________________________________________
         width:100%; 
         box-shadow: 1px 1px 2px black;
         max-width:600px;
-
+        border-radius:3px;
+        margin-top:20px;
     }
 }
 .close-toggle {
@@ -316,6 +316,32 @@ ____________________________________________________________________
     @include breakpoint(tablet){ display:inline-block; }
 }
 
+// Tags
+.tags {
+    display:none;
+    max-width:250px;
+    margin:0;
+    width:100%;
+    padding:0;
+    float:right;
+    clear:right;
+    text-transform:uppercase;
+    font-family:'Lekton', sans-serif;
+    font-size:.7em;
+    @include breakpoint(normal-screen){ font-size:1em; }
+    @include breakpoint(big-screen){ max-width:100%; }
+    .active & { display:block; }
+    li {
+        width:auto;
+        cursor:auto;
+        min-height: 0;
+        margin:0 0 10px 10px;
+        padding: 4px 9px;
+        border-radius:2px 2px 0 0;
+        float:right;
+        background-color:rgba(136, 136, 136, 0.15);
+    }
+}
 .menu-toggle-wrap {
     color: rgba(0, 0, 0, 0.8);
     display: block;

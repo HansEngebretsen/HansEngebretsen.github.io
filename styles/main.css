@@ -577,8 +577,9 @@ ____________________________________________________________________
   margin: 0;
   padding: 0;
   position: relative;
-  min-height: 1400px;
   overflow: hidden; }
+  .project-container.project-active {
+    min-height: 1400px; }
   .project-container li {
     display: block;
     width: 48%;
@@ -838,8 +839,7 @@ ____________________________________________________________________
   display: none; }
   .active .content {
     display: block;
-    width: 66%;
-    padding: 20px 0; }
+    width: 66%; }
     @media (max-width: 950px) {
       .active .content {
         padding: 20px 0;
@@ -847,7 +847,9 @@ ____________________________________________________________________
   .content img {
     width: 100%;
     box-shadow: 1px 1px 2px black;
-    max-width: 600px; }
+    max-width: 600px;
+    border-radius: 3px;
+    margin-top: 20px; }
 
 .close-toggle {
   display: inline-block;
@@ -899,6 +901,35 @@ ____________________________________________________________________
   @media (max-width: 650px) {
     .menu-toggle-container {
       display: inline-block; } }
+
+.tags {
+  display: none;
+  max-width: 250px;
+  margin: 0;
+  width: 100%;
+  padding: 0;
+  float: right;
+  clear: right;
+  text-transform: uppercase;
+  font-family: 'Lekton', sans-serif;
+  font-size: 0.7em; }
+  @media (max-width: 750px) {
+    .tags {
+      font-size: 1em; } }
+  @media (max-width: 950px) {
+    .tags {
+      max-width: 100%; } }
+  .active .tags {
+    display: block; }
+  .tags li {
+    width: auto;
+    cursor: auto;
+    min-height: 0;
+    margin: 0 0 10px 10px;
+    padding: 4px 9px;
+    border-radius: 2px 2px 0 0;
+    float: right;
+    background-color: rgba(136, 136, 136, 0.15); }
 
 .menu-toggle-wrap {
   color: rgba(0, 0, 0, 0.8);
