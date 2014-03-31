@@ -206,11 +206,11 @@ ____________________________________________________________________
     background-size:cover;
     background-repeat:no-repeat;
     opacity:.3;
+    max-width:600px;
+    border-radius:4px;
     @include breakpoint(phone){
         opacity:.44;
     }
-    max-width:600px;
-    border-radius:4px;
     @include breakpoint(not-mobile){ 
         transition:height 120ms ease-in-out, opacity 100ms, background-position 120ms;
         li:hover &{ filter:blur(4px);opacity:.07; }
@@ -224,7 +224,7 @@ ____________________________________________________________________
     .sevilla & { background-image: url('../img/Portfolio/Sevilla/sevilla-thumb.jpg'); }
     .sports & { background-image: url('../img/Portfolio/Sports/sports-thumb.jpg'); }
     .ihi & { background-image: url('../img/Portfolio/IHI/ihi-thumb.jpg'); }
-    .kokovoko & { background-image: url('../img/Portfolio/Kokovoko/kokovoko-thumb.jpg'); }
+    .kokovoko & { background-image: url('../img/Portfolio/Kokovoko/kokovoko-thumb2.jpg'); }
     .better-cheddar & { background-image: url('../img/Portfolio/BetterCheddar/bc-thumb.jpg'); }
 
 }
@@ -277,6 +277,8 @@ ____________________________________________________________________
         max-width:600px;
         border-radius:3px;
         margin-top:20px;
+        border:1px solid rgba(0,0,0,.4); 
+        box-shadow: 1px 1px 5px rgba(0,0,0,.2); 
     }
 }
 .close-toggle {
