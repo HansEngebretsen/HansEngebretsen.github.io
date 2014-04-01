@@ -613,6 +613,9 @@ ____________________________________________________________________
   .project-container .project-wrap {
     padding: 25px;
     padding-top: 16px; }
+    @media (max-width: 450px) {
+      .project-container .project-wrap {
+        padding: 16px 10px 0 10px; } }
     @media (min-width: 450px) {
       .project-container .project-wrap {
         -webkit-transition: 0.3s all;
@@ -843,7 +846,6 @@ ____________________________________________________________________
     width: 66%; }
     @media (max-width: 950px) {
       .active .content {
-        padding: 20px 0;
         width: 100%; } }
   .content img {
     width: 100%;

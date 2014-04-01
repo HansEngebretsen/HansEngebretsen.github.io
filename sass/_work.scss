@@ -79,6 +79,7 @@ ____________________________________________________________________
     .project-wrap {
         padding:25px;
         padding-top:16px;
+        @include breakpoint(phone){ padding: 16px 10px 0 10px; }
         @include breakpoint(not-mobile){ transition:.3s all; }
         @include breakpoint(min-normal-screen){
             padding-left:70px;
@@ -267,7 +268,6 @@ ____________________________________________________________________
         display:block;
         width:66%;
         @include breakpoint(big-screen){
-            padding:20px 0;
             width:100%;
         }
     }
