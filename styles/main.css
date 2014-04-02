@@ -644,7 +644,8 @@ ____________________________________________________________________
         font-size: 0.5em; } }
     @media (min-width: 950px) {
       .project-container .description {
-        font-size: 0.6em; } }
+        font-size: 0.6em;
+        margin: 0.7em 0; } }
   .project-container .button {
     width: 25px;
     height: 25px;
@@ -801,7 +802,7 @@ ____________________________________________________________________
   .kokovoko .preview-image {
     background-image: url('../img/Portfolio/Kokovoko/kokovoko-thumb2.jpg'); }
   .better-cheddar .preview-image {
-    background-image: url('../img/Portfolio/BetterCheddar/bc-thumb.jpg'); }
+    background-image: url('../img/Portfolio/BetterCheddar/bc-thumb2.jpg'); }
 
 .preview-image-wrap {
   position: absolute;
