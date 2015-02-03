@@ -1,7 +1,7 @@
-/*! 
+/*!
 
-** You're a boss for checking out the source - you seriously deserve a few min with this guy: (http://www.youtube.com/watch?v=OZBWfyYtYQY) 
-I really did write all this in vanilla css (used a few nested styles, and some color/breakpoint variables/mixins with Sass). 
+** You're a boss for checking out the source - you seriously deserve a few min with this guy: (http://www.youtube.com/watch?v=OZBWfyYtYQY)
+I really did write all this in vanilla css (used a few nested styles, and some color/breakpoint variables/mixins with Sass).
 I hate life when I have to deal with databases, and it would have taken me longer to use some trendy tech to make this thing happen.
 
 It's minified, preprocessed and compressed via sass/grunt to see the hand written stuff, hit up the root dir/sass/ or just hit up github
@@ -191,8 +191,8 @@ body, .project-container {
 
 /*
 ____________________________________________________________________
-    
-    BASE STYLINGS 
+
+    BASE STYLINGS
         - foundational stylings
         - modular elements
 ____________________________________________________________________
@@ -263,7 +263,7 @@ h2 {
 
 /*
 ____________________________________________________________________
-    
+
     MAIN PAGE STYLINGS
         - Navigation
         - Hans-Clicked states
@@ -284,13 +284,13 @@ nav {
     margin: 1.75em 0 0 2em; }
 
 .internal-nav-wrap {
-  height: 121px;
+  height: 155px;
   margin-top: 0px;
   overflow: hidden;
   -webkit-transition: margin-top 200ms, height 200ms;
   transition: margin-top 200ms, height 200ms; }
   .internal-nav-wrap.social-clicked {
-    height: 141px; }
+    height: 161px; }
   .hans-clicked .internal-nav-wrap {
     margin-top: 70px;
     height: 141px; }
@@ -321,10 +321,10 @@ nav {
   -webkit-transition: opacity 20ms 0.6s, margin-top 200ms;
   transition: opacity 20ms 0.6s, margin-top 200ms; }
   .social-clicked .menu.unfolded {
-    margin-top: -62px; }
+    margin-top: -93px; }
     @media (max-width: 450px) {
       .social-clicked .menu.unfolded {
-        margin-top: -77px; } }
+        margin-top: -109px; } }
   .menu.unfolded {
     opacity: 1;
     margin-top: 0; }
@@ -347,14 +347,14 @@ nav {
     transition-duration: 0.4s;
     -webkit-transition-delay: 0.7s;
     transition-delay: 0.7s; }
-  .menu li:nth-child(3) {
+  .menu li:nth-child(4) {
     -webkit-transition-duration: 0.5s;
     transition-duration: 0.5s;
     -webkit-transition-delay: 0.8s;
     transition-delay: 0.8s; }
-    .menu li:nth-child(3) a:hover, .social-clicked .menu li:nth-child(3) a {
+    .menu li:nth-child(4) a:hover, .social-clicked .menu li:nth-child(4) a {
       padding-left: 0.5em; }
-    .social-clicked .menu li:nth-child(3) a {
+    .social-clicked .menu li:nth-child(4) a {
       color: #F08656; }
   .menu li a {
     display: block;

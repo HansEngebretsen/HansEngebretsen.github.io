@@ -1,7 +1,7 @@
-/*! 
+/*!
 
-** You're a boss for checking out the source - you seriously deserve a few min with this guy: (http://www.youtube.com/watch?v=OZBWfyYtYQY) 
-I really did write all this in vanilla css (used a few nested styles, and some color/breakpoint variables/mixins with Sass). 
+** You're a boss for checking out the source - you seriously deserve a few min with this guy: (http://www.youtube.com/watch?v=OZBWfyYtYQY)
+I really did write all this in vanilla css (used a few nested styles, and some color/breakpoint variables/mixins with Sass).
 I hate life when I have to deal with databases, and it would have taken me longer to use some trendy tech to make this thing happen.
 
 It's minified, preprocessed and compressed via sass/grunt to see the hand written stuff, hit up the root dir/sass/ or just hit up github
@@ -15,8 +15,8 @@ It's also not the prettiest thing, after all I'm the only one who has to deal wi
 
 /*
 ____________________________________________________________________
-    
-    BASE STYLINGS 
+
+    BASE STYLINGS
         - foundational stylings
         - modular elements
 ____________________________________________________________________
@@ -32,7 +32,7 @@ html {
     font-size: 18px;
     background-color: $darker-grey;
     color: $off-white;
-    
+
     // Insert top line for the nav-toggle at breakpoint
     @include breakpoint(tablet){border-top:6px solid black;}
 }
@@ -63,12 +63,12 @@ h2    { color: $dark-grey; font-size: .75em;}
         background: $half-white;
         color:$dark-light-grey;
     }
-    &.back { 
+    &.back {
         text-indent:-9999px;
-        &:after { 
-            content:"<"; 
-            position:absolute; 
-            text-indent:0px; 
+        &:after {
+            content:"<";
+            position:absolute;
+            text-indent:0px;
             font-size:1.23em;
         }
     }
@@ -76,7 +76,7 @@ h2    { color: $dark-grey; font-size: .75em;}
 .strikethrough { text-decoration:line-through; }
 /*
 ____________________________________________________________________
-    
+
     MAIN PAGE STYLINGS
         - Navigation
         - Hans-Clicked states
@@ -98,16 +98,16 @@ nav {
         margin:1.75em 0 0 2em;
     }
 }
-// Outer-menu container around main page nav 
+// Outer-menu container around main page nav
 .internal-nav-wrap {
-    height:121px; 
+    height:155px;
     margin-top:0px;
     overflow:hidden;
     transition:margin-top 200ms, height 200ms;
 
-    &.social-clicked   { height:141px; }
+    &.social-clicked   { height:161px; }
     .hans-clicked &    { margin-top:70px; height:141px; }
-    
+
     @include breakpoint(normal-screen){
         .hans-clicked & { margin-top:70px; }
         .hans-clicked.index &    { margin-top:150px; }
@@ -115,7 +115,7 @@ nav {
     @include breakpoint(tablet){
         .hans-clicked & { margin-top:100px; }
     }
-   
+
     @include breakpoint(phone){
         .hans-clicked & { margin-top:210px; }
         .hans-clicked.index &  { margin-top:215px; }
@@ -125,7 +125,7 @@ nav {
     }
 }
 
-// Inner-menu container main page ul 
+// Inner-menu container main page ul
 .menu {
     padding:0;
     margin:0;
@@ -137,10 +137,10 @@ nav {
 
     // Slide up to show the social section
     .social-clicked &.unfolded {
-        margin-top:-62px;
+        margin-top:-93px;
         // Additional margin for additional padding
         @include breakpoint(phone){
-            margin-top:-77px;
+            margin-top:-109px;
         }
     }
     // After load
@@ -166,7 +166,7 @@ nav {
         transition-duration:.4s;
         transition-delay:.7s;
     }
-    &:nth-child(3) {
+    &:nth-child(4) {
         transition-duration:.5s;
         transition-delay:.8s;
         // Keep third child active on social clicked
@@ -240,13 +240,13 @@ nav {
 @include breakpoint(tablet) {
     .overlay {
         position:fixed;
-        left:0; 
+        left:0;
         top: 0;
-        width:100%; 
-        height:100%; 
+        width:100%;
+        height:100%;
         visibility:hidden;
         z-index:10;
-        opacity:0; 
+        opacity:0;
         background-color:rgba($darker-grey, .93);
         transition: opacity 0.5s, visibility 0s 0.5s;
         // Show overlay on click
@@ -256,12 +256,12 @@ nav {
             transition:opacity .5s;
         }
     }
-    // Slide nav down on click 
+    // Slide nav down on click
     .menu-clicked.work nav   { margin-top:100px; }
 }
 
 // Footer
-footer { 
+footer {
     position:absolute;
     bottom:0;
     width:100%;
@@ -284,7 +284,7 @@ footer {
         text-decoration:none;
         &:hover   { text-decoration:underline; }
     }
-    
+
 }
 
 
