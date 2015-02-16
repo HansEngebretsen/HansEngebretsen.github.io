@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title></title>
+    <description>Internet prescence of Hans Engebretsen - purveyor of the internets graphic designer and web creative</description>
+    <link></link>
+    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>Hello World!</title>
+        <description>&lt;h1&gt;hello world&lt;/h1&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;blockquote&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Next you can update your site name, avatar and other options using the &lt;em&gt;config.yml file in the root of your repository (shown below :point&lt;/em&gt;down:).&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/config.png&quot; alt=&quot;_config.yml&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the &lt;a href=&quot;https://github.com/barryclark/jekyll-now&quot;&gt;Jekyll Now repository&lt;/a&gt; on GitHub.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 15 Jan 2015 00:00:00 -0600</pubDate>
+        <link>/Hello-World/</link>
+        <guid isPermaLink="true">/Hello-World/</guid>
+      </item>
+    
+  </channel>
+</rss>
