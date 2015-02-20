@@ -545,33 +545,33 @@ ____________________________________________________________________
     .work.hans-clicked .hans-content .bio {
       top: 206px; } }
 
-.project-body {
+.project-body, .post {
   font-family: 'Merriweather', serif;
   color: rgba(136, 136, 136, 0.5);
   font-size: 0.75em;
   text-align: center;
   max-width: 1256px; }
   @media (min-width: 800px) {
-    .project-body {
+    .project-body, .post {
       font-size: 1.25em; } }
-  .project-body h2 {
+  .project-body h2, .post h2 {
     font-size: 3em;
     color: white; }
-  .project-body header {
+  .project-body header, .post header {
     margin: 57px 0; }
-    .project-body header p {
+    .project-body header p, .post header p {
       max-width: 650px;
       margin: 0 auto;
       line-height: 1.4;
       text-align: left;
       width: 90%; }
       @media (min-width: 800px) {
-        .project-body header p {
+        .project-body header p, .post header p {
           font-size: 0.65em; } }
-  .project-body a {
+  .project-body a, .post a {
     text-decoration: none;
     color: rgba(240, 134, 86, 0.4); }
-    .project-body a:hover {
+    .project-body a:hover, .post a:hover {
       color: #F08656; }
 
 .project-container {
