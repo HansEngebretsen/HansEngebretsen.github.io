@@ -9,3 +9,5 @@ app/bower_components
 **/.sass-cache
 **/.sass-cache/*
 **.sass-cache**
+_site/
+_site/*
