@@ -1,68 +1,11 @@
-<!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
-<head>
-  <meta charset="utf-8" />
-  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-  <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
-  <title>{% if page.title %}{{ page.title }} – {% endif %}{{ site.name }} – {{ site.description }}</title>
-  <meta name="author" content="{{ site.name }}" />
-  <meta name="description" content="{{ site.description }}">
-  <!--[if lt IE 9]>
-  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-  <link href='http://fonts.googleapis.com/css?family=Lekton' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" /> // To Do: link up stylesheet
-    <link rel="alternate" type="application/rss+xml" title="{{ site.name }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
-  </head>
-  <body>
-    <nav>
-	<div class="image-wrap" id="profile-image">
-		<img src="img/hans-profile-small.jpg" alt="Hans Engebretsen" />
-	</div>
-	<div class="internal-nav-wrap">
-		<ul id="navigation-menu" class="menu">
-			<li><a href="{{ site.baseurl }}/about" id="hans-toggle">about</a></li>
-			<li><a href="{{ site.baseurl }}/work">work</a></li>
-			<li><a href="{{ site.baseurl }}/blog">blog</a></li>
-			<li><a href="#" id="social-toggle">elsewhere</a></li>
-		</ul>
-		<ul class="social">
-			<li><a href="http://codepen.io/hans" data="/hans">CodePen</a></li>
-			<li><a href="https://twitter.com/HansEngebretsen" data="@HansEnge">Twitter</a></li>
-			<li><a href="http://dribbble.com/HansE" data="/hansE">Dribbble</a></li>
-			<li><a href="http://www.linkedin.com/in/hansenge" data="/hansenge">LinkedIn</a></li>
-		</ul>
-	</div>
-    </nav>
+{% include head.html %}
+  <body class="{{ page.title }}">
+    {% include nav.html %}
 
-    <div class="wrapper-masthead">
-	<div class="container">
-	  <header class="masthead clearfix">
-	    <a href="{{ site.baseurl }}/" class="site-avatar"><img src="{{ site.avatar }}" /></a>
-	    <div class="site-info">
-		<h1 class="site-name"><a href="{{ site.baseurl }}/">{{ site.name }}</a></h1>
-		<p class="site-description">{{ site.description }}</p>
-	    </div>
-	    <nav>
-		<a href="{{ site.baseurl }}/">Blog</a>
-		<a href="{{ site.baseurl }}/about">About</a>
-	    </nav>
-	  </header>
-	</div>
-    </div>
-    <div id="main" role="main" class="container">
-	{{ content }}
-    </div>
-    <div class="wrapper-footer">
-	<div class="container">
-	  <footer class="footer">
-	    {% include svg-icons.html %}
-	  </footer>
-	</div>
-    </div>
-    {% include analytics.html %}
+        {{ content }}
+
+    {% include footer.html %}
+    {% include footer-scripts.html %}
+
   </body>
 </html>

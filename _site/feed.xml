@@ -3,8 +3,8 @@
   <channel>
     <title></title>
     <description>Internet prescence of Hans Engebretsen - purveyor of the internets graphic designer and web creative</description>
-    <link></link>
-    <atom:link href="/feed.xml" rel="self" type="application/rss+xml" />
+    <link>http://www.haaans.com</link>
+    <atom:link href="http://www.haaans.com/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
         <title>Hello World!</title>
@@ -21,8 +21,8 @@
 &lt;p&gt;The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the &lt;a href=&quot;https://github.com/barryclark/jekyll-now&quot;&gt;Jekyll Now repository&lt;/a&gt; on GitHub.&lt;/p&gt;
 </description>
         <pubDate>Thu, 15 Jan 2015 00:00:00 -0600</pubDate>
-        <link>/Hello-World/</link>
-        <guid isPermaLink="true">/Hello-World/</guid>
+        <link>http://www.haaans.com/Hello-World/</link>
+        <guid isPermaLink="true">http://www.haaans.com/Hello-World/</guid>
       </item>
     
   </channel>
