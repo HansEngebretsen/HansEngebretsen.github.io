@@ -1,17 +1,19 @@
 /*!
 
-** You're a boss for checking out the source - you seriously deserve a few min with this guy: (http://www.youtube.com/watch?v=OZBWfyYtYQY)
-I really did write all this in vanilla css (used a few nested styles, and some color/breakpoint variables/mixins with Sass).
-I hate life when I have to deal with databases, and it would have taken me longer to use some trendy tech to make this thing happen.
+** Thanks for checking out the source - I really did write all this in vanilla css (used a few nested styles, and some color/breakpoint variables/mixins with Sass).
+I hate life when I have to deal with databases.
 
 It's minified, preprocessed and compressed via sass/grunt to see the hand written stuff, hit up the root dir/sass/ or just hit up github
 It's also not the prettiest thing, after all I'm the only one who has to deal with it.
+
+http://www.youtube.com/watch?v=OZBWfyYtYQY
 
 */
 
 @import "mixins";
 @import "icon-font";
 @import "animations";
+@import "typography";
 
 /*
 ____________________________________________________________________
@@ -29,17 +31,14 @@ html {
     position:relative;
     //
     font-family: 'Lekton', sans-serif;
-    font-size: 18px;
     background-color: $darker-grey;
     color: $off-white;
 
     // Insert top line for the nav-toggle at breakpoint
     @include breakpoint(tablet){border-top:6px solid black;}
 }
-body  { @extend %clearfix; height:100%; }
-h1,h2 { font-weight: 200; margin: 0.4em 0; }
-h1    { font-size: 1em; }
-h2    { color: $dark-grey; font-size: .75em;}
+body  { @extend %clearfix; height:100%; margin:0;}
+
 
 // Modular Elements
 .image-wrap {
@@ -93,7 +92,7 @@ ____________________________________________________________________
     z-index:3;
     @include breakpoint(phone){ margin-top:10%; }
     // Functioning as a sidebar instead of page-centered
-    .work & {
+    &.left-align  {
         float:left;
         margin:1.75em 0 0 2em;
     }
@@ -181,6 +180,13 @@ ____________________________________________________________________
 
         text-decoration:none;
         color:$off-white;
+        .white & {
+            color:white;
+        }
+        &.current {
+           color:$orange;
+           padding-left:.5em;
+        }
         transition:all 100ms ease-in-out, color 100ms;
         // Extra padding for chunky thumbs on mobile
         @include breakpoint(phone){
@@ -196,7 +202,7 @@ ____________________________________________________________________
     display:inline-block;
     width: 100%;
     padding:0;
-    margin:150px 0 0 0;
+    margin:156px 0 0 0;
 
     background:#333;
     background:rgba(0, 0, 0, 0.2);
@@ -236,6 +242,8 @@ ____________________________________________________________________
 // Slide on hover
 .social a:hover:before {left:5px;}
 
+// active
+
 // Main Navigation mobile --> inner page --> compressed
 @include breakpoint(tablet) {
     .overlay {
@@ -257,12 +265,14 @@ ____________________________________________________________________
         }
     }
     // Slide nav down on click
-    .menu-clicked.work .global-header   { margin-top:100px; }
+    .menu-clicked .global-header.left-align    { margin-top:100px; }
 }
 
 // Footer
 footer {
-    position:absolute;
+    .work &, .index & {
+        position:absolute;
+    }
     bottom:0;
     width:100%;
     padding: .7em .2em;
@@ -272,7 +282,6 @@ footer {
     transition:margin-bottom .5s 1s, opacity 400ms;
     opacity:1;
     overflow:hidden;
-    .work & { position:relative; }
     @include breakpoint(baby-phone){
         .hans-clicked.index & { opacity:0;}
     }
@@ -312,7 +321,7 @@ footer {
             max-width: 600px;
             min-width:240px;
             transition:margin-top 400ms;
-            .work & {
+            .left-align & {
                 position:absolute;
                 top:0px;
                 left:26px;
@@ -376,8 +385,42 @@ footer {
         @extend %close-x;
     }
 }
+/*
+____________________________________________________________________
 
+    THEMES
+        - Navigation
+        - Hans-Clicked states
+        - Footer
+____________________________________________________________________
+*/
+html.theme-light {
+    border-color:lighten($light-grey,30%);
+}
+
+.theme-light {
+    background-color:white;
+    .menu-toggle-container {
+        .menu-toggle-wrap {
+            color:$light-grey;
+        }
+        border:1px solid lighten($light-grey,30%);
+        &:before {
+            background-color:lighten($light-grey,30%);
+        }
+    }
+    .title {
+        color:$darker-grey;
+    }
+    .subtitle {
+        color:darker-grey;
+    }
+    .posts h1 a{
+        color: $darker-grey;
+    }
+}
 @import "work";
+@import "articles";
 
 
 .container {

@@ -6,7 +6,7 @@ ____________________________________________________________________
 */
 
 // State after Hans has been clicked
-.work.hans-clicked .hans-content .bio {
+.hans-clicked .left-align .hans-content .bio {
     top:8em;
     margin-top:0;
     transition:top 400ms;
@@ -14,32 +14,10 @@ ____________________________________________________________________
 }
 
 // Hans Projects section
-.project-body, .post{
-    font-family: 'Merriweather', serif;
-    color:$dark-grey;
-    font-size:.75em;
-    text-align:center;
+.project-body {
     max-width:1256px;
-     @include breakpoint(min-normal-screen){
-        font-size:1.25em;
-    }
-    h2 { font-size:3em; color:white; }
-    header {
-        margin: 57px 0;
-        p {
-            max-width:650px;
-            margin:0 auto;
-            line-height:1.4;
-            text-align:left;
-            width:90%;
-            @include breakpoint(min-normal-screen){ font-size:.65em; }
-        }
-    }
-
-    a {
-        text-decoration:none;
-        color:rgba($orange,.4);
-        &:hover { color:$orange; };
+    h1 {
+        font-size:3em;
     }
 }
 
@@ -248,19 +226,13 @@ ____________________________________________________________________
     li.active:hover & {height:auto;}
 }
 
-.work .global-header {
+.global-header.left-align {
     @include breakpoint(tablet){
             float:none;
             margin:0 auto;
             transition:margin-top 300ms;
             margin-top:-100%;
         }
-    .menu li:nth-child(2){
-       a {
-            color:$orange;
-            padding-left:.5em;
-        }
-    }
 }
 .content {
     display:none;
@@ -298,10 +270,21 @@ ____________________________________________________________________
 
     .menu-clicked & { visibility:visible; transform:rotate(45deg);transition:all 700ms , visibility 0s 0s;}
 }
-.work.hans-clicked .menu li:nth-child(2) a, .global-header .social-clicked .menu li:nth-child(2) a  { color:$off-white; }
+.hans-clicked .left-align .menu li:nth-child(2) a, .global-header .social-clicked .menu li:nth-child(2) a  { color:$off-white; }
 .menu-toggle-container {
     display:none;
     color: rgb(198, 198, 198);
+    overflow:hidden;
+    &:before {
+        background-color:lighten($darker-grey,10%);
+        content:"";
+        display:block;
+        position:absolute;
+        width:100%;
+        height:100%;
+        top:0;
+        left:0;
+    }
     cursor: pointer;
     height: 1.25em;
     width: 1.55em;

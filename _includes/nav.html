@@ -1,21 +1,30 @@
 <div class="overlay">
-     <header class="global-header">
+     <header class="global-header {% if page.nav %}{{ page.nav }}{% endif %} {% if page.nav-color %}{{ page.nav-color }}{% endif %}" >
             <div class="image-wrap" id="profile-image">
                 <img src="{{ site.baseurl }}/img/hans-profile-small.jpg" alt="Hans Engebretsen" />
             </div>
             <nav class="global-navigation">
-                <ul id="navigation-menu" class="menu">
-                    <li><a href="#" id="hans-toggle">about</a></li>
-                    <li><a href="{{ site.baseurl }}/work.html">work</a></li>
-                    <li><a href="{{ site.baseurl }}/blog.html">blog</a></li>
-                    <li><a href="#" id="social-toggle">elsewhere</a></li>
-                </ul>
-                <ul class="social">
-                    <li><a href="http://codepen.io/hans" data="/{{ site.social-links.codepen }}">CodePen</a></li>
-                    <li><a href="https://twitter.com/HansEngebretsen" data="@{{ site.social-links.twitter }}">Twitter</a></li>
-                    <li><a href="http://dribbble.com/HansE" data="/{{ site.social-links.dribbble }}">Dribbble</a></li>
-                    <li><a href="http://www.linkedin.com/in/hansenge" data="/{{ site.social-links.linkedin }}">LinkedIn</a></li>
-                </ul>
+                <div class="internal-nav-wrap">
+                    <ul id="navigation-menu" class="menu">
+                        {% for link in site.navigation %}
+                         {% assign current = nil %}
+                         {% if page.url == link.url or page.layout == link.layout %}
+                           {% assign current = 'current' %}
+                         {% endif %}
+                         <li class="{% if forloop.first %}first{% endif %} {{ current }} {% if forloop.last %}last{% endif %}">
+                           <a class="{{ current }}" href="{{ link.url }}">{{ link.text }}</a>
+                         </li>
+                        {% endfor %}
+
+                        <li><a href="#" id="social-toggle">elsewhere</a></li>
+                    </ul>
+                    <ul class="social">
+                        <li><a href="http://codepen.io/hans" data="/{{ site.social-links.codepen }}">CodePen</a></li>
+                        <li><a href="https://twitter.com/HansEngebretsen" data="@{{ site.social-links.twitter }}">Twitter</a></li>
+                        <li><a href="http://dribbble.com/HansE" data="/{{ site.social-links.dribbble }}">Dribbble</a></li>
+                        <li><a href="http://www.linkedin.com/in/hansenge" data="/{{ site.social-links.linkedin }}">LinkedIn</a></li>
+                    </ul>
+                </div>
             </nav>
             {% include about.html %}
             <a href="#" class="close-toggle">+</a>

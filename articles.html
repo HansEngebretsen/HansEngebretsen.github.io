@@ -1,0 +1,28 @@
+---
+layout: default
+title: articles
+description: Musings in front-end design & development
+nav: left-align
+nav-color: white
+color-theme: light
+---
+<section class="cover-image">
+
+</section>
+<aside class="timeline">
+
+</aside>
+<section class="posts">
+  {% for post in site.posts %}
+    <article class="post ">
+
+      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+
+      <div class="entry">
+        {{ post.content | truncatewords:30}}
+      </div>
+
+      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+    </article>
+  {% endfor %}
+</section>
