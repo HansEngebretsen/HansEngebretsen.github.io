@@ -55,16 +55,11 @@ $black: rgb(10,10,10);
 
 //Reusables
 %clearfix {
-    zoom:1;
-    &:before, &:after {
-        content: "\0020";
-        display: block;
-        height: 0;
-        overflow: hidden;
-    }
-    &:after {
-        clear: both;
-    }
+     &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
 }
 
 // Styling objects

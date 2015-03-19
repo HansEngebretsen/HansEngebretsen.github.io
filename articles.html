@@ -9,20 +9,24 @@ color-theme: light
 <section class="cover-image">
 
 </section>
-<aside class="timeline">
+<section class="main-content">
+    <span class="timeline"></span>
+    <section class="posts">
+      {% for post in site.posts %}
+         {% capture day %}{{ post.date | date: '%m' }}{% endcapture %}
+         {% capture nday %}{{ post.next.date | date: '%m' }}{% endcapture %}
+        <article class="post {% if day != nday %} new-month {% endif %}" >
+        {% if day != nday %}
+            <h5 class="date">{{ post.date | date: "%B" }} </h5>
+        {% endif %}
+          <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
 
-</aside>
-<section class="posts">
-  {% for post in site.posts %}
-    <article class="post ">
+          <div class="entry">
+            {{ post.content | truncatewords:30}}
+          </div>
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
-
-      <div class="entry">
-        {{ post.content | truncatewords:30}}
-      </div>
-
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
-    </article>
-  {% endfor %}
+          <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+        </article>
+      {% endfor %}
+    </section>
 </section>

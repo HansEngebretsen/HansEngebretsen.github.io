@@ -38,7 +38,10 @@ html {
     @include breakpoint(tablet){border-top:6px solid black;}
 }
 body  { @extend %clearfix; height:100%; margin:0;}
-
+.main-content {
+    position:relative;
+    @extend %clearfix;
+}
 
 // Modular Elements
 .image-wrap {
