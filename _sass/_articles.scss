@@ -6,158 +6,168 @@ ____________________________________________________________________
 */
 
 .cover-image {
-    background-image: url('../img-content/coffee-cups.jpg');
-    background-size:cover;
-    background-attachment:fixed;
-    min-height:300px;
-    width:100%;
+  width: 100%;
+  min-height: 300px;
+  background-image: url("../img-content/coffee-cups.jpg");
+  background-attachment: fixed;
+  background-size: cover;
 }
+
 .posts {
-    padding:80px 20px;
-    text-align:left;
-    width: 80%;
-    margin-left:20%
+  width: 80%;
+  margin-left: 20%;
+  padding: 80px 20px;
+  text-align: left;
 }
+
 .timeline-wrap {
-    height:100%;
-    width:20%;
-    float:left;
-    position:relative;
+  position: relative;
+  float: left;
+  width: 20%;
+  height: 100%;
 }
+
 .timeline {
-    position: absolute;
-    height:100%;
-    display:block;
-    width:3px;
-    background-color:$lighter-grey;
-    margin-left:14%;
-    margin-top:5em;
+  display: block;
+  position: absolute;
+  width: 3px;
+  height: 100%;
+  margin-top: 5em;
+  margin-left: 14%;
+  background-color: $lighter-grey;
 }
+
 .date {
+  position: absolute;
+  left: 14%;
+  width: 50px;
+  margin: 0;
+  font-size: 10px;
+  font-weight: 100;
+  // width:50px;
+  // height:50px;
+  line-height: 50px;
+  transform: translateX(-50%);
+  text-align: center;
+  text-align: center;
+  text-indent: -15%;
+  color: $lighter-grey;
+  @include breakpoint(tablet) {
+    text-indent: 15%;
+  }
+
+  &:after {
+    content: '';
+    display: block;
     position: absolute;
-    text-align:center;
-    left:14%;
-    transform: translateX(-50%);
-    text-indent:-15%;
-    @include breakpoint(tablet){
-        text-indent:15%;
-    }
-    width:50px;
-    margin:0;
-    // width:50px;
-    // height:50px;
-    line-height:50px;
-    text-align:center;
-    color:$lighter-grey;
-    font-weight:100;
-    font-size:10px;
-    &:after {
-        content:"";
-        display:block;
-        position:absolute;
-        left:0;
-        top:0;
-        width:50px;
-        height:50px;
-        background-color:$orange;
-        border-radius:100%;
-    }
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+    background-color: $orange;
+  }
 }
+
 .post {
-    padding:0 40px;
-    line-height:1.4;
-    &.new-month {
-        clear:left;
-    }
+  padding: 0 40px;
+  line-height: 1.4;
+  &.new-month {
+    clear: left;
+  }
 }
+
 .articles .post {
-    width:50%;
-    margin-bottom:100px;
-
-    @include breakpoint(tablet){
-        width:100%;
-    }
-    float:left;
-    text-align:left;
+  float: left;
+  width: 50%;
+  margin-bottom: 100px;
+  text-align: left;
+  @include breakpoint(tablet) {
+    width: 100%;
+  }
 }
+
 .entry {
-    text-align:left;
-    margin: 0 auto;
-    max-width:700px;
-    margin-bottom:20px;
-    @include breakpoint(big-screen){
-        padding-right:40px;
-    }
-    @include breakpoint(normal-screen){
-        padding-right:0;
-    }
-}
-.read-more {
-    display:inline-block;
-    border: 1px solid;
-    padding: 14px 20px;
-}
-.article-controls {
-    text-align:center;
+  max-width: 700px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  text-align: left;
+  @include breakpoint(big-screen) {
+    padding-right: 40px;
+  }
 
-    ul, li {
-        list-style:none;
-        margin:0;
-        padding:10px;
+  @include breakpoint(normal-screen) {
+    padding-right: 0;
+  }
+}
+
+.read-more {
+  display: inline-block;
+  padding: 14px 20px;
+  border: 1px solid;
+}
+
+.article-controls {
+  position: absolute;
+  right: 0;
+  text-align: center;
+  @include breakpoint(normal-screen) {
+    right: auto;
+    left: 10px;
+  }
+
+  ul, li {
+    margin: 0;
+    padding: 10px;
+    list-style: none;
+  }
+  li {
+    @include breakpoint(normal-screen) {
+      display: inline-block;
+      vertical-align: bottom;
     }
-    li {
-        @include breakpoint(normal-screen){
-            display:inline-block;
-            vertical-align:bottom;
-        }
+  }
+  a {
+    display: inline-block;
+    font-size: 0.75em;
+    transition: 100ms all ease-in-out;
+    transform: scale(1);
+    text-decoration: none;
+    color: $lighter-grey;
+    &:hover {
+      transform: scale(1.1);
     }
-    a {
-        display:inline-block;
-        color:$lighter-grey;
-        font-size:.75em;
-        text-decoration:none;
-        transform:scale(1);
-        transition: 100ms all ease-in-out;
-        &:hover {
-            transform:scale(1.1);
-        }
+  }
+  .all a {
+    width: 40px;
+    height: 40px;
+    text-indent: -9999px;
+    border: 2px solid rgba(black, 0.2);
+    border-radius: 50%;
+    background-image: url("../img/menu-icon.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  .next a, .prev a {
+    position: relative;
+    padding-top: 20px;
+    text-align: center;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("../img/arrow-icon.svg");
+      background-repeat: no-repeat;
+      background-position: top center;
     }
-    position:absolute;
-    right:0;
-    @include breakpoint(normal-screen){
-        right:auto;
-        left:10px;
+  }
+  .prev a {
+    &:before {
+      transform: rotate(180deg);
+      background-position: bottom;
     }
-    .all a{
-        background-image:url('../img/menu-icon.svg');
-        background-repeat:no-repeat;
-        background-position:center center;
-        text-indent:-9999px;
-        border-radius:50%;
-        width:40px;
-        height:40px;
-        border:2px solid rgba(black, .2);
-    }
-    .next a, .prev a {
-        padding-top:20px;
-        text-align:center;
-        position:relative;
-        &:before {
-            content:"";
-            position:absolute;
-            top:0;
-            left:0;
-            width:100%;
-            height:100%;
-            background-image:url('../img/arrow-icon.svg');
-            background-position:top center;
-            background-repeat:no-repeat;
-        }
-    }
-    .prev a{
-        &:before {
-            transform: rotate(180deg);
-            background-position:bottom;
-        }
-    }
+  }
 }

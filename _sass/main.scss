@@ -28,12 +28,12 @@ ____________________________________________________________________
 }
 
 html {
-  height: 100%;
   position: relative;
+  height: 100%;
   //
   font-family: 'Lekton', sans-serif;
-  background-color: $darker-grey;
   color: $off-white;
+  background-color: $darker-grey;
   // Insert top line for the nav-toggle at breakpoint
   @include breakpoint(tablet) {
     border-top: 6px solid black;
@@ -41,9 +41,9 @@ html {
 }
 
 body {
-  @extend %clearfix;
   height: 100%;
   margin: 0;
+  @extend %clearfix;
 }
 
 .main-content {
@@ -53,10 +53,10 @@ body {
 
 // Modular Elements
 .image-wrap {
-  @extend %circle-image-outline;
-  background: $grey;
+  transition-duration: 0.7s;
   transition-property: opacity;
-  transition-duration: .7s;
+  background: $grey;
+  @extend %circle-image-outline;
   .index & {
     opacity: 0;
   }
@@ -67,24 +67,24 @@ body {
 
 .button, a.button {
   display: inline-block;
-  padding: .5em 1em;
-  border-radius: .4em;
-  text-decoration: none;
-  border: 0.04em solid $half-white;
-  background: transparent;
-  color: $half-white;
+  padding: 0.5em 1em;
   transition: background 200ms;
+  text-decoration: none;
+  color: $half-white;
+  border: 0.04em solid $half-white;
+  border-radius: 0.4em;
+  background: transparent;
   &:hover {
-    background: $half-white;
     color: $dark-light-grey;
+    background: $half-white;
   }
   &.back {
     text-indent: -9999px;
     &:after {
-      content: "<";
+      content: '<';
       position: absolute;
-      text-indent: 0px;
       font-size: 1.23em;
+      text-indent: 0;
     }
   }
 }
@@ -105,11 +105,11 @@ ____________________________________________________________________
 
 // Self portrait and main navigation container
 .global-header {
+  z-index: 3;
+  max-width: 100px;
   max-height: 200px;
   margin: 0 auto;
   margin-top: 120px;
-  max-width: 100px;
-  z-index: 3;
   @include breakpoint(phone) {
     margin-top: 10%;
   }
@@ -123,17 +123,10 @@ ____________________________________________________________________
 
 // Outer-menu container around main page nav
 .global-navigation {
-  height: 155px;
-  margin-top: 0px;
   overflow: hidden;
+  height: 155px;
+  margin-top: 0;
   transition: margin-top 200ms, height 200ms;
-  &.social-clicked {
-    height: 161px;
-  }
-  .hans-clicked & {
-    margin-top: 70px;
-    height: 141px;
-  }
   @include breakpoint(normal-screen) {
     .hans-clicked & {
       margin-top: 70px;
@@ -160,21 +153,29 @@ ____________________________________________________________________
 
   @include breakpoint(baby-phone) {
     .hans-clicked.index & {
+      display: block;
       margin-top: 315px;
       margin-bottom: 30px;
-      display: block;
     }
+  }
+
+  &.social-clicked {
+    height: 161px;
+  }
+  .hans-clicked & {
+    height: 141px;
+    margin-top: 70px;
   }
 }
 
 // Inner-menu container main page ul
 .menu {
-  padding: 0;
   margin: 0;
   margin-top: -10px;
+  padding: 0;
+  transition: opacity 20ms 0.6s, margin-top 200ms;
   // Preload blank
   opacity: 0;
-  transition: opacity 20ms .6s, margin-top 200ms;
   // Slide up to show the social section
   .social-clicked &.unfolded {
     margin-top: -93px;
@@ -185,8 +186,8 @@ ____________________________________________________________________
   }
   // After load
   &.unfolded {
-    opacity: 1;
     margin-top: 0;
+    opacity: 1;
     //Slide down
     li {
       margin-top: 0;
@@ -200,23 +201,23 @@ ____________________________________________________________________
   // Pre-margin for sliding down on load
   margin-top: -31%;
   list-style: none;
+  transition: margin-top 200ms 0.6s;
   border-bottom: 1px solid rgba(white, 0.1);
-  transition: margin-top 200ms .6s;
   &:hover {
-    background-color: rgba(rgb(100, 100, 100), 0.1);
     transition-delay: 0;
+    background-color: rgba(rgb(100, 100, 100), 0.1);
   }
   // Staggar load transitions
   &:nth-child(2) {
-    transition-duration: .4s;
-    transition-delay: .7s;
+    transition-delay: 0.7s;
+    transition-duration: 0.4s;
   }
   &:nth-child(4) {
-    transition-duration: .5s;
-    transition-delay: .8s;
+    transition-delay: 0.8s;
+    transition-duration: 0.5s;
     // Keep third child active on social clicked
     a:hover, .social-clicked & a {
-      padding-left: .5em;
+      padding-left: 0.5em;
     }
     .social-clicked & a {
       color: $orange;
@@ -224,28 +225,28 @@ ____________________________________________________________________
   }
   a {
     display: block;
+    padding: 0.3em;
+    padding-right: 0.5em;
     padding-left: 0;
-    padding-right: .5em;
-    padding: .3em;
+    transition: all 100ms ease-in-out, color 100ms;
     text-decoration: none;
     color: $off-white;
+    // Extra padding for chunky thumbs on mobile
+    @include breakpoint(phone) {
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+    }
+
     .white & {
       color: white;
     }
     &.current {
+      padding-left: 0.5em;
       color: $orange;
-      padding-left: .5em;
     }
-    transition: all 100ms ease-in-out, color 100ms;
-    // Extra padding for chunky thumbs on mobile
-    @include breakpoint(phone) {
-      padding-top: .5em;
-      padding-bottom: .5em;
-    }
-
     &:hover {
-      padding-left: .5em;
       padding-right: 0;
+      padding-left: 0.5em;
     }
   }
 }
@@ -254,33 +255,33 @@ ____________________________________________________________________
 .social {
   display: inline-block;
   width: 100%;
-  padding: 0;
   margin: 156px 0 0 0;
-  background: #333;
-  background: rgba(0, 0, 0, 0.2);
+  padding: 0;
+  transition: margin 0 0.2s;
   border-top: 1px solid #242321;
   border-bottom: 1px solid #4e4e4e;
-  transition: margin 0 .2s;
+  background: #333333;
+  background: rgba(0, 0, 0, 0.2);
   // Social Active State
   .social-clicked & {
-    margin: 0px 0 0 0;
+    margin: 0 0 0 0;
     transition-delay: 0;
   }
   li {
     display: block;
+    overflow: hidden;
     width: 100%;
     max-width: 100%;
-    overflow: hidden;
   }
   a {
-    max-width: 31px;
-    text-decoration: none;
     display: block;
-    color: white;
     position: relative;
-    padding: .4em;
+    max-width: 31px;
+    padding: 0.4em;
     font-size: 15px;
-    transition: padding-left .2s;
+    transition: padding-left 0.2s;
+    text-decoration: none;
+    color: white;
     &:hover {
       padding-left: 100%;
     }
@@ -290,11 +291,11 @@ ____________________________________________________________________
 // Links before data:
 .social a:before {
   content: attr(data);
-  color: white;
-  position: absolute;
   display: block;
+  position: absolute;
   left: -75px;
-  transition: left .2s;
+  transition: left 0.2s;
+  color: white;
   color: $grey;
 }
 
@@ -309,20 +310,20 @@ ____________________________________________________________________
 @include breakpoint(tablet) {
   .overlay {
     position: fixed;
-    left: 0;
+    z-index: 10;
     top: 0;
+    left: 0;
+    visibility: hidden;
     width: 100%;
     height: 100%;
-    visibility: hidden;
-    z-index: 10;
+    transition: opacity 0.5s, visibility 0s 0.5s;
     opacity: 0;
     background-color: rgba($darker-grey, 0.93);
-    transition: opacity 0.5s, visibility 0s 0.5s;
     // Show overlay on click
     .menu-clicked & {
-      opacity: 1;
       visibility: visible;
-      transition: opacity .5s;
+      transition: opacity 0.5s;
+      opacity: 1;
     }
   }
   // Slide nav down on click
@@ -334,31 +335,31 @@ ____________________________________________________________________
 
 // Footer
 footer {
-  .index & {
-    position: absolute;
-  }
   bottom: 0;
+  overflow: hidden;
   width: 100%;
-  padding: .7em .2em;
   margin: 0 auto;
+  padding: 0.7em 0.2em;
+  transition: margin-bottom 0.5s 1s, opacity 400ms;
   //
   text-align: center;
-  transition: margin-bottom .5s 1s, opacity 400ms;
   opacity: 1;
-  overflow: hidden;
   @include breakpoint(baby-phone) {
     .hans-clicked.index & {
       opacity: 0;
     }
   }
 
+  .index & {
+    position: absolute;
+  }
   &.loaded {
     margin-bottom: 0;
   }
   a {
-    color: $dark-grey;
     font-style: italic;
     text-decoration: none;
+    color: $dark-grey;
     &:hover {
       text-decoration: underline;
     }
@@ -367,54 +368,54 @@ footer {
 
 // Biography container & contents
 .hans-content {
+  z-index: -1;
+  visibility: hidden;
+  transition: opacity 600ms, visibility 600ms 1s;
   // Transition in on Click
   opacity: 0;
-  visibility: hidden;
-  z-index: -1;
-  transition: opacity 600ms, visibility 600ms 1s;
   p {
+    font-size: 0.75em;
     color: $dark-grey;
-    font-size: .75em;
     @include breakpoint(phone) {
-      color: rgba(136, 136, 136, 0.7);
+      font-size: 0.8em;
       line-height: 1.35em;
-      font-size: .8em;
+      color: rgba(136, 136, 136, 0.7);
     }
   }
   .bio {
-    margin: 0 auto;
-    margin-top: 0px;
     width: 80%;
-    max-width: 600px;
     min-width: 240px;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 0;
     transition: margin-top 400ms;
     .left-align & {
       position: absolute;
-      top: 0px;
+      top: 0;
       left: 26px;
       margin-top: 0;
       transition: top 400ms;
     }
     a {
-      color: $dark-grey;
       font-style: italic;
+      color: $dark-grey;
     }
   }
   // Background image
   &:after {
-    content: "";
+    content: '';
     display: block;
     position: absolute;
-    left: 0;
-    top: 0;
-    height: 90%;
-    width: 100%;
     z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90%;
     //
-    opacity: .059;
+    opacity: 0.059;
     background-image: url("../img/me.jpg");
-    background-size: cover;
     background-position: center center;
+    background-size: cover;
   }
 }
 
@@ -434,9 +435,9 @@ footer {
   }
   //Slide the bio into the frame, and make background image visible
   .hans-content {
-    opacity: 1;
     visibility: visible;
     transition: opacity 600ms;
+    opacity: 1;
     .bio {
       margin-top: -108px;
       transition: margin-top 400ms;
@@ -444,9 +445,9 @@ footer {
   }
   //Keep menu item orange (active), add close-x in top right
   #hans-toggle {
-    color: $orange;
-    padding-left: .5em;
     padding-right: 0;
+    padding-left: 0.5em;
+    color: $orange;
     background-color: rgba(100, 100, 100, 0.1);
     @extend %close-x;
   }
@@ -468,10 +469,10 @@ html.theme-light {
 .theme-light {
   background-color: white;
   .menu-toggle-container {
+    border: 1px solid lighten($light-grey, 30%);
     .menu-toggle-wrap {
       color: $light-grey;
     }
-    border: 1px solid lighten($light-grey, 30%);
     &:before {
       background-color: lighten($light-grey, 30%);
     }
@@ -491,15 +492,14 @@ html.theme-light {
 @import "articles";
 
 .container {
+  width: 100%;
   padding-right: 10px;
   padding-left: 2.5em;
+  transition: all 400ms;
+  transition: all 200ms;
   @include breakpoint(tablet) {
     padding-left: 10px;
   }
-
-  transition: all 400ms;
-  width: 100%;
-  transition: all 200ms;
 }
 
 .container-wrap {
