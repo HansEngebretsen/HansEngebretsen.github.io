@@ -28,12 +28,16 @@ h2 {
   max-width: 1256px;
   font-family: 'Merriweather', serif;
   font-size: 0.75em;
+  line-height: 1.7;
   text-align: center;
   color: $dark-grey;
   @include breakpoint(min-normal-screen) {
-    font-size: 1.25em;
+    font-size: 1em;
   }
 
+  p {
+    margin-bottom: 2em;
+  }
   h1 {
     color: white;
   }
@@ -55,7 +59,7 @@ h2 {
   }
   a {
     text-decoration: none;
-    color: rgba($orange, 0.4);
+    color: rgba($orange, 0.7);
     &:hover {
       color: $orange;
     }
@@ -66,6 +70,11 @@ h2 {
   h1 {
     font-size: 3em;
   }
+}
+
+.dark {
+  color: $darker-grey;
+  font-weight: bold;
 }
 
 .post {
@@ -80,14 +89,17 @@ h2 {
     font-family: 'Merriweather', serif;
   }
   .title {
+    margin: 0 auto;
     margin-top: 1em;
     margin-bottom: 0;
+    line-height: 1.25em;
     font-size: 3em;
+    max-width: 820px;
     @include breakpoint(normal-screen) {
       margin-top: 2.5em;
     }
   }
   .subtitle {
-    margin-bottom: 2em;
+    margin-bottom: 3em;
   }
 }

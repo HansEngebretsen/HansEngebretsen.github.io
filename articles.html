@@ -19,7 +19,7 @@ color-theme: light
         {% if day != nday %}
             <h5 class="date">{{ post.date | date: "%B" }} </h5>
         {% endif %}
-          <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+          <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.header }}</a></h1>
 
           <div class="entry">
             {{ post.content | truncatewords:30}}

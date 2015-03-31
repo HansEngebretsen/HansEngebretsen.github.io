@@ -27,6 +27,15 @@ ____________________________________________________________________
   box-sizing: border-box;
 }
 
+code {
+  padding: .3em;
+  margin: 0;
+  font-size: 85%;
+  background-color: rgba(0, 0, 0, 0.04);
+  border-radius: 3px;
+  color: rgba($darker-grey, 0.67);
+}
+
 html {
   position: relative;
   height: 100%;
@@ -479,9 +488,6 @@ html.theme-light {
   }
   .title {
     color: $darker-grey;
-  }
-  .subtitle {
-    color: darker-grey;
   }
   .posts h1 a {
     color: $darker-grey;

@@ -1,6 +1,7 @@
 $( document ).ready(function() {
-	
   // Loaded transitions
+  var w = window.innerWidth,
+      bp = 750;
   $('.work #profile-image').addClass('bounceInLeft');
   $('#navigation-menu').addClass('unfolded');
   $('body').addClass('loaded');
@@ -10,6 +11,19 @@ $( document ).ready(function() {
 	   e.preventDefault();
 	   $('body').toggleClass('hans-clicked');
   });
+  if ($('#article-navigation').length && w > bp){
+    var mn = $('#article-navigation');
+        mns = 'fixed';
+        hdr = $('.cover-image').height();
+
+    $(window).scroll(function() {
+      if( $(this).scrollTop() > hdr ) {
+        mn.addClass(mns);
+      } else {
+        mn.removeClass(mns);
+      }
+    });
+  }
 });
 
 // Project Containers
@@ -42,6 +56,7 @@ $('.close-toggle').click(function(e) {
       $('body').removeClass('hans-clicked');
     });
 
+// Sticky article nav
 
 // Typing Text Function
 var TxtRotate = function(el, toRotate, period) {
@@ -88,7 +103,7 @@ TxtRotate.prototype.tick = function() {
 $('#hans-toggle').click(function() {
   if ( !$('#hans-toggle').data('clicked') ) {
     var elements = document.getElementsByClassName('txt-rotate');
-    
+
     for (var i=0; i<elements.length; i++) {
       var toRotate = elements[i].getAttribute('data-rotate');
       var period = elements[i].getAttribute('data-period');

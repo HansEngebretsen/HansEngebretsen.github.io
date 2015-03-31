@@ -13,6 +13,18 @@ ____________________________________________________________________
   background-size: cover;
 }
 
+.article h4 {
+  color: $darker-grey;
+  font-size: 1.5em;
+  margin-top: 2em;
+  margin-bottom: .5em;
+}
+
+.article hr {
+  border-color: rgba($lighter-grey, 0.3);
+  margin-top: 2em;
+}
+
 .posts {
   width: 80%;
   margin-left: 20%;
@@ -34,7 +46,10 @@ ____________________________________________________________________
   height: 100%;
   margin-top: 5em;
   margin-left: 14%;
-  background-color: $lighter-grey;
+  background-color: rgba($lighter-grey, 0.2);
+  @include breakpoint(tablet) {
+    width: 2px;
+  }
 }
 
 .date {
@@ -53,11 +68,15 @@ ____________________________________________________________________
   text-indent: -15%;
   color: $lighter-grey;
   @include breakpoint(tablet) {
-    text-indent: 15%;
+    text-indent: 0;
+    z-index: 2;
+    padding-top: 44px;
+    background-color: white;
   }
 
   &:after {
     content: '';
+    z-index: 0;
     display: block;
     position: absolute;
     top: 0;
@@ -71,7 +90,6 @@ ____________________________________________________________________
 
 .post {
   padding: 0 40px;
-  line-height: 1.4;
   &.new-month {
     clear: left;
   }
@@ -92,6 +110,9 @@ ____________________________________________________________________
   margin: 0 auto;
   margin-bottom: 20px;
   text-align: left;
+  section {
+    padding: 10vh 0;
+  }
   @include breakpoint(big-screen) {
     padding-right: 40px;
   }
@@ -111,6 +132,10 @@ ____________________________________________________________________
   position: absolute;
   right: 0;
   text-align: center;
+  &.fixed {
+    position: fixed;
+    top: 0;
+  }
   @include breakpoint(normal-screen) {
     right: auto;
     left: 10px;
