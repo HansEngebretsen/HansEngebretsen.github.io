@@ -6,7 +6,7 @@ ____________________________________________________________________
 */
 
 // State after Hans has been clicked
-.hans-clicked .left-align .hans-content .bio {
+.about .left-align .hans-content .bio {
   $variable: ten;
   top: 8em;
   margin-top: 0;
@@ -380,7 +380,7 @@ ____________________________________________________________________
   }
 }
 
-.hans-clicked .left-align .menu li:nth-child(2) a, .global-header .social-clicked .menu li:nth-child(2) a {
+.about .left-align .menu li:nth-child(2) a, .global-header .social-clicked .menu li:nth-child(2) a {
   color: $off-white;
 }
 

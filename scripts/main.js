@@ -7,10 +7,6 @@ $( document ).ready(function() {
   $('body').addClass('loaded');
 
   // Navigation
-  $('#hans-toggle').click(function(e) {
-	   e.preventDefault();
-	   $('body').toggleClass('hans-clicked');
-  });
   if ($('#article-navigation').length && w > bp){
     var mn = $('#article-navigation');
         mns = 'fixed';
@@ -47,14 +43,15 @@ $('#social-toggle').click(function(e) {
 
 // Nav toggle on mobile
 $('#nav-toggle').click(function(e) {
-      e.preventDefault();
-      $('body').addClass('menu-clicked');
-    });
-$('.close-toggle').click(function(e) {
-      e.preventDefault();
-      $('body').removeClass('menu-clicked');
-      $('body').removeClass('hans-clicked');
-    });
+  e.preventDefault();
+  $('body').addClass('menu-clicked');
+});
+$('#navigation-menu .first a.current').click(function(e) {
+  e.preventDefault();
+  $('body').toggleClass('about');
+  console.log('worked');
+});
+
 
 // Sticky article nav
 

@@ -34,7 +34,7 @@ body:after, .main-content:after, .project-container:after {
     height: auto;
     border-radius: 50%; }
 
-.hans-clicked #hans-toggle:after {
+.about .current a:after {
   content: "x";
   display: inline-block;
   float: right;
@@ -340,7 +340,7 @@ ____________________________________________________________________
 
     MAIN PAGE STYLINGS
         - Navigation
-        - Hans-Clicked states
+        - about states
         - Footer
 ____________________________________________________________________
 */
@@ -364,28 +364,28 @@ ____________________________________________________________________
   -webkit-transition: margin-top 200ms, height 200ms;
   transition: margin-top 200ms, height 200ms; }
   @media (max-width: 750px) {
-    .hans-clicked .global-navigation {
+    .about .global-navigation {
       margin-top: 70px; }
-    .hans-clicked.index .global-navigation {
+    .about .global-navigation {
       margin-top: 150px; } }
   @media (max-width: 650px) {
-    .hans-clicked .global-navigation {
+    .about .global-navigation {
       margin-top: 100px; } }
   @media (max-width: 450px) {
-    .hans-clicked .global-navigation {
+    .about .global-navigation {
       margin-top: 210px; }
-    .hans-clicked.index .global-navigation {
+    .about .global-navigation {
       margin-top: 215px; } }
   @media (max-width: 370px) {
-    .hans-clicked.index .global-navigation {
+    .about .global-navigation {
       display: block;
       margin-top: 315px;
       margin-bottom: 30px; } }
   .global-navigation.social-clicked {
     height: 161px; }
-  .hans-clicked .global-navigation {
+  .about .global-navigation {
     height: 141px;
-    margin-top: 70px; }
+    margin-top: 85px; }
 
 .menu {
   margin: 0;
@@ -399,10 +399,10 @@ ____________________________________________________________________
     @media (max-width: 450px) {
       .social-clicked .menu.unfolded {
         margin-top: -109px; } }
-  .menu.unfolded {
+  .menu.unfolded, .about .menu {
     margin-top: 0;
     opacity: 1; }
-    .menu.unfolded li {
+    .menu.unfolded li, .about .menu li {
       margin-top: 0; }
 
 .menu li {
@@ -530,7 +530,7 @@ footer {
   text-align: center;
   opacity: 1; }
   @media (max-width: 370px) {
-    .hans-clicked.index footer {
+    .about footer {
       opacity: 0; } }
   .index footer {
     position: absolute; }
@@ -589,20 +589,20 @@ footer {
     background-position: center center;
     background-size: cover; }
 
-.hans-clicked .menu {
+.about .menu {
   margin-top: 109px; }
-.hans-clicked .container {
+.about .container {
   margin-left: 100%; }
-.hans-clicked .hans-content {
+.about .hans-content {
   visibility: visible;
   -webkit-transition: opacity 600ms;
   transition: opacity 600ms;
   opacity: 1; }
-  .hans-clicked .hans-content .bio {
+  .about .hans-content .bio {
     margin-top: -108px;
     -webkit-transition: margin-top 400ms;
     transition: margin-top 400ms; }
-.hans-clicked #hans-toggle {
+.about .current a {
   padding-right: 0;
   padding-left: 0.5em;
   color: #F08656;
@@ -613,7 +613,7 @@ ____________________________________________________________________
 
     THEMES
         - Navigation
-        - Hans-Clicked states
+        - about states
         - Footer
 ____________________________________________________________________
 */
@@ -639,13 +639,13 @@ ____________________________________________________________________
     WORK PAGE STYLINGS
 ____________________________________________________________________
 */
-.hans-clicked .left-align .hans-content .bio {
+.about .left-align .hans-content .bio {
   top: 8em;
   margin-top: 0;
   -webkit-transition: top 400ms;
   transition: top 400ms; }
   @media (max-width: 650px) {
-    .hans-clicked .left-align .hans-content .bio {
+    .about .left-align .hans-content .bio {
       top: 206px; } }
 
 .project-body {
@@ -960,7 +960,7 @@ ____________________________________________________________________
     -ms-transform: rotate(45deg);
     transform: rotate(45deg); }
 
-.hans-clicked .left-align .menu li:nth-child(2) a, .global-header .social-clicked .menu li:nth-child(2) a {
+.about .left-align .menu li:nth-child(2) a, .global-header .social-clicked .menu li:nth-child(2) a {
   color: #aaa; }
 
 .menu-toggle-container {
