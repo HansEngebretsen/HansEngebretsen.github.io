@@ -1042,10 +1042,11 @@ ____________________________________________________________________
 */
 .cover-image {
   width: 100%;
-  min-height: 300px;
+  min-height: 500px;
+  min-height: 50vh;
   background-image: url("../img-content/coffee-cups.jpg");
-  background-attachment: fixed;
-  background-size: cover; }
+  background-size: cover;
+  background-position: center center; }
 
 .article h4 {
   color: #222;

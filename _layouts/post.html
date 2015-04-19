@@ -2,12 +2,9 @@
 layout: default
 nav: left-align
 color-theme: light
-nav-color: white
 title: article
 ---
-<section class="cover-image">
-
-</section>
+<section class="cover-image" {% if page.photo %}style="background-image:url('../img-content/{{ page.photo }}');"{% endif %}></section>
 {% include article-sidebar.html %}
 <article class="post">
   <h1 class="title">{{ page.header }}</h1>

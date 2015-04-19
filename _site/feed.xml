@@ -7,6 +7,39 @@
     <atom:link href="http://www.haaans.com/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>7 Sketch</title>
+        <description>&lt;p&gt;After dabbling in Sketch for a while, and toying with the idea of using for more than just a mobile mockup or two, I finally bit the bullet and used Sketch for all the interface design on a project. I can totally agree with several others when they say Sketch isn’t a replacement for photoshop so much as it as replacement for the many things you use Photoshop for which it doesn’t excel. Brushes, complicated masks, curves (photo editing features in general) and effects are all omitted.&lt;/p&gt;
+
+&lt;h4&gt;It’s a primitive product (RED)&lt;/h4&gt;
+
+&lt;p&gt;PS is tested. Years of versions, millions of users, and bazillions of dollars.  It’s easy to take that for granted when we loose 20 minutes of work because of a crash. Bohemian coding has only been working on Sketch for 3 years, and the difference between that, and a product that has been on the market for 25 years is certainly noticeable. It’s pretty remarkable that they’re able to come up with something worth comparing to PS.  That said, it clearly doesn’t have the flavor that a well-seasoned product like Photoshop does, but that’s okay - mostly because it also doesn’t carry the price tag that PS does.&lt;/p&gt;
+
+&lt;h4&gt;It still never crashed on me (GREEN)&lt;/h4&gt;
+
+&lt;p&gt;PS has a habit of crashing and has reinvoked my former muscle memory for command S I had forgotten long ago. It does a pathetic recovery effort, that I find never works - Despite having around twice as many elements in a given document, Sketch stuttered, but never lost my work.&lt;/p&gt;
+
+&lt;h4&gt;I miss the keyboard shortcuts (RED)&lt;/h4&gt;
+
+&lt;p&gt;That’s it, I just miss the keyboard shortcuts PS has that Sketch has replaced with a less-cryptic, usable interface.&lt;/p&gt;
+
+&lt;h4&gt;Organization, Clean and easy Organization (GREEN)&lt;/h4&gt;
+
+&lt;p&gt;To me the most valuable use for sketch is organization. What would have been 10 PS files, 1 Indesign document, and countless inconsistencies was solved with a single Sketch file. I was able to use cascading properties, and design on the fly. What I lost in functionality and learning curve, Sketch made up in time-saving file/style management.&lt;/p&gt;
+
+&lt;h4&gt;Exporting, As it should be (GRAY)&lt;/h4&gt;
+
+&lt;p&gt;This is a heavily-touted feature in Sketch, that was different, but it really isn’t a make or break for me. It’s nice, convenient, and saved a few minutes here and there, but it isn’t something that I’ve been particularly frustrated at with PS.&lt;/p&gt;
+
+&lt;h4&gt;Will it Blend?&lt;/h4&gt;
+
+&lt;p&gt;That’s the big question - I’ll certainly use it on the next project, until it can’t do what I need and then I’ll switch to PS. I may learn a few more keyboard shortcuts, and a few more tricks. In the end it saved me time vs costing me it - but that’ll be on a case-by-case basis. I do a good amount of concepting in program (things like “how does this look here”, and “let’s try this”), so it certainly helps with an iterative workflow, that likes to get digital as soon as possible.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 19 Apr 2015 00:00:00 -0500</pubDate>
+        <link>http://www.haaans.com/7-sketch/</link>
+        <guid isPermaLink="true">http://www.haaans.com/7-sketch/</guid>
+      </item>
+    
+      <item>
         <title>7 Productivity Apps</title>
         <description>&lt;p&gt;Bagcheck was a startup (founded by Luke W., and later acquired by Twitter) that was dedicated to the concept of sharing your passions, or what’s in your bag. It was a really neat concept and a definite loss for the internet when it was taken down a few years ago. I most enjoyed checking out people’s default OS X setups, or the programs they couldn’t go without.&lt;/p&gt;
 
@@ -14,90 +47,62 @@
 
 &lt;p&gt;&lt;sub&gt;**Note: some of the awesome names of the companies producing the apps: AgileBits, Mizage, Running with Crayons, Noodelsoft&lt;/sub&gt;&lt;/p&gt;
 
-&lt;p&gt;&lt;section&gt;&lt;/p&gt;
+&lt;section&gt;
+#### Name Changer
+One of the timeless gems among the bunch, I couldn’t imagine clearing my desktop off without it. Programatic decisions explained in human terms for batch file renaming. Name changer does it all: appending, pre-pending, sequences, find a and replace, the list goes on.
+***
+&lt;span class=&quot;dark&quot;&gt;Free &lt;/span&gt;| Available from [MRR Software](http://mrrsoftware.com/namechanger/)
+&lt;/section&gt;
 
-&lt;h4&gt;Name Changer&lt;/h4&gt;
+&lt;section&gt;
+#### 1 Password
+I’ve been a 1password fan for a few years now, and it’s an irreplaceable part of my workflow. I tried out a few different services, including LastPass, native OS X keychain, google chrome keychain etc, but nothing touched the cross-platform/browser integration, that 1password offers.
+***
+&lt;span class=&quot;dark&quot;&gt;Free - $50 &lt;/span&gt;| Available from [AgileBits](https://agilebits.com/downloads) and on the App Store
+&lt;/section&gt;
 
-&lt;p&gt;One of the timeless gems among the bunch, I couldn’t imagine clearing my desktop off without it. Programatic decisions explained in human terms for batch file renaming. Name changer does it all: appending, pre-pending, sequences, find a and replace, the list goes on.&lt;/p&gt;
+&lt;section&gt;
+#### Handbrake
+A longtime fan of the simplicity of HandBrake, I’ve used it countless times for (predominately) legal reasons. There’s no simpler way - that I know of - to rip/convert a dvd to a video file, and optimize it. The simple options and two step process had me before I even knew what the term ‘transcode’ meant.
+***
+&lt;span class=&quot;dark&quot;&gt;Free &lt;/span&gt;| Available at [handbrake](https://handbrake.fr/)
+&lt;/section&gt;
 
-&lt;hr&gt;
+&lt;section&gt;
+#### Alfred 2
+The ultimate launcher for OSX - and it&#39;s nothing like spotlight. 90% of Alfred’s usefulness comes from it’s ability to quickly automate and run tasks. For instance, we have an internal GitHub at Garmin - (we use [stash](https://www.atlassian.com/software/stash?utm_source=bitbucket&amp;utm_medium=link&amp;utm_campaign=homepage&amp;utm_content=bitbucket_for_enterprises), by Atlasssian), and we have a workflow that searches all repos in our stash, and links you directly to the selected repo. Below are a few of my most used tasks:
 
-&lt;p&gt;&lt;span class=&quot;dark&quot;&gt;Free &lt;/span&gt;| Available from &lt;a href=&quot;http://mrrsoftware.com/namechanger/&quot;&gt;MRR Software&lt;/a&gt;
-&lt;/section&gt;&lt;/p&gt;
+* `ft` - Immediately opens a terminal window with the current directory at your last used finder window. Conversely, `tf` opens a finder at the current Terminal directory.
+[Check it out on Github](https://github.com/LeEnno/alfred-terminalfinder)
 
-&lt;p&gt;&lt;section&gt;&lt;/p&gt;
+* `hide` - Hide Hidden files, show hidden files - instead of arduously running `defaults write com.apple.finder AppleShowAllFiles YES &amp;&amp; killall Finder` in terminal I open alfred and type “hide” or &quot;show&quot;, the rest is handled.
+[Also on Github](https://github.com/BubiDevs/manage-hidden-files)
 
-&lt;h4&gt;1 Password&lt;/h4&gt;
+* `edit` - Edit Project, a custom workflow that I made that takes the currently selected folder in finder, opens it in sublime, as well as terminal and runs `grunt watch` on the directory.
+***
+&lt;span class=&quot;dark&quot;&gt;Free - $14.99 &lt;/span&gt;| You’ll need the [Power Pack](http://www.alfredapp.com/powerpack/) ($14.99) to add/use custom workflows.
+&lt;/section&gt;
 
-&lt;p&gt;I’ve been a 1password fan for a few years now, and it’s an irreplaceable part of my workflow. I tried out a few different services, including LastPass, native OS X keychain, google chrome keychain etc, but nothing touched the cross-platform/browser integration, that 1password offers.&lt;/p&gt;
+&lt;section&gt;
+#### Divvy
+Freemium software from Mizage for window management. I spend so time (albeit subconsciously) arranging the many windows I constantly have open. Attaching keyboard shortcuts to this has been huge, and with Divvy, it couldn’t be simpler, or allow you to get more specific with your window management.
+***
+&lt;span class=&quot;dark&quot;&gt;Free - $13.99 &lt;/span&gt;| Available from [Mizage](http://mizage.com/divvy/), or on the App store
+&lt;/section&gt;
 
-&lt;hr&gt;
+&lt;section&gt;
+#### Wunderlist
+The world is still searching for the perfect task/to do list fix to once and for all replace the sticky note, but in the mean time, Wunderlist as an acceptable middle grounds. It’s simple, integrated, connected (I can easily share lists with coworkers, or my wife), and extremely satisfying to check off items.
+***
+&lt;span class=&quot;dark&quot;&gt;Free &lt;/span&gt;| Available from [Wunderlist](https://www.wunderlist.com/) or on the App Store
+&lt;/section&gt;
 
-&lt;p&gt;&lt;span class=&quot;dark&quot;&gt;Free - $50 &lt;/span&gt;| Available from &lt;a href=&quot;https://agilebits.com/downloads&quot;&gt;AgileBits&lt;/a&gt; and on the App Store
-&lt;/section&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;section&gt;&lt;/p&gt;
-
-&lt;h4&gt;Handbrake&lt;/h4&gt;
-
-&lt;p&gt;A longtime fan of the simplicity of HandBrake, I’ve used it countless times for (predominately) legal reasons. There’s no simpler way - that I know of - to rip/convert a dvd to a video file, and optimize it. The simple options and two step process had me before I even knew what the term ‘transcode’ meant.&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;&lt;span class=&quot;dark&quot;&gt;Free &lt;/span&gt;| Available at &lt;a href=&quot;https://handbrake.fr/&quot;&gt;handbrake&lt;/a&gt;
-&lt;/section&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;section&gt;&lt;/p&gt;
-
-&lt;h4&gt;Alfred 2&lt;/h4&gt;
-
-&lt;p&gt;The ultimate launcher for OSX - and it&amp;#39;s nothing like spotlight. 90% of Alfred’s usefulness comes from it’s ability to quickly automate and run tasks. For instance, we have an internal GitHub at Garmin - (we use &lt;a href=&quot;https://www.atlassian.com/software/stash?utm_source=bitbucket&amp;amp;utm_medium=link&amp;amp;utm_campaign=homepage&amp;amp;utm_content=bitbucket_for_enterprises&quot;&gt;stash&lt;/a&gt;, by Atlasssian), and we have a workflow that searches all repos in our stash, and links you directly to the selected repo. Below are a few of my most used tasks:&lt;/p&gt;
-
-&lt;ul&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;ft&lt;/code&gt; - Immediately opens a terminal window with the current directory at your last used finder window. Conversely, &lt;code&gt;tf&lt;/code&gt; opens a finder at the current Terminal directory.
-&lt;a href=&quot;https://github.com/LeEnno/alfred-terminalfinder&quot;&gt;Check it out on Github&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;hide&lt;/code&gt; - Hide Hidden files, show hidden files - instead of arduously running &lt;code&gt;defaults write com.apple.finder AppleShowAllFiles YES &amp;amp;&amp;amp; killall Finder&lt;/code&gt; in terminal I open alfred and type “hide” or &amp;quot;show&amp;quot;, the rest is handled.
-&lt;a href=&quot;https://github.com/BubiDevs/manage-hidden-files&quot;&gt;Also on Github&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;li&gt;&lt;p&gt;&lt;code&gt;edit&lt;/code&gt; - Edit Project, a custom workflow that I made that takes the currently selected folder in finder, opens it in sublime, as well as terminal and runs &lt;code&gt;grunt watch&lt;/code&gt; on the directory.&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;&lt;span class=&quot;dark&quot;&gt;Free - $14.99 &lt;/span&gt;| You’ll need the &lt;a href=&quot;http://www.alfredapp.com/powerpack/&quot;&gt;Power Pack&lt;/a&gt; ($14.99) to add/use custom workflows.
-&lt;/section&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;section&gt;&lt;/p&gt;
-
-&lt;h4&gt;Divvy&lt;/h4&gt;
-
-&lt;p&gt;Freemium software from Mizage for window management. I spend so time (albeit subconsciously) arranging the many windows I constantly have open. Attaching keyboard shortcuts to this has been huge, and with Divvy, it couldn’t be simpler, or allow you to get more specific with your window management.&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;&lt;span class=&quot;dark&quot;&gt;Free - $13.99 &lt;/span&gt;| Available from &lt;a href=&quot;http://mizage.com/divvy/&quot;&gt;Mizage&lt;/a&gt;, or on the App store
-&lt;/section&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;section&gt;&lt;/p&gt;
-
-&lt;h4&gt;Wunderlist&lt;/h4&gt;
-
-&lt;p&gt;The world is still searching for the perfect task/to do list fix to once and for all replace the sticky note, but in the mean time, Wunderlist as an acceptable middle grounds. It’s simple, integrated, connected (I can easily share lists with coworkers, or my wife), and extremely satisfying to check off items.&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;&lt;span class=&quot;dark&quot;&gt;Free &lt;/span&gt;| Available from &lt;a href=&quot;https://www.wunderlist.com/&quot;&gt;Wunderlist&lt;/a&gt; or on the App Store
-&lt;/section&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;section&gt;&lt;/p&gt;
-
-&lt;h4&gt;Hazel&lt;/h4&gt;
-
-&lt;p&gt;Hazel is an app that one of my friends, &lt;a href=&quot;http://andrewsaliga.com/&quot;&gt;Andrew Saliga&lt;/a&gt; led me on to. I’m not sure it contains any unique functionality, or anything you couldn’t accomplish with OSX’s built in Automator, but it certainly makes automation easier. You don’t need to know a language, or be a pro to run regular actions on folders, or tasks in general. For someone like me, that means it’s great for helping automatically organize and rename things like pictures by date, or keeping your downloads folder clean.&lt;/p&gt;
-
-&lt;hr&gt;
-
-&lt;p&gt;&lt;span class=&quot;dark&quot;&gt;Free trial - $29 &lt;/span&gt;| Available from &lt;a href=&quot;http://www.noodlesoft.com/hazel.php&quot;&gt;Noodelsoft&lt;/a&gt;
-&lt;/section&gt;&lt;/p&gt;
+&lt;section&gt;
+#### Hazel
+Hazel is an app that one of my friends, [Andrew Saliga](http://andrewsaliga.com/) led me on to. I’m not sure it contains any unique functionality, or anything you couldn’t accomplish with OSX’s built in Automator, but it certainly makes automation easier. You don’t need to know a language, or be a pro to run regular actions on folders, or tasks in general. For someone like me, that means it’s great for helping automatically organize and rename things like pictures by date, or keeping your downloads folder clean.
+***
+&lt;span class=&quot;dark&quot;&gt;Free trial - $29 &lt;/span&gt;| Available from [Noodelsoft](http://www.noodlesoft.com/hazel.php)
+&lt;/section&gt;
 </description>
         <pubDate>Thu, 19 Mar 2015 00:00:00 -0500</pubDate>
         <link>http://www.haaans.com/7-productivity-apps/</link>
