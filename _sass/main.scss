@@ -107,7 +107,7 @@ ____________________________________________________________________
 
     MAIN PAGE STYLINGS
         - Navigation
-        - Hans-Clicked states
+        - about states
         - Footer
 ____________________________________________________________________
 */
@@ -137,31 +137,31 @@ ____________________________________________________________________
   margin-top: 0;
   transition: margin-top 200ms, height 200ms;
   @include breakpoint(normal-screen) {
-    .hans-clicked & {
+    .about & {
       margin-top: 70px;
     }
-    .hans-clicked.index & {
+    .about & {
       margin-top: 150px;
     }
   }
 
   @include breakpoint(tablet) {
-    .hans-clicked & {
+    .about & {
       margin-top: 100px;
     }
   }
 
   @include breakpoint(phone) {
-    .hans-clicked & {
+    .about & {
       margin-top: 210px;
     }
-    .hans-clicked.index & {
+    .about & {
       margin-top: 215px;
     }
   }
 
   @include breakpoint(baby-phone) {
-    .hans-clicked.index & {
+    .about & {
       display: block;
       margin-top: 315px;
       margin-bottom: 30px;
@@ -171,9 +171,9 @@ ____________________________________________________________________
   &.social-clicked {
     height: 161px;
   }
-  .hans-clicked & {
+  .about & {
     height: 141px;
-    margin-top: 70px;
+    margin-top: 85px;
   }
 }
 
@@ -194,7 +194,7 @@ ____________________________________________________________________
     }
   }
   // After load
-  &.unfolded {
+  &.unfolded, .about & {
     margin-top: 0;
     opacity: 1;
     //Slide down
@@ -354,7 +354,7 @@ footer {
   text-align: center;
   opacity: 1;
   @include breakpoint(baby-phone) {
-    .hans-clicked.index & {
+    .about & {
       opacity: 0;
     }
   }
@@ -429,7 +429,7 @@ footer {
 }
 
 // Hans clicked actions
-.hans-clicked {
+.about {
   //Slide the menu down to make room for the description
   .menu {
     margin-top: 109px;
@@ -453,7 +453,7 @@ footer {
     }
   }
   //Keep menu item orange (active), add close-x in top right
-  #hans-toggle {
+  .current a {
     padding-right: 0;
     padding-left: 0.5em;
     color: $orange;
@@ -467,7 +467,7 @@ ____________________________________________________________________
 
     THEMES
         - Navigation
-        - Hans-Clicked states
+        - about states
         - Footer
 ____________________________________________________________________
 */
@@ -496,6 +496,7 @@ html.theme-light {
 
 @import "work";
 @import "articles";
+@import "posts";
 
 .container {
   width: 100%;

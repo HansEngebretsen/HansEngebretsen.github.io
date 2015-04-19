@@ -12,7 +12,7 @@ avatar: http://haaans.com/img/hans-profile-small.jpg
 
 navigation:
 - text: about
-  url: #
+  url: /about.html
 - text: work
   url: /work.html
 - text: articles
