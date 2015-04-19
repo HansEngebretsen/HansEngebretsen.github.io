@@ -9,7 +9,7 @@ title: article
 
 </section>
 {% include article-sidebar.html %}
-<article class="post">
+<article class="post {{ page.handle }}">
   <h1 class="title">{{ page.header }}</h1>
   <h2 class="subtitle">{{ page.date | date: "%B %e, %Y" }} | {{ page.subtitle }}</h2>
 

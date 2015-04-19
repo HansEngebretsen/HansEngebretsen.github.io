@@ -12,46 +12,42 @@
 
 &lt;p&gt;In the same spirit of inspiration and discovery, I’m sharing the OS X productivity programs that I love. I could write pages on different OS X settings I prefer, but I’ll try and keep this to apps. Working in front-end design &amp;amp; development, I wouldn’t recommend these programs to everyone, but I can honestly say I’m a huge fan of them for my uses. Most all of the apps offer a freemium model, with a premium version well worth the cost.&lt;/p&gt;
 
-&lt;p&gt;&lt;sub&gt;**Note: some of the awesome names of the companies producing the apps: AgileBits, Mizage, Running with Crayons, Noodelsoft&lt;/sub&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;section&gt;&lt;/p&gt;
+&lt;p&gt;&lt;sub&gt;**Note: some of the awesome names of the companies producing the apps: AgileBits, Mizage, Running with Crayons, Noodelsoft&lt;/sub&gt;
+&lt;section class=&quot;app&quot;&gt;&lt;/p&gt;
 
 &lt;h4&gt;Name Changer&lt;/h4&gt;
 
-&lt;p&gt;One of the timeless gems among the bunch, I couldn’t imagine clearing my desktop off without it. Programatic decisions explained in human terms for batch file renaming. Name changer does it all: appending, pre-pending, sequences, find a and replace, the list goes on.&lt;/p&gt;
+&lt;p&gt;&lt;p class=&quot;first-paragraph&quot;&gt;One of the timeless gems among the bunch, I couldn’t imagine clearing my desktop off without it. Programatic decisions explained in human terms for batch file renaming. Name changer does it all: appending, pre-pending, sequences, find a and replace, the list goes on.&lt;/p&gt;&lt;img src=&quot;/img-content/productivity/namechanger.png&quot; alt=&quot;Image of wunderlist&quot;&gt;&lt;/p&gt;
 
 &lt;hr&gt;
 
 &lt;p&gt;&lt;span class=&quot;dark&quot;&gt;Free &lt;/span&gt;| Available from &lt;a href=&quot;http://mrrsoftware.com/namechanger/&quot;&gt;MRR Software&lt;/a&gt;
-&lt;/section&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;section&gt;&lt;/p&gt;
+&lt;/section&gt;
+&lt;section class=&quot;app&quot;&gt;&lt;/p&gt;
 
 &lt;h4&gt;1 Password&lt;/h4&gt;
 
-&lt;p&gt;I’ve been a 1password fan for a few years now, and it’s an irreplaceable part of my workflow. I tried out a few different services, including LastPass, native OS X keychain, google chrome keychain etc, but nothing touched the cross-platform/browser integration, that 1password offers.&lt;/p&gt;
+&lt;p&gt;&lt;p class=&quot;first-paragraph&quot;&gt;I’ve been a 1Password fan for a few years now, and it’s an irreplaceable part of my workflow. I tried out a few different services, including LastPass, native OS X keychain, google chrome keychain etc, but nothing touched the cross-platform/browser integration, that 1password offers.&lt;/p&gt;&lt;img src=&quot;/img-content/productivity/1password.png&quot; alt=&quot;Image of wunderlist&quot;&gt;&lt;/p&gt;
 
 &lt;hr&gt;
 
 &lt;p&gt;&lt;span class=&quot;dark&quot;&gt;Free - $50 &lt;/span&gt;| Available from &lt;a href=&quot;https://agilebits.com/downloads&quot;&gt;AgileBits&lt;/a&gt; and on the App Store
-&lt;/section&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;section&gt;&lt;/p&gt;
+&lt;/section&gt;
+&lt;section class=&quot;app&quot;&gt;&lt;/p&gt;
 
 &lt;h4&gt;Handbrake&lt;/h4&gt;
 
-&lt;p&gt;A longtime fan of the simplicity of HandBrake, I’ve used it countless times for (predominately) legal reasons. There’s no simpler way - that I know of - to rip/convert a dvd to a video file, and optimize it. The simple options and two step process had me before I even knew what the term ‘transcode’ meant.&lt;/p&gt;
+&lt;p&gt;&lt;p class=&quot;first-paragraph&quot;&gt;A longtime fan of the simplicity of HandBrake, I’ve used it countless times for (predominately) legal reasons. There’s no simpler way - that I know of - to rip/convert a dvd to a video file, and optimize it. The simple options and two step process had me before I even knew what the term ‘transcode’ meant.&lt;/p&gt; &lt;img src=&quot;/img-content/productivity/handbrake.png&quot; alt=&quot;Image of wunderlist&quot;&gt;&lt;/p&gt;
 
 &lt;hr&gt;
 
 &lt;p&gt;&lt;span class=&quot;dark&quot;&gt;Free &lt;/span&gt;| Available at &lt;a href=&quot;https://handbrake.fr/&quot;&gt;handbrake&lt;/a&gt;
-&lt;/section&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;section&gt;&lt;/p&gt;
+&lt;/section&gt;
+&lt;section class=&quot;app&quot;&gt;&lt;/p&gt;
 
 &lt;h4&gt;Alfred 2&lt;/h4&gt;
 
-&lt;p&gt;The ultimate launcher for OSX - and it&amp;#39;s nothing like spotlight. 90% of Alfred’s usefulness comes from it’s ability to quickly automate and run tasks. For instance, we have an internal GitHub at Garmin - (we use &lt;a href=&quot;https://www.atlassian.com/software/stash?utm_source=bitbucket&amp;amp;utm_medium=link&amp;amp;utm_campaign=homepage&amp;amp;utm_content=bitbucket_for_enterprises&quot;&gt;stash&lt;/a&gt;, by Atlasssian), and we have a workflow that searches all repos in our stash, and links you directly to the selected repo. Below are a few of my most used tasks:&lt;/p&gt;
+&lt;p&gt;&lt;p class=&quot;first-paragraph&quot;&gt;The ultimate launcher for OSX - and it&amp;#39;s nothing like spotlight. 90% of Alfred’s usefulness comes from it’s ability to quickly automate and run tasks. For instance, we have an internal GitHub at Garmin - (we use &lt;a href=&quot;https://www.atlassian.com/software/stash?utm_source=bitbucket&amp;amp;utm_medium=link&amp;amp;utm_campaign=homepage&amp;amp;utm_content=bitbucket_for_enterprises&quot;&gt;stash&lt;/a&gt;, by Atlasssian), and we have a workflow that searches all repos in our stash, and links you directly to the selected repo. Below are a few of my most used tasks:&lt;/p&gt;&lt;img src=&quot;/img-content/productivity/alfred.png&quot; alt=&quot;Image of wunderlist&quot;&gt;&lt;/p&gt;
 
 &lt;ul&gt;
 &lt;li&gt;&lt;p&gt;&lt;code&gt;ft&lt;/code&gt; - Immediately opens a terminal window with the current directory at your last used finder window. Conversely, &lt;code&gt;tf&lt;/code&gt; opens a finder at the current Terminal directory.
@@ -63,36 +59,33 @@
 &lt;hr&gt;
 
 &lt;p&gt;&lt;span class=&quot;dark&quot;&gt;Free - $14.99 &lt;/span&gt;| You’ll need the &lt;a href=&quot;http://www.alfredapp.com/powerpack/&quot;&gt;Power Pack&lt;/a&gt; ($14.99) to add/use custom workflows.
-&lt;/section&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;&lt;section&gt;&lt;/p&gt;
+&lt;/section&gt;
+&lt;section class=&quot;app&quot;&gt;&lt;/p&gt;
 
 &lt;h4&gt;Divvy&lt;/h4&gt;
 
-&lt;p&gt;Freemium software from Mizage for window management. I spend so time (albeit subconsciously) arranging the many windows I constantly have open. Attaching keyboard shortcuts to this has been huge, and with Divvy, it couldn’t be simpler, or allow you to get more specific with your window management.&lt;/p&gt;
+&lt;p&gt;&lt;p class=&quot;first-paragraph&quot;&gt;Freemium software from Mizage for window management. I spend so time (albeit subconsciously) arranging the many windows I constantly have open. Attaching keyboard shortcuts to this has been huge, and with Divvy, it couldn’t be simpler, or allow you to get more specific with your window management.&lt;/p&gt;&lt;img src=&quot;/img-content/productivity/divvy.png&quot; alt=&quot;Image of wunderlist&quot;&gt;&lt;/p&gt;
 
 &lt;hr&gt;
 
 &lt;p&gt;&lt;span class=&quot;dark&quot;&gt;Free - $13.99 &lt;/span&gt;| Available from &lt;a href=&quot;http://mizage.com/divvy/&quot;&gt;Mizage&lt;/a&gt;, or on the App store
-&lt;/section&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;section&gt;&lt;/p&gt;
+&lt;/section&gt;
+&lt;section class=&quot;app&quot;&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;h4&gt;Wunderlist&lt;/h4&gt;
 
-&lt;p&gt;The world is still searching for the perfect task/to do list fix to once and for all replace the sticky note, but in the mean time, Wunderlist as an acceptable middle grounds. It’s simple, integrated, connected (I can easily share lists with coworkers, or my wife), and extremely satisfying to check off items.&lt;/p&gt;
+&lt;p&gt;&lt;p class=&quot;first-paragraph&quot;&gt;The world is still searching for the perfect task/to do list fix to once and for all replace the sticky note, but in the mean time, Wunderlist as an acceptable middle grounds. It’s simple, integrated, connected (I can easily share lists with coworkers, or my wife), and extremely satisfying to check off items.&lt;/p&gt;&lt;img src=&quot;/img-content/productivity/wunderlist.svg&quot; alt=&quot;Image of wunderlist&quot;&gt;&lt;/p&gt;
 
 &lt;hr&gt;
 
 &lt;p&gt;&lt;span class=&quot;dark&quot;&gt;Free &lt;/span&gt;| Available from &lt;a href=&quot;https://www.wunderlist.com/&quot;&gt;Wunderlist&lt;/a&gt; or on the App Store
-&lt;/section&gt;&lt;/p&gt;
-
-&lt;p&gt;&lt;section&gt;&lt;/p&gt;
+&lt;/section&gt;
+&lt;section class=&quot;app&quot;&gt;&lt;/p&gt;
 
 &lt;h4&gt;Hazel&lt;/h4&gt;
 
-&lt;p&gt;Hazel is an app that one of my friends, &lt;a href=&quot;http://andrewsaliga.com/&quot;&gt;Andrew Saliga&lt;/a&gt; led me on to. I’m not sure it contains any unique functionality, or anything you couldn’t accomplish with OSX’s built in Automator, but it certainly makes automation easier. You don’t need to know a language, or be a pro to run regular actions on folders, or tasks in general. For someone like me, that means it’s great for helping automatically organize and rename things like pictures by date, or keeping your downloads folder clean.&lt;/p&gt;
+&lt;p&gt;&lt;p class=&quot;first-paragraph&quot;&gt;Hazel is an app that one of my friends, &lt;a href=&quot;http://andrewsaliga.com/&quot;&gt;Andrew Saliga&lt;/a&gt; led me on to. I’m not sure it contains any unique functionality, or anything you couldn’t accomplish with OSX’s built in Automator, but it certainly makes automation easier. You don’t need to know a language, or be a pro to run regular actions on folders, or tasks in general. For someone like me, that means it’s great for helping automatically organize and rename things like pictures by date, or keeping your downloads folder clean.&lt;/p&gt;&lt;img src=&quot;/img-content/productivity/hazel.png&quot; alt=&quot;Image of wunderlist&quot;&gt;&lt;/p&gt;
 
 &lt;hr&gt;
 

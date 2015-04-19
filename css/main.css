@@ -1209,6 +1209,17 @@ ____________________________________________________________________
     transform: rotate(180deg);
     background-position: bottom; }
 
+.productivity .first-paragraph {
+  width: 70%;
+  display: inline-block;
+  vertical-align: top; }
+.productivity img {
+  max-width: 22%;
+  margin-left: 3%;
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 10px; }
+
 .container {
   width: 100%;
   padding-right: 10px;

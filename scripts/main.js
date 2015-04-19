@@ -46,6 +46,11 @@ $('#nav-toggle').click(function(e) {
   e.preventDefault();
   $('body').addClass('menu-clicked');
 });
+$('.close-toggle').click(function(e) {
+      e.preventDefault();
+      $('body').removeClass('menu-clicked');
+      $('body').removeClass('hans-clicked');
+    });
 $('#navigation-menu .first a.current').click(function(e) {
   e.preventDefault();
   $('body').toggleClass('about');
