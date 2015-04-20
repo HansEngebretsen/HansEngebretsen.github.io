@@ -3,9 +3,10 @@ layout: post
 header: 7 productivity apps I couldn’t live without
 subtitle: Front-end Dev
 navColor: white
+photo: productivity-blog.jpg
 handle: productivity
 ---
-Bagcheck was a startup (founded by Luke W., and later acquired by Twitter) that was dedicated to the concept of sharing your passions, or what’s in your bag. It was a really neat concept and a definite loss for the internet when it was taken down a few years ago. I most enjoyed checking out people’s default OS X setups, or the programs they couldn’t go without.
+[Bagcheck](http://www.lukew.com/ff/entry.asp?1371) was a startup (founded by Luke W., and later acquired by Twitter) that was dedicated to the concept of sharing your passions, or what’s in your bag. It was a really neat concept and a definite loss for the internet when it was taken down a few years ago. I most enjoyed checking out people’s default OS X setups, or the programs they couldn’t go without.
 
 In the same spirit of inspiration and discovery, I’m sharing the OS X productivity programs that I love. I could write pages on different OS X settings I prefer, but I’ll try and keep this to apps. Working in front-end design & development, I wouldn’t recommend these programs to everyone, but I can honestly say I’m a huge fan of them for my uses. Most all of the apps offer a freemium model, with a premium version well worth the cost.
 
