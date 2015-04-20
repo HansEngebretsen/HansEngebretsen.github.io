@@ -1,7 +1,7 @@
 <nav class="article-controls" id="article-navigation">
     <ul>
         <li class="all"><a href="../articles.html">all</a></li>
-        <li class="next"><a href="">next</a></li>
-        <li class="prev"><a href="">prev</a></li>
+        {% if page.next.url %} <li class="next"><a href="{{page.next.url}}">next</a></li>{% endif %}
+         {% if page.previous.url %}<li class="prev"><a href="{{page.previous.url}}">prev</a></li>{% endif %}
     </ul>
 </nav>

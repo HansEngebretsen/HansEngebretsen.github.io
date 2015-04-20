@@ -12,3 +12,36 @@
     margin-top: 10px;
   }
 }
+
+.sketch {
+  img {
+    display: block;
+    margin: 0 auto;
+    max-width: 300px;
+  }
+}
+
+%bullets {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  line-height: .9em;
+  text-indent: -1000px;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.positive-bullet {
+  @extend %bullets;
+  background-color: $green;
+}
+
+.negative-bullet {
+  @extend %bullets;
+  background-color: $red;
+}
+
+.neutral-bullet {
+  @extend %bullets;
+  background-color: $grey;
+}

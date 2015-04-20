@@ -1043,15 +1043,19 @@ ____________________________________________________________________
 .cover-image {
   width: 100%;
   min-height: 500px;
-  min-height: 50vh;
+  height: 50vh;
   background-image: url("../img-content/coffee-cups.jpg");
   background-size: cover;
   background-position: center center; }
+  @media (max-width: 750px) {
+    .cover-image {
+      min-height: inherit; } }
 
 .article h4 {
   color: #222;
   font-size: 1.5em;
-  margin-top: 2em;
+  margin-top: 3em;
+  text-align: center;
   margin-bottom: 0.5em; }
 
 .article hr {
@@ -1135,7 +1139,7 @@ ____________________________________________________________________
   margin-bottom: 20px;
   text-align: left; }
   .entry section {
-    padding: 10vh 0; }
+    padding: 2vh 0; }
   @media (max-width: 950px) {
     .entry {
       padding-right: 40px; } }
@@ -1220,6 +1224,29 @@ ____________________________________________________________________
   display: inline-block;
   vertical-align: top;
   margin-top: 10px; }
+
+.sketch img {
+  display: block;
+  margin: 0 auto;
+  max-width: 300px; }
+
+.positive-bullet, .negative-bullet, .neutral-bullet {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  line-height: 0.9em;
+  text-indent: -1000px;
+  margin-right: 10px;
+  border-radius: 50%; }
+
+.positive-bullet {
+  background-color: #b5bb48; }
+
+.negative-bullet {
+  background-color: #c96763; }
+
+.neutral-bullet {
+  background-color: #b9c8c6; }
 
 .container {
   width: 100%;

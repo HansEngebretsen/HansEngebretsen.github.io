@@ -8,7 +8,11 @@ ____________________________________________________________________
 .cover-image {
   width: 100%;
   min-height: 500px;
-  min-height: 50vh;
+  height: 50vh;
+  @include breakpoint(normal-screen) {
+    min-height: inherit;
+  }
+
   background-image: url("../img-content/coffee-cups.jpg");
   background-size: cover;
   background-position: center center;
@@ -17,7 +21,8 @@ ____________________________________________________________________
 .article h4 {
   color: $darker-grey;
   font-size: 1.5em;
-  margin-top: 2em;
+  margin-top: 3em;
+  text-align: center;
   margin-bottom: .5em;
 }
 
@@ -112,7 +117,7 @@ ____________________________________________________________________
   margin-bottom: 20px;
   text-align: left;
   section {
-    padding: 10vh 0;
+    padding: 2vh 0;
   }
   @include breakpoint(big-screen) {
     padding-right: 40px;

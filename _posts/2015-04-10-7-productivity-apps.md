@@ -2,7 +2,7 @@
 layout: post
 header: 7 productivity apps I couldn’t live without
 subtitle: Front-end Dev
-navColor: light
+navColor: white
 handle: productivity
 ---
 Bagcheck was a startup (founded by Luke W., and later acquired by Twitter) that was dedicated to the concept of sharing your passions, or what’s in your bag. It was a really neat concept and a definite loss for the internet when it was taken down a few years ago. I most enjoyed checking out people’s default OS X setups, or the programs they couldn’t go without.
@@ -18,19 +18,19 @@ In the same spirit of inspiration and discovery, I’m sharing the OS X producti
 </section>
 <section class="app">
 #### 1 Password
-<p class="first-paragraph">I’ve been a 1Password fan for a few years now, and it’s an irreplaceable part of my workflow. I tried out a few different services, including LastPass, native OS X keychain, google chrome keychain etc, but nothing touched the cross-platform/browser integration, that 1password offers.</p>![Image of wunderlist](/img-content/productivity/1password.png)
+<p class="first-paragraph">I’ve been a 1Password fan for a few years now, and it’s an irreplaceable part of my workflow. I tried out a few different services, including LastPass, native OS X keychain, google chrome keychain etc, but nothing touched the cross-platform/browser integration, that 1password offers.</p>![Image of 1Password](/img-content/productivity/1password.png)
 ***
 <span class="dark">Free - $50 </span>| Available from [AgileBits](https://agilebits.com/downloads) and on the App Store
 </section>
 <section class="app">
 #### Handbrake
-<p class="first-paragraph">A longtime fan of the simplicity of HandBrake, I’ve used it countless times for (predominately) legal reasons. There’s no simpler way - that I know of - to rip/convert a dvd to a video file, and optimize it. The simple options and two step process had me before I even knew what the term ‘transcode’ meant.</p> ![Image of wunderlist](/img-content/productivity/handbrake.png)
+<p class="first-paragraph">A longtime fan of the simplicity of HandBrake, I’ve used it countless times for (predominately) legal reasons. There’s no simpler way - that I know of - to rip/convert a dvd to a video file, and optimize it. The simple options and two step process had me before I even knew what the term ‘transcode’ meant.</p> ![Image of handbrake](/img-content/productivity/handbrake.png)
 ***
 <span class="dark">Free </span>| Available at [handbrake](https://handbrake.fr/)
 </section>
 <section class="app">
 #### Alfred 2
-<p class="first-paragraph">The ultimate launcher for OSX - and it's nothing like spotlight. 90% of Alfred’s usefulness comes from it’s ability to quickly automate and run tasks. For instance, we have an internal GitHub at Garmin - (we use [stash](https://www.atlassian.com/software/stash?utm_source=bitbucket&utm_medium=link&utm_campaign=homepage&utm_content=bitbucket_for_enterprises), by Atlasssian), and we have a workflow that searches all repos in our stash, and links you directly to the selected repo. Below are a few of my most used tasks:</p>![Image of wunderlist](/img-content/productivity/alfred.png)
+<p class="first-paragraph">The ultimate launcher for OSX - and it's nothing like spotlight. 90% of Alfred’s usefulness comes from it’s ability to quickly automate and run tasks. For instance, we have an internal GitHub at Garmin - (we use [stash](https://www.atlassian.com/software/stash?utm_source=bitbucket&utm_medium=link&utm_campaign=homepage&utm_content=bitbucket_for_enterprises), by Atlasssian), and we have a workflow that searches all repos in our stash, and links you directly to the selected repo. Below are a few of my most used tasks:</p>![Image of alfred](/img-content/productivity/alfred.png)
 
 * `ft` - Immediately opens a terminal window with the current directory at your last used finder window. Conversely, `tf` opens a finder at the current Terminal directory.
 [Check it out on Github](https://github.com/LeEnno/alfred-terminalfinder)
