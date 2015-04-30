@@ -1,0 +1,69 @@
+.proj-wrap {
+    display: block;
+    width: 100%;
+    min-height: 85vh;
+    padding-top: 47vh;
+    text-align: center;
+    text-align: left;
+    text-decoration: none;
+    color: white;
+    background-color: rgba(32,119,216,0.95);
+}
+.container.proj {
+    width: 900px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 40px;
+    transform: translateY(-50%);
+}
+.proj-title {
+    margin-top: 0;
+}
+.proj-pre-title {
+    color: white;
+}
+
+.projects {
+    .virb {
+        position: relative;
+        background-color: rgba(32,119,216,0.95);
+        background-color: rgba(32,119,216,0.95);
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.9;
+            opacity: 0.1;
+            background-image: url('http://virb.garmin.com/content/images/features-curtain.jpg');
+            background-size: cover;
+
+            backgrund-repeat: no-repeat;
+        }
+        // border-right: 50px solid #F3DF32;
+        img {
+            @include breakpoint(tablet) {
+                display: block;
+                position: relative;
+                width: 50%;
+                margin: 0 auto;
+            }
+            position: absolute;
+            top: -25%;
+            right: 0;
+            width: 25%;
+        }
+    }
+    .modco {
+        background-color: #f3df32;
+    }
+    .ihi {
+        background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#670c1e), color-stop(100%,#96112e)); /* Chrome,Safari4+ */
+        background: -webkit-linear-gradient(45deg, #670c1e 0%,#96112e 100%); /* Chrome10+,Safari5.1+ */
+        background:      -o-linear-gradient(45deg, #670c1e 0%,#96112e 100%); /* Opera 11.10+ */
+        background:     -ms-linear-gradient(45deg, #670c1e 0%,#96112e 100%); /* IE10+ */
+        background:         linear-gradient(45deg, #670c1e 0%,#96112e 100%); /* W3C */
+    }
+}

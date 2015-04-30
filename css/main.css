@@ -236,8 +236,9 @@ h2 {
     .project-body a:hover, .post a:hover {
       color: #F08656; }
 
-.project-body h1 {
-  font-size: 3em; }
+.project-body h1, .projects h1 {
+  font-size: 3em;
+  font-family: 'Merriweather', serif; }
 
 .dark {
   color: #222;
@@ -262,6 +263,23 @@ h2 {
       margin-top: 2.5em; } }
 .post .subtitle {
   margin-bottom: 3em; }
+
+.btn, .btn {
+  display: inline-block;
+  padding: 1em;
+  -webkit-transition: all 100ms ease-in-out, color 100ms;
+  transition: all 100ms ease-in-out, color 100ms;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.1); }
+  .white .btn, .white .btn {
+    color: white; }
+  .btn.current, .btn.current {
+    padding-left: 0.5em; }
+  .btn:hover, .btn:hover {
+    color: white;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5); }
 
 /*
 ____________________________________________________________________
@@ -358,6 +376,7 @@ ____________________________________________________________________
     margin: 1.75em 0 0 2em; }
 
 .global-navigation {
+  z-index: 100;
   overflow: hidden;
   height: 155px;
   margin-top: 0;
@@ -498,6 +517,10 @@ ____________________________________________________________________
 .social a:hover:before {
   left: 5px; }
 
+.overlay {
+  position: relative;
+  z-index: 100; }
+
 @media (max-width: 650px) {
   .overlay {
     position: fixed;
@@ -518,6 +541,86 @@ ____________________________________________________________________
       opacity: 1; }
   .menu-clicked .global-header.left-align {
     margin-top: 100px; } }
+
+.top-nav.global-header {
+  position: absolute;
+  top: 0;
+  left: -65px;
+  max-width: inherit;
+  max-width: 75%;
+  margin-top: 10px; }
+.top-nav .internal-nav-wrap {
+  width: 1000px;
+  white-space: nowrap; }
+.top-nav .image-wrap {
+  position: relative;
+  top: -20px;
+  float: left; }
+.top-nav .global-navigation {
+  width: auto;
+  padding-left: 10px; }
+.top-nav .menu {
+  float: left;
+  -webkit-transition: 200ms all;
+  transition: 200ms all; }
+.top-nav .social-clicked .menu.unfolded {
+  margin-top: 0;
+  margin-left: -260px; }
+.top-nav .menu li {
+  float: left;
+  margin-right: 20px;
+  -webkit-transition: margin-top 200ms 0.3s;
+  transition: margin-top 200ms 0.3s; }
+  .top-nav .menu li:nth-child(2) {
+    -webkit-transition-delay: 0.3s;
+    transition-delay: 0.3s;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s; }
+  .top-nav .menu li:nth-child(3) {
+    -webkit-transition-delay: 0.4s;
+    transition-delay: 0.4s;
+    -webkit-transition-duration: 0.5s;
+    transition-duration: 0.5s; }
+  .top-nav .menu li:nth-child(4) {
+    -webkit-transition-delay: 0.5s;
+    transition-delay: 0.5s;
+    -webkit-transition-duration: 0.6s;
+    transition-duration: 0.6s; }
+  .top-nav .menu li:hover {
+    background-color: rgba(255, 255, 255, 0.1); }
+  .top-nav .menu li a {
+    padding: 0.5em; }
+    .top-nav .menu li a:hover {
+      color: white;
+      border-color: white; }
+.top-nav .social-clicked .social {
+  margin-left: 0; }
+.top-nav .social-clicked .menu li:nth-child(4) {
+  background-color: rgba(255, 255, 255, 0.1); }
+  .top-nav .social-clicked .menu li:nth-child(4) a {
+    color: white; }
+.top-nav .social {
+  float: left;
+  width: auto;
+  margin-top: 0;
+  margin-left: 1000px; }
+  .top-nav .social li {
+    display: inline-block;
+    width: auto;
+    max-width: inherit;
+    height: 100%; }
+  .top-nav .social a {
+    max-width: inherit;
+    height: 2em;
+    line-height: 1.5em;
+    -webkit-transition: 200ms all;
+    transition: 200ms all; }
+    .top-nav .social a:before {
+      top: -2.75em;
+      left: auto; }
+    .top-nav .social a:hover {
+      padding-left: 0.4em;
+      line-height: 8em; }
 
 footer {
   bottom: 0;
@@ -1120,7 +1223,8 @@ ____________________________________________________________________
     background-color: #F08656; }
 
 .post {
-  padding: 0 40px; }
+  padding: 0 40px;
+  margin: 0 auto; }
   .post.new-month {
     clear: left; }
 
@@ -1247,6 +1351,69 @@ ____________________________________________________________________
 
 .neutral-bullet {
   background-color: #b9c8c6; }
+
+.proj-wrap {
+  display: block;
+  width: 100%;
+  min-height: 85vh;
+  padding-top: 47vh;
+  text-align: center;
+  text-align: left;
+  text-decoration: none;
+  color: white;
+  background-color: rgba(32, 119, 216, 0.95); }
+
+.container.proj {
+  width: 900px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%); }
+
+.proj-title {
+  margin-top: 0; }
+
+.proj-pre-title {
+  color: white; }
+
+.projects .virb {
+  position: relative;
+  background-color: rgba(32, 119, 216, 0.95);
+  background-color: rgba(32, 119, 216, 0.95); }
+  .projects .virb:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    opacity: 0.1;
+    background-image: url('http://virb.garmin.com/content/images/features-curtain.jpg');
+    background-size: cover;
+    backgrund-repeat: no-repeat; }
+  .projects .virb img {
+    position: absolute;
+    top: -25%;
+    right: 0;
+    width: 25%; }
+    @media (max-width: 650px) {
+      .projects .virb img {
+        display: block;
+        position: relative;
+        width: 50%;
+        margin: 0 auto; } }
+.projects .modco {
+  background-color: #f3df32; }
+.projects .ihi {
+  background: -webkit-gradient(linear, left bottom, right top, color-stop(0%, #670c1e), color-stop(100%, #96112e));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(45deg, #670c1e 0%, #96112e 100%);
+  /* IE10+ */
+  background: linear-gradient(45deg, #670c1e 0%, #96112e 100%);
+  /* W3C */ }
 
 .container {
   width: 100%;

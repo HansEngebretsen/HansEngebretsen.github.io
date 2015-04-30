@@ -1,0 +1,325 @@
+
+// Self portrait and main navigation container
+.global-header {
+  @include breakpoint(phone) {
+    margin-top: 10%;
+  }
+  z-index: 3;
+  max-width: 100px;
+  max-height: 200px;
+  margin: 0 auto;
+  margin-top: 120px;
+  // Functioning as a sidebar instead of page-centered
+  &.left-align {
+    float: left;
+    margin: 1.75em 0 0 2em;
+  }
+}
+
+// Outer-menu container around main page nav
+.global-navigation {
+  @include breakpoint(normal-screen) {
+    .about & {
+      margin-top: 70px;
+    }
+    .about & {
+      margin-top: 150px;
+    }
+  }
+  @include breakpoint(tablet) {
+    .about & {
+      margin-top: 100px;
+    }
+  }
+  @include breakpoint(phone) {
+    .about & {
+      margin-top: 210px;
+    }
+    .about & {
+      margin-top: 215px;
+    }
+  }
+  @include breakpoint(baby-phone) {
+    .about & {
+      display: block;
+      margin-top: 315px;
+      margin-bottom: 30px;
+    }
+  }
+  z-index: 100;
+  overflow: hidden;
+  height: 155px;
+  margin-top: 0;
+  transition: margin-top 200ms, height 200ms;
+  &.social-clicked {
+    height: 161px;
+  }
+  .about & {
+    height: 141px;
+    margin-top: 85px;
+  }
+}
+
+// Inner-menu container main page ul
+.menu {
+  margin: 0;
+  margin-top: -10px;
+  padding: 0;
+  transition: opacity 20ms 0.6s, margin-top 200ms;
+  // Preload blank
+  opacity: 0;
+  // Slide up to show the social section
+  .social-clicked &.unfolded {
+    // Additional margin for additional padding
+    @include breakpoint(phone) {
+      margin-top: -109px;
+    }
+    margin-top: -93px;
+  }
+  // After load
+  &.unfolded, .about & {
+    margin-top: 0;
+    opacity: 1;
+    //Slide down
+    li {
+      margin-top: 0;
+    }
+  }
+}
+
+// Main menu links
+.menu li {
+  display: block;
+  // Pre-margin for sliding down on load
+  margin-top: -31%;
+  list-style: none;
+  transition: margin-top 200ms 0.6s;
+  border-bottom: 1px solid rgba(white, 0.1);
+  &:hover {
+    transition-delay: 0;
+    background-color: rgba(rgb(100, 100, 100), 0.1);
+  }
+  // Staggar load transitions
+  &:nth-child(2) {
+    transition-delay: 0.7s;
+    transition-duration: 0.4s;
+  }
+  &:nth-child(4) {
+    transition-delay: 0.8s;
+    transition-duration: 0.5s;
+    // Keep third child active on social clicked
+    a:hover, .social-clicked & a {
+      padding-left: 0.5em;
+    }
+    .social-clicked & a {
+      color: $orange;
+    }
+  }
+  a {
+    // Extra padding for chunky thumbs on mobile
+    @include breakpoint(phone) {
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+    }
+    display: block;
+    padding: 0.3em;
+    padding-right: 0.5em;
+    padding-left: 0;
+    transition: all 100ms ease-in-out, color 100ms;
+    text-decoration: none;
+    color: $off-white;
+    .white & {
+      color: white;
+    }
+    &.current {
+      padding-left: 0.5em;
+      color: $orange;
+    }
+    &:hover {
+      padding-right: 0;
+      padding-left: 0.5em;
+    }
+  }
+}
+
+// Social Links
+.social {
+  display: inline-block;
+  width: 100%;
+  margin: 156px 0 0 0;
+  padding: 0;
+  transition: margin 0 0.2s;
+  border-top: 1px solid #242321;
+  border-bottom: 1px solid #4e4e4e;
+  background: #333333;
+  background: rgba(0, 0, 0, 0.2);
+  // Social Active State
+  .social-clicked & {
+    margin: 0 0 0 0;
+    transition-delay: 0;
+  }
+  li {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+  a {
+    display: block;
+    position: relative;
+    max-width: 31px;
+    padding: 0.4em;
+    font-size: 15px;
+    transition: padding-left 0.2s;
+    text-decoration: none;
+    color: white;
+    &:hover {
+      padding-left: 100%;
+    }
+  }
+}
+
+// Links before data:
+.social a:before {
+  content: attr(data);
+  display: block;
+  position: absolute;
+  left: -75px;
+  transition: left 0.2s;
+  color: white;
+  color: $grey;
+}
+
+// Slide on hover
+.social a:hover:before {
+  left: 5px;
+}
+
+// active
+.overlay {
+  position: relative;
+  z-index: 100;
+}
+
+// Main Navigation mobile --> inner page --> compressed
+@include breakpoint(tablet) {
+  .overlay {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.5s, visibility 0s 0.5s;
+    opacity: 0;
+    background-color: rgba($darker-grey, 0.93);
+    // Show overlay on click
+    .menu-clicked & {
+      visibility: visible;
+      transition: opacity 0.5s;
+      opacity: 1;
+    }
+  }
+  // Slide nav down on click
+  .menu-clicked .global-header.left-align {
+    margin-top: 100px;
+  }
+}
+
+
+// Overrides and layout for top nav
+.top-nav {
+  &.global-header {
+    position: absolute;
+    top: 0;
+    left: -65px;
+    max-width: inherit;
+    max-width: 75%;
+    margin-top: 10px;
+  }
+  .internal-nav-wrap {
+    width: 1000px;
+    white-space: nowrap;
+  }
+  .image-wrap {
+    position: relative;
+    top: -20px;
+    float: left;
+  }
+  .global-navigation {
+    width: auto;
+    padding-left: 10px;
+  }
+  .menu {
+    float: left;
+    transition: 200ms all;
+  }
+  .social-clicked .menu.unfolded {
+    margin-top: 0;
+    margin-left: -260px;
+  }
+  .menu li {
+    float: left;
+    margin-right: 20px;
+    transition: margin-top 200ms 0.3s;
+    // Staggar load transitions
+    &:nth-child(2) {
+      transition-delay: 0.3s;
+      transition-duration: 0.4s;
+    }
+    &:nth-child(3) {
+      transition-delay: 0.4s;
+      transition-duration: 0.5s;
+    }
+    &:nth-child(4) {
+      transition-delay: 0.5s;
+      transition-duration: 0.6s;
+    }
+    &:hover {
+      background-color: rgba(white, 0.1);
+    }
+    a {
+      padding: 0.5em;
+      &:hover {
+        color: white;
+        border-color: white;
+      }
+    }
+  }
+  .social-clicked .social {
+    margin-left: 0;
+  }
+  .social-clicked .menu li:nth-child(4) {
+    background-color: rgba(white, 0.1);
+    a {
+      color: white;
+    }
+  }
+  .social {
+    float: left;
+    width: auto;
+    margin-top: 0;
+    margin-left: 1000px;
+    li {
+      display: inline-block;
+      width: auto;
+      max-width: inherit;
+      height: 100%;
+    }
+    a {
+      max-width: inherit;
+      height: 2em;
+      line-height: 1.5em;
+      transition: 200ms all;
+      &:before {
+        top: -2.75em;
+        left: auto;
+      }
+      &:hover {
+        padding-left: 0.4em;
+        line-height: 8em;
+      }
+    }
+  }
+}

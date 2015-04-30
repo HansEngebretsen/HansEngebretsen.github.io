@@ -1,0 +1,24 @@
+.btn, .btn {
+    display: inline-block;
+    padding: 1em;
+    transition: all 100ms ease-in-out, color 100ms;
+    text-decoration: none;
+    color: rgba(white,.6);
+     border-bottom: 1px solid rgba(white, 0.1);
+     background-color: rgba(white, 0.1);
+
+    // Extra padding for chunky thumbs on mobile
+
+    .white & {
+      color: white;
+    }
+    &.current {
+      padding-left: 0.5em;
+    }
+    &:hover {
+      // padding-right: 1.5em;
+      // padding-left: 1.5em;
+      color:white;
+     border-bottom: 1px solid rgba(white, 0.5);
+    }
+  }
