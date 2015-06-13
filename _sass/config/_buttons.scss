@@ -1,3 +1,27 @@
+.button, a.button {
+  display: inline-block;
+  padding: 0.5em 1em;
+  transition: background 200ms;
+  text-decoration: none;
+  color: $half-white;
+  border: 0.04em solid $half-white;
+  border-radius: 0.4em;
+  background: transparent;
+  &:hover {
+    color: $dark-light-grey;
+    background: $half-white;
+  }
+  &.back {
+    text-indent: -9999px;
+    &:after {
+      content: '<';
+      position: absolute;
+      font-size: 1.23em;
+      text-indent: 0;
+    }
+  }
+}
+
 .btn, .btn {
     display: inline-block;
     padding: 1em;

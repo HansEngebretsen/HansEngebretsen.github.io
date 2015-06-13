@@ -15,6 +15,8 @@
     margin: 0 auto;
     padding: 0 40px;
     transform: translateY(-50%);
+    position:relative;
+    z-index:2;
 }
 .proj-title {
     margin-top: 0;
@@ -23,24 +25,17 @@
     color: white;
 }
 
-.projects {
-    .virb {
+.projects, .project {
+    img {
+        max-width:100%;
+    }
+    .Garmin {
         position: relative;
+        background-color: rgb(32,119,216);
         background-color: rgba(32,119,216,0.95);
-        background-color: rgba(32,119,216,0.95);
-        &:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0.9;
-            opacity: 0.1;
-            background-image: url('http://virb.garmin.com/content/images/features-curtain.jpg');
-            background-size: cover;
-
-            backgrund-repeat: no-repeat;
+        @extend %curtain-img;
+        &:after {
+            background-image: url('../img/projects/virb/features-curtain.jpg');
         }
         // border-right: 50px solid #F3DF32;
         img {
@@ -65,5 +60,11 @@
         background:      -o-linear-gradient(45deg, #670c1e 0%,#96112e 100%); /* Opera 11.10+ */
         background:     -ms-linear-gradient(45deg, #670c1e 0%,#96112e 100%); /* IE10+ */
         background:         linear-gradient(45deg, #670c1e 0%,#96112e 100%); /* W3C */
+    }
+}
+
+.project {
+    .proj-wrap {
+        text-align: center;
     }
 }

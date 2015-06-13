@@ -21,6 +21,9 @@
   @if $point == tablet {
     @media (max-width: 650px) { @content; }
   }
+    @else if $point == min-tablet {
+    @media (min-width: 650px) { @content; }
+  }
   @else if $point == not-mobile {
     @media (min-width: 450px)  { @content; }
   }
@@ -99,6 +102,22 @@ $black: rgb(10,10,10);
   }
 }
 
+%curtain-img {
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display:block;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    opacity: 0.1;
+    background-size: cover;
+
+    background-repeat: no-repeat;
+  }
+}
 //Animations
 @keyframes bouncey-bounce {
   0% {

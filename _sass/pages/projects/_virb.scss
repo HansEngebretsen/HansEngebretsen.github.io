@@ -1,0 +1,98 @@
+// VIRB colors
+$virb-blue: #2077D8;
+$yellow: #F3DF32;
+$red: #EF2028;
+$purple: #6847C6;
+
+//theme colors
+$green: #5ED22E;
+$orange: #EF521D;
+$aqua: #3DE5D2;
+.virb h1 {
+    color:rgba(32, 119, 216, 0.95);
+}
+.project.virb .intro{
+    @extend %curtain-img;
+    position:relative;
+    padding-bottom:0;
+    background-color: rgb(32,119,216);
+    background: linear-gradient(to bottom, rgba(32,119,216,0.95) 0%,rgba(32,119,208,0.95) 81%,rgba(32,119,206,1) 100%); /* W3C */
+    height: 100%;
+    &:after {
+        background-image: url('../img/projects/virb/features-curtain-x.jpg');
+    }
+    .description {
+        margin-bottom:20px;
+    }
+    img {
+        width:300px;
+        margin:0 auto;
+        margin-bottom:100px;
+    }
+}
+
+.project {
+    .Garmin img {
+        bottom:0;
+        top:auto;
+        right:auto;
+        width:200px;
+    }
+    &:before {
+        background-image:url('../img/projects/virb/curtain-virb-edit.jpg');
+    }
+}
+
+.virb {
+    .intro h1 {
+        color:white;
+    }
+
+    section.blue {
+        background-color:transparent;
+        h1 {
+            color:white;
+        }
+        h4 {
+            color:white;
+        }
+        p, span {
+            color:white;
+            opacity: .8;
+        }
+    }
+    section.blue2 {
+        background-color: #1468c5;
+    }
+    .blue {
+        color:$virb-blue;
+    }
+    .yellow {
+        color:$yellow;
+    }
+    .red {
+        color:$red;
+    }
+    .purple {
+        color:$purple;
+    }
+    .green {
+        color:$green;
+    }
+    .aqua {
+        color:$aqua;
+    }
+}
+.blue {
+    a {
+        color:white;
+        opacity:1;
+        &:hover {
+            color:white;
+            opacity:1;
+        }
+    }
+}
+.device-wraps {
+    margin-top:80px;
+}

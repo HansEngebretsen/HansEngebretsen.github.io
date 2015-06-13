@@ -229,6 +229,7 @@
 
 
 // Overrides and layout for top nav
+@include breakpoint(min-tablet){
 .top-nav {
   &.global-header {
     position: absolute;
@@ -322,4 +323,5 @@
       }
     }
   }
+}
 }

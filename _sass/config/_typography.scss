@@ -1,4 +1,4 @@
-html {
+artichtml {
   font-size: 18px;
 }
 
@@ -6,7 +6,11 @@ h1, h2 {
   margin: 0.4em 0;
   font-weight: 200;
 }
-
+h1, h2, h3, h4 {
+  &.blue {
+    color: $blue;
+  }
+}
 h1 {
   font-size: 1em;
 }
@@ -15,8 +19,16 @@ h2 {
   font-size: 0.75em;
   color: $dark-grey;
 }
+h4 {
+  font-family:'Lekton', sans-serif;
+  text-transform:uppercase;
+  letter-spacing:.05em;
+  @include breakpoint(tablet){
+    font-size:1.5em;
+  }
+}
 
-.articles {
+.articles, .project {
   @include breakpoint(min-normal-screen) {
     p {
       font-size: 0.75em;
@@ -24,7 +36,7 @@ h2 {
   }
 }
 
-.project-body, .post {
+.project-body, .post, .project {
   max-width: 1256px;
   font-family: 'Merriweather', serif;
   font-size: 0.75em;
@@ -66,7 +78,7 @@ h2 {
   }
 }
 
-.project-body, .projects {
+.project-body, .projects, .project {
   h1 {
     font-size: 3em;
     font-family: 'Merriweather', serif;

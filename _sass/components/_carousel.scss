@@ -1,0 +1,32 @@
+.carousel-full {
+    overflow:hidden;
+    min-height:100vh;
+}
+.slide {
+    width:50%;
+    position:absolute;
+    right:0;
+    top:0;
+    transition:200ms right;
+    &.active {
+        right:50%;
+    }
+}
+.carousel-slide-wrap {
+    width:200%;
+    padding-top:80%;
+    position:relative;
+}
+.carousel-slide-wrap.long {
+    padding-top:120%;
+}
+.slide-nav {
+    a.slide-toggle {
+        opacity:.3;
+        transition: 150ms opacity;
+        &.active  {
+            opacity:1;
+        }
+    }
+
+}

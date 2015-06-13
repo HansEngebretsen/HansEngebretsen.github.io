@@ -7,16 +7,23 @@ navColor: white
 color-theme: dark
 navOrientation: top-nav
 ---
-<section class="proj-wrap virb">
-  <div class="proj container">
-    <div class="projcontent-wrap">
-      <img src="{{ site.baseurl }}/img/projects/virb-x-home.png" alt="">
-      <h2 class="proj-pre-title">Garmin</h2>
-      <h1 class="proj-title">Virb Action Cam</h1>
-      <a href="#" class="btn">See the Virb Action Cam Project</a>
-    </div>
-  </div>
-</section>
+{% for page in site.pages %}
+  {% if page.type == 'project' %}
+    <section class="proj-wrap {{ page.client }}">
+      <div class="proj container">
+        <div class="projcontent-wrap">
+          {% if page.photo %}
+            <img src="{{ site.baseurl }}/img/projects/{{ page.photo }}" alt="{{ page.title }}">
+          {% endif %}
+          <h2 class="proj-pre-title">{{ page.client }}</h2>
+          <h1 class="proj-title">{{ page.title }}</h1>
+          <a href="{{ site.baseurl }}{{ page.url }}" class="btn">&#x2713; Check it out</a>
+        </div>
+      </div>
+    </section>
+  {% endif %}
+{% endfor %}
+
 <section class="proj-wrap modco">
   <div class="proj container">
     <div class="projcontent-wrap">

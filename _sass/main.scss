@@ -10,11 +10,9 @@ http://www.youtube.com/watch?v=OZBWfyYtYQY
 
 */
 
-@import "mixins";
-@import "icon-font";
-@import "animations";
-@import "typography";
-@import "buttons";
+@import "vendor/global";
+@import "config/global";
+@import "components/global";
 
 /*
 ____________________________________________________________________
@@ -75,30 +73,6 @@ body {
   }
 }
 
-.button, a.button {
-  display: inline-block;
-  padding: 0.5em 1em;
-  transition: background 200ms;
-  text-decoration: none;
-  color: $half-white;
-  border: 0.04em solid $half-white;
-  border-radius: 0.4em;
-  background: transparent;
-  &:hover {
-    color: $dark-light-grey;
-    background: $half-white;
-  }
-  &.back {
-    text-indent: -9999px;
-    &:after {
-      content: '<';
-      position: absolute;
-      font-size: 1.23em;
-      text-indent: 0;
-    }
-  }
-}
-
 .strikethrough {
   text-decoration: line-through;
 }
@@ -112,7 +86,6 @@ ____________________________________________________________________
         - Footer
 ____________________________________________________________________
 */
-@import "navigation";
 
 // Footer
 footer {
@@ -266,13 +239,7 @@ html.theme-light {
   }
 }
 
-@import "work";
-@import "articles";
-@import "posts";
-@import "projects";
-
 .container {
-  width: 100%;
   padding-right: 10px;
   padding-left: 2.5em;
   transition: all 400ms;
@@ -288,3 +255,4 @@ html.theme-light {
     width: 100%;
   }
 }
+@import "pages/global";

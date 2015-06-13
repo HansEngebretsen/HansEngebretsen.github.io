@@ -1,6 +1,10 @@
 {
   "name": "grunt-test-project",
   "version": "0.1.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/username/repository.git"
+  },
   "devDependencies": {
     "grunt": "~0.4.4",
     "grunt-autoprefixer": "~0.6.4",

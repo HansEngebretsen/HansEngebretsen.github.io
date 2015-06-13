@@ -1,0 +1,172 @@
+body {
+    position:relative;
+} //may need to solve
+.project {
+    background-color:pink;
+    max-width:inherit;
+    .circle-scroll-crop {
+        width:400px;
+        height:400px;
+        @include breakpoint(tablet){
+            width:300px;
+            height:300px;
+        }
+        max-height:100%;
+        max-width:100%;
+        overflow:auto;
+        margin:0 auto;
+        margin-top:100px;
+        @include breakpoint(tablet){
+           margin-top:40px;
+        }
+        margin-bottom:20px;
+        border: 3px solid rgba(0,0,0,.1);
+        border-radius:100%;
+        img {
+            max-width:200%;
+        }
+    }
+    .intro {
+        padding:200px 0;
+        @include breakpoint(tablet){
+            padding:100px 0;
+        }
+        text-align:center;
+        color:white;
+        min-height:75vh;
+    }
+    .pre-title {
+        display:inline-block;
+        text-transform:uppercase;
+        padding:3px 20px;
+        font-weight:100;
+        font-size:1em;
+        margin:0;
+        border-bottom:2px solid $orange;
+    }
+    .super-title {
+        text-shadow: 1px 1px rgba(black, .2);
+        font-weight:700;
+        font-size:4em;
+        margin-bottom:0;
+        line-height:1;
+    }
+    .description {
+        padding:0;
+        width:600px;
+        opacity:.9;
+        color:white;
+        font-weight:100;
+        max-width:100%;
+        margin-bottom:100px;
+        position:relative;
+    }
+    .project-info {
+        text-align:left;
+        color:white;
+        background-color:rgba(black,.1);
+        padding-top:40px;
+        padding-bottom:40px;
+        p {
+            opacity: .8;
+        }
+    }
+    section {
+        background-color:white;
+        padding:140px 0;
+        @include breakpoint(tablet){
+            padding:70px 0;
+        }
+        .col-sm-12 {
+            padding-bottom:50px;
+            margin-top:75px;
+            h4, p {
+                text-align:left;
+            }
+        }
+        row {
+            margin-bottom:40px;
+        }
+    }
+    p {
+        font-size: 1em;
+    }
+}
+.macbook-frame {
+    width:1000px;
+    display:block;
+    height:705px;
+    position:relative;
+    background-image:url('../img/macbook-frame.png');
+    background-size:100%;
+    background-repeat:no-repeat;
+    padding-top:39px;
+    padding-left:124px;
+    margin:0 auto;
+    margin-left:-70%;
+    z-index:1;
+    @include breakpoint(normal-screen){
+        margin-left:-345px;
+    }
+    @include breakpoint(normal-screen){
+        margin-left:0;
+    }
+}
+.macbook-screen-container {
+    width:754px;
+    max-height:475px;
+    overflow-x:hidden;
+    overflow-y:scroll;
+    .macbook-screen, .blue & .macbook-screen {
+        height:2314px;
+        width:100%;
+        display:block;
+        opacity:1;
+        background-image: url('../img/projects/virb/macbook-screen-bg.jpg');
+        background-size: 100%;
+        background-repeat:no-repeat;
+    }
+}
+.iphone-frame {
+    width:400px;
+    z-index:2;
+    margin-top:40px;
+    display:block;
+    height:705px;
+    position:relative;
+    background-image:url('../img/iphone6-frame.png');
+    background-size:100%;
+    background-repeat:no-repeat;
+    padding-top:118px;
+    padding-left:55px;
+    @include breakpoint(normal-screen){
+        margin:0 auto;
+    }
+    // &:after {
+    //     content:'';
+    //     position:absolute;
+    //     width:100%;
+    //     height:100%;
+    //     z-index:5;
+    // display:block;
+    // top:0;
+    // left:0;
+    // }
+    .iphone-screen-container {
+        width:290px;
+        max-height:474px;
+        overflow-x:hidden;
+        overflow-y:scroll;
+        .iphone-screen {
+            height:2731px;
+            width:268px;
+            display:block;
+            opacity:1;
+            background-image: url('../img/projects/virb/edit-screenshot.jpg');
+            background-size: 100%;
+            background-repeat:no-repeat;
+        }
+    }
+}
+
+
