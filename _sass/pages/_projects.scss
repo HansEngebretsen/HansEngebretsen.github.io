@@ -31,12 +31,19 @@
     }
     .Garmin {
         position: relative;
-        background-color: rgb(32,119,216);
-        background-color: rgba(32,119,216,0.95);
         @extend %curtain-img;
         &:after {
             background-image: url('../img/projects/virb/features-curtain.jpg');
         }
+        // .btn {
+        //     color: rgba(100,100,100, .9);
+        //     border-color:rgba(100,100,100,.9);
+        //     background-color:rgba(black,.1);
+        //     &:hover {
+        //         background-color:rgba(black, .15);
+        //         color:black;
+        //     }
+        // }
         // border-right: 50px solid #F3DF32;
         img {
             @include breakpoint(tablet) {
@@ -51,8 +58,18 @@
             width: 25%;
         }
     }
-    .modco {
-        background-color: #f3df32;
+    .JournalBot {
+        background-color:#EA592C;
+    }
+    .Modco {
+        position:relative;
+        background-color: $grey;
+        &:after {
+            display:block;
+            width:100%;
+            content:'';
+            background-image: url('../img/projects/modco/modco-bg.jpg');
+        }
     }
     .ihi {
         background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#670c1e), color-stop(100%,#96112e)); /* Chrome,Safari4+ */

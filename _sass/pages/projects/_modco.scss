@@ -1,0 +1,98 @@
+// Modco colors
+$virb-blue: #2077D8;
+$yellow: #F3DF32;
+$red: #EF2028;
+$purple: #6847C6;
+
+//theme colors
+$green: #5ED22E;
+$orange: #EF521D;
+$aqua: #3DE5D2;
+.projects .modco:after, .projects .Modco:after, .project.modco .intro:after {
+    background-image: url('../img/projects/modco/modco-bg.jpg');
+    opacity:.04;
+}
+.projects .Modco {
+    @extend %curtain-img;
+ background-color:$grey;
+}
+.project.Modco .intro, .project.modco .intro {
+    @extend %curtain-img;
+ background-color:$grey;
+    position:relative;
+    padding-bottom:0;
+    height: 100%;
+    .description {
+        margin-bottom:20px;
+    }
+      .intro-wrap { padding-bottom:100px;}
+}
+
+.project {
+    .modco img {
+        bottom:0;
+        top:auto;
+        right:auto;
+        width:200px;
+    }
+    &:before {
+        background-image:url('../img/projects/virb/curtain-virb-edit.jpg');
+    }
+    &.modco .pre-title {
+        border-color: $yellow;
+    }
+}
+
+.modco {
+    .intro h1 {
+        color:white;
+    }
+
+    section.blue {
+        background-color:transparent;
+        h1 {
+            color:white;
+        }
+        h4 {
+            color:white;
+        }
+        p, span {
+            color:white;
+            opacity: .8;
+        }
+    }
+    section.blue2 {
+        background-color: #1468c5;
+    }
+    .blue {
+        color:$virb-blue;
+    }
+    .yellow {
+        color:$yellow;
+    }
+    .red {
+        color:$red;
+    }
+    .purple {
+        color:$purple;
+    }
+    .green {
+        color:$green;
+    }
+    .aqua {
+        color:$aqua;
+    }
+}
+.blue {
+    a {
+        color:white;
+        opacity:1;
+        &:hover {
+            color:white;
+            opacity:1;
+        }
+    }
+}
+.device-wraps {
+    margin-top:80px;
+}

@@ -1,32 +1,25 @@
 ---
-layout: parallax
-title: VIRB Action Camera
-client: Garmin
+layout: default
+title: RSS Robot
+client: JournalBot
 navColor: dark
 nav: left-align
 navOrientation: top-nav
 navColor: white
-photo: virb/virb-x-home.png
-handle: virb
+handle: journal-bot
 type: project
-maincolor: 2077D8
-secondaryColor: f3df32
+maincolor: EA592C
+secondaryColor: d4d4d4
 ---
-<div class="project virb" style="background-color: #{{ page.maincolor }}">
-{% include nav.html %}
+<div class="project modco" style="background-color: #{{ page.maincolor }}">
   <section class="intro">
-    <video style="width: 1790px; height: 1007px; margin-left: -98px; margin-top: 0px;" id="videobg" class="fill" width="1580" height="898" preload="auto" autoplay="true" loop="loop" muted="muted" volume="0" poster="../img/projects/virb/features-curtain-x.jpg">
-      <source src="../img/projects/virb/virbloop2.mp4" type="video/mp4">
-      Sorry, your browser does not support HTML5 video.
-    </video>
     <div class="intro-wrap">
       <h4 class="pre-title" style="border-color: #{{ page.secondaryColor}}">{{page.client}}</h1>
       <h1 class="super-title">{{ page.title }}</h1>
-      <p class="description container">Focused on the release of Garmin's next iteration of it's video camera, built for the professional enthusiast</p>
+      <p class="description container">Modco is a b2b company focused on one single product: a pipeline closure called the Figure 500</p>
       <div class="row">
-        <div class="col-xs-12"><a href="http://virb.garmin.com" about="_blank" class="btn">View the Site &#10154;</a></div>
+        <div class="col-xs-12"><a href="http://modcoind.com" about="_blank" class="btn">View the Site &#10154;</a></div>
       </div>
-      <img src="{{ site.baseurl }}/img/projects/{{ page.photo }}" alt="{{ page.title }}">
     </div>
   </section>
   <section class="project-info">
@@ -37,11 +30,11 @@ secondaryColor: f3df32
       </div>
       <div class="col-xs-6">
         <h4>Role</h4>
-        <p>Working with the awesome web team at Garmin composed of UX researchers, IAs , copywriters, and developers over the course of 5 months, I served as lead designer, front-end developer and content integration.</p>
+        <p>Working together with Jason Yang (who handled project management), I served as main consultant as well as designer and developer on the entire site.</p>
       </div>
     </div>
   </section>
-  <section>
+  <section class="blue">
     <div class="container">
       <div class="col-xs-12">
         <h4 class="pre-title">Pre-Design</h4>
@@ -49,65 +42,42 @@ secondaryColor: f3df32
       </div>
       <div class="row">
         <div class="col-xs-12 col-sm-6">
-          <h4>User Experience</h4>
-          <p>Over 3 rounds of User Tests, 3 prototypes, and countless revisions we worked to determine content heirarchy that helped users seamlessly navigate throught the site</p>
-          <img src="../img/projects/virb/prototypes-white.jpg" alt="">
+          <h4>Style Guide</h4>
+          <p>Depicting the new standards of typography, color icons, and style</p>
+          <img src="../img/projects/modco/modco-style.jpg" alt="">
         </div>
         <div class="col-xs-12 col-sm-6">
           <h4>Site Map</h4>
           <p>Fitting Activities, products, shopping, grid view, home pages, all into a structure that made sense</p>
-          <div class="circle-scroll-crop"><img src="../img/projects/virb/site-map.png" alt="VIRB Site Map"></div>
-          <span>Download <a href="../download/projects/virb/virb-site-map.pdf" about="_blank">The Source</a></span>
+          <div class="circle-scroll-crop"><img src="../img/projects/modco/modco-sitemap.jpg" alt="Modco Site Map"></div>
+          <span>Download <a href="../download/projects/modco/modco-site-map.pdf" about="_blank">The Source</a></span>
         </div>
       </div>
     </div>
   </section>
-  <section class="grey">
-    <div class="header-content">
-      <h4 class="pre-title">Pre-Design</h4>
-      <h1>Mood Boards</h1>
-    </div>
-    <div class="clearfix moodboards">
-      <p class="container">Below is a small sampling of the collection of inspirational materials that I used to help focused on overall feelings of being "actively technical", "immersive", and "expansive"</p>
-      <div class="moodboard-wrap">
-        <img src="../img/projects/virb/moodboard-layer1.png" alt="moodboards for Garmin VIRB">
-        <img src="../img/projects/virb/moodboard-layer2.png" alt="moodboards for Garmin VIRB">
-        <img src="../img/projects/virb/moodboard-layer3.png" alt="moodboards for Garmin VIRB">
-      </div>
-    </section>
-    <section class="plane-override">
-      <div class="container">
-        <div class="col-xs-12 col-sm-6 vertically-centered">
-          <h1>Color Color Color!</h1>
-          <p>Color has never been "my jam" as a designer, and I'm not nearly as good at utilizing it as <a href="http://www.invisibleelement.com/" about="_blank">other designers</a> (in fact, I consider it one of my weaker points). But I was challenged to use a pallete as extreme, youthful, vibrant and exciting as the people the VIRB serves, and it turned out to be a blast</p>
-        </div><div class="col-xs-12 col-sm-6 vertically-centered">
-          <img src="../img/projects/virb/colors.svg" alt="Colors for Garmin VIRB">
-        </div>
-      </div>
-    </section>
+  <div class="carousel-full blue">
     <section class="blue blue2">
       <div class="header-content">
-        <h4 class="pre-title">Pre-Design</h4>
-        <h1>Style Boards</h1>
+        <h4 class="pre-title">Design Boards</h4>
+        <h1 class="slide-nav"><a href="#slide2" class="secondary slide-toggle active">Style</a> | <a href="#slide1" class="secondary slide-toggle">Mood</a></h1>
       </div>
-      <div class="styleboards">
-        <p class="container">Because the scope of this project was so big, we wanted to get approval at the early stages of design. I came up with 3 styleboards that uniquely expressed the creative and speak to the specific mission and campaign of VIRB</p>
-        <div class="styleboard-wrap">
-          <div class="styleboard-container">
-            <img src="../img/projects/virb/virb-styleboard-1.jpg" alt="Styleboards for Garmin VIRB">
-            <img src="../img/projects/virb/virb-styleboard-2.jpg" alt="Styleboards for Garmin VIRB">
-            <img src="../img/projects/virb/virb-styleboard-3.jpg" alt="Styleboards for Garmin VIRB">
-          </div>
+      <div class="carousel-slide-wrap clearfix">
+        <div class="slide " id="slide1">
+          <p class="container">Below is a small sampling of the collection of inspirational materials that I used to help focused on overall feelings of being "actively technical", "immersive", and "expansive"</p>
+          <img src="../img/projects/virb/moodboards.jpg" alt="Moodboards for Garmin VIRB">
         </div>
-      </div>
-    </section>
-    <section>
+        <div class="slide active" id="slide2">
+          <p class="container">Because the scope of this project was so big, we wanted to get approval at the early stages of design. I came up with 3 styleboards that uniquely expressed the creative and speak to the specific mission and campaign of VIRB</p>
+          <img src="../img/projects/virb/styleboard.jpg" alt="Styleboards for Garmin VIRB">
+        </div>
+      </section>
+    </div>
+    <section class="">
       <div class="container">
-        <div class="col-xs-12 col-sm-6 vertically-centered">
-          <h1>Color Color Color!</h1>
-          <p>Color has never been "my jam" as a designer, and I'm not nearly as good at utilizing it as <a href="http://www.invisibleelement.com/" about="_blank">other designers</a> (in fact, I consider it one of my weaker points). But I was challenged to use a pallete as extreme, youthful, vibrant and exciting as the people the VIRB serves, and it turned out to be a blast</p>
-        </div><div class="col-xs-12 col-sm-6 vertically-centered">
-          <img src="../img/projects/virb/colors.svg" alt="Colors for Garmin VIRB">
+        <div class="col-xs-12">
+          <h1>Slightly unique buttons</h1>
+          <p>It's <strike>hard</strike> nearly impossible to that achieve a sense of uniqueness (or at the very least don't seem part of an effortless boostrap library). I wanted buttons reminiscant of the strong materials used by Modco, that serve to further promote a look and feel of stability. Looking to serve as a foundation for a larger look and feel that seeks to combine a feeling of stability and strength with a simple, modern, relevant, and flat interface.   </p>
+          div.btn-modco<img src="../img/projects/virb/colors.svg" alt="Colors for Garmin VIRB">
         </div>
       </div>
     </section>
@@ -150,14 +120,15 @@ secondaryColor: f3df32
         </div>
       </section>
     </div>
-    <section>
+
+    <section class="blue">
       <div class="container">
         <div class="col-xs-12">
           <h4 class="pre-title">Development</h4>
           <h1>Mobile First, Responsive Second</h1>
           <p>We set out to design the site not just with mobile in mind, but mobile first - Meaning every decision made from the amount of CSS styles we loaded, to the sizes of images were minimalist by default. Things don't always work out as </p>
           <div class="device-wraps">
-            <div class="col-xs-12 col-sm-6">
+            <div class="col-xs-12 col-sm-6 ">
               <div class="iphone-frame">
                 <div class="iphone-screen-container">
                   <span class="iphone-screen"></span>
@@ -199,6 +170,4 @@ secondaryColor: f3df32
           </div>
         </div>
       </section>
-
-      {% include footer.html %}
     </div>

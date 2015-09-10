@@ -23,7 +23,7 @@ body {
         border: 3px solid rgba(0,0,0,.1);
         border-radius:100%;
         img {
-            max-width:200%;
+            // max-width:200%;
         }
     }
     .intro {
@@ -34,6 +34,10 @@ body {
         text-align:center;
         color:white;
         min-height:75vh;
+    }
+    .intro-wrap {
+        z-index:2;
+        position:relative;
     }
     .pre-title {
         display:inline-block;
@@ -88,9 +92,6 @@ body {
             margin-bottom:40px;
         }
     }
-    p {
-        font-size: 1em;
-    }
 }
 .macbook-frame {
     width:1000px;
@@ -106,10 +107,10 @@ body {
     margin-left:-70%;
     z-index:1;
     @include breakpoint(normal-screen){
-        margin-left:-345px;
-    }
-    @include breakpoint(normal-screen){
         margin-left:0;
+    }
+    @include breakpoint(phone){
+        margin-left:-100px;
     }
 }
 .macbook-screen-container {
@@ -129,7 +130,8 @@ body {
 }
 .iphone-frame {
     width:400px;
-    z-index:2;
+    z-index:5;
+    transform:translateZ(0);
     margin-top:40px;
     display:block;
     height:705px;

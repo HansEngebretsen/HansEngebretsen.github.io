@@ -66,7 +66,7 @@ module.exports = function(grunt) {
 
        watch: {
 
-                  options: { livereload: true },
+            options: { livereload: true },
             scripts: {
               files: ['js/*.js'],
               tasks: ['concat', 'uglify'],
@@ -75,12 +75,12 @@ module.exports = function(grunt) {
               }
             },
             css: {
-              files: ['_sass/**/*.scss'],
+              files: ['_sass/**/**/**/*.scss'],
               tasks: ['sass', 'autoprefixer'],
               options: {
                 spawn: false,
               }
-            },
+            }
             // images: {
             //   files: ['img/**/*.{png,jpg,gif}', 'img/*.{png,jpg,gif}'],
             //   tasks: ['imagemin'],

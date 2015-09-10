@@ -4,6 +4,8 @@
   @include breakpoint(phone) {
     margin-top: 10%;
   }
+  @extend %sans-serif;
+  font-size:14px;
   z-index: 3;
   max-width: 100px;
   max-height: 200px;
