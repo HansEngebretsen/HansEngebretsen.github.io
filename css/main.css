@@ -1474,6 +1474,10 @@ h4 {
 .proect p {
   font-size: 1.25em; }
 
+@media (max-width: 650px) {
+  .project p, .project h4 {
+    text-align: left; } }
+
 .project-body, .post, .project {
   max-width: 1256px;
   font-size: 0.75em;
@@ -2934,13 +2938,14 @@ body {
       .project .circle-scroll-crop {
         margin-top: 40px; } }
   .project .intro {
-    padding: 200px 0;
+    padding: 150px 0;
+    padding-top: 125px;
     text-align: center;
     color: white;
     min-height: 75vh; }
     @media (max-width: 650px) {
       .project .intro {
-        padding: 100px 0; } }
+        padding: 75px 0; } }
   .project .intro-wrap {
     z-index: 2;
     position: relative; }
@@ -2959,6 +2964,8 @@ body {
     margin-bottom: 0;
     line-height: 1; }
   .project .description {
+    margin: 0 auto;
+    margin-top: 1em;
     padding: 0;
     width: 600px;
     opacity: .9;
@@ -3097,7 +3104,11 @@ body {
   background: -webkit-linear-gradient(top, rgba(32, 119, 216, 0.95) 0%, rgba(32, 119, 208, 0.95) 81%, #2077ce 100%);
   background: linear-gradient(to bottom, rgba(32, 119, 216, 0.95) 0%, rgba(32, 119, 208, 0.95) 81%, #2077ce 100%);
   /* W3C */
-  height: 100%; }
+  min-height: 100%; }
+  @media (max-width: 650px) {
+    .virb .intro {
+      height: auto;
+      min-height: inherit; } }
   .virb .intro h1 {
     color: white; }
   .virb .intro #videobg {
@@ -3113,7 +3124,8 @@ body {
         left: 50%;
         -webkit-transform: translateX(-50%);
         -ms-transform: translateX(-50%);
-        transform: translateX(-50%); } }
+        transform: translateX(-50%);
+        display: none; } }
   .virb .intro .description {
     margin-bottom: 20px; }
   .virb .intro img {
@@ -3124,6 +3136,10 @@ body {
     transform: translateZ(0);
     margin: 0 auto;
     margin-bottom: 100px; }
+    @media (max-width: 650px) {
+      .virb .intro img {
+        width: 200px;
+        margin-bottom: 50px; } }
 
 .virb .moodboard-wrap {
   position: relative;

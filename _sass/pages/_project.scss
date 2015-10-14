@@ -27,9 +27,10 @@ body {
         }
     }
     .intro {
-        padding:200px 0;
+        padding:150px 0;
+        padding-top: 125px;
         @include breakpoint(tablet){
-            padding:100px 0;
+            padding:75px 0;
         }
         text-align:center;
         color:white;
@@ -56,6 +57,8 @@ body {
         line-height:1;
     }
     .description {
+        margin: 0 auto;
+        margin-top:1em;
         padding:0;
         width:600px;
         opacity:.9;

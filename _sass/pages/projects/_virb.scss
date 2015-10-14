@@ -65,7 +65,11 @@ $aqua: #3de5d2;
     padding-bottom: 0;
     background-color: rgb(32, 119, 216);
     background: linear-gradient(to bottom, rgba(32, 119, 216, 0.95) 0%, rgba(32, 119, 208, 0.95) 81%, rgba(32, 119, 206, 1) 100%); /* W3C */
-    height: 100%;
+    min-height: 100%;
+    @include breakpoint(tablet){
+      height: auto;
+      min-height: inherit;
+    }
     // @extend %curtain-img;
     // &:after {
     //     background-position:right;
@@ -87,6 +91,7 @@ $aqua: #3de5d2;
       @include breakpoint(tablet) {
         left: 50%;
         transform: translateX(-50%);
+        display:none;
       }
     }
 
@@ -100,6 +105,10 @@ $aqua: #3de5d2;
       transform: translateZ(0);
       margin: 0 auto;
       margin-bottom: 100px;
+      @include breakpoint(tablet){
+        width:200px;
+        margin-bottom: 50px;
+      }
     }
   }
 

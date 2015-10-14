@@ -43,6 +43,11 @@ h4 {
 .proect p {
   font-size: 1.25em;
 }
+.project p, .project h4 {
+  @include breakpoint(tablet){
+    text-align:left;
+  }
+}
 .project-body, .post, .project {
   max-width: 1256px;
   @extend %serif;
@@ -50,6 +55,7 @@ h4 {
   line-height: 1.7;
   text-align: center;
   color: $dark-grey;
+
   @include breakpoint(min-normal-screen) {
     font-size: 1em;
   }

@@ -18,7 +18,9 @@ module.exports = function(grunt) {
             dist: {
                    src: [
                        'js/libs/*.js', // All JS in the libs folder
-                       'js/*.js'
+                       'js/*.js',
+                       'js/modules/*.js'
+
                    ],
                    dest: 'js/build/production.js',
             }
