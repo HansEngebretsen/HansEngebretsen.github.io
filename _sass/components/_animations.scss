@@ -30,3 +30,21 @@
   animation-duration: 0.8s;
   animation-fill-mode: both;
 }
+
+@keyframes bouncey-bounce {
+  0% {
+    left: 10px;
+  }
+  30% {
+    left: 15px;
+  }
+   50% {
+    left: 10px;
+  }
+   70% {
+    left: -2px;
+  }
+  100% {
+    left: 10px;
+  }
+}

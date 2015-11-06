@@ -1,12 +1,16 @@
-article html {
-  font-size: 18px;
-}
+// Utilities
 %sans-serif {
   font-family:'Lekton', sans-serif;
 }
 %serif {
   font-family: 'Merriweather', serif;
 }
+.dark {
+  color: $darker-grey;
+  font-weight: bold;
+}
+
+// Headings
 h1, h2 {
   margin: 0.4em 0;
   font-weight: 200;
@@ -33,6 +37,7 @@ h4 {
   }
 }
 
+// Body text
 .articles {
   @include breakpoint(min-normal-screen) {
     p {
@@ -40,14 +45,12 @@ h4 {
     }
   }
 }
-.proect p {
-  font-size: 1.25em;
+article html {
+  font-size: 18px;
 }
-.project p, .project h4 {
-  @include breakpoint(tablet){
-    text-align:left;
-  }
-}
+
+
+// Project specific
 .project-body, .post, .project {
   max-width: 1256px;
   @extend %serif;
@@ -97,11 +100,8 @@ h4 {
   }
 }
 
-.dark {
-  color: $darker-grey;
-  font-weight: bold;
-}
 
+// Post specific
 .post {
   h1, h2 {
     @extend %sans-serif;

@@ -60,24 +60,6 @@
     background-repeat: no-repeat;
   }
 }
-//Animations
-@keyframes bouncey-bounce {
-  0% {
-    left: 10px;
-  }
-  30% {
-    left: 15px;
-  }
-   50% {
-    left: 10px;
-  }
-   70% {
-    left: -2px;
-  }
-  100% {
-    left: 10px;
-  }
-}
 
 .vertically-centered {
     display: inline-block;

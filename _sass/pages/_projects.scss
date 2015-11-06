@@ -1,13 +1,9 @@
-.proj-wrap {
-    display: block;
-    width: 100%;
-    min-height: 85vh;
-    padding-top: 47vh;
-    text-align: center;
-    text-align: left;
-    text-decoration: none;
-    color: white;
-    background-color: rgba(32,119,216,0.95);
+// General overrides
+
+.project p, .project h4 {
+  @include breakpoint(tablet){
+    text-align:left;
+  }
 }
 .container.proj {
     width: 900px;
@@ -18,6 +14,22 @@
     position:relative;
     z-index:2;
 }
+
+// Specific styles
+.proj-wrap {
+    display: block;
+    width: 100%;
+    min-height: 85vh;
+    padding-top: 47vh;
+    text-align: center;
+    text-align: left;
+    text-decoration: none;
+    color: white;
+    background-color: rgba(32,119,216,0.95);
+    .project & {
+        text-align:center;
+    }
+}
 .proj-title {
     margin-top: 0;
 }
@@ -25,6 +37,7 @@
     color: white;
 }
 
+// Individual project thumbnail images & styles
 .projects, .project {
     img {
         max-width:100%;
@@ -35,16 +48,7 @@
         &:after {
             background-image: url('../img/projects/virb/features-curtain.jpg');
         }
-        // .btn {
-        //     color: rgba(100,100,100, .9);
-        //     border-color:rgba(100,100,100,.9);
-        //     background-color:rgba(black,.1);
-        //     &:hover {
-        //         background-color:rgba(black, .15);
-        //         color:black;
-        //     }
-        // }
-        // border-right: 50px solid #F3DF32;
+
         img {
             @include breakpoint(tablet) {
                 display: block;
@@ -77,11 +81,5 @@
         background:      -o-linear-gradient(45deg, #670c1e 0%,#96112e 100%); /* Opera 11.10+ */
         background:     -ms-linear-gradient(45deg, #670c1e 0%,#96112e 100%); /* IE10+ */
         background:         linear-gradient(45deg, #670c1e 0%,#96112e 100%); /* W3C */
-    }
-}
-
-.project {
-    .proj-wrap {
-        text-align: center;
     }
 }
