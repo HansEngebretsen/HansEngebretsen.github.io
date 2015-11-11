@@ -1,8 +1,9 @@
 ---
 layout: default
-nav: left-align
-color-theme: light
 title: article
+nav: left-align
+navColor: white
+colorTheme: light
 navOrientation: top-nav
 ---
 <section class="cover-image" {% if page.photo %}style="background-image:url('../img-content/{{ page.photo }}');"{% endif %}></section>
@@ -10,6 +11,7 @@ navOrientation: top-nav
 <article class="post {{ page.handle }}">
   <h1 class="title">{{ page.header }}</h1>
   <h2 class="subtitle">{{ page.date | date: "%B %e, %Y" }} | {{ page.subtitle }}</h2>
+  <h1>test test</h1>
 
   <div class="entry">
     {{ content }}

@@ -355,7 +355,8 @@ input {
  *    Known issue: inner spacing remains in IE 6.
  */
 button,
-html input[type="button"], input[type="reset"],
+html input[type="button"],
+input[type="reset"],
 input[type="submit"] {
   -webkit-appearance: button;
   /* 2 */
@@ -437,8 +438,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
-.clearfix:before,
-.clearfix:after {
+.clearfix:before, .clearfix:after {
   content: " ";
   display: table; }
 
@@ -645,8 +645,7 @@ table {
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px; }
-  .container:before,
-  .container:after {
+  .container:before, .container:after {
     content: " ";
     display: table; }
   .container:after {
@@ -666,8 +665,7 @@ table {
   margin-left: auto;
   padding-left: 15px;
   padding-right: 15px; }
-  .container-fluid:before,
-  .container-fluid:after {
+  .container-fluid:before, .container-fluid:after {
     content: " ";
     display: table; }
   .container-fluid:after {
@@ -677,8 +675,7 @@ table {
   margin-left: -15px;
   margin-right: -15px;
   position: relative; }
-  .row:before,
-  .row:after {
+  .row:before, .row:after {
     content: " ";
     display: table; }
   .row:after {
@@ -1303,7 +1300,7 @@ body:after, .main-content:after, .project-container:after {
   content: "x";
   display: inline-block;
   float: right;
-  padding: 0.1em 0.4em;
+  padding: .1em .4em;
   margin-right: .4em;
   color: white;
   font-size: 13px;
@@ -1486,7 +1483,7 @@ article html {
   content: "x";
   display: inline-block;
   float: right;
-  padding: 0.1em 0.4em;
+  padding: .1em .4em;
   margin-right: .4em;
   color: white;
   font-size: 13px;
@@ -1534,7 +1531,7 @@ article html {
   content: "x";
   display: inline-block;
   float: right;
-  padding: 0.1em 0.4em;
+  padding: .1em .4em;
   margin-right: .4em;
   color: white;
   font-size: 13px;
@@ -2499,8 +2496,8 @@ ____________________________________________________________________
   color: white; }
   .menu-clicked .close-toggle {
     visibility: visible;
-    -webkit-transition: all 700ms, visibility 0s 0s;
-    transition: all 700ms, visibility 0s 0s;
+    -webkit-transition: all 700ms , visibility 0s 0s;
+    transition: all 700ms , visibility 0s 0s;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
     transform: rotate(45deg); }
