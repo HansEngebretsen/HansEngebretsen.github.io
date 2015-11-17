@@ -131,6 +131,41 @@ body {
         background-repeat:no-repeat;
     }
 }
+.cinema-frame {
+    img {
+        max-width: 100%;
+        position:relative;
+        transform: translateZ(0);
+    }
+}
+.cinema-screen-container {
+        width:973px;
+        max-height:602px;
+        overflow-x:hidden;
+        position:absolute;
+        top: 50px;
+        left: 240px;
+        .cinema-screen {
+          max-width: 100%;
+          transform:translateZ(0.2px) scale(.85);
+          margin-top:-150px;
+        }
+    }
+// .cinema-frame {
+//     width:1500px;
+//     max-width: 100%;
+//     z-index:5;
+//     transform:translateZ(0);
+//     margin-top:40px;
+//     display:block;
+//     height:705px;
+//     position:relative;
+//     background-image:url('../img/cinema-display.png');
+//     background-size:100%;
+//     background-repeat:no-repeat;
+//     margin: 0 auto;
+//     padding: 0 40px;
+// }
 .iphone-frame {
     width:400px;
     z-index:5;

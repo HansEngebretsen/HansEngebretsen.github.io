@@ -2986,6 +2986,27 @@ body {
     background-size: 100%;
     background-repeat: no-repeat; }
 
+.cinema-frame img {
+  max-width: 100%;
+  position: relative;
+  -webkit-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  transform: translateZ(0); }
+
+.cinema-screen-container {
+  width: 973px;
+  max-height: 602px;
+  overflow-x: hidden;
+  position: absolute;
+  top: 50px;
+  left: 240px; }
+  .cinema-screen-container .cinema-screen {
+    max-width: 100%;
+    -webkit-transform: translateZ(0.2px) scale(0.85);
+    -ms-transform: translateZ(0.2px) scale(0.85);
+    transform: translateZ(0.2px) scale(0.85);
+    margin-top: -150px; }
+
 .iphone-frame {
   width: 400px;
   z-index: 5;
