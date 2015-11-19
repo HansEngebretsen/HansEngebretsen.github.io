@@ -17,19 +17,19 @@ module.exports = function(grunt) {
             // 2. Configuration for concatinating files goes here.
             dist: {
                    src: [
-                       'js/libs/*.js', // All JS in the libs folder
-                       'js/*.js',
-                       'js/modules/*.js'
+                       'src/js/libs/*.js', // All JS in the libs folder
+                       'src/js/*.js',
+                       'src/js/modules/*.js'
 
                    ],
-                   dest: 'js/build/production.js',
+                   dest: '_site/js/production.js',
             }
           },
 
          uglify: {
             build: {
-                src: 'js/build/production.js',
-                dest: 'js/build/production.min.js'
+                src: '_site/js/production.js',
+                dest: '_site/production.min.js'
             }
           },
 
@@ -50,7 +50,10 @@ module.exports = function(grunt) {
                     style: 'expanded'
                 },
                 files: {
-                    'css/main.css': '_sass/main.scss'
+                    '_site/css/style.css': 'src/_sass/style.scss',
+                    '_site/css/print.css': 'src/_sass/print.scss',
+                    '_site/css/ie.css': 'src/_sass/ie.scss'
+
                 }
             }
         },
@@ -60,7 +63,7 @@ module.exports = function(grunt) {
             },
             dist: {
                 files: {
-                    'css/main.css': 'css/main.css'
+                    'css/style.css': 'css/style.css'
                 }
             }
 
@@ -70,14 +73,14 @@ module.exports = function(grunt) {
 
             options: { livereload: true },
             scripts: {
-              files: ['js/*.js'],
+              files: ['src/js/*.js'],
               tasks: ['concat', 'uglify'],
               options: {
                 spawn: false,
               }
             },
             css: {
-              files: ['_sass/**/**/**/*.scss'],
+              files: ['src/_sass/**/**/**/*.scss'],
               tasks: ['sass', 'autoprefixer'],
               options: {
                 spawn: false,
@@ -110,5 +113,5 @@ module.exports = function(grunt) {
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
     grunt.registerTask("serve", ["shell:jekyllServe"]);
-    grunt.registerTask('default', ['watch'], ["shell:jekyllServe"]);
+    grunt.registerTask('default', ['watch']);
 };

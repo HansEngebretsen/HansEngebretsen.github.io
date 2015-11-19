@@ -1,17 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<url>
-  <loc>http://haaans.com/</loc>
-  <lastmod>2014-04-06T19:48:25+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-</url>
-<url>
-  <loc>http://haaans.com/work.html</loc>
-  <lastmod>2014-04-06T19:48:25+00:00</lastmod>
-  <changefreq>monthly</changefreq>
-</url>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://www.haaans.com/sketch/</loc>
+    <lastmod>2015-04-19T00:00:00-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://www.haaans.com/7-productivity-apps/</loc>
+    <lastmod>2015-04-10T00:00:00-05:00</lastmod>
+  </url>
+  <url>
+    <loc>http://www.haaans.com/about/</loc>
+  </url>
+  <url>
+    <loc>http://www.haaans.com/articles/</loc>
+  </url>
+  <url>
+    <loc>http://www.haaans.com/</loc>
+  </url>
+  <url>
+    <loc>http://www.haaans.com/projects/jb/</loc>
+  </url>
+  <url>
+    <loc>http://www.haaans.com/projects/modco/</loc>
+  </url>
+  <url>
+    <loc>http://www.haaans.com/projects/</loc>
+  </url>
+  <url>
+    <loc>http://www.haaans.com/projects/virb/</loc>
+  </url>
+  <url>
+    <loc>http://www.haaans.com/work/</loc>
+  </url>
+  <url>
+    <loc>http://www.haaans.com/404.html</loc>
+    <lastmod>2015-04-19T14:18:53-05:00</lastmod>
+  </url>
 </urlset>
