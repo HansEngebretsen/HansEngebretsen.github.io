@@ -2,9 +2,13 @@
 layout: post
 header: 7 productivity apps I couldn’t live without
 subtitle: Front-end Dev
-navColor: white
 photo: productivity-blog.jpg
 handle: productivity
+navOrientation: top-nav
+nav: left-align
+navColor: white
+colorTheme: light
+navOrientation: top-nav
 ---
 [Bagcheck](http://www.lukew.com/ff/entry.asp?1371) was a startup (founded by Luke W., and later acquired by Twitter) that was dedicated to the concept of sharing your passions, or what’s in your bag. It was a really neat concept and a definite loss for the internet when it was taken down a few years ago. I most enjoyed checking out people’s default OS X setups, or the programs they couldn’t go without.
 
