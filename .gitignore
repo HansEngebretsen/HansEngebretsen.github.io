@@ -11,3 +11,4 @@ app/bower_components
 **.sass-cache**
 _site/
 _site/*
+*.jekyll-metadata
