@@ -17,8 +17,6 @@ navigation:
   url: /work
 - text: projects
   url: /projects
-- text: articles
-  url: /articles
 #
 # Flags below are optional
 #

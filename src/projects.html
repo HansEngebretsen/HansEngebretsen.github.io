@@ -1,27 +1,33 @@
 ---
 layout: default
-title: projects
+title: articles
 description: Musings in front-end design & development
 nav: left-align
 navColor: white
-colorTheme: dark
+colorTheme: light
 navOrientation: top-nav
 ---
-{% for page in site.pages %}
-  {% if page.type == 'project' %}
-    <section class="proj-wrap {{ page.client }}">
-      <div class="proj container">
-        <div class="projcontent-wrap">
-          {% if page.photo %}
-            <img src="{{ site.baseurl }}/img/projects/{{ page.photo }}" alt="{{ page.title }}">
-          {% endif %}
-          <h2 class="proj-pre-title">{{ page.client }}</h2>
-          <h1 class="proj-title">{{ page.title }}</h1>
-          <a href="{{ site.baseurl }}{{ page.url }}" class="btn">&#x2713; Check it out</a>
-        </div>
-      </div>
+<section class="cover-image">
+
+</section>
+<section class="main-content">
+    <span class="timeline"></span>
+    <section class="posts">
+      {% for post in site.posts %}
+         {% capture day %}{{ post.date | date: '%m' }}{% endcapture %}
+         {% capture nday %}{{ post.next.date | date: '%m' }}{% endcapture %}
+        <article class="post {% if day != nday %} new-month {% endif %}" >
+        {% if day != nday %}
+            <h5 class="date">{{ post.date | date: "%B" }} </h5>
+        {% endif %}
+          <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.header }}</a></h1>
+
+          <div class="entry">
+            {{ post.content | truncatewords:30}}
+          </div>
+
+          <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+        </article>
+      {% endfor %}
     </section>
-  {% endif %}
-{% endfor %}
-
-
+</section>
