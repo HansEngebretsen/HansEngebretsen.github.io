@@ -391,9 +391,6 @@ ____________________________________________________________________
   right: 30px;
   z-index:9;
   overflow: hidden;
-  width: 1.55em;
-  height: 1.25em;
-  padding: 4px 8px 21px 7px;
   font-size: 1.5em;
   cursor: pointer;
   color: rgb(198, 198, 198);
@@ -458,8 +455,8 @@ ____________________________________________________________________
 .menu-toggle-wrap {
   display: block;
   position: relative;
-  width: 16.1875px;
-  height: 23px;
+  padding: 3px 8px;
+  line-height:1;
   text-shadow: rgba(255, 255, 255, 0.07843) 0 1px 0;
   text-decoration: none solid rgba(0, 0, 0, 0.8);
   color: rgba(0, 0, 0, 0.8);

@@ -282,8 +282,9 @@
     &:hover {
       background-color: rgba(white, 0.1);
     }
-    a {
+    a, a:visited {
       padding: 0.5em;
+      outline:none;
       &:hover {
         color: white;
         border-color: white;
