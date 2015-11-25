@@ -139,16 +139,23 @@ body {
     }
 }
 .cinema-screen-container {
-        width:973px;
-        max-height:602px;
-        overflow-x:hidden;
+        width:67.1%;
+        left:17.1%;
+        // width:973px;
+        // left: 240px;
+        // max-height:602px;
+        max-height:70%;
+        overflow:hidden;
         position:absolute;
-        top: 50px;
-        left: 240px;
+        top: 5%;
         .cinema-screen {
           max-width: 100%;
-          transform:translateZ(0.2px) scale(.85);
-          margin-top:-150px;
+          1500ms all cubic-bezier(0.71, 0.07, 0.59, 1.01);
+          &.inview {
+            margin-top:-600px;
+          }
+          // transform:translateZ(0.2px) scale(.85);
+          // margin-top:-150px;
         }
     }
 // .cinema-frame {

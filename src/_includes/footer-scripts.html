@@ -1,5 +1,21 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+{% if page.waypoints %}
+<script src="{{ site.baseurl }}/js/lib/jquery.waypoints.min.js"></script>
+<script src="{{ site.baseurl }}/js/lib/inview.min.js"></script>
+{% endif %}
+<script>
+  var waypoints = $('.toggle-inview').Waypoint.Inview({
+    enter: function(direction) {
+      $(this).addClass('inview');
+      console.log('inview');
+    },
+    exit: function(direction) {
+      $(this).addClass('exitview');
+    }
+});
+
+</script>
 <!-- My Scripts -->
 <script src="{{ site.baseurl }}/js/production.js"></script>
 {% include analytics.html %}
