@@ -1,94 +1,201 @@
-// General overrides
 
-.project p, .project h4 {
-  @include breakpoint(tablet){
-    text-align:left;
+
+// General overrides
+.project p,.project h4 {
+  @include breakpoint(tablet) {
+    text-align: left;
   }
 }
 .container.proj {
-    width: 900px;
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 40px;
-    transform: translateY(-50%);
-    position:relative;
-    z-index:2;
+  position: relative;
+  z-index: 2;
+  width: 900px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+  transform: translateY(-50%);
 }
 
-// Specific styles
+// Project Layout
 .proj-wrap {
-    display: block;
-    width: 100%;
-    min-height: 85vh;
-    padding-top: 47vh;
+  display: block;
+  width: 100%;
+  min-height: 90vh;
+  padding-top: 50vh;
+  text-align: center;
+  text-align: left;
+  text-decoration: none;
+  color: white;
+  .project & {
     text-align: center;
-    text-align: left;
-    text-decoration: none;
-    color: white;
-    background-color: rgba(32,119,216,0.95);
-    .project & {
-        text-align:center;
-    }
+  }
 }
 .proj-title {
-    margin-top: 0;
+  margin-top: 0;
 }
 .proj-pre-title {
-    color: white;
+  color: white;
 }
 
+
 // Individual project thumbnail images & styles
-.projects, .project {
-    img {
-        max-width:100%;
-    }
-    .JournalBot img{
-        position:absolute;
-        right:-5%;
-        z-index: -1;
-        top:-100%;
-        width:105%;
-
-
-    }
-    .Garmin {
+.projects,.project {
+  img {
+    max-width: 100%;
+  }
+  // Journalbot
+  .JournalBot {
+    background-color: $jb;
+    .img-wrap {
+      position: absolute;
+      z-index: -1;
+      top: -100%;
+      right: -5%;
+      width: 75%;
+      @include breakpoint(tablet) {
+        display: block;
         position: relative;
-        @extend %curtain-img;
-        &:after {
-            background-image: url('../img/projects/virb/features-curtain.jpg');
-        }
+        width: 100%;
+        margin: 0 auto;
+      }
+      &:before {
+        content: '';
+        display: block;
+        width: 40px;
+        height: 40px;
+        margin-bottom: 10px;
+        margin-left: 34%;
+        transform-origin: bottom center;
+        animation: 5s shake-transform infinite;
+        background-image: url('../img/projects/jb/robot-peek-right-antenna.png');
+        background-image: url('../img/projects/jb/robot-peek-right-antenna.svg');
+        background-size: 100%;
 
-        img {
-            @include breakpoint(tablet) {
-                display: block;
-                position: relative;
-                width: 50%;
-                margin: 0 auto;
-            }
-            position: absolute;
-            top: -25%;
-            right: 0;
-            width: 25%;
+        @include breakpoint(tablet) {
+          top: auto;
+          width: 25px;
+          height: 25px;
+          margin-left: 33%;
         }
+      }
     }
-    .JournalBot {
-        background-color:#EA592C;
+    img {
+      width: 100%;
     }
-    .Modco {
-        position:relative;
-        background-color: $grey;
-        &:after {
-            display:block;
-            width:100%;
-            content:'';
-            background-image: url('../img/projects/modco/modco-bg.jpg');
-        }
+  }
+
+  // VIRB
+  .Garmin {
+    position: relative;
+    background-color: $virb;
+    @extend %curtain-img;
+    &:after {
+      background-image: url('../img/projects/virb/features-curtain.jpg');
     }
-    .ihi {
-        background: -webkit-gradient(linear, left bottom, right top, color-stop(0%,#670c1e), color-stop(100%,#96112e)); /* Chrome,Safari4+ */
-        background: -webkit-linear-gradient(45deg, #670c1e 0%,#96112e 100%); /* Chrome10+,Safari5.1+ */
-        background:      -o-linear-gradient(45deg, #670c1e 0%,#96112e 100%); /* Opera 11.10+ */
-        background:     -ms-linear-gradient(45deg, #670c1e 0%,#96112e 100%); /* IE10+ */
-        background:         linear-gradient(45deg, #670c1e 0%,#96112e 100%); /* W3C */
+    img {
+      position: absolute;
+      top: -25%;
+      right: 0;
+      width: 25%;
+
+
+      @include breakpoint(tablet) {
+        display: block;
+        position: relative;
+        width: 50%;
+        margin: 0 auto;
+      }
     }
+  }
+
+  // MODCO
+  .Modco {
+    position: relative;
+    background-color: $modco;
+    &:after {
+      content: '';
+      display: block;
+      width: 100%;
+      background-image: url('../img/projects/modco/modco-bg.jpg');
+    }
+  }
+  @keyframes shake-transform {
+    0%,35%,100% {
+      transform: rotate(0deg);
+    }
+    7% {
+      transform: rotate(10deg);
+    }
+    14% {
+      transform: rotate(-10deg);
+    }
+    21% {
+      transform: rotate(10deg);
+    }
+    28% {
+      transform: rotate(-10deg);
+    }
+  }
+}
+
+// Archive thumbnail
+.proj-wrap.archive {
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+  padding: 0;
+  padding: 150px 0;
+  text-align: right;
+  background-color: $darker-grey;
+
+  @include breakpoint(tablet) {
+    padding-top: 100px;
+    padding-bottom: 70%;
+    text-align: center;
+  }
+  h1,p {
+    color: rgba(white, .4);
+  }
+  &:hover {
+    .img-gallery {
+      opacity: 1;
+    }
+    h1,p {
+      color: white;
+    }
+  }
+  .img-gallery {
+    position: static;
+    transition: 200ms all;
+    opacity: .5;
+    &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 2;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .print-samples,.web-samples {
+    position: absolute;
+    bottom: 0;
+  }
+  .print-samples {
+    left: 0;
+    width: 300px;
+  }
+  .web-samples {
+    left: 0;
+    width: 700px;
+
+    @include breakpoint(big-screen) {
+      max-width: 70%;
+    }
+    @include breakpoint(tablet) {
+      max-width: 100%;
+    }
+  }
 }

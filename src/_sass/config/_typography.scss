@@ -9,6 +9,10 @@
   color: $darker-grey;
   font-weight: bold;
 }
+a, a:visited {
+  color: white;
+  text-decoration:none;
+}
 
 // Headings
 h1, h2 {

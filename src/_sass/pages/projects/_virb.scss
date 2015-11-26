@@ -1,5 +1,4 @@
 // VIRB colors
-$virb-blue: #2077d8;
 $yellow: #f3df32;
 $red: #ef2028;
 $purple: #6847c6;
@@ -12,177 +11,165 @@ $aqua: #3de5d2;
 
 .virb {
   h1 {
-    color: rgba($virb-blue, 0.95);
+    color: rgba($virb, .95);
   }
   section.blue {
     background-color: transparent;
-
-    h1 {
+    h1,h4, p, span {
       color: white;
     }
-
-    h4 {
-      color: white;
-    }
-
-    p, span {
-      color: white;
+    p,span {
       opacity: .8;
     }
   }
-
   section.blue2 {
     background-color: #1468c5;
   }
-
   section.grey {
+    z-index: 0;
     background-color: lighten($lighter-grey, 13%);
-    z-index:0;
   }
-
   .blue {
-    color: $virb-blue;
+    color: $virb;
     a {
-      color: white;
       opacity: 1;
-
+      color: white;
       &:hover {
-        color: white;
         opacity: 1;
+        color: white;
       }
     }
   }
   .yellow-text {
     color: $yellow;
   }
-
   &.project {
+    width: 100%;
     @extend .plax-container;
-    width:100%;
   }
+
   .intro {
     position: relative;
-    padding-bottom: 0;
-    background-color: rgb(32, 119, 216);
-    background: linear-gradient(to bottom, rgba(32, 119, 216, 0.95) 0%, rgba(32, 119, 208, 0.95) 81%, rgba(32, 119, 206, 1) 100%); /* W3C */
     min-height: 100%;
-    @include breakpoint(tablet){
+    padding-bottom: 0;
+    background: linear-gradient(to bottom, rgba(32, 119, 216, .95) 0%, rgba(32, 119, 208, .95) 81%, rgba(32, 119, 206, 1) 100%); /* W3C */
+    background-color: $virb;
+
+    @include breakpoint(tablet) {
       height: auto;
       min-height: inherit;
     }
-    // @extend %curtain-img;
-    // &:after {
-    //     background-position:right;
-    //     background-image: url('../img/projects/virb/features-curtain-x.jpg');
-    // }
-
     h1 {
       color: white;
     }
-
     #videobg {
       position: absolute;
+      z-index: 0;
       bottom: 0;
       left: 0;
       width: 100%;
       height: auto;
-      z-index: 0;
       opacity: .2;
+
       @include breakpoint(tablet) {
+        display: none;
         left: 50%;
         transform: translateX(-50%);
-        display:none;
       }
     }
-
     .description {
       margin-bottom: 20px;
     }
-
+    .project-info {
+      background-color: darken($virb, 5%);
+    }
     img {
-      width: 300px;
       position: relative;
-      transform: translateZ(0);
+      width: 300px;
       margin: 0 auto;
       margin-bottom: 100px;
-      @include breakpoint(tablet){
-        width:200px;
+      transform: translateZ(0);
+
+      @include breakpoint(tablet) {
+        width: 200px;
         margin-bottom: 50px;
       }
     }
   }
 
+
+  // Sections
   .moodboard-wrap {
     position: relative;
+    z-index: 0;
+    max-width: 1500px;
     height: 100%;
     margin: 0 auto;
-    max-width: 1500px;
     margin-top: 75px;
-    z-index:0;
     .active & {
       overflow: visible;
     }
   }
-
   .moodboards {
     position: relative;
+    z-index: 0;
     height: 500px;
-    z-index:0;
+
     @include breakpoint(tablet) {
       heigth: 400px;
     }
     img {
-      @extend .plax-child;
       width: 100%;
 
+      @extend .plax-child;
+      @include breakpoint(phone) {
+        width: 200%;
+        max-width: 200%;
+      }
       &:nth-child(1) {
-        transform: translateZ(-0.1px) scale(1.1);
+        transform: translateZ(-.1px) scale(1.1);
       }
       &:nth-child(2) {
-        transform: translateZ(-0.16px) scale(1.1);
         top: 120px;
+        transform: translateZ(-.16px) scale(1.1);
+
         @include breakpoint(big-screen) {
           top: 0;
         }
       }
       &:nth-child(3) {
-        transform: translateZ(-0.08px) scale(1);
-      }
-      @include breakpoint(phone) {
-        width: 200%;
-        max-width: 200%;
+        transform: translateZ(-.08px) scale(1);
       }
     }
   }
   .plane-override {
-    position:relative;
-    transform:translateZ(0);
+    position: relative;
+    transform: translateZ(0);
   }
   .styleboard-wrap {
     position: relative;
-    margin: 0 auto;
     max-width: 1500px;
     height: 1000px;
+    margin: 0 auto;
 
     @include breakpoint(min-huge-screen) {
       height: 700px;
     }
   }
-
   .styleboard-container {
     position: relative;
     height: 100%;
     margin-top: 75px;
   }
-
   // Paralaxin styleboards
   .styleboards {
     img {
+      top: 50px;
       width: 700px;
       max-width: 100%;
-      box-shadow: 7px 6px 7px rgba(0, 0, 0, 0.12);
+      box-shadow: 7px 6px 7px rgba(0, 0, 0, .12);
+
       @extend .plax-child;
-      top: 50px;
       @include breakpoint(min-huge-screen) {
         width: 500px;
       }
@@ -190,50 +177,30 @@ $aqua: #3de5d2;
         width: 400px;
       }
       &:nth-child(1) {
-        transform: translateZ(-0.125px) translateX(50%) translateY(100%) scale(1.1);
+        transform: translateZ(-.125px) translateX(50%) translateY(100%) scale(1.1);
 
         @include breakpoint(normal-screen) {
-          transform: translateZ(-0.125px) translateX(10px) translateY(100%) scale(1.1);
+          transform: translateZ(-.125px) translateX(10px) translateY(100%) scale(1.1);
         }
       }
-
       &:nth-child(2) {
-        transform: translateZ(-0.17px) scale(1.2);
-        left: auto;
         right: 40px;
+        left: auto;
+        transform: translateZ(-.17px) scale(1.2);
 
         @include breakpoint(big-screen) {
           top: 0;
         }
       }
-
       &:nth-child(3) {
-        transform: translateZ(0) scale(1);
         left: 40px;
+        transform: translateZ(0) scale(1);
       }
     }
-
   }
 }
 
 // Listings page styles
-
-.project {
-  .Garmin img {
-    bottom: 0;
-    top: auto;
-    right: auto;
-    width: 200px;
-  }
-
-  &:before {
-    background-image: url("../img/projects/virb/curtain-virb-edit.jpg");
-  }
-
-  &.virb .pre-title {
-    border-color: $yellow;
-  }
-}
 
 .device-wraps {
   margin-top: 80px;
