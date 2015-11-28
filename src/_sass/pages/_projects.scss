@@ -160,13 +160,13 @@
     .img-gallery {
       opacity: 1;
     }
-    h1,p {
-      color: white;
+    .arrow {
+       color: white;
     }
   }
   .img-gallery {
     position: static;
-    transition: 200ms all;
+    transition: 600ms all;
     opacity: .5;
     &:after {
       content: '';
