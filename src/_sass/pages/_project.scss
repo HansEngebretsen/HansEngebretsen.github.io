@@ -139,25 +139,54 @@ body {
     }
 }
 .cinema-screen-container {
-        width:67.1%;
-        left:17.1%;
-        // width:973px;
-        // left: 240px;
-        // max-height:602px;
-        max-height:70%;
-        overflow:hidden;
+    width:68%;
+    left:16.9%;
+    // width:973px;
+    // left: 240px;
+    // max-height:602px;
+    max-height:70%;
+    overflow:hidden;
+    position:absolute;
+    top: 5%;
+    cursor: pointer;
+    &:after {
+        content: '￬';
+        height: 20%;
+        display:block;
+        background-color: white;
+        text-align:center;
+        padding: 40px;
+        width: 100%;
+        display:block;
         position:absolute;
-        top: 5%;
+        bottom:0;
+        transform: translateY(100%);
+        transition: 500ms all;
+        font-size: 4em;
+    }
+    &:hover {
+      &:after {
+          transform: translateY(0);
+      }
+    }
+    .cinema-screen {
+      max-width: 100%;
+      transition: 1500ms all cubic-bezier(0.71, 0.07, 0.59, 1.01);
+
+      &.inview {
+        margin-top:-600px;
+      }
+      // transform:translateZ(0.2px) scale(.85);
+      // margin-top:-150px;
+    }
+}
+.intro-work {
+    .scroll {
         .cinema-screen {
-          max-width: 100%;
-          transition: 1500ms all cubic-bezier(0.71, 0.07, 0.59, 1.01);
-          &.inview {
-            margin-top:-600px;
-          }
-          // transform:translateZ(0.2px) scale(.85);
-          // margin-top:-150px;
+            transform: translateY(-50%);
         }
     }
+}
 // .cinema-frame {
 //     width:1500px;
 //     max-width: 100%;

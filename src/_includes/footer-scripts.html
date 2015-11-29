@@ -1,21 +1,37 @@
-<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<!-- <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> -->
 {% if page.waypoints %}
 <script src="{{ site.baseurl }}/js/lib/jquery.waypoints.min.js"></script>
 <script src="{{ site.baseurl }}/js/lib/inview.min.js"></script>
-{% endif %}
-<script>
-  var waypoints = $('.toggle-inview').Waypoint.Inview({
-    enter: function(direction) {
-      $(this).addClass('inview');
-      console.log('inview');
-    },
-    exit: function(direction) {
-      $(this).addClass('exitview');
-    }
-});
 
+<script type="text/javascript">
+//   var waypoints = $('.toggle-inview').each(function(){
+//     new Waypoint.Inview({
+//     enter: function(direction) {
+//       $(this).addClass('inview');
+//       console.log('inview');
+//     },
+//     exit: function(direction) {
+//       $(this).addClass('exitview');
+//     }
+//   });
+// });
+// $(document).load(function(){
+// var waypoint = new Waypoint({
+//   element: document.getElementById('waypoint'),
+//   handler: function(direction) {
+//     console.log('Scrolled to waypoint!')
+//   }
+// })
+// })
+
+var waypoints = $('#waypoint').waypoint({
+  handler: function(direction) {
+    console.log( direction + "hit");
+  }
+})
 </script>
+{% endif %}
 <!-- My Scripts -->
 <script src="{{ site.baseurl }}/js/production.js"></script>
 {% include analytics.html %}
