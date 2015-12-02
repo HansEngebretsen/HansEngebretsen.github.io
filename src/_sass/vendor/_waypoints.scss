@@ -1,0 +1,21 @@
+.inview {
+  opacity:1;
+  transition: 1500ms all;
+}
+.opaque {
+  opacity:0;
+  transition:none;
+}
+.cinema-frame.inview {
+  .screen-container.active img{
+    transform:translateY(0);
+    transition: 1200ms all;
+    transition-delay: .2s;
+  }
+}
+.cinema-frame.opaque {
+  .screen-container.active img{
+    transform:translateY(-20%);
+    transition:none;
+  }
+}

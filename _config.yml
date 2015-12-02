@@ -17,6 +17,12 @@ navigation:
   url: /work
 - text: projects
   url: /projects
+
+
+
+collections:
+  parts:
+    output: false
 #
 # Flags below are optional
 #

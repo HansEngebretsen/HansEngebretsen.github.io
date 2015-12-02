@@ -60,3 +60,28 @@
     background-color:rgba(100, 100, 100, 0.2);
   }
 }
+
+%arrow-right {
+  background-image: url("../img/arrow-icon.svg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+%arrow-left {
+  @extend %arrow-right;
+  transform: rotate(180deg);
+  background-position: bottom;
+}
+.btn-prev, .btn-next {
+  position:relative;
+  text-indent: -9999px;
+  display:inline-block;
+  width: 20px;
+  height:25px;
+  @extend %arrow-right;
+
+}
+.btn-next {
+  @extend %arrow-left;
+
+}

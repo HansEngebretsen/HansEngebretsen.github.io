@@ -47,13 +47,13 @@ module.exports = function(grunt) {
         sass: {
             dist: {
                 options: {
-                    style: 'expanded'
+                    style: 'expanded',
+                    sourcemap: 'file'
                 },
                 files: {
                     '_site/css/style.css': 'src/_sass/style.scss',
                     '_site/css/print.css': 'src/_sass/print.scss',
                     '_site/css/ie.css': 'src/_sass/ie.scss'
-
                 }
             }
         },
@@ -113,5 +113,5 @@ module.exports = function(grunt) {
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
     grunt.registerTask("serve", ["shell:jekyllServe"]);
-    grunt.registerTask('default', ['watch']);
+    grunt.registerTask('default', ['concat', 'sass', 'autoprefixer']);
 };

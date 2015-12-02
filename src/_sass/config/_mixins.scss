@@ -67,15 +67,15 @@
     vertical-align: middle;
   }
 
-.plax-container {
-  position: fixed;
-   height: 100vh;
-   -webkit-overflow-scrolling: touch;
-   transform-style: preserve-3d;
-   perspective: 1.25px;
-   overflow-x: hidden;
-   overflow-y: auto;
-}
+// .plax-container {
+//   position: fixed;
+//    height: 100vh;
+//    -webkit-overflow-scrolling: touch;
+//    transform-style: preserve-3d;
+//    perspective: 1.25px;
+//    overflow-x: hidden;
+//    overflow-y: auto;
+// }
 
 .plax-child {
   position: absolute;
