@@ -10,11 +10,12 @@
   margin:0;
   padding:0;
   position:absolute;
-  top:5.5%;
-  left:16%;
+  top:4.85%;
+  left:17%;
   z-index: 1;
   height:100%;
   white-space:nowrap;
+
   li {
     display:inline-block;
     width:43%;
@@ -23,10 +24,10 @@
     opacity:.1;
     overflow:hidden;
     &.active {
-      width: 83%;
+      width: 81%;
       opacity:1;
       margin-top:0;
-      max-height:70%;
+      max-height:60%;
     }
     &:nth-child(3){
       position:absolute;
@@ -38,6 +39,18 @@
     }
   }
 
+}
+.screen-container {
+  position:relative;
+
+}
+
+.cinema-carousel.clicked .screen-container.active{
+  img {
+    transition: 3s all ease-out;
+    transform: translateY(-100%);
+    margin-top:60%;
+  }
 }
 .cinema-screen-container {
     width:68%;
@@ -69,18 +82,25 @@
         }
     }
 }
-.cinema-nav {
 
-  .btn-next {
-    position:absolute;
-    right: 0;
-    z-index: 5;
-    top:50%;
+.cinema-controls {
+  @extend .controls;
+  z-index: 4;
+  position:relative;
+  .next a, .prev a {
+    text-indent: -9999px;
+    text-align:left;
+    width: 40px;
+    padding:0;
+    height:20px;
   }
-  .btn-prev {
-    position:absolute;
-    z-index: 5;
-    left:0;
-    top:50%;
+  .scroll a.clicked {
+    &:before {
+      transform:rotate(180deg);
+    }
+  }
+  li {
+    display:inline-block;
+    vertical-align:middle;
   }
 }

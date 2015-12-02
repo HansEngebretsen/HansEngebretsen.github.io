@@ -22,6 +22,59 @@ $( document ).ready(function() {
   }
 });
 
+if ($('.scroll-toggle')){
+  $('.scroll-toggle').click(function(e){
+    e.preventDefault();
+    $(this).toggleClass('clicked');
+    $(this).parents('.cinema-carousel').toggleClass('clicked');
+  });
+}
+
+if ($('.cinema-carousel')){
+  var swapSource = function(e, direction) {
+    e.preventDefault;
+    var carousel = $(e.currentTarget).parents('.cinema-carousel'),
+        carouselItems = carousel.find('.screen-container'),
+        active   = carousel.find('.active'),
+        activeimg   = active.find('img'),
+        activesrc = activeimg.attr('src'),
+        next      = active.next('.screen-container');
+
+        srcarray = [];
+        itemsImages = carouselItems.each().find('img');
+        srcarray = itemsImages;
+        console.log(srcarray);
+
+    if (direction == 'prev') {
+      next = active.prev('.screen-container');
+      if (next.length == '0'){
+        next = carouselItems.last();
+        console.log('length is zero');
+      }
+    } else {
+      next = active.next('.screen-container');
+      if (next.length == '0'){
+        next = carouselItems.first();
+        console.log('next is zero');
+      }
+    }
+
+    newsrc = next.find('img').attr('src');
+    activeimg.attr('src', newsrc);
+
+
+  }
+  $('.cinema-carousel .prev').click(function(e){
+    direction = "prev";
+    e.preventDefault();
+      swapSource(e, direction)
+    });
+   $('.cinema-carousel .next').click(function(e){
+    e.preventDefault();
+    direction = "next";
+      swapSource(e, direction)
+    });
+}
 // Project Containers
 if($('.work').length > 0){projectToggle();};
 function projectToggle(){

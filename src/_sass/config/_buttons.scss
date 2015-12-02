@@ -83,5 +83,84 @@
 }
 .btn-next {
   @extend %arrow-left;
+}
+.btn-scroll {
+  @extend %arrow-left;
+  transform: rotate(90deg);
+}
 
+
+.controls {
+  text-align: center;
+  ul, li {
+    margin: 0;
+    padding: 10px;
+    list-style: none;
+  }
+  a {
+    display: inline-block;
+    font-size: 0.75em;
+    transition: 100ms all ease-in-out;
+    transform: scale(1);
+    text-decoration: none;
+    color: $lighter-grey;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  .all a{
+    width: 40px;
+    height: 40px;
+    text-indent: -9999px;
+    border: 2px solid rgba(black, 0.2);
+    border-radius: 50%;
+    background-image: url("../img/menu-icon.svg");
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .next a, .prev a, .scroll a {
+    padding-top: 25px;
+    text-align: center;
+    position:relative;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      @extend %arrow-right;
+      background-size: 20px 20px;
+    }
+  }
+
+  .scroll a {
+     width: 60px;
+    height: 60px;
+    &:hover {
+      color: inherit;
+    }
+    border: 2px solid rgba(black, 0.2);
+    border-radius: 50%;
+    padding-top: 13px;
+
+    &:before {
+     background-position:center 27px;
+   }
+   &.clicked:before {
+     transform:rotate(180deg);
+     background-position: center 10px;
+   }
+
+  }
+  .scroll a:before {
+    background-image: url("../img/arrow-icon-down.svg");
+  }
+  .next a {
+    &:before {
+        transform: rotate(180deg);
+        background-position: bottom;
+    }
+  }
 }
