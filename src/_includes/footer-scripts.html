@@ -3,35 +3,8 @@
 {% if page.waypoints %}
 <script src="{{ site.baseurl }}/js/lib/jquery.waypoints.min.js"></script>
 <script src="{{ site.baseurl }}/js/lib/inview.min.js"></script>
-
-<script type="text/javascript">
-//   var waypoints = $('.toggle-inview').each(function(){
-//     new Waypoint.Inview({
-//     enter: function(direction) {
-//       $(this).addClass('inview');
-//       console.log('inview');
-//     },
-//     exit: function(direction) {
-//       $(this).addClass('exitview');
-//     }
-//   });
-// });
-// $(document).load(function(){
-// var waypoint = new Waypoint({
-//   element: document.getElementById('waypoint'),
-//   handler: function(direction) {
-//     console.log('Scrolled to waypoint!')
-//   }
-// })
-// })
-
-var waypoints = $('#waypoint').waypoint({
-  handler: function(direction) {
-    console.log( direction + "hit");
-  }
-})
-</script>
 {% endif %}
+
 <!-- My Scripts -->
 <script src="{{ site.baseurl }}/js/production.js"></script>
 {% include analytics.html %}

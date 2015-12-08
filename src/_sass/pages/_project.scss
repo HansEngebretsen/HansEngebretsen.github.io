@@ -13,7 +13,7 @@ body {
         }
         max-height:100%;
         max-width:100%;
-        overflow:auto;
+        overflow:hidden;
         margin:0 auto;
         margin-top:100px;
         @include breakpoint(tablet){

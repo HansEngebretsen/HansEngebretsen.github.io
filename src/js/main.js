@@ -75,7 +75,8 @@ if ($('.cinema-carousel')){
       swapSource(e, direction)
     });
 }
-// Project Containers
+
+// Archive
 if($('.work').length > 0){projectToggle();};
 function projectToggle(){
   $('.preview-image, .project-container .more').on('click', function(){
@@ -179,6 +180,7 @@ TxtRotate.prototype.tick = function() {
     that.tick();
   }, delta);
 };
+
 // Only start when clicked, and don't run multiple instances
 $('#hans-toggle').click(function() {
   if ( !$('#hans-toggle').data('clicked') ) {
