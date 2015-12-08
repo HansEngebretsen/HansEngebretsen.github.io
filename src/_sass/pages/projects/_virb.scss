@@ -96,7 +96,6 @@ $aqua: #3de5d2;
       width: 300px;
       margin: 0 auto;
       margin-bottom: 20px;
-      transform: translateZ(0);
 
       @include breakpoint(tablet) {
         width: 200px;
@@ -131,31 +130,19 @@ $aqua: #3de5d2;
     img {
       width: 100%;
 
-      @extend .plax-child;
       @include breakpoint(phone) {
         width: 200%;
         max-width: 200%;
       }
-      &:nth-child(1) {
-        transform: translateZ(-.1px) scale(1.1);
-      }
       &:nth-child(2) {
-        top: 120px;
-        transform: translateZ(-.16px) scale(1.1);
 
         @include breakpoint(big-screen) {
           top: 0;
         }
       }
-      &:nth-child(3) {
-        transform: translateZ(-.08px) scale(1);
-      }
     }
   }
-  .plane-override {
-    position: relative;
-    transform: translateZ(0);
-  }
+
   .styleboard-wrap {
     position: relative;
     max-width: 1500px;
@@ -179,32 +166,11 @@ $aqua: #3de5d2;
       max-width: 100%;
       box-shadow: 7px 6px 7px rgba(0, 0, 0, .12);
 
-      @extend .plax-child;
       @include breakpoint(min-huge-screen) {
         width: 500px;
       }
       @include breakpoint(big-screen) {
         width: 400px;
-      }
-      &:nth-child(1) {
-        transform: translateZ(-.125px) translateX(50%) translateY(100%) scale(1.1);
-
-        @include breakpoint(normal-screen) {
-          transform: translateZ(-.125px) translateX(10px) translateY(100%) scale(1.1);
-        }
-      }
-      &:nth-child(2) {
-        right: 40px;
-        left: auto;
-        transform: translateZ(-.17px) scale(1.2);
-
-        @include breakpoint(big-screen) {
-          top: 0;
-        }
-      }
-      &:nth-child(3) {
-        left: 40px;
-        transform: translateZ(0) scale(1);
       }
     }
   }
