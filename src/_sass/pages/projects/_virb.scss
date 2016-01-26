@@ -218,7 +218,12 @@ $aqua: #3de5d2;
 
   }
 }
-
+.virb {
+  section.work {
+    padding-bottom:0;
+    overflow:hidden;
+  }
+}
 // Listings page styles
 
 .device-wraps {
