@@ -26,6 +26,9 @@ body {
             // max-width:200%;
         }
     }
+    p {
+        text-align:left;
+    }
     .intro {
         padding:150px 0;
         padding-top: 10vh;
@@ -84,12 +87,13 @@ body {
         @include breakpoint(tablet){
             padding:70px 0;
         }
+        h4, p {
+            text-align:left;
+        }
         .col-sm-12 {
             padding-bottom:50px;
             margin-top:75px;
-            h4, p {
-                text-align:left;
-            }
+
         }
         row {
             margin-bottom:40px;
