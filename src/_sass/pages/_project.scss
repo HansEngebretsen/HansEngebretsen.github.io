@@ -83,7 +83,10 @@ body {
     }
     section {
         background-color:white;
-        padding:140px 0;
+        padding:70px 0;
+        @include breakpoint(min-normal-screen){
+            padding:140px 0;
+        }
         @include breakpoint(tablet){
             padding:70px 0;
         }
