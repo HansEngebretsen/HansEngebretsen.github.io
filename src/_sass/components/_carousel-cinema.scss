@@ -16,6 +16,14 @@
   height:100%;
   white-space:nowrap;
 
+  @include breakpoint(tablet-s){
+    top: 4%;
+    left: 17.5%;
+  }
+  @include breakpoint(phone){
+    top: 3.75%;
+    left: 18%;
+  }
   li {
     display:inline-block;
     width:43%;
@@ -28,6 +36,15 @@
       opacity:1;
       margin-top:0;
       max-height:60%;
+      @include breakpoint(normal-screen){
+        max-height: 55%;
+      }
+      @include breakpoint(tablet-s){
+        max-height: 52%;
+      }
+      @include breakpoint(phone){
+        max-height: 50%;
+      }
     }
     &:nth-child(3){
       position:absolute;
