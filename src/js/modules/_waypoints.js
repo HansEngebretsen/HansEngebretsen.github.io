@@ -95,8 +95,11 @@ Waypoints.prototype.plaxInit = function(e){
 }
 
 Waypoints.prototype.init = function(e){
-  this.viewable();
-  this.plaxInit();
+  var mqTablet = window.matchMedia( "( min-width: 620px )"); // Media query for intro slide and navscroll
+  if (mqTablet.matches){
+    this.viewable();
+    this.plaxInit();
+  }
 }
 
  // Instantiation
