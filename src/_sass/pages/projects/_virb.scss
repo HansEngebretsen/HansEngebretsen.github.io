@@ -133,8 +133,8 @@ $aqua: #3de5d2;
 
       @extend .plax-child;
       @include breakpoint(phone) {
-        width: 200%;
-        max-width: 200%;
+        width: 150%;
+        max-width: 150%;
       }
       &:nth-child(1) {
         transform: translateZ(-.1px) scale(1.1);
