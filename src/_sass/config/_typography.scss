@@ -39,6 +39,7 @@ h4 {
   letter-spacing:.05em;
   @include breakpoint(tablet){
     font-size:1.5em;
+    margin-bottom:.5em;
   }
 }
 
