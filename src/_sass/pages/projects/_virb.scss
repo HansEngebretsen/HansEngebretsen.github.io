@@ -192,7 +192,7 @@ $aqua: #3de5d2;
       }
       &:nth-child(1) {
         transform: translateZ(-.125px) translateX(50%) translateY(100%) scale(1.1);
-
+        left: 2%;
         @include breakpoint(normal-screen) {
           transform: translateZ(-.125px) translateX(10px) translateY(100%) scale(1.1);
         }
@@ -207,7 +207,8 @@ $aqua: #3de5d2;
         }
       }
       &:nth-child(3) {
-        left: 40px;
+        left: 10%;
+        top: 40%;
         transform: translateZ(0) scale(1);
       }
     }
@@ -233,3 +234,4 @@ $aqua: #3de5d2;
 .device-wraps {
   margin-top: 80px;
 }
+@import "virb-activity-nav";

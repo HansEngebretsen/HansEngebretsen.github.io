@@ -138,6 +138,10 @@
     padding-top: 25px;
     text-align: center;
     position:relative;
+    outline:none;
+    &:active, &:hover {
+      outline:none;
+    }
     &:before {
       content: '';
       position: absolute;

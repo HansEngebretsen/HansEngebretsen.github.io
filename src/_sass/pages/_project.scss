@@ -33,7 +33,7 @@ body {
            margin-top:40px;
         }
         margin-bottom:20px;
-        border: 3px solid rgba(0,0,0,.1);
+        border: 1px solid rgba(0,0,0,.1);
         border-radius:100%;
         img {
             // max-width:200%;
@@ -47,6 +47,9 @@ body {
         padding-top: 10vh;
         @include breakpoint(tablet){
             padding:75px 0;
+        }
+        .description {
+            text-align:center;
         }
         text-align:center;
         color:white;

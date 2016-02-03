@@ -1,0 +1,115 @@
+$v-blue          : #2077D8;
+$v-white         : #ffffff;
+$v-blue-dark     : #1875DC;
+$v-blue-light    : #549cec;
+$v-charcoal      : #212429;
+$v-charcoal-dark : #212429;
+
+
+.nav-activity {
+  display: block;
+  position: absolute;
+  font-size: 13px;
+  line-height:20px;
+  z-index: +1;
+  top: 0;
+  left: 0;
+  width: auto;
+  max-width: 90px;
+  height: auto;
+  padding-right: 0;
+  padding-left: 0;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 200ms ease-out;
+  border-top: none;
+  @extend %sans-serif;
+  text-align:left;
+  &:hover {
+    max-width: 250px;
+    cursor: pointer;
+  }
+  svg {
+    float: left;
+    margin:10px 20px 10px 10px;
+  }
+  a .activity-title {
+    display: block;
+    margin-top: 15px;
+    font-weight: 600;
+    color: $v-white;
+  }
+  a .activity-listings {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: rgba($v-white,.8);
+  }
+  .icon-wrap {
+    position: relative;
+    float: left;
+  }
+  svg {
+    display: block;
+    width: 50px;
+    height: 50px;
+    margin: 0 auto;
+    margin: 10px;
+    margin-right: 20px;
+    circle {
+      fill: none;
+    }
+  }
+  .activity-link, a.activity-link {
+    display: block;
+    min-width: 200px;
+    padding: 5px 10px;
+    font-size: .9em;
+    white-space: nowrap;
+    border-top: none;
+    background-color:$v-charcoal;
+    border-color:$v-charcoal-dark;
+    &.active {
+      background-color: $v-blue;
+      border-color: $v-blue;
+      .activity-listings {
+        color: white;
+      }
+      .svg-fill, svg circle {
+        fill: $v-blue-dark;
+      }
+      .activity-title {
+        color: $v-white;
+      }
+      &:hover .svg-fill {
+        fill: $v-blue-light;
+      }
+    }
+    &:hover {
+      border-color: $v-blue;
+      //background-color: lighten($v-gray, 25%);
+      background-color: lighten($v-blue, 5%);
+    }
+    .svg-fill, .svg-icon {
+      &, & * {
+        transition: fill .2s;
+      }
+    }
+    .svg-fill, .svg-fill * {
+      // fill: #cdb90c;
+      fill: #0E5099;
+      fill: #F3DF32;
+    }
+
+  }
+}
+
+
+
+
+.nav-activity .svg-icon,.nav-activity .svg-icon * {
+    fill: #fff
+}
