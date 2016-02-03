@@ -37,9 +37,8 @@ module.exports = function(grunt) {
             dynamic: {
                 files: [{
                     expand: true,
-                    cwd: 'img/',
-                    src: ['**/*.{png,jpg,gif}'],
-                    dest: 'img/build/'
+                    src: ['img/**/*.{png,jpg,gif}'],
+                    dest: '_site/img/'
                 }]
             }
         },
@@ -105,7 +104,7 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-shell');
-    // grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-contrib-imagemin');
     // grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-autoprefixer');

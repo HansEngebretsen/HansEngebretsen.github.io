@@ -97,11 +97,12 @@ function carousel(){
   $('.carousel-full .slide-toggle').on('click', function(e){
         e.preventDefault();
         var t = $(this),
-            container = t.parentsUntil('.carousel-full'),
+            container = t.parents('.carousel-full'),
             nav = container.find('.slide-nav'),
             slides = container.find('.nav'),
             slideWrap = container.find('.slide'),
             slide = t.attr('href');
+            console.log(container);
         slideWrap.removeClass('active');
         nav.children().removeClass('active');
         t.addClass('active');

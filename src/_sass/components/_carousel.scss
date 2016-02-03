@@ -7,9 +7,12 @@
     position:absolute;
     right:0;
     top:0;
-    transition:200ms right;
+    transition:900ms opacity;
+    
+    opacity:0;
     &.active {
-        right:100%;
+       transform:translateX(0);
+       opacity:1;
     }
 }
 .carousel-slide-wrap {

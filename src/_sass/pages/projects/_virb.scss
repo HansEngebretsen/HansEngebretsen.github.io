@@ -235,3 +235,9 @@ $aqua: #3de5d2;
   margin-top: 80px;
 }
 @import "virb-activity-nav";
+.activity-pages {
+  .slide img {
+    width: 95%;
+    box-shadow: 2px 3px 20px rgba(black, .5);
+  }
+}
