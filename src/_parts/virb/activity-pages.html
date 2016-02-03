@@ -3,23 +3,20 @@ layout: section
 parent: virb
 subtitle: activity-pages
 order: 11
-addclass: blue2
+addclass: blue carousel-full blue2
 ---
 
 
 
-<div class="carousel-full ">
-  <section class="blue blue2">
     <div class="container">
       <h4 class="pre-title">Activities</h4>
-      <h1>Sell what you can do, not a feature</h1>
+      <h1>Selling Benefits, Not Features</h1>
       <p>The Creative brief listed the target demographic for the VIRB as "everyone", leaving us with an interesting challenge. We decided to create a section that worked hard to help funnel specific interests and sell experiences. We called it 'Activities'.</p>
-      <div class="slide-nav"><a href="#activity1" class="secondary slide-toggle active">Page 1</a> | <a href="#activity2" class="secondary slide-toggle">Page 2</a>| <a href="#activity3" class="secondary slide-toggle">Page 3</a></div>
-
-    </div>
-    <div class="col-xs-3" style="position:relative;">
-      <div class="hidden-xs col-sm-1 nav-activity">
-        <a class="activity-link clearfix water active" data-ua-event="Virb,Click,Activity virb_activities_water,water" href="#page-water">
+<!--       <div class="slide-nav"><a href="#activity1" class="secondary slide-toggle active">Page 1</a> | <a href="#activity2" class="secondary slide-toggle">Page 2</a>| <a href="#activity3" class="secondary slide-toggle">Page 3</a></div>
+ -->    </div>
+    <div class="col-xs-3"><!-- This is so nasty, fix me please -->
+      <div class="hidden-xs col-sm-1 nav-activity slide-nav">
+        <a class="slide-toggle active activity-link clearfix water" data-ua-event="Virb,Click,Activity virb_activities_water,water" href="#page-water">
           <span class="icon-wrap">
             <svg viewbox="0 0 46.9 46.9" xmlns="http://www.w3.org/2000/svg">
               <circle cx="349.1" cy="67.1" fill="#FBD236" r="23.4"></circle>
@@ -42,7 +39,7 @@ addclass: blue2
           <span class="activity-title">water</span>
           <span class="activity-listings">Wakeboarding, Surfing, Windsurfing, Kayaking, Rafting, Diving, Boating and Fishing</span>
         </a>
-        <a class="activity-link clearfix snow" data-ua-event="Virb,Click,Activity virb_activities_water,snow" href="#page-snow">
+        <a class="slide-toggle activity-link clearfix snow" data-ua-event="Virb,Click,Activity virb_activities_water,snow" href="#page-snow">
           <span class="icon-wrap">
             <svg viewbox="0 0 46.9 46.9" xmlns="http://www.w3.org/2000/svg">
               <circle cx="349.1" cy="67.1" fill="#FBD236" r="23.4"></circle>
@@ -71,7 +68,7 @@ addclass: blue2
           <span class="activity-title">snow</span>
           <span class="activity-listings">Skiing, snowboarding and snowmobiling</span>
         </a>
-        <a class="activity-link clearfix sports-+-outdoor" data-ua-event="Virb,Click,Activity virb_activities_water,sports + outdoor" href="#page-outdoor">
+        <a class="slide-toggle activity-link clearfix sports-+-outdoor" data-ua-event="Virb,Click,Activity virb_activities_water,sports + outdoor" href="#page-outdoor">
           <span class="icon-wrap">
             <svg id="Layer_1"version="1.1" viewbox="0 0 1200 900" x="0px" xmlns="http://www.w3.org/2000/svg" y="0px">
               <circle cx="6849.1" cy="1287.6" fill="#FBD236" r="449"></circle>
@@ -97,7 +94,7 @@ addclass: blue2
           <span class="activity-title">sports+ outdoor</span>
           <span class="activity-listings">From everyday to extreme</span>
         </a>
-        <a class="activity-link clearfix sky" data-ua-event="Virb,Click,Activity virb_activities_water,sky" href="#page-sky">
+        <a class="slide-toggle activity-link clearfix sky" data-ua-event="Virb,Click,Activity virb_activities_water,sky" href="#page-sky">
           <span class="icon-wrap">
             <svg viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
               <circle cx="1488.7" cy="286.1" fill="#FBD236" r="99.8"></circle>
@@ -117,7 +114,7 @@ addclass: blue2
           <span class="activity-title">sky</span>
           <span class="activity-listings">Skydiving, Extreme Sports and RC/Drone</span>
         </a>
-        <a class="activity-link clearfix hunting" data-ua-event="Virb,Click,Activity virb_activities_water,hunting" href="#page-hunting">
+        <a class="slide-toggle activity-link clearfix hunting" data-ua-event="Virb,Click,Activity virb_activities_water,hunting" href="#page-hunting">
           <span class="icon-wrap">
             <svg viewbox="0 0 46.9 46.9" xmlns="http://www.w3.org/2000/svg">
               <circle cx="23.4" cy="23.4" fill="#FBD236" r="23.4"></circle>
@@ -127,7 +124,7 @@ addclass: blue2
           <span class="activity-title">hunting</span>
           <span class="activity-listings">Hunting, fishing and dogs</span>
         </a>
-        <a class="activity-link clearfix motor-sports" data-ua-event="Virb,Click,Activity virb_activities_water,motor sports" href="#page-motor">
+        <a class="slide-toggle activity-link clearfix motor-sports" data-ua-event="Virb,Click,Activity virb_activities_water,motor sports" href="#page-motor">
           <span class="icon-wrap">
             <svg viewbox="0 0 46.9 46.9" xmlns="http://www.w3.org/2000/svg">
               <circle cx="349.1" cy="67.1" fill="#FBD236" r="23.4"></circle>
@@ -150,16 +147,14 @@ addclass: blue2
       </div>
     </div>
 
-    <div class="carousel-slide-wrap long clearfix col-xs-9">
-      <div class="slide active" id="activity1">
+    <div class="carousel-slide-wrap long clearfix col-xs-8">
+      <div class="slide active" id="page-water">
         <img src="{{ site.baseurl }}/img/projects/virb/activity2.jpg" alt="Styleboards for Garmin VIRB">
       </div>
-      <div class="slide " id="activity2">
+      <div class="slide " id="page-motor">
         <img src="{{ site.baseurl }}/img/projects/virb/activity1.jpg" alt="Moodboards for Garmin VIRB">
       </div>
-      <div class="slide" id="activity3">
+      <div class="slide" id="page-snow">
         <img src="{{ site.baseurl }}/img/projects/virb/activity3.jpg" alt="Styleboards for Garmin VIRB">
       </div>
     </div>
-  </section>
-</div>

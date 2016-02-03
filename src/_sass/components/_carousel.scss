@@ -3,19 +3,19 @@
     min-height:100vh;
 }
 .slide {
-    width:50%;
+    width:100%;
     position:absolute;
     right:0;
     top:0;
     transition:200ms right;
     &.active {
-        right:50%;
+        right:100%;
     }
 }
 .carousel-slide-wrap {
-    width:200%;
     padding-top:80%;
     position:relative;
+    overflow:hidden;
 }
 .carousel-slide-wrap.long {
     padding-top:120%;

@@ -1,7 +1,6 @@
 $v-blue          : #2077D8;
 $v-white         : #ffffff;
-$v-blue-dark     : #1875DC;
-$v-blue-light    : #549cec;
+$v-blue-light    : lighten($v-blue, 5%);
 $v-charcoal      : #212429;
 $v-charcoal-dark : #212429;
 
@@ -12,7 +11,7 @@ $v-charcoal-dark : #212429;
   font-size: 13px;
   line-height:20px;
   z-index: +1;
-  top: 0;
+  top: 25px;
   left: 0;
   width: auto;
   max-width: 90px;
@@ -48,6 +47,9 @@ $v-charcoal-dark : #212429;
     text-overflow: ellipsis;
     color: rgba($v-white,.8);
   }
+  a, a:active, a:hover {
+    outline:none;
+  }
   .icon-wrap {
     position: relative;
     float: left;
@@ -79,19 +81,19 @@ $v-charcoal-dark : #212429;
         color: white;
       }
       .svg-fill, svg circle {
-        fill: $v-blue-dark;
+        fill: $v-blue;
       }
       .activity-title {
         color: $v-white;
       }
-      &:hover .svg-fill {
-        fill: $v-blue-light;
-      }
+      &:hover svg circle{
+          fill: $v-blue-light;
+=      }
     }
     &:hover {
       border-color: $v-blue;
       //background-color: lighten($v-gray, 25%);
-      background-color: lighten($v-blue, 5%);
+      background-color: $v-blue-light;
     }
     .svg-fill, .svg-icon {
       &, & * {
