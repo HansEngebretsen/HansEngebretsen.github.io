@@ -14,6 +14,7 @@
         viewable        : $('.inview'),
         laxContainer    : $('.lax-container'),
         laxImg          : '.lax-img',
+        scrollUp        : $('#scrollUp'),
         wHeight         : $(window).height()
     }
   }
@@ -37,6 +38,26 @@ Waypoints.prototype.viewable = function(e){
   }, {
     offset: '70%'
   });
+}
+Waypoints.prototype.showScroll = function(e){
+  var sup = this.elements.scrollUp;
+  var waypointrs = new Waypoint({
+    element: $('body'),
+    handler: function(direction){
+      if (direction == 'down' ){
+        sup.removeClass('opaque');
+      }if (direction == 'up' ){
+        sup.addClass('opaque');
+      }
+    },
+    offset: -120
+  })
+
+}
+Waypoints.prototype.scrollUp = function(e){
+  e.preventDefault();
+  console.log('bout to scroll' + e);
+  $("html, body").animate({ scrollTop: 0 }, 500);
 }
 Waypoints.prototype.scroller = function(wrapper, objects){
     var _this = this;
@@ -96,9 +117,17 @@ Waypoints.prototype.plaxInit = function(e){
 
 Waypoints.prototype.init = function(e){
   var mqTablet = window.matchMedia( "( min-width: 620px )"); // Media query for intro slide and navscroll
+  var mqTabletmax = window.matchMedia( "( max-width: 620px )"); // Media query for intro slide and navscroll
   if (mqTablet.matches){
     this.viewable();
     this.plaxInit();
+  }
+  if (mqTabletmax.matches){
+    this.showScroll();
+    _this = this;
+    this.elements.scrollUp.click(function(e){
+      _this.scrollUp(e);
+    });
   }
 }
 

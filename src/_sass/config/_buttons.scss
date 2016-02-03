@@ -89,6 +89,22 @@
   transform: rotate(90deg);
 }
 
+.scrollUp {
+  position:fixed;
+  bottom:15px;
+  right:15px;
+  background-image: url("../img/arrow-icon-up.svg");
+  background-size: 40%;
+  width: 50px;
+   background-position:center center;
+  height: 50px;
+  background-repeat:no-repeat;
+  text-indent:-9999px;
+  display:block;
+  z-index: 10;
+  border-radius: 50%;
+  background-color:rgba(white,.2);
+}
 
 .controls {
   text-align: center;
@@ -118,7 +134,6 @@
     background-repeat: no-repeat;
     background-position: center center;
   }
-
   .next a, .prev a, .scroll a {
     padding-top: 25px;
     text-align: center;

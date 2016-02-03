@@ -126,7 +126,7 @@ $aqua: #3de5d2;
     overflow:hidden;
 
     @include breakpoint(tablet) {
-      height: 400px;
+      // height: 400px;
     }
     img {
       width: 100%;
@@ -164,6 +164,10 @@ $aqua: #3de5d2;
 
     @include breakpoint(min-huge-screen) {
       height: 700px;
+    }
+    @include breakpoint(tablet){
+      height: auto;
+      min-height: 600px;
     }
   }
   .styleboard-container {

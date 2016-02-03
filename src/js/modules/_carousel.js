@@ -40,7 +40,7 @@ Waypoints.prototype.viewable = function(e){
 }
 
 Waypoints.prototype.init = function(e){
-  this.viewable();
+  // this.viewable();
 
 }
 
