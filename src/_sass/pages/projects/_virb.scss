@@ -236,8 +236,36 @@ $aqua: #3de5d2;
 }
 @import "virb-activity-nav";
 .activity-pages {
+  .carousel-slide-wrap {
+      margin-top: 50px;
+    @include breakpoint(screen-xs){
+      float:none;
+      margin:0 auto;
+      margin-top: 50px;
+      white-space:nowrap;
+      overflow:auto;
+      padding-top:0;
+      -webkit-overflow-scrolling: touch;
+      .slide {
+        position:relative;
+        opacity:1;
+        width: 80%;
+        display:inline-block;
+        margin-right:20px;
+      }
+    }
+
+  }
+  .slide {
+    // background-image: url('../img/browser-chrome.svg');
+    // background-size: 100%;
+    // background-position:top center;
+    // width: 95%;
+    // padding-top: 40px;
+    // background-repeat:no-repeat;
+  }
   .slide img {
-    width: 95%;
+    width: 100%;
     box-shadow: 2px 3px 20px rgba(black, .5);
   }
 }
