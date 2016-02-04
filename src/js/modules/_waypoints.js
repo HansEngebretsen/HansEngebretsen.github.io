@@ -106,7 +106,7 @@ Waypoints.prototype.plaxInit = function(e){
     var inview = new Waypoint.Inview({
       element: wrapper,
       enter: function(direction) {
-        laxfunction();
+        new laxfunction();
       },
       exited: function(direction) {
         window.clearInterval(interval);

@@ -269,7 +269,11 @@ $aqua: #3de5d2;
     box-shadow: 2px 3px 20px rgba(black, .5);
   }
 }
-.devices-wrap {
+.responsive .pre-title {
+  margin-top: 10vh;
+}
+.device-icon-wrap {
+  text-align:center;
   figure {
     display:inline-block;
     width: 70px;

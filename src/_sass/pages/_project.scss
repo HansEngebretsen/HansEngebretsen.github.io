@@ -109,6 +109,15 @@ body {
         h4, p {
             text-align:left;
         }
+        &.left-align {
+            text-align:left;
+            .pre-title {
+                padding-left:0;
+            }
+            h4, p, h1 {
+                text-align:left;
+            }
+        }
         .col-sm-12 {
             padding-bottom:50px;
             margin-top:75px;
@@ -156,17 +165,18 @@ body {
 }
 
 .iphone-frame {
-    width:400px;
+    width:115%;
     z-index:5;
     margin-top:40px;
     display:block;
-    height:705px;
+    height:570px;
     position:relative;
     background-image:url('../img/iphone6-frame.png');
     background-size:100%;
     background-repeat:no-repeat;
-    padding-top:118px;
-    padding-left:55px;
+    padding-top:34%;
+    padding-left:16%;
+    margin-left: -10%;
     @include breakpoint(normal-screen){
         margin:0 auto;
     }
@@ -181,13 +191,14 @@ body {
     // left:0;
     // }
     .iphone-screen-container {
-        width:290px;
-        max-height:474px;
+        width:77.5%;
+        max-height:76%;
         overflow-x:hidden;
         overflow-y:scroll;
         .iphone-screen {
             height:2731px;
             width:268px;
+            max-width: 100%;
             display:block;
             opacity:1;
             background-image: url('../img/projects/virb/edit-screenshot.jpg');

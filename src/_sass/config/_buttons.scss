@@ -134,7 +134,7 @@
     background-repeat: no-repeat;
     background-position: center center;
   }
-  .next a, .prev a, .scroll a {
+  .next a, .prev a, .scroll-toggle {
     padding-top: 25px;
     text-align: center;
     position:relative;
@@ -154,7 +154,7 @@
     }
   }
 
-  .scroll a {
+  .scroll-toggle {
      width: 60px;
     height: 60px;
     &:hover {
@@ -173,7 +173,7 @@
    }
 
   }
-  .scroll a:before {
+  .scroll-toggle:before {
     background-image: url("../img/arrow-icon-down.svg");
   }
   .next a {
