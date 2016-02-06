@@ -23,7 +23,7 @@ $aqua: #3de5d2;
     }
   }
   section.blue2 {
-    background-color: #1468c5;
+    background-color: #1468c5; //darker shade of blue
   }
   section.grey {
     z-index: 0;
@@ -50,54 +50,22 @@ $aqua: #3de5d2;
 
   .intro {
     position: relative;
-    min-height: 90vh;
     padding-bottom: 0;
     background: linear-gradient(to bottom, rgba(32, 119, 216, .95) 0%, rgba(32, 119, 208, .95) 81%, rgba(32, 119, 206, 1) 100%); /* W3C */
     background-color: $virb;
-
-    @include breakpoint(tablet) {
-      height: auto;
-      min-height: inherit;
-    }
     h1 {
       color: white;
     }
-    #videobg {
-      position: absolute;
-      z-index: 0;
-      bottom: 0;
-      left: 50%;
-      transform: translateX(-50%);
-      opacity: .2;
-      @media (min-aspect-ratio: 16/9) {
-          width: 100%;
-          height: auto;
-      }
 
-      @media (max-aspect-ratio: 16/9) {
-          width: auto;
-          height: 100%;
-      }
-
-      @include breakpoint(tablet) {
-        display: none;
-        left: 50%;
-        transform: translateX(-50%);
-      }
-    }
-    .description {
-      margin-bottom: 20px;
-    }
     .project-info {
       background-color: darken($virb, 5%);
     }
-    img {
+    img { // VIRB device img
       position: relative;
       width: 300px;
       margin: 0 auto;
       margin-bottom: 20px;
       transform: translateZ(0);
-
       @include breakpoint(tablet) {
         width: 200px;
         margin-bottom: 50px;
@@ -107,6 +75,10 @@ $aqua: #3de5d2;
 
 
   // Sections
+  section.work {
+    padding-bottom:0;
+    overflow:hidden;
+  }
   .moodboard-wrap {
     position: relative;
     z-index: 0;
@@ -223,21 +195,20 @@ $aqua: #3de5d2;
 
   }
 }
-.virb {
-  section.work {
-    padding-bottom:0;
-    overflow:hidden;
-  }
-}
+
 // Listings page styles
 
-.device-wraps {
-  margin-top: 80px;
-}
 @import "virb-activity-nav";
 .activity-pages {
   .carousel-slide-wrap {
-      margin-top: 50px;
+    margin-top: 50px;
+    .slide {
+    padding: 0 15px; // room for drop shadow
+      img {
+        width: 100%;
+        box-shadow: 2px 3px 20px rgba(black, .5);
+      }
+    }
     @include breakpoint(screen-xs){
       float:none;
       margin:0 auto;
@@ -256,44 +227,26 @@ $aqua: #3de5d2;
     }
 
   }
-  .slide {
-    // background-image: url('../img/browser-chrome.svg');
-    // background-size: 100%;
-    // background-position:top center;
-    // width: 95%;
-    // padding-top: 40px;
-    // background-repeat:no-repeat;
-  }
-  .slide img {
-    width: 100%;
-    box-shadow: 2px 3px 20px rgba(black, .5);
-  }
+  // .slide { Browser Chrome
+  //   background-image: url('../img/browser-chrome.svg');
+  //   background-size: 100%;
+  //   background-position:top center;
+  //   width: 95%;
+  //   padding-top: 40px;
+  //   background-repeat:no-repeat;
+  // }
 }
-.responsive .pre-title {
-  margin-top: 10vh;
-}
-.device-icon-wrap {
-  text-align:center;
-  figure {
-    display:inline-block;
-    width: 70px;
-    min-height: 80px;
-    background-size: 100%;
-    background-repeat:no-repeat;
-    background-position:bottom center;
-    margin-right: 15px;
+
+.responsive {
+ .pre-title {
+    margin-top: 10vh;
   }
-  .d-phone {
-    background-image:url('../img/icon-phone.svg');
-    width: 25px;
+  .macbook-screen {
+    padding-top:320%;
+    background-image: url('../img/projects/virb/macbook-screen-bg.jpg');
   }
-  .d-tablet {
-    background-image:url('../img/icon-tablet.svg');
-    width: 55px;
-  }
-  .d-desktop {
-    background-image:url('../img/icon-desktop.svg');
-      width: 110px;
-      height: 100px;
+  .iphone-screen {
+    padding-top:1034%;
+    background-image: url('../img/projects/virb/edit-screenshot.jpg');
   }
 }
