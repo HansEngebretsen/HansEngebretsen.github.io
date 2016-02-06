@@ -62,7 +62,7 @@
 
 }
 
-.cinema-carousel.clicked .screen-container.active{
+.cinema-carousel.active .screen-container.active{
   img {
     transition: 3s all ease-out;
     transform: translateY(-100%);
@@ -111,7 +111,7 @@
     padding:0;
     height:20px;
   }
-  .scroll a.clicked {
+  .scroll a.active {
     &:before {
       transform:rotate(180deg);
     }
