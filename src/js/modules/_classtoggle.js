@@ -19,9 +19,9 @@
           toggleMe     = true,
           className    = 'active';
 
-      if (that.parents('.tabs') && that.hasClass('active')){ // stop executing if you're clicking yourself and you aren't a toggle
+      if (that.parents('.tabs').length && that.hasClass('active')){ // stop executing if you're clicking yourself and you aren't a toggle
         return;
-      } else if (that.parents('.tabs')){
+      } else if (that.parents('.tabs').length){
         var container = that.parents('.tabs');
         container.find('.active').removeClass('active');
       }
@@ -30,9 +30,9 @@
         $(toggleTarget).removeAttr('id');
         $(toggleTarget).attr('id', className);
       }
-
+        console.log('ran');
         that.toggleClass('active');
-      $(toggleTarget).toggleClass(className);
+        $(toggleTarget).toggleClass(className);
 
     }
     if (tclass){
@@ -44,7 +44,7 @@
           $('.overlayMask').toggleClass('active');
           // toggle(e);
         }else {
-            toggle(e);
+            new toggle(e);
         }
        });
     }
