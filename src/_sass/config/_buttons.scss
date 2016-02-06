@@ -89,8 +89,9 @@
   transform: rotate(90deg);
 }
 
-.scrollUp {
+.scrollUp, a.scrollUp, a:active.scrollUp {
   position:fixed;
+  outline:none;
   bottom:15px;
   right:15px;
   background-image: url("../img/arrow-icon-up.svg");
@@ -167,7 +168,7 @@
     &:before {
      background-position:center 27px;
    }
-   &.clicked:before {
+   &.active:before {
      transform:rotate(180deg);
      background-position: center 10px;
    }
