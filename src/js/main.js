@@ -1,4 +1,5 @@
 $( document ).ready(function() {
+  // This is a dumping grounds --> trash central
   // Loaded transitions
   var w = window.innerWidth,
       bp = 750;
@@ -12,7 +13,7 @@ $( document ).ready(function() {
         mns = 'fixed';
         hdr = $('.cover-image').height();
 
-    $(window).scroll(function() {
+    $(window).scroll(function() { // refactor me to be performant
       if( $(this).scrollTop() > hdr ) {
         mn.addClass(mns);
       } else {
@@ -22,13 +23,6 @@ $( document ).ready(function() {
   }
 });
 
-if ($('.scroll-toggle')){
-  $('.scroll-toggle').click(function(e){
-    e.preventDefault();
-    $(this).toggleClass('clicked');
-    $(this).parents('.cinema-carousel').toggleClass('clicked');
-  });
-}
 
 if ($('.cinema-carousel')){
   var swapSource = function(e, direction) {
