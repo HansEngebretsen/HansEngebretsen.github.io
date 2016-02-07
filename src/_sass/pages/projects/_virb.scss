@@ -48,6 +48,13 @@ $aqua: #3de5d2;
     width: 100%;
     // @extend .plax-container;
   }
+  footer {
+    margin-top: -52px;
+    position:relative;
+    h2, a {
+      color:white;
+    }
+  }
 
   .intro {
     position: relative;
@@ -278,9 +285,14 @@ $aqua: #3de5d2;
       left:0;
       z-index:2;
   }
-  h3, h4 {
+  h3, h4, span.text-small {
     color:lighten($virb, 30%);
+    opacity:1;
   }
+  .text-small {
+    vertical-align:middle;
+  }
+
   .virb .blue & h4  {
     color:lighten($virb, 10%);
   }
