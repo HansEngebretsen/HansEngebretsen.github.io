@@ -41,6 +41,9 @@ body {
     }
     p {
         text-align:left;
+        a {
+            text-decoration: underline;
+        }
     }
     .intro {
         padding:150px 0;
@@ -262,10 +265,10 @@ body {
     }
     .iphone-screen-container {
         width:66.5%;
-        max-height:68%;
+        max-height:69.2%;
         overflow:hidden;
         position:absolute;
-        top: 17%;
+        top: 17.2%;
         left: 14%;
     }
     .iphone-screen {
@@ -309,20 +312,59 @@ body {
         padding: 30px;
         vertical-align: top;
         margin-top:0px;
+        max-width: 16.6%;
+        @include breakpoint(min-huge-screen){
+            max-width: 20%;
+        }
+        @include breakpoint(big-screen){
+            width:66%;
+            max-width:inherit;
+            min-height: 200px;
+        }
+        @include breakpoint(phone){
+            width:49%;
+        }
+
         &:nth-child(2){
             // margin-top:20px;
             margin-top: 120px;
+            @include breakpoint(big-screen){
+                width: 33%;
+                margin-top:20px;
+            }
+            @include breakpoint(phone){
+                width: 49%;
+                margin-top: 30px;
+            }
         }
         &:nth-child(3){
-            // margin-top: 120px;
-            // margin-top:0;
+            @include breakpoint(big-screen){
+                width: 33%;
+            }
+            @include breakpoint(phone){
+                width: 49%;
+                margin-top:-23px;
+            }
         }
          &:nth-child(4){
             // margin-top: 120px;
+            max-width: 50%;
             margin-top:120px;
+            @include breakpoint(big-screen){
+                margin-top:40px;
+            }
+            @include breakpoint(phone){
+                margin-top:5px;
+            }
         }
         h3 {
-            font-size: 4em;
+            font-size: 3.5em;
+            @include breakpoint(min-huge-screen){
+                font-size: 3em;
+            }
+            @include breakpoint(phone){
+                font-size: 2.5em;
+            }
             text-align:left;
             margin-bottom:0;
             word-wrap:break-word;
@@ -334,6 +376,11 @@ body {
         }
         h4 {
             margin-top:0;
+            line-height: 1;
+            margin-top:.5em;
+            @include breakpoint(tablet){
+                font-size:1em;
+            }
         }
     }
 }
