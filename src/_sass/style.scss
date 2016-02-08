@@ -155,45 +155,47 @@ footer {
       color: $dark-grey;
     }
   }
-  // Background image
-  &:after {
-    content: '';
-    display: block;
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 90%;
-    //
-    opacity: 0.059;
-    background-image: url("../img/me.jpg");
-    background-position: center center;
-    background-size: cover;
-  }
+  // // Background image
+  // &:after {
+  //   content: '';
+  //   display: block;
+  //   position: absolute;
+  //   z-index: -1;
+  //   top: 0;
+  //   left: 0;
+  //   width: 100%;
+  //   height: 90%;
+  //   //
+  //   opacity: 0.059;
+  //   background-image: url("../img/me.jpg");
+  //   background-position: center center;
+  //   background-size: cover;
+  // }
 }
 
 // Hans clicked actions
 .about {
   //Slide the menu down to make room for the description
-  .menu {
-    margin-top: 109px;
-    @include breakpoint(mama-bear) {
-      .index & {
-        margin-top: 150px;
-      }
-    }
-  }
-  .container {
-    margin-left: 100%;
-  }
+  // .menu {
+  //   margin-top: 109px;
+  //   @include breakpoint(mama-bear) {
+  //     .index & {
+  //       margin-top: 150px;
+  //     }
+  //   }
+  // }
   //Slide the bio into the frame, and make background image visible
+  footer {
+    position:absolute;
+  }
   .hans-content {
     visibility: visible;
     transition: opacity 600ms;
+    padding-top:50%;
     opacity: 1;
+    transform:translateY(-50%);
     .bio {
-      margin-top: -108px;
+      margin-top:20px;
       transition: margin-top 400ms;
     }
   }
