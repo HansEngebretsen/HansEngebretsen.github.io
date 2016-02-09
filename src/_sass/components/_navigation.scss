@@ -119,13 +119,17 @@
     }
     .social-clicked & a {
       color: $orange;
+      @extend %close-x;
+      &:after {
+        margin-right:-5px;
+      }
     }
   }
   a {
     // Extra padding for chunky thumbs on mobile
     @include breakpoint(phone) {
-      padding-top: 0.5em;
-      padding-bottom: 0.5em;
+      padding-top: 0.75em;
+      padding-bottom: 0.75em;
     }
     display: block;
     padding: 0.3em;
@@ -266,7 +270,7 @@
   }
   .social-clicked .menu.unfolded {
     margin-top: 0;
-    margin-left: -260px;
+    margin-left: -220px;
   }
   .menu li {
     float: left;
@@ -302,8 +306,8 @@
   }
   .social-clicked .menu li:nth-child(4) {
     background-color: rgba(white, 0.1);
-    a {
-      color: white;
+    a:hover {
+      color:$orange;
     }
   }
   .social {
