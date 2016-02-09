@@ -59,8 +59,7 @@
     };
 
     // Only start when clicked, and don't run multiple instances
-    $('#hans-toggle').click(function() {
-      if ( !$('#hans-toggle').data('clicked') ) {
+      if ($('.about')) {
         var elements = document.getElementsByClassName('txt-rotate');
 
         for (var i=0; i<elements.length; i++) {
@@ -77,7 +76,6 @@
         document.body.appendChild(css);
       }
       $(this).data('clicked', true);
-    });
   };
 
   _this.spinRound = new SpinRound(); // attach utils to global
