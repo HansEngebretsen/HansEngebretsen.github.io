@@ -36,6 +36,14 @@
     .white & {
       color: white;
     }
+    .grey  {
+      color: $modco-grey;
+      background-color: rgba($modco-grey, .2);
+      &:hover {
+          color: $modco-grey-d;
+          border-color:$modco-grey-d;
+      }
+    }
     &.current {
       padding-left: 0.5em;
     }
@@ -46,7 +54,6 @@
      border-bottom: 1px solid rgba(white, 0.5);
     }
   }
-
   %close-x {
   &:after {
     content:"x";
@@ -60,7 +67,15 @@
     background-color:rgba(100, 100, 100, 0.2);
   }
 }
-
+.btn-grey, a.btn-grey {
+  @extend .btn;
+  color: $modco-grey;
+  background-color: rgba($modco-grey, .2);
+  &:hover {
+      color: $modco-grey-d;
+      border-color:$modco-grey-d;
+  }
+}
 %arrow-right {
   background-image: url("../img/arrow-icon.svg");
   background-size: 100%;

@@ -113,6 +113,12 @@
   .Modco {
     position: relative;
     background-color: $modco;
+    h2, h1 {
+      color:$modco-grey-d;
+    }
+    .btn {
+      @extend .btn-grey;
+    }
     &:after {
       content: '';
       display: block;

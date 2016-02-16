@@ -8,17 +8,23 @@ $purple: #6847C6;
 $green: #5ED22E;
 $orange: #EF521D;
 $aqua: #3DE5D2;
+
+$modco-grey: #acafb5;
+$modco-grey-d: #5a5d63;
+$modco-blue: #227fbb;
+$modco-grey-l: #F3F5F7;
+
 .projects .modco:after, .projects .Modco:after, .project.modco .intro:after {
     background-image: url('../img/projects/modco/modco-bg.jpg');
     opacity:.04;
 }
 .projects .Modco {
     @extend %curtain-img;
- background-color:$grey;
+    background-color:white;
 }
 .project.Modco .intro, .project.modco .intro {
     @extend %curtain-img;
- background-color:$grey;
+    background-color:white;
     position:relative;
     padding-bottom:0;
     height: 100%;
@@ -39,15 +45,30 @@ $aqua: #3DE5D2;
         background-image:url('../img/projects/virb/curtain-virb-edit.jpg');
     }
     &.modco .pre-title {
-        border-color: $yellow;
+        border-color: $blue;
+        color:$modco-grey;
+    }
+    .project-info {
+        position:relative;
+        background-image: url('../img/projects/modco/cta-bg.svg');
+        background-size: 100%;
+        z-index:2;
+        // h4 {
+        //     color: $modco-grey;
+        // }
+        // p {
+        //     color: $modco-grey;
+        // }
     }
 }
 
 .modco {
     .intro h1 {
-        color:white;
+        color:$modco-blue;
     }
-
+    .intro .description {
+        color: $modco-grey;
+    }
     section.blue {
         background-color:transparent;
         h1 {

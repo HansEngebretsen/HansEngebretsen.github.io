@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1024px" height="252px" viewBox="0 0 1024 252" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3 (11970) - http://www.bohemiancoding.com/sketch -->
+    <title>BG Elements</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="1024" height="252"></rect>
+    </defs>
+    <g id="Mockups" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="1---HOME" sketch:type="MSArtboardGroup" transform="translate(0.000000, -624.000000)">
+            <g id="Figure-500-CTA" sketch:type="MSLayerGroup" transform="translate(-66.000000, 8.000000)">
+                <g id="BG-Elements" transform="translate(66.000000, 616.000000)">
+                    <mask id="mask-2" sketch:name="Mask" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#227FBB" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+                    <g mask="url(#mask-2)" stroke="#FFFFFF" id="Oval-2" sketch:type="MSShapeGroup" opacity="0.081798041">
+                        <g transform="translate(-48.000000, -616.000000)">
+                            <ellipse cx="445.152344" cy="446" rx="445.152344" ry="445.5"></ellipse>
+                            <ellipse cx="445.044078" cy="442.32839" rx="364.044078" ry="364.32839"></ellipse>
+                            <ellipse cx="445.025722" cy="442.258475" rx="298.025722" ry="298.258475"></ellipse>
+                            <ellipse cx="444.436689" cy="442.618218" rx="232.436689" ry="232.618218"></ellipse>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

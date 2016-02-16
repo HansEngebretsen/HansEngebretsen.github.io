@@ -1,39 +1,28 @@
 ---
-layout: default
+layout: parallax
 title: Pipeline Experts
 client: Modco
 navColor: dark
 nav: left-align
 navOrientation: top-nav
-navColor: white
 handle: modco
 type: project
 maincolor: ffffff
 secondaryColor: 2077D8
 ---
+
 <div class="project modco" style="background-color: #{{ page.maincolor }}">
-  <section class="intro">
-    <div class="intro-wrap">
-      <h4 class="pre-title" style="border-color: #{{ page.secondaryColor}}">{{page.client}}</h1>
-      <h1 class="super-title">{{ page.title }}</h1>
-      <p class="description container">Modco is a b2b company focused on one single product: a pipeline closure called the Figure 500</p>
-      <div class="row">
-        <div class="col-xs-12"><a href="http://modcoind.com" about="_blank" class="btn">View the Site &#10154;</a></div>
-      </div>
-    </div>
-  </section>
-  <section class="project-info">
-    <div class="container">
-      <div class="col-xs-6">
-        <h4>About</h4>
-        <p> Garmin VIRB is a line of action cameras focused on professional niche markets. It leverages advanced data integration and rugged design to Centered on the release of Garmin's new Action Camera </p>
-      </div>
-      <div class="col-xs-6">
-        <h4>Role</h4>
-        <p>Working together with Jason Yang (who handled project management), I served as main consultant as well as designer and developer on the entire site.</p>
-      </div>
-    </div>
-  </section>
+{% include nav.html %}
+{% assign sorted_pages = (site.parts | sort: 'order') %}
+{% for page in sorted_pages %}
+  {% if page.parent == 'modco' %}
+    {% include section.html %}
+  {% endif %}
+{% endfor %}
+
+{% include footer.html %}
+
+
   <section class="blue">
     <div class="container">
       <div class="col-xs-12">
