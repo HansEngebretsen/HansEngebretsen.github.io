@@ -12,8 +12,19 @@ $aqua: #3DE5D2;
 $modco-grey: #acafb5;
 $modco-grey-d: #5a5d63;
 $modco-blue: #227fbb;
+$modco-dark-blue: #186095;
 $modco-grey-l: #F3F5F7;
-
+$modco-slate: #5A5D63;
+$modco-dark-slate: #232537;
+@import "modco-buttons";
+.modco {
+  .blue h1 {
+    color:white;
+  }
+  h1 {
+      color:$modco-blue;
+  }
+}
 .projects .modco:after, .projects .Modco:after, .project.modco .intro:after {
     background-image: url('../img/projects/modco/modco-bg.jpg');
     opacity:.04;
@@ -50,8 +61,6 @@ $modco-grey-l: #F3F5F7;
     }
     .project-info {
         position:relative;
-        background-image: url('../img/projects/modco/cta-bg.svg');
-        background-size: 100%;
         z-index:2;
         // h4 {
         //     color: $modco-grey;
@@ -68,6 +77,10 @@ $modco-grey-l: #F3F5F7;
     }
     .intro .description {
         color: $modco-grey;
+    }
+    .project-info {
+        background-image: url('../img/projects/modco/cta-bg.svg');
+        background-size: 100%;
     }
     section.blue {
         background-color:transparent;
