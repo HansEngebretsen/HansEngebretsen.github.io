@@ -21,6 +21,16 @@ $modco-dark-slate: #232537;
   .blue h1 {
     color:white;
   }
+  section.dark {
+    background-color: $modco-slate;
+    h1 {
+        color:white;
+    }
+    p {
+        color:white;
+        opacity: .6;
+    }
+  }
   h1 {
       color:$modco-blue;
   }
@@ -125,6 +135,19 @@ $modco-dark-slate: #232537;
             color:white;
             opacity:1;
         }
+    }
+}
+.modco {
+
+    .responsive {
+      .macbook-screen {
+        padding-top:332%;
+        background-image: url('../img/projects/modco/responsive-desktop.jpg');
+      }
+      .iphone-screen {
+        padding-top:875%;
+        background-image: url('../img/projects/modco/responsive-mobile.jpg');
+      }
     }
 }
 .device-wraps {
