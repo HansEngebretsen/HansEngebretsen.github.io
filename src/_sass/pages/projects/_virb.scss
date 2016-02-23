@@ -140,63 +140,7 @@ $aqua: #3de5d2;
     position: relative;
     transform: translateZ(0);
   }
-  .styleboard-wrap {
-    position: relative;
-    max-width: 1500px;
-    height: 1000px;
-    margin: 0 auto;
 
-    @include breakpoint(min-huge-screen) {
-      height: 700px;
-    }
-    @include breakpoint(tablet){
-      height: auto;
-      min-height: 600px;
-    }
-  }
-  .styleboard-container {
-    position: relative;
-    height: 100%;
-    margin-top: 75px;
-  }
-  // Paralaxin styleboards
-  .styleboards {
-    img {
-      top: 50px;
-      width: 700px;
-      max-width: 100%;
-      box-shadow: 7px 6px 7px rgba(0, 0, 0, .12);
-
-      @extend .plax-child;
-      @include breakpoint(min-huge-screen) {
-        width: 500px;
-      }
-      @include breakpoint(big-screen) {
-        width: 400px;
-      }
-      &:nth-child(1) {
-        transform: translateZ(-.125px) translateX(50%) translateY(100%) scale(1.1);
-        left: 2%;
-        @include breakpoint(normal-screen) {
-          transform: translateZ(-.125px) translateX(10px) translateY(100%) scale(1.1);
-        }
-      }
-      &:nth-child(2) {
-        right: 40px;
-        left: auto;
-        transform: translateZ(-.17px) scale(1.2);
-
-        @include breakpoint(big-screen) {
-          top: 0;
-        }
-      }
-      &:nth-child(3) {
-        left: 10%;
-        top: 40%;
-        transform: translateZ(0) scale(1);
-      }
-    }
-  }
   .sign-off {
     background-image:url('../img/projects/virb/activity-snow-footer.jpg');
     min-height: 100vh;
