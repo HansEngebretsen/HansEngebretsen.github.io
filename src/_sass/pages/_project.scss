@@ -256,7 +256,7 @@ body {
         height:0;
         padding-top: 197%; // aspect ratio
         z-index:5;
-        background-image:url('../img/iphone6-frame.png');
+        background-image:url('../img/iphone6-frame-noshadow.png');
         background-size:100%;
         background-repeat:no-repeat;
         @include breakpoint(normal-screen){
@@ -264,12 +264,12 @@ body {
         }
     }
     .iphone-screen-container {
-        width:66.5%;
-        max-height:69.2%;
+        width:66.75%;
+        max-height:70.3%;
         overflow:hidden;
         position:absolute;
-        top: 17.2%;
-        left: 14%;
+        top: 11.7%;
+        left: 16%;
     }
     .iphone-screen {
         width:100%;
