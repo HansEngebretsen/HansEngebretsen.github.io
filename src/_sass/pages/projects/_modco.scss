@@ -9,6 +9,7 @@ $green: #5ED22E;
 $orange: #EF521D;
 $aqua: #3DE5D2;
 
+$modco-light-grey: #f3f5f7;
 $modco-grey: #acafb5;
 $modco-grey-d: #5a5d63;
 $modco-blue: #227fbb;
@@ -18,6 +19,17 @@ $modco-slate: #5A5D63;
 $modco-dark-slate: #232537;
 @import "modco-buttons";
 .modco {
+  .section.work {
+    padding-bottom:0;
+  }
+  .light-grey {
+    background-color:$modco-light-grey;
+  }
+    .styleboards {
+        img {
+            box-shadow:7px 2px 17px rgba(0, 0, 0, 0.12);
+        }
+    }
   .blue h1 {
     color:white;
   }
