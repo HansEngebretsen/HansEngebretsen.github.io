@@ -15,6 +15,7 @@
         laxContainer    : $('.lax-container'),
         laxImg          : '.lax-img',
         scrollUp        : $('#scrollUp'),
+        autovids        : $('.autoplayvideo'),
         wHeight         : $(window).height()
     }
   }
@@ -38,6 +39,17 @@ Waypoints.prototype.viewable = function(e){
   }, {
     offset: '70%'
   });
+}
+Waypoints.prototype.autovid = function(e){
+  var videos = this.elements.autovids;
+  videos.waypoint(function(direction){
+    if (direction === 'down'){
+      this.element.autoplay = true;
+      this.element.play();
+    }
+    }, {
+      offset: '70%'
+   });
 }
 Waypoints.prototype.showScroll = function(e){
   var sup = this.elements.scrollUp;
@@ -121,6 +133,9 @@ Waypoints.prototype.init = function(e){
   if (mqTablet.matches){
     this.viewable();
     this.plaxInit();
+  }
+  if (this.elements.autovids){
+    this.autovid();
   }
   if (mqTabletmax.matches){
     this.showScroll();
