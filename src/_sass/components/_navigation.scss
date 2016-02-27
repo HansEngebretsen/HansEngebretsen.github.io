@@ -141,6 +141,9 @@
     outline:none;
     .white & {
       color: white;
+      &:hover {
+        color:white;
+      }
     }
     &.current {
       padding-left: 0.5em;
@@ -296,7 +299,7 @@
       padding: 0.5em;
       outline:none;
       &:hover {
-        color: white;
+        // color: white;
         border-color: white;
       }
     }

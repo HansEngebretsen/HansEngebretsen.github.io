@@ -95,10 +95,21 @@ $modco-dark-slate: #232537;
 
 .modco {
     .intro h1 {
-        color:$modco-blue;
+        color:$modco-slate;
     }
     .intro .description {
         color: $modco-grey;
+    }
+    .intro, .intro-wrap {
+        padding-bottom:0;
+    }
+    .intro img {
+        max-width: 300px;
+        width:30%;
+        margin-top: 40px;
+        position:absolute;
+        bottom:0;
+        right:20px;
     }
     .project-info {
         background-image: url('../img/projects/modco/cta-bg.svg');

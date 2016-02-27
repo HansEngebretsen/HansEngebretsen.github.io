@@ -15,7 +15,6 @@ secondaryColor: d4d4d4
 ---
 <link href="http://fonts.googleapis.com/css?family=Cabin:400,500,600,700" rel="stylesheet" type="text/css">
 <div class="project journalbot" style="background-color: #{{ page.maincolor }}">
-{% include nav.html %}
 {% assign sorted_pages = (site.parts | sort: 'order') %}
 {% for page in sorted_pages %}
   {% if page.parent == 'journalbot' %}

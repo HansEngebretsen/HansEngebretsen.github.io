@@ -3,6 +3,14 @@ body {
     overflow-x:hidden;
 } // need to migrate upstream
 .project {
+    .intro.text-left {
+        text-align:left;
+        margin-left:40px;
+        p {
+            text-align:left;
+            margin-left:0;
+        }
+    }
     max-width:inherit;
     .circle-scroll-crop {
         width:400px;
