@@ -108,7 +108,12 @@
       }
     }
   }
-
+  .Garmin.Beat {
+    background-color: #4dc5d6;
+    &:after {
+      background-image: none;
+    }
+  }
   // MODCO
   .Modco {
     position: relative;

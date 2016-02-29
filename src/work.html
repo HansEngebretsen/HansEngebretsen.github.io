@@ -9,7 +9,7 @@ navOrientation: top-nav
 ---
 {% for page in site.pages %}
   {% if page.type == 'project' %}
-    <section class="proj-wrap {{ page.client }}">
+    <section class="proj-wrap {{ page.client }} {{ page.title }}">
       <div class="proj container">
         <div class="projcontent-wrap">
           {% if page.photo %}

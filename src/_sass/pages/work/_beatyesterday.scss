@@ -1,0 +1,27 @@
+// Beat Yesterday Colors
+$by-aqua:   #4dc5d6;
+$by-grey: #1F1F1F;
+.beatyesterday {
+    .project-info {
+        background-color:$by-aqua;
+    }
+    .intro {
+        background-color: $by-grey;
+        #videobg {
+            opacity: .1;
+        }
+        h4 {
+            border-color: $by-aqua;
+        }
+        img {
+            width: 170px;
+            margin-top: 40px;
+            transform:translateX(-100%);
+        }
+        .vivosmart {
+            margin-left: 20px;
+            margin-bottom:-10px;
+            transform:translateX(80%);
+        }
+    }
+}
