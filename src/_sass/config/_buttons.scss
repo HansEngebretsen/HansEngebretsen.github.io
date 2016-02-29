@@ -71,10 +71,10 @@
   @extend .btn;
   color: $modco-grey;
   background-color: rgba($modco-grey, .2);
-  &:hover {
-      color: $modco-grey-d;
-      border-color:$modco-grey-d;
-  }
+  // &:hover {
+  //     color: $modco-grey-d;
+  //     border-color:$modco-grey-d;
+  // }
 }
 %arrow-right {
   background-image: url("../img/arrow-icon.svg");
