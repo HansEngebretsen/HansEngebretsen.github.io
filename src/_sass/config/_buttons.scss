@@ -199,3 +199,24 @@
     }
   }
 }
+.close-toggle {
+  display: inline-block;
+  position: fixed;
+  top: 0;
+  right: 0.5em;
+  visibility: hidden;
+  font-size: 3em;
+  font-weight: normal;
+  cursor: pointer;
+  outline:none;
+  transition: all 700ms ease-in-out, visibility 0s 0.7s;
+  transform: rotate(195deg);
+  transform-origin: center center;
+  text-decoration: none;
+  color: white;
+  .menu-clicked & {
+    visibility: visible;
+    transition: all 700ms , visibility 0s 0s;
+    transform: rotate(45deg);
+  }
+}
