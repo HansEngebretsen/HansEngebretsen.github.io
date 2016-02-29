@@ -46,10 +46,12 @@
   margin: 0;
   margin-top: -10px;
   padding: 0;
-  transition: opacity 20ms 0.6s, margin-top 200ms;
+  transition: opacity 20ms 0.6s, margin-top 200ms, 200ms 200ms all;
   // Preload blank
   opacity: 0;
+  margin-bottom: 450px;
   // Slide up to show the social section
+
   .social-clicked &.unfolded {
     // Additional margin for additional padding
 
@@ -59,9 +61,10 @@
     margin-top: -93px;
   }
   // After load
-  &.unfolded, .about & {
+  &.unfolded {
     margin-top: 0;
     opacity: 1;
+    margin-bottom:0;
     //Slide down
     li {
       margin-top: 0;
