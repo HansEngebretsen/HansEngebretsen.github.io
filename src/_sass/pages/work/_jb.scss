@@ -68,12 +68,12 @@ $jb-grey-d: #414042;
       }
     }
     .numbers-container li {
-        background-color: $jb-grey;
+        background-color: $jb;
         h3, h4, span.text-small {
-          color:lighten($jb-grey, 30%);
+          color:lighten($jb, 30%);
         }
         h4 {
-          color:lighten($jb-grey, 15%);
+          color:lighten($jb, 15%);
         }
     }
 }

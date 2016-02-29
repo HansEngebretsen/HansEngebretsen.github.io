@@ -1,0 +1,445 @@
+/*
+____________________________________________________________________
+
+    WORK PAGE STYLINGS
+____________________________________________________________________
+*/
+
+// State after Hans has been clicked
+.about .left-align .hans-content .bio {
+  top: 8em;
+  margin-top: 0;
+  transition: top 400ms;
+  @include breakpoint(tablet) {
+    top: 206px;
+  }
+}
+
+// Hans Projects section
+.project-body {
+  max-width: 1256px;
+  h1 {
+    font-size: 3em;
+  }
+}
+
+.project-container {
+  position: relative;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  @extend %clearfix;
+  &.project-active {
+    min-height: 1400px;
+  }
+  li {
+    display: block;
+    position: relative;
+    float: left;
+    overflow: hidden;
+    width: 48%;
+    min-height: 200px;
+    margin-right: 2%;
+    margin-bottom: 20px;
+    cursor: pointer;
+    border-top: 1px solid rgba(black, 0.8);
+    background-color: $dark-light-grey;
+    @include breakpoint(tablet) {
+      width: 100%;
+    }
+
+    &:nth-child(even) {
+      margin-right: 0;
+    }
+    &.active {
+      position: initial;
+      cursor: auto;
+    }
+  }
+  h4 {
+    margin: 0;
+    font-size: 1.7em;
+    font-weight: normal;
+    text-align: right;
+    color: $half-white;
+    @include breakpoint(min-normal-screen) {
+      font-size: 1em;
+    }
+  }
+  .project-wrap {
+    padding: 25px;
+    padding-top: 16px;
+    @include breakpoint(phone) {
+      padding: 16px 10px 0 10px;
+    }
+
+    @include breakpoint(not-mobile) {
+      transition: 0.3s all;
+    }
+
+    @include breakpoint(min-normal-screen) {
+      padding-left: 70px;
+    }
+  }
+  .description {
+    display: block;
+    float: right;
+    overflow: hidden;
+    width: 90%;
+    height: 0;
+    max-height: 126px;
+    margin: 1em 0;
+    //
+    font-size: 10px;
+    line-height: 1.4;
+    transition: all 200ms;
+    text-align: right;
+    color: $off-white;
+    //
+    border-top: 1px solid rgba(100, 100, 100, 0.2);
+    border-bottom: 1px solid rgba(100, 100, 100, 0.2);
+    @include breakpoint(min-normal-screen) {
+      font-size: 0.5em;
+    }
+
+    @include breakpoint(min-big-screen) {
+      margin: 0.7em 0;
+      font-size: 0.6em;
+    }
+  }
+  .button {
+    //
+    position: absolute;
+    bottom: -30px;
+    left: 20px;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    padding-top: 3px;
+    //
+    font-size: 20px;
+    line-height: 1;
+    transition: bottom 200ms;
+    border-width: 2.5px;
+    border-radius: 50%;
+    &.back {
+      display: none;
+      position: relative;
+      position: absolute;
+      z-index: 4;
+      top: 25px;
+      bottom: auto;
+      width: 2em;
+      height: 2em;
+      text-indent: -9999px;
+      border-color: rgba($orange, 0.3);
+      &:hover {
+        background-color: inherit;
+        &:after {
+          animation: bouncey-bounce 400ms linear;
+        }
+      }
+      &:active {
+        color: $dark-light-grey;
+        background: rgba($orange, 0.3);
+      }
+      &:after {
+        top: 0.3em;
+        left: 0.35em;
+      }
+    }
+  }
+  .active {
+    .button.back {
+      display: block;
+    }
+    .button.more {
+      display: none;
+    }
+    .description {
+      max-width: 250px;
+      height: auto;
+      padding: 1.5em 0;
+      font-size: 1em;
+      transition: 0.3s all;
+      @include breakpoint(min-normal-screen) {
+        font-size: 0.6em;
+      }
+
+      @include breakpoint(min-huge-screen) {
+        max-width: 200px;
+      }
+    }
+    h4 {
+      @include breakpoint(min-normal-screen) {
+        font-size: 1.5em;
+      }
+
+      @include breakpoint(tablet) {
+        text-align: center;
+      }
+    }
+    .description {
+      @include breakpoint(big-screen) {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 1em;
+        text-align: center;
+      }
+
+      @include breakpoint(tablet) {
+        width: 100%;
+        max-width: 100%;
+        padding: 0 1em;
+        text-align: center;
+      }
+    }
+    .project-wrap {
+      position: absolute;
+      z-index: 3;
+      top: 0;
+      left: 0;
+      width: 98%;
+      height: 100%;
+      padding-top: 30px;
+      transition: 0.3s all;
+      border-top: 1px solid rgba(black, 0.8);
+      border-radius: 4px;
+      background-color: $dark-light-grey;
+      @include breakpoint(tablet) {
+        width: 100%;
+        padding-top: 3em;
+      }
+    }
+  }
+}
+
+@include breakpoint(not-mobile) {
+  .project-container li:hover .button {
+    bottom: 20px;
+  }
+  .project-container li.active:hover .button {
+    bottom: 0;
+  }
+  .project-container li:hover .description {
+    height: auto;
+    padding: 1.5em 0;
+  }
+}
+
+
+.project-container .active .description {
+  height: auto;
+  max-height: none;
+  padding: 1.5em 0;
+}
+
+.preview-image {
+  display: inline-block;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-width: 600px;
+  height: 200px;
+  opacity: 0.3;
+  border-radius: 4px;
+  background-repeat: no-repeat;
+  background-position: center top;
+  background-size: cover;
+  @include breakpoint(phone) {
+    opacity: 0.44;
+  }
+
+  @include breakpoint(not-mobile) {
+    transition: height 120ms ease-in-out, opacity 100ms, background-position 120ms;
+    li:hover & {
+      opacity: 0.07;
+      filter: blur(4px);
+    }
+  }
+
+  .active & {
+    position: relative;
+    transition: none;
+    opacity: 1;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    background-position: center;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  }
+  li.active:hover & {
+    opacity: inherit;
+    filter: none;
+  }
+  .posters & {
+    background-image: url("../img/Portfolio/Posters/10.jpg");
+  }
+  .lucilles & {
+    background-image: url("../img/Portfolio/Lucilles/lucilles-thumb.jpg");
+  }
+  .ihi & {
+    background-image: url("../img/Portfolio/IHI/ihi-thumb.jpg");
+  }
+  .steelehouse & {
+    background-image: url("../img/Portfolio/Steelehouse/steelehouse-thumb.jpg");
+  }
+  .sevilla & {
+    background-image: url("../img/Portfolio/Sevilla/sevilla-thumb.jpg");
+  }
+  .sports & {
+    background-image: url("../img/Portfolio/Sports/sports-thumb.jpg");
+  }
+  .ihi & {
+    background-image: url("../img/Portfolio/IHI/ihi-thumb.jpg");
+  }
+  .kokovoko & {
+    background-image: url("../img/Portfolio/Kokovoko/kokovoko-thumb2.jpg");
+  }
+  .better-cheddar & {
+    background-image: url("../img/Portfolio/BetterCheddar/bc-thumb2.jpg");
+  }
+}
+
+.preview-image-wrap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 144px;
+  transition: height 120ms;
+  @include breakpoint(not-mobile) {
+    li:hover & {
+      height: 100%;
+    }
+  }
+
+  .active & {
+    position: relative;
+    max-width: 66%;
+    height: auto;
+    transition: none;
+    @include breakpoint(big-screen) {
+      max-width: 100%;
+      margin-top: 2em;
+    }
+  }
+  li.active:hover & {
+    height: auto;
+  }
+}
+
+.global-header.left-align {
+  @include breakpoint(tablet) {
+    float: none;
+    margin: 0 auto;
+    margin-top: -100%;
+    transition: margin-top 300ms;
+  }
+}
+
+.content {
+  display: none;
+  .active & {
+    display: block;
+    width: 66%;
+    @include breakpoint(big-screen) {
+      width: 100%;
+    }
+  }
+  img {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 20px;
+    border: 1px solid rgba(0, 0, 0, 0.4);
+    border-radius: 3px;
+    box-shadow: 1px 1px 2px black;
+    box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  }
+}
+
+
+
+.about .left-align .menu li:nth-child(2) a, .global-header .social-clicked .menu li:nth-child(2) a {
+  color: $off-white;
+}
+
+.menu-toggle-container {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 30px;
+  z-index:9;
+  overflow: hidden;
+  font-size: 1.5em;
+  cursor: pointer;
+  color: rgb(198, 198, 198);
+  border: 1px solid rgba(0, 0, 0, 0.49);
+  border-radius: 0 0 5px 5px;
+  outline: rgb(198, 198, 198) none 0;
+  background: rgba(255, 255, 255, 0.05882) none repeat scroll 0 0 / auto padding-box border-box;
+  @include breakpoint(tablet) {
+    display: inline-block;
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: lighten($darker-grey, 10%);
+  }
+  &:hover .menu-toggle-wrap {
+    color: white;
+  }
+}
+
+// Tags
+.tags {
+  display: none;
+  float: right;
+  clear: right;
+  width: 100%;
+  max-width: 250px;
+  margin: 0;
+  padding: 0;
+  font-family: 'Lekton', sans-serif;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  @include breakpoint(normal-screen) {
+    font-size: 1em;
+  }
+
+  @include breakpoint(big-screen) {
+    max-width: 100%;
+  }
+
+  .active & {
+    display: block;
+  }
+  li {
+    float: right;
+    width: auto;
+    min-height: 0;
+    margin: 0 0 10px 10px;
+    padding: 4px 9px;
+    cursor: auto;
+    border-radius: 2px 2px 0 0;
+    background-color: rgba(136, 136, 136, 0.15);
+  }
+}
+
+.menu-toggle-wrap, a.menu-toggle-wrap {
+  display: block;
+  position: relative;
+  padding: 3px 8px;
+  line-height:1;
+  text-shadow: rgba(255, 255, 255, 0.07843) 0 1px 0;
+  text-decoration: none solid rgba(0, 0, 0, 0.8);
+  color: rgba(0, 0, 0, 0.8);
+  border: 0 none rgba(0, 0, 0, 0.8);
+  outline: rgba(0, 0, 0, 0.8) none 0;
+}

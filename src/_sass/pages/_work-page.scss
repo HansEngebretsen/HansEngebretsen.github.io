@@ -59,7 +59,9 @@ body {
     .intro {
         padding:150px 0;
         padding-top: 10vh;
-        min-height: 90vh;
+        text-align:center;
+        color:white;
+        min-height:85vh;
         @include breakpoint(tablet){
             padding:75px 0;
             height: auto;
@@ -92,9 +94,6 @@ body {
             text-align:center;
             margin-bottom: 20px;
         }
-        text-align:center;
-        color:white;
-        min-height:75vh;
     }
     .intro-wrap {
         z-index:2;
