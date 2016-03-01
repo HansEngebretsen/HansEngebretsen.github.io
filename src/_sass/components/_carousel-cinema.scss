@@ -31,7 +31,12 @@
   z-index: 1;
   height:100%;
   white-space:nowrap;
-
+  &.no-scroll li.active {
+    max-height: 70%; // offset for no controls
+    img {
+        max-width: 100.5%;
+    }
+  }
   @include breakpoint(tablet-s){
     top: 4%;
     left: 17.5%;
@@ -77,6 +82,7 @@
   position:relative;
 
 }
+
 
 .cinema-carousel.active .screen-container.active{
   img {

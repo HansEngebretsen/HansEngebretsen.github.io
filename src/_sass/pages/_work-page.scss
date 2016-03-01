@@ -11,6 +11,9 @@ body {
             margin-left:0;
         }
     }
+    .light-grey {
+        background-color:$lighter-grey;
+    }
     max-width:inherit;
     .circle-scroll-crop {
         width:400px;

@@ -23,7 +23,6 @@ $jb-grey-d: #414042;
     }
     .light-grey {
         background-color: $jb-grey-l;
-
     }
     .robot-wrap {
         position:relative;
@@ -49,12 +48,6 @@ $jb-grey-d: #414042;
         img {
             width: 90%;
             display:inline-block;
-        }
-    }
-    .screen-slides li.active {
-        max-height: 70%; // offset for no controls
-        img {
-            max-width: 100.5%;
         }
     }
     .responsive {

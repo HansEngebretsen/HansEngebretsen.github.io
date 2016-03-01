@@ -13,7 +13,7 @@ type: project
 maincolor: 4DC5D6
 secondaryColor: d4d4d4
 ---
-<div class="project beatyesterday" style="background-color: #{{ page.maincolor }}">
+<div class="project beatyesterday ">
 {% assign sorted_pages = (site.parts | sort: 'order') %}
 {% for page in sorted_pages %}
   {% if page.parent == 'beatyesterday' %}
