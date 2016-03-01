@@ -1,10 +1,15 @@
 // Beat Yesterday Colors
 $by-aqua:   #4dc5d6;
 $by-grey: #1F1F1F;
+$by-grey: #1F1F1F;
 $by-purple: #ee3e7b;
+$by-grey-d: #484848;
 .beatyesterday {
     .project-info {
         background-color:$by-aqua;
+    }
+    .pink-grey {
+        background-color:#f5f2f4;
     }
     h1 {
         color: $by-grey;
@@ -22,8 +27,22 @@ $by-purple: #ee3e7b;
         background:white;
         background-color:lighten($lighter-grey, 13%);
     }
+    .credits a {
+        color:white;
+    }
+    .numbers-container h3 {
+        color:white;
+    }
+    .cinema-frame .screen-container.active img {
+        transform:translateY(4px);
+        @include breakpoint(normal-screen){
+            transform:translateY(0);
+        }
+    }
     .email-svg {
-        background-size:100%;
+        background-size:90%;
+        background-position:center left;
+        background-repeat:no-repeat;
         display:block;
         width:100%;
         padding-top:87%;
@@ -36,8 +55,18 @@ $by-purple: #ee3e7b;
     .pre-title {
         border-color: $by-aqua;
     }
+    .dark-grey {
+        background-color:$by-grey-d;
+        p {
+            color: rgba(white,.4);
+        }
+        h1 {
+            color:white;
+
+        }
+    }
     .intro {
-        background-color: #484848;
+        background-color: $by-grey-d;
         #videobg {
             opacity: .075;
         }
