@@ -73,7 +73,7 @@ module.exports = function(grunt) {
 
             options: { livereload: true },
             scripts: {
-              files: ['src/js/**/*.js'],
+              files: ['js/**/*.js'],
               tasks: ['concat', 'uglify'],
               options: {
                 spawn: false,
@@ -86,14 +86,6 @@ module.exports = function(grunt) {
                 spawn: false,
               }
             }
-            // images: {
-            //   files: ['img/**/*.{png,jpg,gif}', 'img/*.{png,jpg,gif}'],
-            //   tasks: ['imagemin'],
-            //   options: {
-            //     spawn: false,
-            //   }
-            // }
-
         }
 
 
@@ -113,5 +105,5 @@ module.exports = function(grunt) {
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
     grunt.registerTask("serve", ["shell:jekyllServe"]);
-    grunt.registerTask('default', ['concat', 'sass', 'autoprefixer']);
+    grunt.registerTask('default', ['concat', 'sass', 'uglify', 'autoprefixer']);
 };
