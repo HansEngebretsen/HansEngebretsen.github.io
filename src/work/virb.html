@@ -14,14 +14,10 @@ waypoints: true
 plax: true
 ---
 <div class="project virb" style="background-color: #{{ page.maincolor }}">
-{% include nav.html %}
 {% assign sorted_pages = (site.parts | sort: 'order') %}
 {% for page in sorted_pages %}
   {% if page.parent == 'virb' %}
     {% include section.html %}
   {% endif %}
 {% endfor %}
-
-
-{% include footer.html %}
 </div>
