@@ -1,4 +1,4 @@
-Personal Site for Hans Engebretsen
+haaans.com
 ================
 
-Personal site for Hans Engebretsen that uses Sass, and git to compile files.
+Built on Jekyll. Uses grunt for sass compilation, and js concat etc.
