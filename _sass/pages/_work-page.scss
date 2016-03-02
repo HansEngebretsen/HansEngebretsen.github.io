@@ -3,6 +3,10 @@ body {
     overflow-x:hidden;
 } // need to migrate upstream
 .project {
+    overflow-x:hidden;
+    section.work {
+        overflow:hidden;
+    }
     .intro.text-left {
         text-align:left;
         margin-left:40px;
