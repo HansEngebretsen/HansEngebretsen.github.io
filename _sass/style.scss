@@ -9,10 +9,7 @@ It's also not the prettiest thing, after all I'm the only one who has to deal wi
 http://www.youtube.com/watch?v=OZBWfyYtYQY
 
 */
----
-# this ensures Jekyll reads the file to be transformed into CSS later
-# only Main files contain this front matter, not partials.
----
+
 
 @import "vendor/global";
 @import "config/global";
