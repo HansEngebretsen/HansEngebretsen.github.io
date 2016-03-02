@@ -25,7 +25,6 @@
                 slides = container.find('.nav'),
                 slideWrap = container.find('.slide'),
                 slide = t.attr('href');
-                console.log(container);
             slideWrap.removeClass('active');
             nav.children().removeClass('active');
             t.addClass('active');
@@ -53,19 +52,16 @@
             srcarray = [];
             itemsImages = carouselItems.each().find('img');
             srcarray = itemsImages;
-            console.log(srcarray);
 
         if (direction == 'prev') {
           next = active.prev('.screen-container');
           if (next.length == '0'){
             next = carouselItems.last();
-            console.log('length is zero');
           }
         } else {
           next = active.next('.screen-container');
           if (next.length == '0'){
             next = carouselItems.first();
-            console.log('next is zero');
           }
         }
 

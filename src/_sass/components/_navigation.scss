@@ -26,27 +26,29 @@
 .global-navigation {
   z-index: 100;
   overflow: hidden;
-  height: 200px;
+  height: 6.7em;
   margin-top: 0;
-  transition: margin-top 200ms, height 200ms;
+  transition: margin-top 200ms, height 200ms 200ms;
   &.social-clicked {
-    height: 161px;
+    height: 8em;
+    @include breakpoint(phone){
+      height: 10em;
+    }
+  }
+  @include breakpoint(phone){
+    height: 8.7em;
   }
   @include breakpoint(tablet){
     text-align: left;
   }
-  // .about & {
-  //   height: 141px;
-  //   margin-top: 85px;
-  // }
 }
 
 // Inner-menu container main page ul
 .menu {
   margin: 0;
-  margin-top: -10px;
+  transform: translateY(-10px);
   padding: 0;
-  transition: opacity 20ms 0.6s, margin-top 200ms, 200ms 200ms all;
+  transition: opacity 20ms 0.6s, transform 200ms, 200ms 200ms all;
   // Preload blank
   opacity: 0;
   margin-bottom: 450px;
@@ -56,18 +58,18 @@
     // Additional margin for additional padding
 
     @include breakpoint(phone) {
-      margin-top: -128px;
+      margin-top: -6em;
     }
-    margin-top: -93px;
+    margin-top: -4.75em;
   }
   // After load
   &.unfolded {
-    margin-top: 0;
+    transform:translateY(0);
     opacity: 1;
     margin-bottom:0;
     //Slide down
     li {
-      margin-top: 0;
+    transform:translateY(0);
     }
   }
 }
@@ -76,9 +78,9 @@
 .menu li {
   display: block;
   // Pre-margin for sliding down on load
-  margin-top: -31%;
+  transform:translateY(-131%);
   list-style: none;
-  transition: margin-top 200ms 0.6s;
+  transition: transform 200ms 0.6s;
   border-bottom: 1px solid rgba(white, 0.1);
   &:hover {
     transition-delay: 0;
@@ -101,17 +103,20 @@
       @extend %close-x;
       &:after {
         margin-right:-5px;
+        position:absolute;
+        transform:translateX(50%);
       }
     }
   }
   a {
     // Extra padding for chunky thumbs on mobile
     @include breakpoint(phone) {
-      padding-top: 0.75em;
-      padding-bottom: 0.75em;
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
     }
     display: block;
     padding: 0.3em;
+    line-height:1;
     padding-right: 0.5em;
     padding-left: 0;
     transition: all 100ms ease-in-out, color 100ms;
@@ -142,7 +147,8 @@
   width: 100%;
   margin: 156px 0 0 0;
   padding: 0;
-  transition: margin 0 0.2s;
+  transition: 0ms 200ms margin;
+  transition-delay: 800ms;
   border-top: 1px solid #242321;
   border-bottom: 1px solid #4e4e4e;
   background: #333333;
@@ -150,7 +156,7 @@
   // Social Active State
   .social-clicked & {
     margin: 0 0 0 0;
-    transition-delay: 0;
+    transition: 0ms 200ms margin;
   }
   li {
     display: block;
@@ -197,6 +203,11 @@
 
 // Main Navigation mobile --> inner page --> compressed
 @include breakpoint(tablet) {
+  .index .overlay {
+    position:relative;
+    opacity:1;
+    visibility:visible;
+  }
   .overlay {
     position: fixed;
     z-index: 10;
@@ -243,8 +254,11 @@
     float: left;
   }
   .global-navigation {
-    width: auto;
+    width: 22em;
     padding-left: 10px;
+    &.social-clicked {
+      width:30em;
+    }
   }
   .menu {
     float: left;
@@ -252,12 +266,16 @@
   }
   .social-clicked .menu.unfolded {
     margin-top: 0;
-    margin-left: -220px;
+    margin-left: -15.5em;
   }
+  .social {
+    margin-left: 22em;
+  }
+
   .menu li {
     float: left;
     margin-right: 20px;
-    transition: margin-top 200ms 0.3s;
+    transition: transform 200ms 0.3s;
     // Staggar load transitions
     &:nth-child(2) {
       transition-delay: 0.3s;
@@ -295,8 +313,8 @@
   .social {
     float: left;
     width: auto;
+    margin:0;
     margin-top: 0;
-    margin-left: 1000px;
     li {
       display: inline-block;
       width: auto;

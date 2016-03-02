@@ -19,7 +19,7 @@
      // Navigation
      $('#social-toggle').click(function(e) {
            e.preventDefault();
-           $('.internal-nav-wrap').toggleClass('social-clicked');
+           $('.global-navigation').toggleClass('social-clicked');
        });
 
      // Nav toggle on mobile
@@ -35,7 +35,6 @@
      $('#navigation-menu .first a.current').click(function(e) {
        e.preventDefault();
        $('body').toggleClass('about');
-       console.log('worked');
      });
   };
 
