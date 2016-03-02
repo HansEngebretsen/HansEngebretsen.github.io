@@ -18,7 +18,7 @@ module.exports = function(grunt) {
             dist: {
                    src: [
                        // 'src/js/libs/*.js', // All JS in the libs folder
-                       'js/*.js',
+                       'js/main.js',
                        'js/modules/*.js'
 
                    ],
@@ -29,7 +29,7 @@ module.exports = function(grunt) {
          uglify: {
             build: {
                 src: 'js/production.js',
-                dest: 'production.min.js'
+                dest: 'js/production.min.js'
             }
           },
 

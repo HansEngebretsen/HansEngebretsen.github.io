@@ -71,6 +71,7 @@ Waypoints.prototype.scrollUp = function(e){
   console.log('bout to scroll' + e);
   $("html, body").animate({ scrollTop: 0 }, 500);
 }
+
 Waypoints.prototype.scroller = function(wrapper, objects){
     var _this = this;
     setVars = function(wrapper){
