@@ -78,7 +78,7 @@
 .menu li {
   display: block;
   // Pre-margin for sliding down on load
-  transform:translateY(-131%);
+  transform:translateY(-160px);
   list-style: none;
   transition: transform 200ms 0.6s;
   border-bottom: 1px solid rgba(white, 0.1);
@@ -89,10 +89,14 @@
   // Staggar load transitions
   &:nth-child(2) {
     transition-delay: 0.7s;
+    transition-duration: 0.3s;
+  }
+  &:nth-child(3) {
+    transition-delay: 0.8s;
     transition-duration: 0.4s;
   }
   &:nth-child(4) {
-    transition-delay: 0.8s;
+    transition-delay: 0.9s;
     transition-duration: 0.5s;
     // Keep third child active on social clicked
     a:hover, .social-clicked & a {
