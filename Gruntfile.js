@@ -46,14 +46,12 @@ module.exports = function(grunt) {
         sass: {
             dist: {
                 options: {
-                    outputStyle: 'expanded',
+                    outputStyle: 'compressed',
                     sourceComments: 'true',
                     sourcemap: 'file'
                 },
                 files: {
-                    '_site/css/style.css': 'src/_sass/style.scss',
-                    '_site/css/print.css': 'src/_sass/print.scss',
-                    '_site/css/ie.css': 'src/_sass/ie.scss'
+                    'css/style.css': '_sass/style.scss'
                 }
             }
         },
