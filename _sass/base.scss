@@ -96,6 +96,7 @@ footer {
   padding: 0.7em 0.2em;
   transition: margin-bottom 0.5s 1s, opacity 400ms;
   //
+  z-index: 10;
   text-align: center;
   opacity: 1;
   @include breakpoint(baby-phone) {
