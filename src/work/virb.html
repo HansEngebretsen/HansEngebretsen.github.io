@@ -1,0 +1,27 @@
+---
+layout: parallax
+title: VIRB Action Camera
+client: Garmin
+nav: left-align
+navOrientation: top-nav
+navColor: white
+photo: virb/virb-x-home.png
+handle: virb
+type: project
+maincolor: 2077D8
+secondaryColor: f3df32
+waypoints: true
+plax: true
+---
+<div class="project virb" style="background-color: #{{ page.maincolor }}">
+{% include nav.html %}
+{% assign sorted_pages = (site.parts | sort: 'order') %}
+{% for page in sorted_pages %}
+  {% if page.parent == 'virb' %}
+    {% include section.html %}
+  {% endif %}
+{% endfor %}
+
+
+{% include footer.html %}
+</div>

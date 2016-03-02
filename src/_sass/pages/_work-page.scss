@@ -1,0 +1,480 @@
+body {
+    position:relative;
+    overflow-x:hidden;
+} // need to migrate upstream
+.project {
+    .intro.text-left {
+        text-align:left;
+        margin-left:40px;
+        p {
+            text-align:left;
+            margin-left:0;
+        }
+    }
+    .light-grey {
+        background-color:$lighter-grey;
+    }
+    max-width:inherit;
+    .circle-scroll-crop {
+        width:400px;
+        height:400px;
+        @include breakpoint(tablet){
+            width:300px;
+            height:300px;
+        }
+        @include breakpoint(phone){
+            width: 100%;
+            padding-top:100%;
+            height:0;
+            position:relative;
+            img {
+                height:100%;
+                width:100%;
+                position:absolute;
+                top:0;
+                left:0;
+            }
+        }
+        max-height:100%;
+        max-width:100%;
+        overflow:hidden;
+        margin:0 auto;
+        margin-top:100px;
+        @include breakpoint(tablet){
+           margin-top:40px;
+        }
+        margin-bottom:20px;
+        border: 1px solid rgba(0,0,0,.1);
+        border-radius:100%;
+        img {
+            // max-width:200%;
+        }
+    }
+    p {
+        text-align:left;
+        a {
+            text-decoration: underline;
+        }
+    }
+    .project-info a{
+        color:white;
+    }
+    .intro {
+        padding:150px 0;
+        padding-top: 10vh;
+        text-align:center;
+        color:white;
+        min-height:85vh;
+        @include breakpoint(tablet){
+            padding:75px 0;
+            height: auto;
+            min-height: inherit;
+        }
+        #videobg {
+          position: absolute;
+          z-index: 0;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          opacity: .2;
+          @media (min-aspect-ratio: 16/9) {
+              width: 100%;
+              height: auto;
+          }
+
+          @media (max-aspect-ratio: 16/9) {
+              width: auto;
+              height: 100%;
+          }
+
+          @include breakpoint(tablet) {
+            display: none;
+            left: 50%;
+            transform: translateX(-50%);
+          }
+        }
+        .description {
+            text-align:center;
+            margin-bottom: 20px;
+        }
+    }
+    .intro-wrap {
+        z-index:2;
+        position:relative;
+    }
+    .pre-title {
+        display:inline-block;
+        text-transform:uppercase;
+        padding:3px 20px;
+        font-weight:100;
+        font-size:1em;
+        margin:0;
+        border-bottom:2px solid $orange;
+    }
+    .super-title {
+        text-shadow: 1px 1px rgba(black, .2);
+        font-weight:700;
+        font-size:4em;
+        margin-bottom:0;
+        line-height:1;
+    }
+    .description {
+        margin: 0 auto;
+        margin-top:1em;
+        padding:0;
+        width:600px;
+        opacity:.9;
+        color:white;
+        font-weight:100;
+        max-width:100%;
+        margin-bottom:100px;
+        position:relative;
+    }
+    .project-info {
+        text-align:left;
+        color:white;
+        background-color:rgba(black,.1);
+        padding-top:40px;
+        padding-bottom:40px;
+        p {
+            opacity: .8;
+        }
+    }
+    section {
+        background-color:white;
+        padding:70px 0;
+        @include breakpoint(min-normal-screen){
+            padding:140px 0;
+        }
+        @include breakpoint(tablet){
+            padding:70px 0;
+        }
+        .title-layout-left {
+            padding-left: 40px;
+        }
+        h4, p {
+            text-align:left;
+        }
+        &.left-align {
+            text-align:left;
+            .pre-title {
+                padding-left:0;
+            }
+            h4, p, h1 {
+                text-align:left;
+            }
+        }
+        .col-sm-12 {
+            padding-bottom:50px;
+            margin-top:75px;
+
+        }
+        row {
+            margin-bottom:40px;
+        }
+    }
+    .device-icon-wrap {
+      text-align:center;
+      figure {
+        display:inline-block;
+        width: 70px;
+        min-height: 80px;
+        background-size: 100%;
+        background-repeat:no-repeat;
+        background-position:bottom center;
+        margin-right: 15px;
+      }
+      .d-phone {
+        background-image:url('../img/icon-phone.svg');
+        width: 25px;
+      }
+      .d-tablet {
+        background-image:url('../img/icon-tablet.svg');
+        width: 55px;
+      }
+      .d-desktop {
+        background-image:url('../img/icon-desktop.svg');
+          width: 110px;
+          height: 100px;
+      }
+    }
+    .device-wraps {
+      margin-top: 80px;
+      @include breakpoint(normal-screen){
+        margin-top: 40px;
+      }
+        .iphone-frame-wrap, .macbook-frame-wrap {
+            width: 49.25%;
+            position:relative;
+            display:inline-block;
+            vertical-align:middle;
+            @include breakpoint(normal-screen){
+                width: 29%;
+                vertical-align:top;
+                .macbook-frame {
+                    margin-left:0;
+                }
+            }
+        }
+        .iphone-frame-wrap {
+            @include breakpoint(normal-screen){
+                width: 27%;
+                position:absolute;
+                right:0;
+                bottom:-4%;
+            }
+        }
+        .macbook-frame {
+            width:350%;
+            display:block;
+            height:0;
+            padding-top: 203%;
+            position:relative;
+            background-image:url('../img/macbook-frame.png');
+            background-size:100%;
+            background-repeat:no-repeat;
+            margin:0 auto;
+            margin-left: -70%;
+            z-index:1;
+            @include breakpoint(normal-screen){
+                margin-left:-100%;
+            }
+        }
+
+        .macbook-screen-container {
+            width:75.6%;
+            max-height:83.2%;
+            overflow:hidden;
+            position:absolute;
+            top: 7.2%;
+            left: 12.4%;
+        }
+        .macbook-screen {
+            display:block;
+            transform:translateY(0);
+            transition: 1200ms all;
+            width:100%;
+            background-size: 100%;
+            opacity:1;
+            height:0;
+            background-repeat:no-repeat;
+        }
+
+        .iphone-frame {
+            position:relative;
+            width:115%;
+            margin-top:40%;
+            display:block;
+            height:0;
+            padding-top: 197%; // aspect ratio
+            z-index:5;
+            background-image:url('../img/iphone6-frame-noshadow.png');
+            background-size:100%;
+            background-repeat:no-repeat;
+            @include breakpoint(normal-screen){
+                margin:0 auto;
+            }
+        }
+        .iphone-screen-container {
+            width:66.75%;
+            max-height:70.3%;
+            overflow:hidden;
+            position:absolute;
+            top: 11.7%;
+            left: 16%;
+        }
+        .iphone-screen {
+            width:100%;
+            max-width: 100%;
+            display:block;
+            opacity:1;
+            background-size: 100%;
+            background-repeat:no-repeat;
+        }
+        .macbook-screen-container, .iphone-screen-container,.macbook-screen, .iphone-screen {
+            transition: 1200ms all;
+            .active & {
+                transition: 2s all ease-out;
+            }
+        }
+        &.active {
+             .iphone-screen, .macbook-screen {
+                transform: translateY(-100%);
+            }
+            .iphone-screen-container{
+                padding-top:119%;
+            }
+            .macbook-screen-container {
+                padding-top: 47%;
+            }
+        }
+    } // end device-wraps
+    .video-outer {
+        &.macbook-frame {
+            display:block;
+            height:0;
+            padding-top: 58%;
+            position:relative;
+            background-image:url('../img/macbook-frame.png');
+            background-size:100%;
+            background-repeat:no-repeat;
+            margin:0 auto;
+            z-index:1;
+            width:100%;
+        }
+        .macbook-screen-container {
+            position:absolute;
+            top:7%;
+            width: 76%;
+            height: 100%;
+            left: 12%;
+        }
+    }
+    .numbers-wrap {
+        min-height: 50vh;
+    }
+    .numbers-container, .numbers-container li {
+        margin:0;
+        list-style:none;
+        padding:0;
+    }
+    .numbers-container li {
+        display:inline-block;
+        max-width: 50%;
+        min-height: 325px;
+        background-color: rgba(black,.3);
+        padding: 30px;
+        vertical-align: top;
+        margin-top:0px;
+        max-width: 16.6%;
+        @include breakpoint(min-huge-screen){
+            max-width: 20%;
+        }
+        @include breakpoint(big-screen){
+            width:66%;
+            max-width:inherit;
+            min-height: 200px;
+        }
+        @include breakpoint(phone){
+            width:49%;
+        }
+
+        &:nth-child(2){
+            // margin-top:20px;
+            margin-top: 120px;
+            @include breakpoint(big-screen){
+                width: 33%;
+                margin-top:20px;
+            }
+            @include breakpoint(phone){
+                width: 49%;
+                margin-top: 30px;
+            }
+        }
+        &:nth-child(3){
+            @include breakpoint(big-screen){
+                width: 33%;
+            }
+            @include breakpoint(phone){
+                width: 49%;
+                margin-top:-23px;
+            }
+        }
+         &:nth-child(4){
+            // margin-top: 120px;
+            max-width: 50%;
+            margin-top:120px;
+            @include breakpoint(big-screen){
+                margin-top:40px;
+            }
+            @include breakpoint(phone){
+                margin-top:5px;
+            }
+        }
+        h3 {
+            font-size: 3.5em;
+            @include breakpoint(min-huge-screen){
+                font-size: 3em;
+            }
+            @include breakpoint(phone){
+                font-size: 2.5em;
+            }
+            text-align:left;
+            margin-bottom:0;
+            word-wrap:break-word;
+            line-height:1;
+            margin-top:1em;
+            &.small {
+                font-size: 3em;
+            }
+        }
+        h4 {
+            margin-top:0;
+            line-height: 1;
+            margin-top:.5em;
+            @include breakpoint(tablet){
+                font-size:1em;
+            }
+        }
+    }
+    .styleboard-wrap {
+      position: relative;
+      max-width: 1500px;
+      height: 1000px;
+      margin: 0 auto;
+
+      @include breakpoint(min-huge-screen) {
+        height: 700px;
+      }
+      @include breakpoint(tablet){
+        height: auto;
+        min-height: 600px;
+      }
+    }
+    .styleboard-container {
+      position: relative;
+      height: 100%;
+      margin-top: 75px;
+    }
+    // Paralaxin styleboards
+    .styleboards {
+      img {
+        top: 50px;
+        width: 700px;
+        max-width: 90%;
+        box-shadow: 7px 6px 7px rgba(0, 0, 0, .12);
+
+        @extend .plax-child;
+        @include breakpoint(min-huge-screen) {
+          width: 500px;
+        }
+        @include breakpoint(big-screen) {
+          width: 400px;
+        }
+        &:nth-child(1) {
+          transform: translateZ(-.125px) translateX(50%) translateY(100%) scale(1.1);
+          left: 2%;
+          @include breakpoint(normal-screen) {
+            transform: translateZ(-.125px) translateX(10px) translateY(100%) scale(1.1);
+          }
+        }
+        &:nth-child(2) {
+          right: 40px;
+          left: auto;
+          transform: translateZ(-.17px) scale(1.2);
+
+          @include breakpoint(big-screen) {
+            top: 0;
+          }
+        }
+        &:nth-child(3) {
+          left: 10%;
+          top: 40%;
+          transform: translateZ(0) scale(1);
+        }
+      }
+    }
+
+
+}
+

@@ -1,0 +1,88 @@
+//Reusables
+%clearfix {
+     &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+// Styling objects
+%circle-image {
+    display:block;
+    margin:0 auto;
+    width:auto;
+    margin-bottom:.5em;
+    border-radius:50%;
+    z-index:1;
+    overflow:hidden;
+    line-height:0;
+}
+%circle-image-outline {
+    @extend %circle-image;
+    max-width:100px;
+    display:inline-block;
+    border: 2px solid white;
+    box-shadow:2px 3px 3px rgba(0,0,0,0.4);
+    img {
+      max-width:100%;
+      height:auto;
+      border-radius:50%;
+    }
+}
+%close-x {
+  &:after {
+    content:"x";
+    display:inline-block;
+    float:right;
+    padding:.1em .4em;
+    margin-right:.4em;
+
+    color:white;
+    font-size:13px;
+    background-color:rgba(100, 100, 100, 0.2);
+  }
+}
+
+%curtain-img {
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    display:block;
+    width: 100%;
+    height: 100%;
+    opacity: 0.9;
+    opacity: 0.1;
+    background-size: cover;
+
+    background-repeat: no-repeat;
+  }
+}
+
+.vertically-centered {
+    display: inline-block;
+    float: none;
+    vertical-align: middle;
+  }
+
+// .plax-container {
+//   position: fixed;
+//    height: 100vh;
+//    -webkit-overflow-scrolling: touch;
+//    transform-style: preserve-3d;
+//    perspective: 1.25px;
+//    overflow-x: hidden;
+//    overflow-y: auto;
+// }
+
+.plax-child {
+  position: absolute;
+  transform-style: preserve-3d;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateZ(-1px);
+}

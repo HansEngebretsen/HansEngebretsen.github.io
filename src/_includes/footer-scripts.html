@@ -1,0 +1,10 @@
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<!-- <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script> -->
+{% if page.waypoints %}
+<script src="{{ site.baseurl }}/js/lib/jquery.waypoints.min.js"></script>
+<script src="{{ site.baseurl }}/js/lib/inview.min.js"></script>
+{% endif %}
+
+<!-- My Scripts -->
+<script src="{{ site.baseurl }}/js/production.js"></script>
+{% include analytics.html %}

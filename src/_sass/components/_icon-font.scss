@@ -1,0 +1,69 @@
+@font-face {
+  font-family: 'hans-font';
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/hans-font.eot?soqwyy");
+  src: url("../fonts/hans-font.eot?#iefixsoqwyy") format("embedded-opentype"), url("../fonts/hans-font.woff?soqwyy") format("woff"), url("../fonts/hans-font.ttf?soqwyy") format("truetype"), url("../fonts/hans-font.svg?soqwyy#hans-font") format("svg");
+}
+
+
+[class^='icon-'], [class*=' icon-'] {
+  font-family: 'hans-font';
+  font-weight: normal;
+  font-style: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-transform: none;
+  speak: none;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-list:before {
+  content: '\e600';
+}
+
+.icon-undo:before {
+  content: '\e601';
+}
+
+.icon-console:before {
+  content: '\e602';
+}
+
+.icon-github:before {
+  content: '\e603';
+}
+
+.icon-apple:before {
+  content: '\e604';
+}
+
+.icon-wordpress:before {
+  content: '\e605';
+}
+
+.icon-dribbble:before {
+  content: '\e606';
+}
+
+.icon-twitter:before {
+  content: '\e607';
+}
+
+.icon-file-xml:before {
+  content: '\e608';
+}
+
+.icon-code:before {
+  content: '\e609';
+}
+
+.icon-css3:before {
+  content: '\e60a';
+}
+
+.icon-pacman:before {
+  content: '\e60b';
+}

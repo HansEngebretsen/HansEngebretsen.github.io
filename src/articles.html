@@ -1,0 +1,33 @@
+---
+layout: default
+title: articles
+description: Musings in front-end design & development
+nav: left-align
+navColor: white
+colorTheme: light
+navOrientation: top-nav
+---
+<section class="cover-image">
+
+</section>
+<section class="main-content">
+    <span class="timeline"></span>
+    <section class="posts">
+      {% for post in site.posts %}
+         {% capture day %}{{ post.date | date: '%m' }}{% endcapture %}
+         {% capture nday %}{{ post.next.date | date: '%m' }}{% endcapture %}
+        <article class="post {% if day != nday %} new-month {% endif %}" >
+        {% if day != nday %}
+            <h5 class="date">{{ post.date | date: "%B" }} </h5>
+        {% endif %}
+          <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.header }}</a></h1>
+
+          <div class="entry">
+            {{ post.content | truncatewords:30}}
+          </div>
+
+          <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+        </article>
+      {% endfor %}
+    </section>
+</section>

@@ -1,0 +1,43 @@
+// Breakpoints
+@mixin breakpoint($point) {
+  @if $point == huge-screen {
+    @media (max-width: 1250px) { @content; }
+  }
+  @else if $point == min-huge-screen {
+    @media (max-width: 1100px) { @content; }
+  }
+  @else if $point == big-screen {
+    @media (max-width: 950px) { @content; }
+  }
+  @else if $point == min-big-screen {
+    @media (min-width: 950px) { @content; }
+  }
+  @else if $point == screen-xs {
+    @media (max-width: 770px) { @content; }
+  }
+  @else if $point == normal-screen {
+    @media (max-width: 750px) { @content; }
+  }
+  @else if $point == min-normal-screen {
+    @media (min-width: 800px) { @content; }
+  }
+  @if $point == tablet {
+    @media (max-width: 650px) { @content; }
+  }
+    @else if $point == min-tablet {
+    @media (min-width: 650px) { @content; }
+  }
+    @if $point == tablet-s {
+    @media (max-width: 550px) { @content; }
+  }
+  @else if $point == not-mobile {
+    @media (min-width: 450px)  { @content; }
+  }
+  @else if $point == phone {
+    @media (max-width: 450px)  { @content; }
+  }
+  @else if $point == baby-phone {
+    @media (max-width: 370px)  { @content; }
+  }
+}
+

@@ -1,0 +1,24 @@
+---
+layout: default
+title: Beat Yesterday
+client: Garmin
+navColor: dark
+nav: left-align
+navOrientation: top-nav
+navColor: white
+handle: beatyesterday
+waypoints: true
+photo: by/vivos.png
+type: project
+colorTheme: light
+maincolor: 4DC5D6
+secondaryColor: d4d4d4
+---
+<div class="project beatyesterday ">
+{% assign sorted_pages = (site.parts | sort: 'order') %}
+{% for page in sorted_pages %}
+  {% if page.parent == 'beatyesterday' %}
+    {% include section.html %}
+  {% endif %}
+{% endfor %}
+</div>

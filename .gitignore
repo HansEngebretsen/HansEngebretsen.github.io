@@ -1,6 +1,7 @@
 node_modules
 dist
 .tmp
+.DS_Store
 .sass-cache
 node-modules/
 node-modules/*
@@ -8,3 +9,6 @@ app/bower_components
 **/.sass-cache
 **/.sass-cache/*
 **.sass-cache**
+_site/
+_site/*
+*.jekyll-metadata

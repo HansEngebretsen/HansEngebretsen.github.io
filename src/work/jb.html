@@ -1,0 +1,24 @@
+---
+layout: default
+title: Smart Articles
+client: JournalBot
+navColor: dark
+nav: left-align
+navOrientation: top-nav
+navColor: white
+handle: journal-bot
+waypoints: true
+photo: jb/robot-peek-right.svg
+type: project
+maincolor: EA592C
+secondaryColor: d4d4d4
+---
+<link href="http://fonts.googleapis.com/css?family=Cabin:400,500,600,700" rel="stylesheet" type="text/css">
+<div class="project journalbot" style="background-color: #{{ page.maincolor }}">
+{% assign sorted_pages = (site.parts | sort: 'order') %}
+{% for page in sorted_pages %}
+  {% if page.parent == 'journalbot' %}
+    {% include section.html %}
+  {% endif %}
+{% endfor %}
+</div>

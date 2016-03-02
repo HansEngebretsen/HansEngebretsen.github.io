@@ -1,0 +1,340 @@
+
+// Self portrait and main navigation container
+.global-header {
+  @include breakpoint(phone) {
+    margin-top: 10%;
+  }
+  @extend %sans-serif;
+  font-size:18px;
+  z-index: 3;
+  &.left-align {
+    font-size: 14px;
+  }
+  max-width: 100px;
+  max-height: 200px;
+  margin: 0 auto;
+  padding-top: 120px;
+  // Functioning as a sidebar instead of page-centered
+  &.left-align {
+    float: left;
+    padding-top:0;
+    margin: 1.75em 0 0 2em;
+  }
+}
+
+// Outer-menu container around main page nav
+.global-navigation {
+  z-index: 100;
+  overflow: hidden;
+  height: 6.7em;
+  margin-top: 0;
+  transition: margin-top 200ms, height 200ms 200ms;
+  &.social-clicked {
+    height: 8em;
+    @include breakpoint(phone){
+      height: 10em;
+    }
+  }
+  @include breakpoint(phone){
+    height: 8.7em;
+  }
+  @include breakpoint(tablet){
+    text-align: left;
+  }
+}
+
+// Inner-menu container main page ul
+.menu {
+  margin: 0;
+  transform: translateY(-10px);
+  padding: 0;
+  transition: opacity 20ms 0.6s, transform 200ms, 200ms 200ms all;
+  // Preload blank
+  opacity: 0;
+  margin-bottom: 450px;
+  // Slide up to show the social section
+
+  .social-clicked &.unfolded {
+    // Additional margin for additional padding
+
+    @include breakpoint(phone) {
+      margin-top: -6em;
+    }
+    margin-top: -4.75em;
+  }
+  // After load
+  &.unfolded {
+    transform:translateY(0);
+    opacity: 1;
+    margin-bottom:0;
+    //Slide down
+    li {
+    transform:translateY(0);
+    }
+  }
+}
+
+// Main menu links
+.menu li {
+  display: block;
+  // Pre-margin for sliding down on load
+  transform:translateY(-131%);
+  list-style: none;
+  transition: transform 200ms 0.6s;
+  border-bottom: 1px solid rgba(white, 0.1);
+  &:hover {
+    transition-delay: 0;
+    background-color: rgba(rgb(100, 100, 100), 0.1);
+  }
+  // Staggar load transitions
+  &:nth-child(2) {
+    transition-delay: 0.7s;
+    transition-duration: 0.4s;
+  }
+  &:nth-child(4) {
+    transition-delay: 0.8s;
+    transition-duration: 0.5s;
+    // Keep third child active on social clicked
+    a:hover, .social-clicked & a {
+      padding-left: 0.5em;
+    }
+    .social-clicked & a {
+      color: $orange;
+      @extend %close-x;
+      &:after {
+        margin-right:-5px;
+        position:absolute;
+        transform:translateX(50%);
+      }
+    }
+  }
+  a {
+    // Extra padding for chunky thumbs on mobile
+    @include breakpoint(phone) {
+      padding-top: 0.5em;
+      padding-bottom: 0.5em;
+    }
+    display: block;
+    padding: 0.3em;
+    line-height:1;
+    padding-right: 0.5em;
+    padding-left: 0;
+    transition: all 100ms ease-in-out, color 100ms;
+    text-decoration: none;
+    color: $off-white;
+    outline:none;
+    .white & {
+      color: white;
+      &:hover {
+        color:white;
+      }
+    }
+    &.current {
+      padding-left: 0.5em;
+      color: $orange;
+    }
+    &:hover {
+      padding-right: 0;
+      padding-left: 0.5em;
+      outline:none;
+    }
+  }
+}
+
+// Social Links
+.social {
+  display: inline-block;
+  width: 100%;
+  margin: 156px 0 0 0;
+  padding: 0;
+  transition: 0ms 200ms margin;
+  transition-delay: 800ms;
+  border-top: 1px solid #242321;
+  border-bottom: 1px solid #4e4e4e;
+  background: #333333;
+  background: rgba(0, 0, 0, 0.2);
+  // Social Active State
+  .social-clicked & {
+    margin: 0 0 0 0;
+    transition: 0ms 200ms margin;
+  }
+  li {
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    max-width: 100%;
+  }
+  a {
+    display: block;
+    position: relative;
+    max-width: 31px;
+    padding: 0.4em;
+    font-size: 15px;
+    transition: padding-left 0.2s;
+    text-decoration: none;
+    color: white;
+    &:hover {
+      padding-left: 100%;
+    }
+  }
+}
+
+// Links before data:
+.social a:before {
+  content: attr(data);
+  display: block;
+  position: absolute;
+  left: -75px;
+  transition: left 0.2s;
+  color: white;
+  color: $grey;
+}
+
+// Slide on hover
+.social a:hover:before {
+  left: 5px;
+}
+
+// active
+.overlay {
+  position: relative;
+  z-index: 100;
+}
+
+// Main Navigation mobile --> inner page --> compressed
+@include breakpoint(tablet) {
+  .index .overlay {
+    position:relative;
+    opacity:1;
+    visibility:visible;
+  }
+  .overlay {
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.5s, visibility 0s 0.5s;
+    opacity: 0;
+    background-color: rgba($darker-grey, 0.93);
+    // Show overlay on click
+    .menu-clicked & {
+      visibility: visible;
+      transition: opacity 0.5s;
+      opacity: 1;
+    }
+  }
+  // Slide nav down on click
+  .menu-clicked .global-header.left-align {
+    margin-top: 100px;
+  }
+}
+
+
+// Overrides and layout for top nav
+@include breakpoint(min-tablet){
+.top-nav {
+  &.global-header {
+    position: absolute;
+    top: 0;
+    left: -65px;
+    max-width: inherit;
+    max-width: 75%;
+    margin-top: 10px;
+  }
+  .internal-nav-wrap {
+    width: 1000px;
+    white-space: nowrap;
+  }
+  .image-wrap {
+    position: relative;
+    top: -20px;
+    float: left;
+  }
+  .global-navigation {
+    width: 22em;
+    padding-left: 10px;
+    &.social-clicked {
+      width:30em;
+    }
+  }
+  .menu {
+    float: left;
+    transition: 200ms all;
+  }
+  .social-clicked .menu.unfolded {
+    margin-top: 0;
+    margin-left: -15.5em;
+  }
+  .social {
+    margin-left: 22em;
+  }
+
+  .menu li {
+    float: left;
+    margin-right: 20px;
+    transition: transform 200ms 0.3s;
+    // Staggar load transitions
+    &:nth-child(2) {
+      transition-delay: 0.3s;
+      transition-duration: 0.4s;
+    }
+    &:nth-child(3) {
+      transition-delay: 0.4s;
+      transition-duration: 0.5s;
+    }
+    &:nth-child(4) {
+      transition-delay: 0.5s;
+      transition-duration: 0.6s;
+    }
+    &:hover {
+      background-color: rgba(white, 0.1);
+    }
+    a, a:visited {
+      padding: 0.5em;
+      outline:none;
+      &:hover {
+        // color: white;
+        border-color: white;
+      }
+    }
+  }
+  .social-clicked .social {
+    margin-left: 0;
+  }
+  .social-clicked .menu li:nth-child(4) {
+    background-color: rgba(white, 0.1);
+    a:hover {
+      color:$orange;
+    }
+  }
+  .social {
+    float: left;
+    width: auto;
+    margin:0;
+    margin-top: 0;
+    li {
+      display: inline-block;
+      width: auto;
+      max-width: inherit;
+      height: 100%;
+    }
+    a {
+      max-width: inherit;
+      height: 2em;
+      line-height: 1.5em;
+      transition: 200ms all;
+      &:before {
+        top: -2.75em;
+        left: auto;
+      }
+      &:hover {
+        padding-left: 0.4em;
+        line-height: 8em;
+      }
+    }
+  }
+}
+}

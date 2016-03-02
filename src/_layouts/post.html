@@ -1,0 +1,25 @@
+---
+layout: default
+title: article
+nav: left-align
+navColor: white
+colorTheme: light
+navOrientation: top-nav
+---
+<section class="cover-image" {% if page.photo %}style="background-image:url('../img-content/{{ page.photo }}');"{% endif %}></section>
+{% include article-sidebar.html %}
+<article class="post {{ page.handle }}">
+  <h1 class="title">{{ page.header }}</h1>
+  <h2 class="subtitle">{{ page.date | date: "%B %e, %Y" }} | {{ page.subtitle }}</h2>
+  <h1>test test</h1>
+
+  <div class="entry">
+    {{ content }}
+  </div>
+
+<!--   <div class="date">
+    Written on {{ page.date | date: "%B %e, %Y" }}
+  </div>
+ -->
+  {% include disqus.html disqus_identifier=page.disqus_identifier %}
+</article>

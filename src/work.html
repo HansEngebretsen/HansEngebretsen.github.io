@@ -1,0 +1,44 @@
+---
+layout: default
+title: Work
+description: Musings in front-end design & development
+nav: left-align
+navColor: white
+colorTheme: light
+navOrientation: top-nav
+---
+{% for page in site.pages %}
+  {% if page.type == 'project' %}
+    <section class="proj-wrap {{ page.client }} {{ page.title }}">
+      <div class="proj container">
+        <div class="projcontent-wrap">
+          {% if page.photo %}
+            <div class="img-wrap">
+              <img src="{{ site.baseurl }}/img/projects/{{ page.photo }}" alt="{{ page.title }}">
+            </div>
+          {% endif %}
+          <h2 class="proj-pre-title">{{ page.client }}</h2>
+          <h1 class="proj-title">{{ page.title }}</h1>
+          <a href="{{ site.baseurl }}{{ page.url }}" class="btn">&#x2713; Check it out</a>
+        </div>
+      </div>
+    </section>
+  {% endif %}
+{% endfor %}
+<section class="proj-wrap archive">
+  <a href="../archive">
+    <div class="container">
+      <div class="img-gallery col-xs-12 col-sm-7 col-xl-6">
+      <!--   <img src="/img/Portfolio/sevilla.png" class="print-samples"alt=""> -->
+        <img src="/img/Portfolio/archive-web.png" class="web-samples" alt="">
+      </div>
+      <div class="col-xs-12 col-sm-5">
+        <h1 class="proj-title">The Archive <span class="arrow">&#8669;</span></h3>
+        <p>Can't get enough? It's okay, there's more.</p>
+        </div>
+    </div>
+
+  </a>
+</section>
+
+

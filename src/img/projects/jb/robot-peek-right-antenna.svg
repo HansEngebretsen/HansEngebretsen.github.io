@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="36px" height="37px" viewBox="0 0 36 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.3.3 (12081) - http://www.bohemiancoding.com/sketch -->
+    <title>robot-peek-right-antenna</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="robot-peek-right-antenna" sketch:type="MSLayerGroup" transform="translate(-7.000000, -6.000000)">
+            <circle id="Oval" fill="#F37448" sketch:type="MSShapeGroup" transform="translate(24.787601, 24.634527) rotate(-60.000000) translate(-24.787601, -24.634527) " cx="24.7876014" cy="24.6345271" r="17.7"></circle>
+            <path d="M22.7616433,30.8115443 C32.6616433,28.5115443 39.9616433,20.9115443 42.2616433,11.6115443 C43.3616433,13.3115443 44.2616433,15.2115443 44.7616433,17.3115443 C46.9616433,26.8115443 40.9616433,36.3115443 31.4616433,38.4115443 C24.1616433,40.1115443 16.8616433,36.9115443 12.9616433,31.0115443 C16.0616433,31.6115443 19.4616433,31.5115443 22.7616433,30.8115443 L22.7616433,30.8115443 Z" id="Shape" fill="#CF633D" sketch:type="MSShapeGroup" transform="translate(29.089012, 25.238824) rotate(-60.000000) translate(-29.089012, -25.238824) "></path>
+        </g>
+    </g>
+</svg>
