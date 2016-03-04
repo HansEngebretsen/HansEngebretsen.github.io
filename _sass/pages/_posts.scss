@@ -45,3 +45,12 @@
   @extend %bullets;
   background-color: $grey;
 }
+
+.post {
+  h4 {
+    font-size:3em;
+    margin-bottom:0;
+    letter-spacing:0;
+    text-transform:none;
+  }
+}
