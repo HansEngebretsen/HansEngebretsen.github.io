@@ -60,18 +60,7 @@ body {
 }
 
 // Modular Elements
-.image-wrap {
-  transition-duration: 0.7s;
-  transition-property: opacity;
-  background: $grey;
-  @extend %circle-image-outline;
-  .index & {
-    // opacity: 0;
-  }
-  .index.loaded & {
-    opacity: 1;
-  }
-}
+
 
 .strikethrough {
   text-decoration: line-through;

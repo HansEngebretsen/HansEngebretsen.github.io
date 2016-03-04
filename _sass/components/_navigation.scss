@@ -235,31 +235,51 @@
     margin-top: 100px;
   }
 }
-
-
+.hans-image-wrap {
+  transition-duration: 0.7s;
+  transition-property: opacity;
+  display:none;
+  .index & {
+    display:inline-block;
+  }
+  background: $grey;
+  @extend %circle-image-outline;
+  .index & {
+    // opacity: 0;
+  }
+  .index.loaded & {
+    opacity: 1;
+  }
+}
+.index .h-logo {
+  display:none;
+}
 // Overrides and layout for top nav
 @include breakpoint(min-tablet){
 .top-nav {
   &.global-header {
     position: absolute;
     top: 0;
-    left: -65px;
+    left: 0;
     max-width: inherit;
     max-width: 75%;
     margin-top: 10px;
+    margin-left: 10px;
   }
+
   .internal-nav-wrap {
     width: 1000px;
     white-space: nowrap;
   }
   .image-wrap {
     position: relative;
-    top: -20px;
-    float: left;
+    display:inline-block;
   }
   .global-navigation {
     width: 22em;
     padding-left: 10px;
+    height:auto;
+    display:inline-block;
     &.social-clicked {
       width:30em;
     }
