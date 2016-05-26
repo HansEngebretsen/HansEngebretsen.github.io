@@ -254,6 +254,10 @@
 .index .h-logo {
   display:none;
 }
+.he-logo {
+  width:32px;
+  vertical-align:top;
+}
 // Overrides and layout for top nav
 @include breakpoint(min-tablet){
 .top-nav {
@@ -273,6 +277,7 @@
   }
   .image-wrap {
     position: relative;
+    vertical-align:top;
     display:inline-block;
   }
   .global-navigation {
