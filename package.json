@@ -8,6 +8,7 @@
   "devDependencies": {
     "grunt": "~0.4.4",
     "grunt-autoprefixer": "~0.6.4",
+    "grunt-browser-sync": "^2.2.0",
     "grunt-contrib-compass": "~0.7.1",
     "grunt-contrib-concat": "~0.3.0",
     "grunt-contrib-imagemin": "~0.4.0",

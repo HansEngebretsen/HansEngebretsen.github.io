@@ -88,5 +88,4 @@ exclude:
     - README.md
     - Gruntfile.js
     - node_modules
-#    - js
     - _sass
