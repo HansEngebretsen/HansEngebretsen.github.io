@@ -16,6 +16,14 @@
   {% include favicon.html %}
   {% include analytics.html %}
 
+  <meta property="og:type"               content="website" />
+  <meta property="og:title"              content="{{ site.name }}" />
+  <meta property="og:description"        content="{{ site.description }}" />
+  <meta property="og:image"              content="{{ site.baseurl/img/haaans-og.jpg}}" />
+  <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/img/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="{{ site.baseurl }}/img/favicon-96x96.png">
+
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
