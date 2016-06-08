@@ -7,8 +7,11 @@ navColor: white
 colorTheme: light
 navOrientation: top-nav
 ---
-{% for page in site.pages %}
+
+{% assign sorted_pages = (site.pages | sort: 'order') %}
+{% for page in sorted_pages %}
   {% if page.type == 'project' %}
+
     <section class="proj-wrap {{ page.client }} {{ page.title }}">
       <div class="proj container">
         <div class="projcontent-wrap">
@@ -29,12 +32,11 @@ navOrientation: top-nav
   <a href="../archive">
     <div class="container">
       <div class="img-gallery col-xs-12 col-sm-7 col-xl-6">
-      <!--   <img src="/img/Portfolio/sevilla.png" class="print-samples"alt=""> -->
-        <img src="/img/Portfolio/archive-web.png" class="web-samples" alt="">
+        <img src="/img/Portfolio/archive-web.png" class="web-samples" alt="web design archive">
       </div>
       <div class="col-xs-12 col-sm-5">
         <h1 class="proj-title">The Archive <span class="arrow">&#8669;</span></h3>
-        <p>Can't get enough? It's okay, there's more.</p>
+        <p>Can&rsquo;t get enough? It&rsquo;s okay, there&rsquo;s more.</p>
         </div>
     </div>
 
