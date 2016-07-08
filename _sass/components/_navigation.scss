@@ -238,7 +238,6 @@
 .hans-image-wrap {
   transition-duration: 0.7s;
   transition-property: opacity;
-  display:none;
   .index & {
     display:inline-block;
   }
@@ -251,15 +250,20 @@
     opacity: 1;
   }
 }
-.index .h-logo {
-  display:none;
-}
 .he-logo {
   width:32px;
   vertical-align:top;
+  margin:46px;
+}
+.top-nav .image-wrap{
+  text-align:center;
+  position:relative;
 }
 // Overrides and layout for top nav
 @include breakpoint(min-tablet){
+  .he-logo {
+    margin: inherit;
+  }
 .top-nav {
   &.global-header {
     position: absolute;
@@ -276,9 +280,14 @@
     white-space: nowrap;
   }
   .image-wrap {
-    position: relative;
     vertical-align:top;
     display:inline-block;
+
+  }
+  .hans-image-wrap {
+    position:relative;
+    left:-38px;
+    top:-20px;
   }
   .global-navigation {
     width: 22em;
