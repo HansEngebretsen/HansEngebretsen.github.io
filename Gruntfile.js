@@ -43,6 +43,21 @@ module.exports = function(grunt) {
             }
         },
 
+        browserSync: {
+            bsFiles: {
+                src : [
+                  '_site/css/*.css',
+                  '_site/js/*.js'
+                  ]
+            },
+            options: {
+                watchTask: true,
+                server: {
+                    baseDir: "_site"
+                }
+            }
+        },
+
         sass: {
             dist: {
                 options: {
@@ -99,9 +114,11 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-autoprefixer');
     grunt.loadNpmTasks('grunt-contrib-watch');
+    grunt.loadNpmTasks('grunt-browser-sync');
+
 
 
     // 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-    grunt.registerTask("serve", ["shell:jekyllServe"]);
     grunt.registerTask('default', ['concat', 'sass', 'uglify', 'autoprefixer']);
+    grunt.registerTask('watchs', ['browserSync', 'watch'] );
 };

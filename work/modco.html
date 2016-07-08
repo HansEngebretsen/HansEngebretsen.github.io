@@ -10,8 +10,9 @@ type: project
 waypoints: true
 maincolor: ffffff
 secondaryColor: 2077D8
+order: 3
 ---
-<link href="http://fonts.googleapis.com/css?family=Cabin:400,500,600,700" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=Cabin:400,500,600,700" rel="stylesheet" type="text/css">
 <div class="project modco" style="background-color: #{{ page.maincolor }}">
 {% assign sorted_pages = (site.parts | sort: 'order') %}
 {% for page in sorted_pages %}

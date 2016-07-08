@@ -42,7 +42,7 @@ google_analytics: UA-41316517-3
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
-url: http://www.haaans.com
+url: https://haaans.com
 
 # If you're hosting your site at a Project repository on GitHub pages
 # (http://yourusername.github.io/repository-name)
@@ -66,10 +66,6 @@ version: v1.0.0
   #sass_dir: _sass
   #style: :compressed # You might prefer to minify using :compressed
 
-# Use the following plug-ins
-gems:
-  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
-
 # Change Source directory -- Won't deploy properly to github pages if changed
 # source: src/
 
@@ -88,5 +84,4 @@ exclude:
     - README.md
     - Gruntfile.js
     - node_modules
-#    - js
     - _sass

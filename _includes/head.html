@@ -10,20 +10,26 @@
   <meta charset="utf-8" />
   <meta http-equiv='X-UA-Compatible' content='IE=edge'>
   <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0'>
-  <title>{% if page.title == "index" %} Hans - Portfolio and website of Hans Engebretsen {% elsif page.title %}{{ page.title | capitalize }} — {% endif %}{{ site.name }}</title>
+  <title>{% if page.title == "index" %} Hans Engebretsen | web designer, front-end developmer, tech maker{% elsif page.title %}{{ page.title | capitalize }} — {% endif %}{{ site.name }}</title>
   <meta name="author" content="{{ site.name }}" />
   <meta name="description" content="{{ site.description }}">
+  {% include favicon.html %}
+  {% include analytics.html %}
+
   <meta property="og:type"               content="website" />
   <meta property="og:title"              content="{{ site.name }}" />
   <meta property="og:description"        content="{{ site.description }}" />
-  <meta property="og:image"              content="{{ site.baseurl/img/haaans-og.jpg}}" />
+  <meta property="og:image"              content="{{ site.baseurl }}/img/haaans-og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <link rel="icon" type="image/png" sizes="16x16" href="{{ site.baseurl }}/img/favicon-16x16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="{{ site.baseurl }}/img/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="96x96" href="{{ site.baseurl }}/img/favicon-96x96.png">
+
   <!--[if lt IE 9]>
   <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
   <![endif]-->
-  <link href='http://fonts.googleapis.com/css?family=Lekton:400,700|Merriweather:400,700,300italic' rel='stylesheet' type='text/css'>
+  <link href='//fonts.googleapis.com/css?family=Lekton:400,700|Merriweather:400,700,300italic' rel='stylesheet' type='text/css'>
     <!-- <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css" /> -->
-    <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/style.css" />
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/css/style.css" />
   </head>
