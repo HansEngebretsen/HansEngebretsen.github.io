@@ -1,7 +1,8 @@
 ---
 layout: post
 header: Get Productive. 7 Apps
-subtitle: Front-end Dev
+subtitle: The 7 OS X tools and apps that I use on a daily basis to be more productive.
+tags: Front-end dev
 photo: productivity-blog.jpg
 handle: productivity
 navOrientation: top-nav

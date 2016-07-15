@@ -21,10 +21,10 @@ navOrientation: top-nav
           <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.header }}</a></h1>
 
           <div class="entry">
-            {{ post.content | truncatewords:30}}
+            {{ post.subtitle | truncatewords:30 }}
           </div>
 
-          <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
+          <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read it</a>
         </article>
       {% endfor %}
     </section>
