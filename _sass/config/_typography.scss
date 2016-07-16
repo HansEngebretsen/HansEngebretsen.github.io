@@ -118,6 +118,9 @@ article html {
   h1, h2 {
     @extend %sans-serif;
   }
+  p {
+    font-size:1.15em;
+  }
 
   h1 {
     font-size: 1.5em;

@@ -56,7 +56,36 @@
 }
 .History h4 {
   font-size:1em;
+  left:0;
+  margin-top:5vh;
+  color:white;
+  text-indent:0;
+  z-index:2;
+  transform:translateX(0%) translateY(-70%);
+  padding-top:0;
+  &:after {
+    z-index:-1;
+    background-color:$black;
+  }
 }
 .history-content {
-  margin-left:20%;
+  position:relative;
+  padding-left:20%;
+  margin-top:10vh;
+  @include breakpoint(phone){
+    padding-left: 75px;
+  }
+  blockquote {
+    border-left: 5px solid $dark-grey;
+  }
+  blockquote, blockquote p {
+    padding:0;
+    margin-top:calc(-10vh + 2em);
+    padding-left: 10px;
+    margin-bottom:-5vh;
+  }
+  > p {
+    margin-bottom:15vh;
+    margin-top:10vh;
+  }
 }
