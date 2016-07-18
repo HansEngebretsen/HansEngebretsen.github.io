@@ -4,8 +4,13 @@
                 {% if page.profile-img %}
                     <span class="hans-image-wrap"><img src="{{ site.baseurl }}/img/hans-profile-small.jpg" class="hans-image" alt="Hans Engebretsen" /></span>
                 {% else %}
-                    <img src="{{ site.baseurl }}/img/he-logo.svg" class="he-logo" alt="Hans Engebretsen" />
+                    {% if page.navColor == "white" %}
+                        <img src="{{ site.baseurl }}/img/he-logo.svg" class="he-logo" alt="Hans Engebretsen" />
+                    {% else %}
+                        <img src="{{ site.baseurl }}/img/he-logo-dark.svg" class="he-logo" alt="Hans Engebretsen" />
+                    {% endif %}
                 {% endif %}
+
             </div>
             <nav class="global-navigation">
                 <div class="internal-nav-wrap">

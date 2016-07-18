@@ -5,6 +5,11 @@
 <script src="{{ site.baseurl }}/js/lib/inview.min.js"></script>
 <script src="{{ site.baseurl }}/js/onload/waypoints.js"></script>
 {% endif %}
-
+{% if page.fittext %}
+<script src="{{ site.baseurl }}/js/lib/jquery.fittext.js"></script>
+<script>
+  jQuery("#fittext").fitText();
+</script>
+{% endif %}
 <!-- My Scripts -->
 <script src="{{ site.baseurl }}/js/production.min.js"></script>
