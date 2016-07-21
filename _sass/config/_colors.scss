@@ -12,7 +12,7 @@ $lighter-grey: #d4d4d4;
 
 // Main Orange
 $orange: #F08656;
-$darker-grey: #222;
+$darker-grey: lighten(#222, 30%);
 $dark-grey:rgba(136, 136, 136, 0.5);
 $dark-grey-hex: rgb(40,40,40);
 $off-white:#aaa;

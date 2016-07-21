@@ -4,12 +4,16 @@
     display: inline-block;
     vertical-align: top;
   }
-  img {
+  .image-wrap {
     max-width: 22%;
     margin-left: 3%;
     display: inline-block;
     vertical-align: top;
     margin-top: 10px;
+    position:relative;
+    img {
+      width:100%;
+    }
   }
 }
 
@@ -46,15 +50,6 @@
   background-color: $grey;
 }
 
-.post {
-  padding-top:60px;
-  h4 {
-    font-size:3em;
-    margin-bottom:0;
-    letter-spacing:0;
-    text-transform:none;
-  }
-}
 .History h4 {
   font-size:1em;
   left:0;

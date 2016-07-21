@@ -8,6 +8,7 @@ ____________________________________________________________________
   width: 100%;
   min-height: 500px;
   height: 50vh;
+  margin-bottom:10vh;
   @include breakpoint(normal-screen) {
     min-height: inherit;
   }
@@ -96,11 +97,34 @@ ____________________________________________________________________
 .post {
   padding: 0 40px;
   margin: 0 auto;
+  padding-top:60px;
+  h4 {
+    font-size:2em;
+    margin-bottom:0;
+    letter-spacing:0;
+    text-transform:none;
+    color:$darker-grey;
+  }
+  hr {
+    margin-top:15vh;
+    margin-bottom:15vh;
+    border-color:rgba($dark-grey, .2);
+    border-bottom: 0px;
+    display:block;
+  }
+  h1 {
+    color:black;
+    font-size:3em;
+    font-weight:600;
+  }
   &.new-month {
     clear: left;
   }
 }
-
+.projects h1 {
+  font-size:1.5em;
+  font-weight:100;
+}
 .projects .post {
   float: left;
   width: 50%;
