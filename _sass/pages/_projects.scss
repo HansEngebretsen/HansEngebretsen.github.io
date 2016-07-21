@@ -128,6 +128,8 @@ ____________________________________________________________________
 .projects .post {
   float: left;
   width: 50%;
+  padding-top:0;
+  padding-bottom:0;
   margin-bottom: 100px;
   text-align: left;
   @include breakpoint(tablet) {
