@@ -1,7 +1,7 @@
 /*
 ____________________________________________________________________
 
-    Projects PAGE STYLINGS
+    articles PAGE STYLINGS
 ____________________________________________________________________
 */
 .cover-image {
@@ -106,7 +106,7 @@ ____________________________________________________________________
     text-transform:none;
     color:$darker-grey;
   }
-  .posts-inner, a.posts-inner {
+  .post-inner, a.post-inner {
     display:inline-block;
     padding: 0 40px;
     padding-top:20px;
@@ -134,11 +134,11 @@ ____________________________________________________________________
     clear: left;
   }
 }
-.projects h1 {
+.articles h1 {
   font-size:1.5em;
   font-weight:100;
 }
-.projects .post {
+.articles .post {
   float: left;
   width: 50%;
   padding-top:0;
