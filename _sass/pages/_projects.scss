@@ -95,7 +95,6 @@ ____________________________________________________________________
 }
 
 .post {
-  padding: 0 40px;
   margin: 0 auto;
   padding-top:60px;
   h4 {
@@ -104,6 +103,18 @@ ____________________________________________________________________
     letter-spacing:0;
     text-transform:none;
     color:$darker-grey;
+  }
+  a {
+    display:inline-block;
+    padding: 0 40px;
+    padding-top:20px;
+
+    &:hover {
+      background-color:rgba($lighter-grey, .15);
+    }
+  }
+  .entry, a .entry {
+      color: $dark-grey;
   }
   hr {
     margin-top:15vh;

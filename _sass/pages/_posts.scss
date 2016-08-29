@@ -1,3 +1,6 @@
+$blue-tag: #EB3E3E;
+$green-tag: #FECD2D;
+
 .productivity {
   .first-paragraph {
     width: 70%;
@@ -61,6 +64,22 @@
 .neutral-bullet {
   @extend %bullets;
   background-color: $grey;
+}
+.tag {
+  display:inline-block;
+  padding:5px 10px;
+  line-height:1;
+  color:white;
+  @extend %sans-serif;
+  text-transform:uppercase;
+  font-size:.75em;
+  background-color:$off-white;
+  &.design {
+    background-color:$blue-tag;
+  }
+  &.dev {
+    background-color:$green-tag;
+  }
 }
 
 .History h4 {
