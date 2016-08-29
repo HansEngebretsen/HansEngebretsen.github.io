@@ -1,6 +1,9 @@
 $blue-tag: #EB3E3E;
 $green-tag: #FECD2D;
 
+$blue-tag: darken($orange, 15%);
+$green-tag: lighten($orange, 15%);
+
 .productivity {
   .first-paragraph {
     width: 70%;

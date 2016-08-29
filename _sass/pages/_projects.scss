@@ -91,7 +91,8 @@ ____________________________________________________________________
     width: 50px;
     height: 50px;
     border-radius: 100%;
-    background-color: $orange;
+    background-color: white;
+    border: 3px solid rgba($lighter-grey, 0.2);
   }
 }
 
