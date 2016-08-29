@@ -50,7 +50,7 @@ ____________________________________________________________________
   position: absolute;
   width: 3px;
   height: 100%;
-  margin-top: 5em;
+  margin-top: 5.5em;
   margin-left: 14%;
   background-color: rgba($lighter-grey, 0.2);
   @include breakpoint(tablet) {
@@ -72,6 +72,7 @@ ____________________________________________________________________
   text-align: center;
   text-align: center;
   text-indent: -15%;
+  margin-top:10px;
   color: $lighter-grey;
   @include breakpoint(tablet) {
     text-indent: 0;
