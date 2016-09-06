@@ -159,11 +159,12 @@ ____________________________________________________________________
     padding: 2vh 0;
   }
   @include breakpoint(big-screen) {
+    padding-left:0;
     padding-right: 40px;
   }
 
   @include breakpoint(normal-screen) {
-    padding-right: 0;
+    padding: 0 40px;
   }
 }
 

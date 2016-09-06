@@ -5,6 +5,10 @@ $blue-tag: darken($orange, 15%);
 $green-tag: lighten($orange, 15%);
 
 .productivity {
+  &.post hr {
+    margin-top:0;
+    margin-bottom:0;
+  }
   .first-paragraph {
     width: 70%;
     display: inline-block;

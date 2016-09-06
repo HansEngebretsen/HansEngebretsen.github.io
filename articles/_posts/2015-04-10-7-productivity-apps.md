@@ -67,7 +67,7 @@ In the same spirit of inspiration and discovery, I’m sharing the OS X producti
 </section>
 <section class="app" markdown="1">
 <h4>Hazel</h4>
-<p class="first-paragraph">Hazel is an app that one of my friends, [Andrew Saliga](http://andrewsaliga.com/) led me on to. I’m not sure it contains any unique functionality, or anything you couldn’t accomplish with OSX’s built in Automator, but it certainly makes automation easier. You don’t need to know a language, or be a pro to run regular actions on folders, or tasks in general. For someone like me, that means it’s great for helping automatically organize and rename things like pictures by date, or keeping your downloads folder clean.</p><div class="image-wrap" markdown="0"><img alt="Image of wunderlist" src="/img-content/productivity/hazel.png" /></div>
+<p class="first-paragraph">Hazel is an app that one of my friends, <a href="http://andrewsaliga.com/">Andrew Saliga</a> led me on to. I’m not sure it contains any unique functionality, or anything you couldn’t accomplish with OSX’s built in Automator, but it certainly makes automation easier. You don’t need to know a language, or be a pro to run regular actions on folders, or tasks in general. For someone like me, that means it’s great for helping automatically organize and rename things like pictures by date, or keeping your downloads folder clean.</p><div class="image-wrap" markdown="0"><img alt="Image of wunderlist" src="/img-content/productivity/hazel.png" /></div>
 
 * * *
 <span class="dark">Free trial - $29 </span>| Available from [Noodelsoft](http://www.noodlesoft.com/hazel.php)
