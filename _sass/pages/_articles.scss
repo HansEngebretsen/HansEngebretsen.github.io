@@ -99,9 +99,16 @@ ____________________________________________________________________
 .post {
   margin: 0 auto;
   padding-top:60px;
+  .entry h5 {
+    text-transform:uppercase;
+    margin-bottom: -1em;
+    color:$darker-grey;
+  }
   h4 {
     font-size:2em;
     margin-bottom:0;
+    margin-top:3em;
+    line-height:1;
     letter-spacing:0;
     text-transform:none;
     color:$darker-grey;

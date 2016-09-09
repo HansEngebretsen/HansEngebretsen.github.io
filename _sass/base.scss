@@ -25,15 +25,19 @@ ____________________________________________________________________
 * {
   box-sizing: border-box;
 }
-
+pre.highlight {
+  background-color: darken(white, 4%);
+  padding: .75em;
+}
 code {
   padding: .3em;
   margin: 0;
   font-size: 85%;
-  background-color: rgba(0, 0, 0, 0.04);
+  background-color:  darken(white, 4%);
   border-radius: 3px;
   color: rgba($darker-grey, 0.67);
 }
+
 
 html {
   position: relative;
