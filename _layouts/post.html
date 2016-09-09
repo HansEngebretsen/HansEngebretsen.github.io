@@ -9,7 +9,7 @@ navOrientation: top-nav
 {% include article-sidebar.html %}
 <article class="post {{ page.handle }}">
   <h1 class="title">{{ page.header }}</h1>
-  <h2 class="subtitle">{{ page.date | date: "%B %e, %Y" }} | {{ page.tags }}</h2>
+  <h2 class="subtitle">{{ page.date | date: "%B %e, %Y" }} | {{ page.tags | array_to_sentence_string}}</h2>
 <figure class="cover-image" {% if page.photo %}style="background-image:url('../img-content/{{ page.photo }}');"{% endif %}></figure>
   <div class="entry">
     {{ content | kramdown }}
