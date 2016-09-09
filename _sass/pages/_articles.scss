@@ -125,6 +125,10 @@ ____________________________________________________________________
   .entry, a .entry {
       color: $dark-grey;
   }
+  .post-inner .entry {
+    padding-left:0;
+    padding-right:0;
+  }
   hr {
     margin-top:15vh;
     margin-bottom:15vh;
