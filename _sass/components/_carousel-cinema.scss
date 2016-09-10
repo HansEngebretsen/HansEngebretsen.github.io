@@ -10,7 +10,7 @@
     img {
       position:absolute;
     }
-    video {
+    video, .content-image {
       width: 70%;
       margin-top: 3.5%;
       margin-left: 15.9%;
@@ -19,7 +19,11 @@
         z-index: 3;
       }
     }
+    .content-image {
+      position:relative;
+    }
   }
+
     img {
         max-width: 100%;
         z-index:2;

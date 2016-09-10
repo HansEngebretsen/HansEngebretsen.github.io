@@ -1,0 +1,25 @@
+---
+layout: default
+title: Turning Points
+client: Garmin
+navColor: dark
+nav: left-align
+navOrientation: top-nav
+navColor: white
+handle: turning-points
+waypoints: true
+# photo: by/vivos.png
+type: project
+maincolor: 4FC5D6
+secondaryColor: d4d4d4
+order: 5
+---
+<link href="//fonts.googleapis.com/css?family=Cabin:400,500,600,700" rel="stylesheet" type="text/css">
+<div class="project turningpoints" style="background-color: #{{ page.maincolor }}">
+{% assign sorted_pages = (site.parts | sort: 'order') %}
+{% for page in sorted_pages %}
+  {% if page.parent == 'turningpoints' %}
+    {% include section.html %}
+  {% endif %}
+{% endfor %}
+</div>

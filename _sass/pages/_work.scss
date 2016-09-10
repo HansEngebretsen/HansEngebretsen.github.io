@@ -108,6 +108,13 @@
       }
     }
   }
+  .Turning {
+    background-color:$turning-points;
+    &:after {
+      background-image: url('../img/projects/turningpoints/main-curtain.jpg');
+      background-position:top right;
+    }
+  }
   .Garmin.Beat {
     background-color: #4dc5d6;
     &:after {
