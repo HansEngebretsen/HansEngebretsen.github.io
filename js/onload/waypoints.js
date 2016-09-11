@@ -21,37 +21,40 @@
   }
 
   Waypoints.prototype.sticky = function(e) {
-
+    var sticky = $('.sticky'),
+        stickyWrap  = $('.sticky-wrap');
+   if(sticky.length > 0 && stickyWrap.length > 0 ){
+    console.log(sticky);
     var waypoint = new Waypoint({
-       element: $('.sticky'),
+       element: sticky,
       handler: function(direction) {
          if (direction === 'down') {
             $(this.element).addClass('fixed');
-            $('.sticky').css('top', '140px');
+            sticky.css('top', '140px');
           } if (direction === 'up'){
             $(this.element).removeClass('fixed');
-            $('.sticky').css('top', '0');
+            sticky.css('top', '0');
           }
       },
       offset: 140
     });
 
-    var ofz = $('.sticky-wrap').outerHeight() - $('.sticky').outerHeight() - 280;
+    var ofz = stickyWrap.outerHeight() - sticky.outerHeight() - 280;
 
     var waypoint2 = new Waypoint({
-       element: $('.sticky-wrap'),
+       element: stickyWrap,
       handler: function(direction) {
         if (direction === 'down'){
-          $('.sticky').removeClass('fixed');
-          $('.sticky').css('top', ofz);
+          sticky.removeClass('fixed');
+          sticky.css('top', ofz);
         } if (direction === 'up') {
-          $('.sticky').addClass('fixed');
-          $('.sticky').css('top', '140px');
+          sticky.addClass('fixed');
+          sticky.css('top', '140px');
         }
       },
       offset: -ofz
     });
-
+    }
 
   }
 

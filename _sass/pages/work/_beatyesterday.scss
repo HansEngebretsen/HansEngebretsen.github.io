@@ -4,6 +4,10 @@ $by-grey: #1F1F1F;
 $by-grey: #1F1F1F;
 $by-purple: #ee3e7b;
 $by-grey-d: #484848;
+ .section.grey {
+        background:white;
+        background-color:lighten($lighter-grey, 13%);
+    }
 .beatyesterday {
     .project-info {
         background-color:darken($by-grey-d, 4%);
@@ -23,10 +27,7 @@ $by-grey-d: #484848;
             opacity:.8;
         }
     }
-    .grey {
-        background:white;
-        background-color:lighten($lighter-grey, 13%);
-    }
+
     .credits a {
         color:white;
     }
