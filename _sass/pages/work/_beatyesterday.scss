@@ -1,12 +1,12 @@
 // Beat Yesterday Colors
-$by-aqua:   #4dc5d6;
+$by-aqua:   #5ec2a5;
 $by-grey: #1F1F1F;
 $by-grey: #1F1F1F;
 $by-purple: #ee3e7b;
 $by-grey-d: #484848;
 .beatyesterday {
     .project-info {
-        background-color:$by-aqua;
+        background-color:darken($by-grey-d, 4%);
     }
     .pink-grey {
         background-color:#f5f2f4;
@@ -60,9 +60,21 @@ $by-grey-d: #484848;
         p {
             color: rgba(white,.4);
         }
+        a {
+            color: rgba(white,.7);
+        }
+        h4 {
+            color: rgba(white,.9);
+        }
         h1 {
             color:white;
 
+        }
+    }
+    .intro-wrap {
+        margin-top: 14vh;
+       @include breakpoint(tablet) {
+        margin-top: 0;
         }
     }
     .intro {

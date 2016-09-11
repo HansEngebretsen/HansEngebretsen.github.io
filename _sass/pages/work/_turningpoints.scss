@@ -1,0 +1,42 @@
+$by-grey: #1F1F1F;
+$by-aqua:   #4dc5d6;
+
+.turningpoints {
+    .intro {
+        background-color:inherit;
+        padding-bottom:0;
+    }
+    .intro h1 {
+        color:white;
+    }
+    .intro-forerunner {
+        width: 300px;
+        margin-top: 50px;
+        max-width: 55%;
+    }
+    h1 {
+        color:$by-grey;
+    }
+    .aqua {
+        background-color:$by-aqua;
+        h1, h4, p {
+            color:white;
+        }
+        p {
+            opacity:.8;
+        }
+    }
+    .pre-title {
+        border-color:black;
+    }
+    .credits a {
+        color:white;
+    }
+    .numbers-container h3 {
+        color:white;
+    }
+    .langauges  h1 {
+        white-space:nowrap;
+    }
+
+}
