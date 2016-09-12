@@ -21,10 +21,11 @@
   @else if $point == min-normal-screen {
     @media (min-width: 800px) { @content; }
   }
+
   @if $point == tablet {
     @media (max-width: 650px) { @content; }
   }
-    @else if $point == min-tablet {
+  @else if $point == min-tablet {
     @media (min-width: 650px) { @content; }
   }
     @if $point == tablet-s {

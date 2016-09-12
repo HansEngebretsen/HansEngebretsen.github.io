@@ -57,13 +57,19 @@ body {
     }
     .text-left {
         padding: 0 40px;
-        .inner-div { min-height: 60vh;}
+        .inner-div {
+            min-height: 60vh;
+        }
         @include breakpoint(tablet){
             min-height:inherit;
             max-width:100%;
             padding-bottom:0;
             .inner-div:first-of-type {
-                margin-bottom:10vh;
+              //  margin-bottom:10vh;
+            }
+            .inner-div{
+                min-height:inherit;
+               margin-bottom: 10vh;
             }
         }
 
@@ -73,6 +79,7 @@ body {
 .project {
     overflow-x:hidden;
     section.work {
+    max-width:inherit;
         overflow:hidden;
     }
     .intro.text-left {
@@ -87,7 +94,6 @@ body {
     .light-grey {
         background-color:$lighter-grey;
     }
-    max-width:inherit;
     .circle-scroll-crop {
         width:400px;
         height:400px;
