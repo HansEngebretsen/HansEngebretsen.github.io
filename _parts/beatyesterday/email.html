@@ -15,9 +15,9 @@ addclass: clearfix left-align
     <div class="email-svg"></div>
   </div>
   <div class="device-wraps col-xs-12 col-sm-6">
-    <!-- <img src="{{ site.base_url }}/img/projects/by/by-email.gif" alt="Beat Yesterday Email"> -->
-    <p data-height="1000" data-theme-id="21124" data-slug-hash="qbyYEr" data-default-tab="result" data-user="hans" class='codepen'>See the Pen <a href='http://codepen.io/hans/pen/qbyYEr/'>Self-updating HTML email</a> by Hans Engebretsen (<a href='http://codepen.io/hans'>@hans</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-    <script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+    <img src="{{ site.base_url }}/img/projects/by/by-email.gif" alt="Beat Yesterday Email" class="email-image">
+    <div class="codepen-wrap"><iframe height='783' scrolling='no' src='' id="codepenframe" data-source="//codepen.io/hans/embed/qbyYEr/?height=783&theme-id=21124&default-tab=result&embed-version=2"frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>See the Pen <a href='http://codepen.io/hans/pen/qbyYEr/'>Self-updating HTML email</a> by Hans Engebretsen (<a href='http://codepen.io/hans'>@hans</a>) on <a href='http://codepen.io'>CodePen</a>.
+</iframe></div>
    <!--  <div class="iphone-frame-wrap">
       <div class="iphone-frame">
         <div class="iphone-screen-container">
@@ -27,3 +27,14 @@ addclass: clearfix left-align
     </div> -->
   </div>
   </div>
+  <script type="text/javascript">
+  var frame = document.getElementById('codepenframe');
+
+    function showIframe() {
+      frame.src = frame.dataset.source;
+      console.log('working');
+    }
+    if (window.matchMedia("(min-width: 650px)").matches) {
+      window.onload = showIframe();
+    }
+  </script>

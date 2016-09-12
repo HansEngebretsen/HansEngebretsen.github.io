@@ -12,6 +12,18 @@ $by-grey-d: #484848;
     .project-info {
         background-color:darken($by-grey-d, 4%);
     }
+    .codepen-wrap {
+        display:block;
+        @include breakpoint(tablet){
+            display:none;
+        }
+    }
+    .email-image {
+        display:none;
+        @include breakpoint(tablet){
+            display:block;
+        }
+    }
     .pink-grey {
         background-color:#f5f2f4;
     }
