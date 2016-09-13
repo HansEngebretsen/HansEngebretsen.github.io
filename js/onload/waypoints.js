@@ -170,6 +170,7 @@
   }
 
   Waypoints.prototype.init = function(e) {
+      var _this = this;
     var mqTablet = window.matchMedia("( min-width: 650px )"); // Media query for intro slide and navscroll
     var mqTabletmax = window.matchMedia("( max-width: 650px )"); // Media query for intro slide and navscroll
     if (mqTablet.matches) {
@@ -182,7 +183,6 @@
     }
     if (mqTabletmax.matches) {
       this.showScroll();
-      _this = this;
       this.elements.scrollUp.click(function(e) {
         _this.scrollUp(e);
       });

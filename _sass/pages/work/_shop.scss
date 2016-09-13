@@ -12,7 +12,6 @@ $by-blue:   #0070ce;
     .intro h1 {
         color:white;
     }
-
     h1 {
         color:$by-grey;
     }
@@ -74,6 +73,13 @@ $by-blue:   #0070ce;
         text-align:left;
         width: 50%;
     }
+    .subcat-full-wrap {
+      padding: 0 30px;
+      img {
+        box-shadow: 3px 5px 15px 3px rgba(0,0,0,.3);
+        width: 900px;
+      }
+    }
     .filter-option, a.filter-option {
         display: inline-block;
         line-height:2;
@@ -122,6 +128,9 @@ $by-blue:   #0070ce;
     }
 }
 
+
+
+// Other stuff
 
 .slider-control {
     display:block;
