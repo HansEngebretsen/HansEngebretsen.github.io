@@ -182,7 +182,7 @@
     }
     if (mqTabletmax.matches) {
       this.showScroll();
-      _this = this;
+      var _this = this;
       this.elements.scrollUp.click(function(e) {
         _this.scrollUp(e);
       });
