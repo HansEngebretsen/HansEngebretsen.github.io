@@ -1,0 +1,24 @@
+---
+layout: default
+title: Garmin.com Ecommerce Experience
+client: Garmin
+nav: left-align
+navOrientation: top-nav
+navColor: white
+# photo: virb/virb-x-home.png
+handle: garmin-ecommerce
+type: project
+maincolor: 0070ce
+secondaryColor: ffffff
+waypoints: true
+plax: true
+order: 5
+---
+<div class="project shopexp" style="background-color: #{{ page.maincolor }}">
+{% assign sorted_pages = (site.parts | sort: 'order') %}
+{% for page in sorted_pages %}
+  {% if page.parent == 'shop' %}
+    {% include section.html %}
+  {% endif %}
+{% endfor %}
+</div>

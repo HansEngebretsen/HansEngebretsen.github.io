@@ -1,0 +1,213 @@
+$by-grey: #1F1F1F;
+$by-blue:   #0070ce;
+
+.shopexp {
+    .intro {
+        background-color:inherit;
+        padding-bottom:0;
+    }
+    .intro {
+        background-color:$by-blue;
+    }
+    .intro h1 {
+        color:white;
+    }
+
+    h1 {
+        color:$by-grey;
+    }
+    .aqua {
+        background-color:$by-blue;
+        h1, h4, p {
+            color:white;
+        }
+        p {
+            opacity:.8;
+        }
+    }
+    .pre-title {
+        border-color:black;
+    }
+    .credits a {
+        color:white;
+    }
+    .numbers-container h3 {
+        color:white;
+    }
+    .langauges  h1 {
+        white-space:nowrap;
+    }
+    .square-btn {
+        width:60px;
+        height:60px;
+        cursor:pointer;
+        outline:none;
+        background-color:$by-blue;
+        display:inline-block;
+        padding:12px 17px;
+        transition: 100ms all;
+        border-radius:0;
+        border:none;
+          vertical-align:middle;
+          margin-bottom:10px;
+        .icon {
+            display: block;
+            width: 8px;
+            height: 12px;
+            margin: 0 auto;
+            background-image: url(../img/projects/shop/icon-big-form-submit.png);
+            background-size: 100%;
+            cursor:pointer;
+        }
+        &:hover {
+            background-color:#00569b;
+        }
+    }
+    a.filter-option:active, a.filter-option:focus {
+        outline:none;
+    }
+    .filter-wrap {
+        margin:0 auto;
+        @include breakpoint(tablet){
+            margin-top: 30px;
+        }
+        text-align:left;
+        width: 50%;
+    }
+    .filter-option, a.filter-option {
+        display: inline-block;
+        line-height:2;
+        position: relative;
+        font-size:.9em;
+        text-align:left;
+        @extend %sans-serif;
+        padding: 0.5em;
+        padding-right: 1.5em;
+        cursor:pointer;
+        padding-left: 2.25em;
+        white-space: nowrap;
+        margin-top:10px;
+        border: 1px solid transparent;
+        border-radius: 20px;
+          vertical-align:middle;
+        color:#7A7A7A;
+          border-color: #DCDCDC;
+        &:hover {
+          color: #090909;
+          border-color:  #BCBCBC;
+          outline: none;
+        }
+        &:after {
+          color: $black;
+          border-color: $black;
+          display: block;
+          position: absolute;
+          top: 50%;
+          left: 1em;
+          content: "+";
+          transform: translateY(-50%);
+          transition: 200ms all;
+        }
+        &.active {
+            background-color:#BCBCBC;
+            color:white;
+            border-color:#BCBCBC;
+            &:after {
+               // content:'x';
+          transform: translateY(-50%) rotate(125deg);
+                color:white;
+                //right: 1.5em;
+            }
+        }
+    }
+}
+
+
+.slider-control {
+    display:block;
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+body.slider-active {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.slider-control, .slider-fill {
+  height: 6px;
+}
+
+.slider-control, .slider-fill {
+  border-radius: 6px;
+}
+
+.slider-control {
+  background: #A6D0E8;
+  position: relative;
+  color: $gray-dark;
+}
+.slider-handle-label.max {
+    right: 0;
+    left: auto;
+    transform: translateX(50%);
+}
+
+.slider-control.handle-active {
+}
+
+.slider-fill {
+  position: absolute;
+  top:  0;
+  left: 0;
+  right: 100%;
+}
+
+.handle-active .slider-fill, .handle-active .slider-handle {
+  box-shadow: 0px 0px 5px 0 rgba(69, 169, 255, 0.80);
+}
+
+.slider-fill, .slider-handle {
+  background: $brand-primary;
+}
+
+.slider-handle-container {
+  position: absolute;
+  top: -9px;
+}
+
+.slider-handle-container,  .slider-handle {
+  height: 24px;
+  width:  24px;
+  z-index: 2;
+  transition: left 150ms ease-in;
+}
+
+.slider-handle {
+  cursor: pointer;
+  position: absolute;
+  border-radius: 50%;
+}
+
+
+.slider-handle-label {
+  position: absolute;
+  top: 27px;
+  left: 0;
+  @extend %sans-serif;
+  transform: translate(-50%, 0);
+  margin-left: -0.3em;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  opacity: 1;
+  transition: opacity 150ms ease-in;
+}
+
+.slider-handle-label .stubbed-light {
+  display: none;
+}

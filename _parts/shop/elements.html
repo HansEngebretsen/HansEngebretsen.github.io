@@ -1,0 +1,51 @@
+---
+layout: section
+parent: shop
+subtitle: buttons
+order: 4
+addclass: grey
+---
+<div class="container">
+  <div class="col-xs-12 col-sm-6 vertically-centered">
+    <h1>Global Elements</h1>
+    <p>We to formed and standardize the interface around the entire shopping experience. Working through the nitty-gritty of responsive buttons, sliders, filters, and cta's crafting meaningful interactions.</p>
+  </div><div class="col-xs-12 col-sm-6 vertically-centered">
+    <div class="filter-wrap">
+    <button class="square-btn"><span class="icon"></span></button>
+    <br>
+      <a href="#" class="filter-option" onclick="toggleActive(this)" id="filter-option">Filter Option</a>
+      <br>
+      <a href="#" class="filter-option active" onclick="toggleActive(this)" id="filter-option">Filter Option Two</a>
+          </div>
+      <div id="slider-control">
+        <div class="slider-control">
+          <div class="slider-fill" style="left: 12.3123%; right: 24.6246%;"></div>
+          <div class="slider-ticks"></div>
+          <div class="slider-handle-container" style="left: 7.86787%;">
+            <div class="slider-handle slider-handle-min"></div>
+          </div>
+            <div class="slider-handle-label min"><sup class="currency-symbol">$</sup>400</div>
+          <div class="slider-handle-container" style="left: 70.9309%;">
+            <div class="slider-handle slider-handle-max"></div>
+          </div>
+            <div class="slider-handle-label max"><sup class="currency-symbol">$</sup>1,500</div>
+        </div>
+      </div>
+<!--             <div class="min-price"><span class="slider-value-min"><sup class="currency-symbol">$</sup>400</span></div>
+      <div class="max-price"><span class="slider-value-min"><sup class="currency-symbol">$</sup>1200</span></div> -->
+
+  </div>
+</div>
+
+<script>
+  function toggleActive(div){
+    event.preventDefault();
+    if( div.className.indexOf('active') > -1) {
+      div.classList.remove("active");
+      console.log('twerked');
+    }
+    else{
+     div.className += " active";
+    }
+  }
+</script>
