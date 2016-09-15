@@ -6,8 +6,22 @@ $by-blue:   #0070ce;
         background-color:inherit;
         padding-bottom:0;
     }
-    .intro {
+
+    .intro-wrap {
+        margin-top: 14vh;
+       @include breakpoint(tablet) {
+          margin-top: 0;
+        }
+      }
+    .intro, .blue {
         background-color:$by-blue;
+        color:white;
+        p {
+          opacity:.8;
+        }
+        h1 {
+          color:white;
+        }
     }
     .intro h1 {
         color:white;
@@ -25,7 +39,7 @@ $by-blue:   #0070ce;
         }
     }
     .pre-title {
-        border-color:black;
+        border-color:$by-blue;
     }
     .credits a {
         color:white;
@@ -124,6 +138,28 @@ $by-blue:   #0070ce;
                 //right: 1.5em;
             }
         }
+    }
+    .device-wraps {
+      text-align:center;
+      .iphone-frame-wrap {
+        width: 400px;
+        max-width:100%;
+        @include breakpoint(normal-screen){
+          position:relative;
+        }
+      }
+      .iphone-frame {
+        margin-top:0;
+        @include breakpoint(normal-screen){
+          padding-top: 160%;
+          width:100%;
+          .iphone-screen-container {
+            max-height:inherit;
+            top:12.7%;
+            left:16%;
+          }
+        }
+      }
     }
 }
 

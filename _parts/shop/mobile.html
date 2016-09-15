@@ -2,14 +2,28 @@
 layout: section
 parent: shop
 subtitle: responsive
-order: 9
+order: 7
 addclass: clearfix left-align
 ---
-
-  <div class="col-xs-12 col-sm-6 title-layout-left">
-    <h4 class="pre-title">Marketing Email</h4>
-    <h1>Email too!</h1>
-    <p>You know what sucks? Designing &amp; developing emails. Following the live-data-big-numbers theme, I was able to leverage the same API to build a dynamic, self-updating email based on the time of day, and the world's current numbers.</p>
-    <p>Turns out, dynamic stuff in email is <s>the worst</s> sorta hard. I wrote about all of the nitty-gritty details <a href="http://codepen.io/hans/post/dynamic-emails" target="_blank">here</a>, and posted the source code on <a href="https://github.com/HansEngebretsen/dynamic-email" target="_blank">Github</a>. The email won a KC Interactive Gold Addy.</p>
-    <div class="email-svg"></div>
+<div class="container">
+  <div class="col-xs-12 col-sm-6 device-wraps vertically-centered">
+    <div class="iphone-frame-wrap">
+          <div class="iphone-frame">
+            <div class="iphone-screen-container">
+             <!--  <span class="iphone-screen"></span> -->
+              <video loop style="width:100%;" poster="{{ site.baseurl }}/video/shop/shop-iphone-poster.jpg" class="autoplayvideo">
+                <source src="{{ site.baseurl }}/video/shop/shop-iphone3.webm"
+                        type='video/webm;codecs="vp8, vorbis"' />
+                <source src="{{ site.baseurl }}/video/shop/shop-iphone3.mp4"
+                        type='video/mp4;codecs="avc1.42E01E, mp4a.40.2"' />
+              </video>
+            </div>
+          </div>
+        </div>
+  </div><div class="col-xs-12 col-sm-6 title-layout-left vertically-centered">
+    <h4 class="pre-title">Responsive experience</h4>
+    <h1>On Every Device</h1>
+    <p>Before the redesigned the site, Garmin.com had this really horendous way of serving up a completely separate mobile website. I'll skip the gritty details except to say that it was a system that browser sniffed, fully loaded the desktop version of a page, then loaded a separate page on top of it.</p>
+    <p>Pretty much anything would have been an improvement in terms of performance, but we also pushed hard to have a cohesive expereince – meaning desktop, mobile, tablet, phablet, all the things felt like a part of the same site. Nothing was removed on mobile, just reorganized.</p>
   </div>
+</div>
