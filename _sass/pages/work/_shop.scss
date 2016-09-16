@@ -132,10 +132,8 @@ $by-blue:   #0070ce;
             color:white;
             border-color:#BCBCBC;
             &:after {
-               // content:'x';
-          transform: translateY(-50%) rotate(125deg);
+              transform: translateY(-50%) rotate(125deg);
                 color:white;
-                //right: 1.5em;
             }
         }
     }
@@ -150,6 +148,11 @@ $by-blue:   #0070ce;
       }
       .iphone-frame {
         margin-top:0;
+        .iphone-screen-container {
+          width:67.75%;
+          left: 15%;
+          top: 11.5%;
+        }
         @include breakpoint(normal-screen){
           padding-top: 160%;
           width:100%;
