@@ -1,7 +1,5 @@
-
-
 // General overrides
-.project p,.project h4 {
+.project p, .project h4 {
   @include breakpoint(tablet) {
     text-align: left;
   }
@@ -27,38 +25,45 @@
   text-align: left;
   text-decoration: none;
   color: white;
+
   .project & {
     text-align: center;
   }
 }
+
 .proj-title {
   margin-top: 0;
 }
+
 .proj-pre-title {
   color: white;
 }
 
-
 // Individual project thumbnail images & styles
-.Work,.project {
+.Work, .project {
   img {
     max-width: 100%;
   }
+
   // Journalbot
-  .JournalBot {
+  .smart-articles {
     background-color: $jb;
+
     .img-wrap {
       position: absolute;
       z-index: -1;
       top: -100%;
       right: -5%;
       width: 75%;
+
       @include breakpoint(tablet) {
         display: block;
         position: relative;
         width: 100%;
         margin: 0 auto;
       }
+
+
       &:before {
         content: '';
         display: block;
@@ -68,8 +73,8 @@
         margin-left: 34%;
         transform-origin: bottom center;
         animation: 5s shake-transform infinite;
-        background-image: url('../img/projects/jb/robot-peek-right-antenna.png');
-        background-image: url('../img/projects/jb/robot-peek-right-antenna.svg');
+        background-image: url("../img/projects/jb/robot-peek-right-antenna.png");
+        background-image: url("../img/projects/jb/robot-peek-right-antenna.svg");
         background-size: 100%;
 
         @include breakpoint(tablet) {
@@ -80,25 +85,28 @@
         }
       }
     }
+
     img {
       width: 100%;
     }
   }
 
   // VIRB
-  .Garmin {
+  .virb-action, .beat-yesterday, .turning-points {
     position: relative;
     background-color: $virb;
+
     @extend %curtain-img;
+
     &:after {
-      background-image: url('../img/projects/virb/features-curtain.jpg');
+      background-image: url("../img/projects/virb/features-curtain.jpg");
     }
+
     img {
       position: absolute;
       top: -25%;
       right: 0;
       width: 25%;
-
 
       @include breakpoint(tablet) {
         display: block;
@@ -108,49 +116,64 @@
       }
     }
   }
-  .Turning {
-    background-color:$turning-points;
+
+  .turning-points {
+    background-color: $turning-points;
+
     &:after {
-      background-image: url('../img/projects/turningpoints/main-curtain.jpg');
-      background-position:top right;
+      background-image: url("../img/projects/turningpoints/main-curtain.jpg");
+      background-position: top right;
     }
   }
-  .Garmin.Beat {
+
+  .beat-yesterday {
     background-color: #5ec2a5;
+
     &:after {
       background-image: none;
     }
   }
+
   // MODCO
-  .Modco {
+  .modco-pipeline {
     position: relative;
     background-color: $modco;
+
+    @extend %curtain-img;
+
     h2, h1 {
-      color:$modco-grey;
+      color: $modco-grey;
     }
+
     .btn {
       @extend .btn-grey;
     }
+
     &:after {
       content: '';
       display: block;
       width: 100%;
-      background-image: url('../img/projects/modco/modco-bg.jpg');
+      background-image: url("../img/projects/modco/modco-bg.jpg");
     }
   }
+
   @keyframes shake-transform {
     0%,35%,100% {
       transform: rotate(0deg);
     }
+
     7% {
       transform: rotate(10deg);
     }
+
     14% {
       transform: rotate(-10deg);
     }
+
     21% {
       transform: rotate(10deg);
     }
+
     28% {
       transform: rotate(-10deg);
     }
@@ -172,21 +195,27 @@
     padding-bottom: 70%;
     text-align: center;
   }
-  h1,p {
-    color: rgba(white, .4);
+
+
+  h1, p {
+    color: rgba(white, 0.4);
   }
+
   &:hover {
     .img-gallery {
       opacity: 1;
     }
+
     .arrow {
-       color: white;
+      color: white;
     }
   }
+
   .img-gallery {
     position: static;
     transition: 600ms all;
     opacity: .5;
+
     &:after {
       content: '';
       display: block;
@@ -198,14 +227,17 @@
       height: 100%;
     }
   }
-  .print-samples,.web-samples {
+
+  .print-samples, .web-samples {
     position: absolute;
     bottom: 0;
   }
+
   .print-samples {
     left: 0;
     width: 300px;
   }
+
   .web-samples {
     left: 0;
     width: 700px;
@@ -213,6 +245,8 @@
     @include breakpoint(big-screen) {
       max-width: 70%;
     }
+
+
     @include breakpoint(tablet) {
       max-width: 100%;
     }

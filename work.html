@@ -10,9 +10,9 @@ navOrientation: top-nav
 
 {% assign sorted_pages = (site.pages | sort: 'order') %}
 {% for page in sorted_pages %}
-  {% if page.type == 'project' %}
+  {% if page.type == 'project' and page.listing != false %}
 
-    <section class="proj-wrap {{ page.client }} {{ page.title }}">
+    <section class="proj-wrap {{ page.title | truncatewords: 2, "" | slugify: 'pretty' }}">
       <div class="proj container">
         <div class="projcontent-wrap">
           {% if page.photo %}

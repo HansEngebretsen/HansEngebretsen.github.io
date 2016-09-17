@@ -9,77 +9,99 @@ $green: #5ed22e;
 $orange: #ef521d;
 $aqua: #3de5d2;
 
-
 .virb {
   h1 {
-    color: rgba($virb, .95);
+    color: rgba($virb, 0.95);
   }
+
   section.blue {
     background-color: transparent;
-    h1,h4, p, span {
+
+    h1, h4, p, span {
       color: white;
     }
-    p,span {
+
+    p, span {
       opacity: .8;
     }
   }
-  .intro {
-    @include breakpoint(min-tablet){
-      min-height:100vh; //sloppy fix for 16/9 version
-    }
 
+  .intro {
+    @include breakpoint(min-tablet) {
+      min-height: 100vh; //sloppy fix for 16/9 version
+    }
   }
+
   section.blue2 {
     background-color: $virb-dark; //darker shade of blue
+ 
   }
+
   section.grey {
     z-index: 0;
     background-color: lighten($lighter-grey, 13%);
   }
+
   .blue {
     color: $virb;
+
     a {
       opacity: 1;
       color: white;
+
       &:hover {
         opacity: 1;
         color: white;
       }
     }
   }
+
   .yellow-text {
     color: $yellow;
   }
+
   &.project {
     width: 100%;
+
     // @extend .plax-container;
+ 
   }
+
   footer {
     margin-top: -52px;
-    position:relative;
+    position: relative;
+
     h2, a {
-      color:white;
+      color: white;
     }
   }
 
   .intro {
     position: relative;
     padding-bottom: 0;
-    background: linear-gradient(to bottom, rgba(32, 119, 216, .95) 0%, rgba(32, 119, 208, .95) 81%, rgba(32, 119, 206, 1) 100%); /* W3C */
+    background: linear-gradient(to bottom, rgba(32, 119, 216, 0.95) 0%, rgba(32, 119, 208, 0.95) 81%, rgba(32, 119, 206, 1) 100%); /* W3C */
     background-color: $virb;
+
     h1 {
       color: white;
+    }
+
+    #videobg {
+      top: auto;
+      bottom: 0;
     }
 
     .project-info {
       background-color: darken($virb, 5%);
     }
+
     img { // VIRB device img
       position: relative;
       width: 300px;
       margin: 0 auto;
       margin-bottom: 20px;
       transform: translateZ(0);
+
       @include breakpoint(tablet) {
         width: 200px;
         margin-bottom: 50px;
@@ -87,19 +109,20 @@ $aqua: #3de5d2;
     }
   }
 
-
   // Sections
   section.work {
-    padding-bottom:0;
-    overflow:hidden;
+    padding-bottom: 0;
+    overflow: hidden;
   }
+
   .section-moodboards, .section-styleboards {
     position: relative;
     z-index: 0;
     min-height: 90vh;
-    padding-bottom:0;
-    overflow:hidden;
+    padding-bottom: 0;
+    overflow: hidden;
   }
+
   .moodboard-wrap {
     position: relative;
     z-index: 0;
@@ -107,88 +130,99 @@ $aqua: #3de5d2;
     min-height: 70%;
     margin: 0 auto;
     margin-top: 75px;
+
     .active & {
       overflow: visible;
     }
   }
+
   .moodboards {
     position: relative;
     z-index: 0;
     min-height: 90vh;
-    padding-bottom:0;
-    overflow:hidden;
+    padding-bottom: 0;
+    overflow: hidden;
 
     img {
       width: 100%;
 
       @extend .plax-child;
+
       @include breakpoint(phone) {
         width: 150%;
         max-width: 150%;
       }
+
+
       &:nth-child(1) {
-        transform: translateZ(-.1px) scale(1.1);
+        transform: translateZ(-0.1px) scale(1.1);
       }
+
       &:nth-child(2) {
         top: 120px;
-        transform: translateZ(-.16px) scale(1.1);
+        transform: translateZ(-0.16px) scale(1.1);
 
         @include breakpoint(big-screen) {
           top: 0;
         }
       }
+
       &:nth-child(3) {
-        transform: translateZ(-.08px) scale(1);
+        transform: translateZ(-0.08px) scale(1);
       }
     }
   }
+
   .plane-override {
     position: relative;
     transform: translateZ(0);
   }
 
   .sign-off {
-    background-image:url('../img/projects/virb/activity-snow-footer.jpg');
+    background-image: url("../img/projects/virb/activity-snow-footer.jpg");
     min-height: 100vh;
     padding-bottom: 60%;
-    background-position:bottom;
+    background-position: bottom;
     background-size: 100%;
-    background-repeat:no-repeat;
-
+    background-repeat: no-repeat;
   }
 }
 
 // Listings page styles
 
 @import "virb-activity-nav";
+
 .activity-pages {
   .carousel-slide-wrap {
     margin-top: 50px;
+
     .slide {
-    padding: 0 15px; // room for drop shadow
+      padding: 0 15px; // room for drop shadow
       img {
         width: 100%;
-        box-shadow: 2px 3px 20px rgba(black, .5);
-      }
-    }
-    @include breakpoint(screen-xs){
-      float:none;
-      margin:0 auto;
-      margin-top: 50px;
-      white-space:nowrap;
-      overflow:auto;
-      padding-top:0;
-      -webkit-overflow-scrolling: touch;
-      .slide {
-        position:relative;
-        opacity:1;
-        width: 80%;
-        display:inline-block;
-        margin-right:20px;
+        box-shadow: 2px 3px 20px rgba(black, 0.5);
       }
     }
 
+    @include breakpoint(screen-xs) {
+      float: none;
+      margin: 0 auto;
+      margin-top: 50px;
+      white-space: nowrap;
+      overflow: auto;
+      padding-top: 0;
+      -webkit-overflow-scrolling: touch;
+
+      .slide {
+        position: relative;
+        opacity: 1;
+        width: 80%;
+        display: inline-block;
+        margin-right: 20px;
+      }
+    }
   }
+
   // .slide { Browser Chrome
   //   background-image: url('../img/browser-chrome.svg');
   //   background-size: 100%;
@@ -200,55 +234,63 @@ $aqua: #3de5d2;
 }
 
 .responsive {
- .pre-title {
+  .pre-title {
     margin-top: 10vh;
   }
+
   .macbook-screen {
-    padding-top:320%;
-    background-image: url('../img/projects/virb/macbook-screen-bg.jpg');
+    padding-top: 320%;
+    background-image: url("../img/projects/virb/macbook-screen-bg.jpg");
   }
+
   .iphone-screen {
-    padding-top:1034%;
-    background-image: url('../img/projects/virb/edit-screenshot.jpg');
+    padding-top: 1034%;
+    background-image: url("../img/projects/virb/edit-screenshot.jpg");
   }
 }
 
 .virb .numbers-container li {
-  background-image:url('../img/projects/virb/virb-bg-1.jpg');
+  background-image: url("../img/projects/virb/virb-bg-1.jpg");
   background-size: cover;
-  position:relative;
-  background-position:center center;
+  position: relative;
+  background-position: center center;
   border: 5px solid $virb-dark;
-  &:nth-child(2){
-    background-image:url('../img/projects/virb/virb-bg-2.jpg');
-  }
-  &:nth-child(3){
-    background-image:url('../img/projects/virb/virb-bg-3.jpg');
-  }
-  &:after {
-      content:'';
-      width:100%;
-      height:100%;
-      display:block;
-      position:absolute;
-      background-color:rgba(darken($virb-dark, 4%), .95);
-      top:0;
-      left:0;
-      z-index:2;
-  }
-  h3, h4, span.text-small {
-    color:lighten($virb, 30%);
-    opacity:1;
-  }
-  .text-small {
-    vertical-align:middle;
+
+  &:nth-child(2) {
+    background-image: url("../img/projects/virb/virb-bg-2.jpg");
   }
 
-  .virb .blue & h4  {
-    color:lighten($virb, 10%);
+  &:nth-child(3) {
+    background-image: url("../img/projects/virb/virb-bg-3.jpg");
   }
+
+  &:after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+    background-color: rgba(darken($virb-dark, 4%), 0.95);
+    top: 0;
+    left: 0;
+    z-index: 2;
+  }
+
+  h3, h4, span.text-small {
+    color: lighten($virb, 30%);
+    opacity: 1;
+  }
+
+  .text-small {
+    vertical-align: middle;
+  }
+
+  .virb .blue & h4 {
+    color: lighten($virb, 10%);
+  }
+
   * {
     z-index: 3;
-    position:relative;
+    position: relative;
   }
 }

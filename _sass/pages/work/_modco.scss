@@ -17,169 +17,207 @@ $modco-dark-blue: #186095;
 $modco-grey-l: #F3F5F7;
 $modco-slate: #5A5D63;
 $modco-dark-slate: #232537;
+
 @import "modco-buttons";
+
+.Work .modco-pipeline {
+  background-color: $modco-grey-d;
+}
+
+.Work .modco-pipeline:after, .project.modco .intro:after {
+  background-image: url("../img/projects/modco/modco-bg.jpg");
+  opacity: .04;
+}
+
 .modco {
   .section.work {
-    padding-bottom:0;
+    padding-bottom: 0;
   }
+
   .light-grey {
-    background-color:$modco-light-grey;
+    background-color: $modco-light-grey;
   }
-    .styleboards {
-        img {
-            box-shadow:7px 2px 17px rgba(0, 0, 0, 0.12);
-        }
+
+  .styleboards {
+    img {
+      box-shadow: 7px 2px 17px rgba(0, 0, 0, 0.12);
     }
-  .blue h1 {
-    color:white;
   }
+
+  .blue h1 {
+    color: white;
+  }
+
   section.dark {
     background-color: $modco-slate;
-    h1 {
-        color:white;
-    }
-    p {
-        color:white;
-        opacity: .6;
-    }
-  }
-  h1 {
-      color:$modco-blue;
-  }
-}
-.Work .modco:after, .Work .Modco:after, .project.modco .intro:after {
-    background-image: url('../img/projects/modco/modco-bg.jpg');
-    opacity:.04;
-}
-.Work .Modco {
-    @extend %curtain-img;
-    background-color:$modco-grey-d;
-}
-.project.Modco .intro, .project.modco .intro {
-    @extend %curtain-img;
-    background-color:$modco-grey-d;
-    position:relative;
-    padding-bottom:0;
 
-    height: 100%;
-    .description {
-        margin-bottom:20px;
+    h1 {
+      color: white;
     }
-      .intro-wrap {
-        padding-bottom:100px;
-        padding-top:100px;
-        @include breakpoint(normal-screen){
-            padding-top: 25px;
-        }
+
+    p {
+      color: white;
+      opacity: .6;
     }
+  }
+
+  h1 {
+    color: $modco-blue;
+  }
+}
+
+.project.Modco .intro, .project.modco .intro {
+  @extend %curtain-img;
+
+  background-color: $modco-grey-d;
+  position: relative;
+  padding-bottom: 0;
+  height: 100%;
+
+  .description {
+    margin-bottom: 20px;
+  }
+
+  .intro-wrap {
+    padding-bottom: 100px;
+    padding-top: 100px;
+
+    @include breakpoint(normal-screen) {
+      padding-top: 25px;
+    }
+  }
 }
 
 .project {
-    .modco img {
-        bottom:0;
-        top:auto;
-        right:auto;
-        width:200px;
-    }
-    &:before {
-        background-image:url('../img/projects/virb/curtain-virb-edit.jpg');
-    }
-    &.modco .pre-title {
-        border-color: $modco-blue;
-        color:$modco-grey;
-    }
-    .project-info {
-        position:relative;
-        z-index:2;
-        // h4 {
-        //     color: $modco-grey;
-        // }
-        // p {
-        //     color: $modco-grey;
-        // }
-    }
+  .modco img {
+    bottom: 0;
+    top: auto;
+    right: auto;
+    width: 200px;
+  }
+
+  &:before {
+    background-image: url("../img/projects/virb/curtain-virb-edit.jpg");
+  }
+
+  &.modco .pre-title {
+    border-color: $modco-blue;
+    color: $modco-grey;
+  }
+
+  .project-info {
+    position: relative;
+    z-index: 2;
+
+    // h4 {
+    //     color: $modco-grey;
+    // }
+    // p {
+    //     color: $modco-grey;
+    // }
+ 
+  }
 }
 
 .modco {
-    .intro h1 {
-        color:white;
+  .intro h1 {
+    color: white;
+  }
+
+  .intro .description {
+    color: $modco-grey;
+  }
+
+  .intro, .intro-wrap {
+    padding-bottom: 0;
+  }
+
+  .intro img {
+    max-width: 300px;
+    width: 30%;
+    margin-top: 40px;
+    position: absolute;
+    bottom: 0;
+    right: 20px;
+  }
+
+  .project-info {
+    background-image: url("../img/projects/modco/cta-bg.svg");
+    background-size: 100%;
+  }
+
+  section.blue {
+    background-color: transparent;
+
+    h1 {
+      color: white;
     }
-    .intro .description {
-        color: $modco-grey;
+
+    h4 {
+      color: white;
     }
-    .intro, .intro-wrap {
-        padding-bottom:0;
+
+    p, span {
+      color: white;
+      opacity: .8;
     }
-    .intro img {
-        max-width: 300px;
-        width:30%;
-        margin-top: 40px;
-        position:absolute;
-        bottom:0;
-        right:20px;
-    }
-    .project-info {
-        background-image: url('../img/projects/modco/cta-bg.svg');
-        background-size: 100%;
-    }
-    section.blue {
-        background-color:transparent;
-        h1 {
-            color:white;
-        }
-        h4 {
-            color:white;
-        }
-        p, span {
-            color:white;
-            opacity: .8;
-        }
-    }
-    section.blue2 {
-        background-color: #1468c5;
-    }
-    .blue {
-        color:$virb-blue;
-    }
-    .yellow {
-        color:$yellow;
-    }
-    .red {
-        color:$red;
-    }
-    .purple {
-        color:$purple;
-    }
-    .green {
-        color:$green;
-    }
-    .aqua {
-        color:$aqua;
-    }
+  }
+
+  section.blue2 {
+    background-color: #1468c5;
+  }
+
+  .blue {
+    color: $virb-blue;
+  }
+
+  .yellow {
+    color: $yellow;
+  }
+
+  .red {
+    color: $red;
+  }
+
+  .purple {
+    color: $purple;
+  }
+
+  .green {
+    color: $green;
+  }
+
+  .aqua {
+    color: $aqua;
+  }
 }
+
 .blue {
-    a {
-        color:white;
-        opacity:1;
-        &:hover {
-            color:white;
-            opacity:1;
-        }
-    }
-}
-.modco {
+  a {
+    color: white;
+    opacity: 1;
 
-    .responsive {
-      .macbook-screen {
-        padding-top:332%;
-        background-image: url('../img/projects/modco/responsive-desktop.jpg');
-      }
-      .iphone-screen {
-        padding-top:872%;
-        background-image: url('../img/projects/modco/responsive-mobile.jpg');
-      }
+    &:hover {
+      color: white;
+      opacity: 1;
     }
+  }
 }
+
+.modco {
+  .responsive {
+    .macbook-screen {
+      padding-top: 332%;
+      background-image: url("../img/projects/modco/responsive-desktop.jpg");
+    }
+
+    .iphone-screen {
+      padding-top: 872%;
+      background-image: url("../img/projects/modco/responsive-mobile.jpg");
+    }
+  }
+}
+
 .device-wraps {
-    margin-top:80px;
+  margin-top: 80px;
 }
