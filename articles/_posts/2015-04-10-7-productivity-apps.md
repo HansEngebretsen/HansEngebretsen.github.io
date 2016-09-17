@@ -16,21 +16,21 @@ In the same spirit of inspiration and discovery, I’m sharing the OS X producti
 <sub>**Note: some of the awesome names of the companies producing the apps: AgileBits, Mizage, Running with Crayons, Noodelsoft</sub>
 <section class="app" markdown="1">
   <h4>Name Changer</h4>
-  <p class="first-paragraph">One of the timeless gems among the bunch, I couldn’t imagine clearing my desktop off without it. Programatic decisions explained in human terms for batch file renaming. Name changer does it all: appending, pre-pending, sequences, find a and replace, the list goes on.</p><div class="image-wrap" markdown="0"><img alt="Image of wunderlist" src="/img-content/productivity/namechanger.png" /></div>
+  <p class="first-paragraph">One of the timeless gems among the bunch, I couldn’t imagine clearing my desktop off without it. Programmatic decisions explained in human terms for batch file renaming. Name changer does it all: appending, pre-pending, sequences, find a and replace, the list goes on.</p><div class="image-wrap" markdown="0"><img alt="Image of wunderlist" src="/img-content/productivity/namechanger.png" /></div>
 
 * * *
   <span class="dark">Free </span>| Available from [MRR Software](http://mrrsoftware.com/namechanger/)
 </section>
 <section class="app" markdown="1">
 <h4>1 Password</h4>
-<p class="first-paragraph">I’ve been a 1Password fan for a few years now, and it’s an irreplaceable part of my workflow. I tried out a few different services, including LastPass, native OS X keychain, google chrome keychain etc, but nothing touched the cross-platform/browser integration, that 1password offers.</p><div class="image-wrap" markdown="0"><img alt="Image of 1Password" src="/img-content/productivity/1password.png" /></div>
+<p class="first-paragraph">I’ve been a 1Password fan for a few years now, and it’s an irreplaceable part of my workflow. I tried out a few different services, including LastPass, native OS X keychain, Google Chrome keychain etc, but nothing touched the cross-platform/browser integration, that 1Password offers.</p><div class="image-wrap" markdown="0"><img alt="Image of 1Password" src="/img-content/productivity/1password.png" /></div>
 
 * * *
 <span class="dark">Free - $50 </span>| Available from [AgileBits](https://agilebits.com/downloads) and on the App Store
 </section>
 <section class="app" markdown="1">
 <h4>Handbrake</h4>
-<p class="first-paragraph">A longtime fan of the simplicity of HandBrake, I’ve used it countless times for (predominately) legal reasons. There’s no simpler way - that I know of - to rip/convert a dvd to a video file, and optimize it. The simple options and two step process had me before I even knew what the term ‘transcode’ meant.</p><div class="image-wrap" markdown="0"><img alt="Image of handbrake" src="/img-content/productivity/handbrake.png" /></div>
+<p class="first-paragraph">A longtime fan of the simplicity of HandBrake, I’ve used it countless times for (predominately) legal reasons. There’s no simpler way - that I know of - to rip/convert a DVD to a video file, and optimize it. The simple options and two step process had me before I even knew what the term ‘transcode’ meant.</p><div class="image-wrap" markdown="0"><img alt="Image of handbrake" src="/img-content/productivity/handbrake.png" /></div>
 
 * * *
 <span class="dark">Free </span>| Available at [handbrake](https://handbrake.fr/)
