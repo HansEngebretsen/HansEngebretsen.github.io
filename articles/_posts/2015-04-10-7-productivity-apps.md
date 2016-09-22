@@ -2,7 +2,7 @@
 layout: post
 header: The Best Mac Apps
 subtitle: The 7 OS X / macOS tools and apps that I use on a daily basis to be more productive.
-tags: [The Best THings]
+tags: [The Best Things]
 photo: post-productivity.jpg
 handle: productivity
 navOrientation: top-nav
