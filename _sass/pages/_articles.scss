@@ -8,27 +8,16 @@ ____________________________________________________________________
   width: 100%;
   min-height: 500px;
   height: 50vh;
-  margin-bottom:10vh;
+  margin-bottom: 10vh;
+
   @include breakpoint(normal-screen) {
     min-height: inherit;
   }
 
+
   background-image: url("../img-content/coffee-cups.jpg");
   background-size: cover;
   background-position: center center;
-}
-
-.article h4 {
-  color: $darker-grey-2;
-  font-size: 1.5em;
-  margin-top: 3em;
-  text-align: center;
-  margin-bottom: .5em;
-}
-
-.article hr {
-  border-color: rgba($lighter-grey, 0.3);
-  margin-top: 2em;
 }
 
 .posts {
@@ -53,15 +42,17 @@ ____________________________________________________________________
   margin-top: 5.5em;
   margin-left: 14%;
   background-color: rgba($lighter-grey, 0.2);
+
   @include breakpoint(tablet) {
     width: 2px;
   }
 }
-.History h4 {
-  line-height:4.5;
-  width:55px;
 
+.History h4 {
+  line-height: 4.5;
+  width: 55px;
 }
+
 .date, .History h4 {
   position: absolute;
   left: 14%;
@@ -74,14 +65,17 @@ ____________________________________________________________________
   text-align: center;
   text-align: center;
   text-indent: -15%;
-  margin-top:10px;
+  margin-top: 10px;
   color: $lighter-grey;
+
   @include breakpoint(tablet) {
     text-indent: 0;
     z-index: 2;
     padding-top: 44px;
     background-color: white;
   }
+
+
   &:after {
     content: '';
     z-index: 0;
@@ -99,66 +93,59 @@ ____________________________________________________________________
 
 .post {
   margin: 0 auto;
-  padding-top:60px;
+  padding-top: 60px;
+
   .entry h5 {
-    text-transform:uppercase;
+    text-transform: uppercase;
     margin-bottom: -1em;
-    color:$darker-grey;
+    color: $darker-grey;
   }
+
   h4 {
-    font-size:2em;
-    margin-bottom:0;
-    margin-top:3em;
-    line-height:1;
-    letter-spacing:0;
-    text-transform:none;
-    color:$darker-grey;
+    font-size: 2em;
+    margin-bottom: 0;
+    margin-top: 3em;
+    line-height: 1;
+    letter-spacing: 0;
+    text-transform: none;
+    color: $darker-grey;
   }
+
   .post-inner, a.post-inner {
-    display:inline-block;
+    display: inline-block;
     padding: 0 40px;
-    padding-top:20px;
+    padding-top: 20px;
 
     &:hover {
-      background-color:rgba($lighter-grey, .15);
+      background-color: rgba($lighter-grey, 0.15);
     }
   }
+
   .entry, a .entry {
-      color: $dark-grey;
+    color: $dark-grey;
   }
+
   .post-inner .entry {
-    padding-left:0;
-    padding-right:0;
+    padding-left: 0;
+    padding-right: 0;
   }
+
   hr {
-    margin-top:15vh;
-    margin-bottom:15vh;
-    border-color:rgba($dark-grey, .2);
+    margin-top: 15vh;
+    margin-bottom: 15vh;
+    border-color: rgba($dark-grey, 0.2);
     border-bottom: 0px;
-    display:block;
+    display: block;
   }
+
   h1 {
-    color:black;
-    font-size:3em;
-    font-weight:600;
+    color: black;
+    font-size: 3em;
+    font-weight: 600;
   }
+
   &.new-month {
     clear: left;
-  }
-}
-.articles h1 {
-  font-size:1.5em;
-  font-weight:100;
-}
-.articles .post {
-  float: left;
-  width: 50%;
-  padding-top:0;
-  padding-bottom:0;
-  margin-bottom: 100px;
-  text-align: left;
-  @include breakpoint(tablet) {
-    width: 100%;
   }
 }
 
@@ -167,13 +154,16 @@ ____________________________________________________________________
   margin: 0 auto;
   margin-bottom: 20px;
   text-align: left;
+
   section {
     padding: 2vh 0;
   }
+
   @include breakpoint(big-screen) {
-    padding-left:0;
+    padding-left: 0;
     padding-right: 40px;
   }
+
 
   @include breakpoint(normal-screen) {
     padding: 0 40px;
@@ -187,22 +177,65 @@ ____________________________________________________________________
 }
 
 .article-controls {
-  position:absolute;
-  right:0;
+  position: absolute;
+  right: 0;
+
   @extend .controls;
+
   @include breakpoint(normal-screen) {
     right: auto;
     left: 10px;
   }
+
+
   &.fixed {
     position: fixed;
     top: 0;
   }
+
   li {
     @include breakpoint(normal-screen) {
       display: inline-block;
       vertical-align: bottom;
     }
   }
+}
 
+.articles, .process {
+  h1 {
+    font-size: 1.5em;
+    font-weight: 100;
+  }
+
+  .super-title {
+    font-size: 4em;
+    font-weight: 700;
+    color: black;
+  }
+
+  h4 {
+    color: $darker-grey-2;
+    font-size: 1.5em;
+    margin-top: 3em;
+    text-align: center;
+    margin-bottom: .5em;
+  }
+
+  hr {
+    border-color: rgba($lighter-grey, 0.3);
+    margin-top: 2em;
+  }
+
+  .post {
+    float: left;
+    width: 50%;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-bottom: 100px;
+    text-align: left;
+
+    @include breakpoint(tablet) {
+      width: 100%;
+    }
+  }
 }

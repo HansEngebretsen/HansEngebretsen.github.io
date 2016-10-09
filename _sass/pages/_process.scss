@@ -1,0 +1,38 @@
+/*
+____________________________________________________________________
+
+    process PAGE STYLINGS
+____________________________________________________________________
+*/
+
+.process {
+  .cover-image {
+    background-image: url("../img/process/header-2.jpg");
+    opacity: .2;
+  }
+
+  .container {
+    width: 80%;
+    max-width: 95%;
+    margin: 0 auto;
+    text-align: left;
+  }
+
+  .post {
+    width: 95%;
+    margin-bottom: 200px;
+
+    img {
+      max-width: 100%;
+      margin-bottom: 40px;
+    }
+
+    .sitemap {
+      margin-bottom: 0px;
+    }
+
+    .dl-link {
+      margin-bottom: 40px;
+    }
+  }
+}

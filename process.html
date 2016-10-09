@@ -1,0 +1,42 @@
+---
+layout: default
+title: process
+description: Projects, thoughts and writings on front-end design and development, and making things.
+nav: left-align
+navColor: dark
+colorTheme: light
+navOrientation: top-nav
+---
+<section class="cover-image"></section>
+<section class="main-content">
+<div class="container">
+<h1 class="super-title">how I make things</h1>
+  <p>I usually use some combination of the stuff below when I'm starting a project. Keep it fast, keep it iterative and don't be afraid to change it up.</p>
+  <br>
+<hr>
+</div>
+  <span class="timeline"></span>
+  <section class="posts">
+    {% assign sorted_pages = (site.parts | sort: 'order') %}
+    {% for page in sorted_pages %}
+      {% if page.parent == 'process' %}
+        {% include section.html %}
+      {% endif %}
+    {% endfor %}
+  </section>
+</section>
+
+<section class="proj-wrap archive">
+  <a href="../archive">
+    <div class="container">
+      <div class="img-gallery col-xs-12 col-sm-7 col-xl-6">
+        <img src="/img/Portfolio/archive-web.png" class="web-samples" alt="web design archive">
+      </div>
+      <div class="col-xs-12 col-sm-5">
+        <h1 class="proj-title">Case Studies <span class="arrow">⇝</span></h1>
+        <p>stories about some things I've made.</p>
+        </div>
+    </div>
+  </a>
+</section>
+
