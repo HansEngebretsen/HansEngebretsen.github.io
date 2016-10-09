@@ -1,19 +1,19 @@
 ---
 layout: post
-header: Get Productive. 7 Apps
-subtitle: The 7 OS X tools and apps that I use on a daily basis to be more productive.
-tags: [Design]
+header: The Best Mac Apps
+subtitle: The 7 OS X / macOS tools and apps that I use on a daily basis to be more productive.
+tags: [The Best Things]
 photo: post-productivity.jpg
 handle: productivity
 navOrientation: top-nav
 nav: left-align
 colorTheme: light
 ---
-[Bagcheck](http://www.lukew.com/ff/entry.asp?1371) was a startup (founded by Luke W., and later acquired by Twitter) that was dedicated to the concept of sharing your passions, or what’s in your bag. It was a really neat concept and a definite loss for the internet when it was taken down a few years ago. I most enjoyed checking out people’s default OS X setups, or the programs they couldn’t go without.
+[Bagcheck](http://www.lukew.com/ff/entry.asp?1371) was a startup (founded by Luke W., and later acquired by Twitter) that was dedicated to the concept of sharing your passions, or what’s in your bag. It was taken down a few years ago, but I thought it was a really neat concept . I most enjoyed checking out people’s default OS X setups and tools they couldn’t go without.
 
-In the same spirit of inspiration and discovery, I’m sharing the OS X productivity programs that I love. I could write pages on different OS X settings I prefer, but I’ll try and keep this to apps. Working in front-end design & development, I wouldn’t recommend these programs to everyone, but I can honestly say I’m a huge fan of them for my uses. Most all of the apps offer a freemium model, with a premium version well worth the cost.
+In the same spirit of inspiration and discovery, below are some OS X / macOS productivity programs that I love. Working in front-end design & development, I wouldn’t recommend these programs to everyone, but I can honestly say I’m a huge fan of them for my uses. Most all of the apps offer a freemium model, with a premium version well worth the cost.
 
-<sub>**Note: some of the awesome names of the companies producing the apps: AgileBits, Mizage, Running with Crayons, Noodelsoft</sub>
+<sub>**take note on some of the awesome names of the companies producing the apps: AgileBits, Mizage, Running with Crayons, Noodelsoft</sub>
 <section class="app" markdown="1">
   <h4>Name Changer</h4>
   <p class="first-paragraph">One of the timeless gems among the bunch, I couldn’t imagine clearing my desktop off without it. Programmatic decisions explained in human terms for batch file renaming. Name changer does it all: appending, pre-pending, sequences, find a and replace, the list goes on.</p><div class="image-wrap" markdown="0"><img alt="Image of wunderlist" src="/img-content/productivity/namechanger.png" /></div>

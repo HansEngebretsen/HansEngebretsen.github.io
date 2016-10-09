@@ -98,7 +98,7 @@ $green-tag: lighten($orange, 15%);
     background-color: $blue-tag;
   }
 
-  &.dev {
+  &.dev, &.project {
     background-color: $green-tag;
   }
 }
