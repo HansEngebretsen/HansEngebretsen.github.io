@@ -14,7 +14,11 @@ ____________________________________________________________________
   .super-title {
     text-shadow: none;
   }
-
+  @include breakpoint(tablet){
+    .timeline {
+      margin-top: 7.4em;
+    }
+  }
   .btn-grey {
     &:hover {
       color: $modco-grey-d;
@@ -26,11 +30,17 @@ ____________________________________________________________________
     max-width: 95%;
     margin: 0 auto;
     text-align: left;
+    @include breakpoint(tablet){
+      width: 90%;
+    }
   }
 
   .post {
     width: 95%;
-    margin-bottom: 200px;
+    margin-bottom: 150px;
+    @include breakpoint(tablet){
+      margin-bottom: 75px;
+    }
 
     img {
       max-width: 100%;
