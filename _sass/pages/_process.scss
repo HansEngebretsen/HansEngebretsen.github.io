@@ -11,6 +11,16 @@ ____________________________________________________________________
     opacity: .2;
   }
 
+  .super-title {
+    text-shadow: none;
+  }
+
+  .btn-grey {
+    &:hover {
+      color: $modco-grey-d;
+    }
+  }
+
   .container {
     width: 80%;
     max-width: 95%;
