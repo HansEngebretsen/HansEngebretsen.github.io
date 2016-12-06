@@ -13,7 +13,7 @@
     @media (min-width: 950px) { @content; }
   }
   @else if $point == screen-xs {
-    @media (max-width: 770px) { @content; }
+    @media (max-width: 767px) { @content; }
   }
   @else if $point == normal-screen {
     @media (max-width: 750px) { @content; }

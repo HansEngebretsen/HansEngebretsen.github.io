@@ -24,20 +24,21 @@
     var sticky = $('.sticky'),
         stickyWrap  = $('.sticky-wrap');
    if(sticky.length > 0 && stickyWrap.length > 0 ){
-    console.log(sticky);
-    var waypoint = new Waypoint({
-       element: sticky,
-      handler: function(direction) {
-         if (direction === 'down') {
-            $(this.element).addClass('fixed');
-            sticky.css('top', '140px');
-          } if (direction === 'up'){
-            $(this.element).removeClass('fixed');
-            sticky.css('top', '0');
-          }
-      },
-      offset: 140
-    });
+      window.scrollTo(0,0); // ensure we're at the top
+      console.log('tippety toppety');
+      var waypoint = new Waypoint({
+         element: sticky,
+        handler: function(direction) {
+           if (direction === 'down') {
+              $(this.element).addClass('fixed');
+              sticky.css('top', '140px');
+            } if (direction === 'up'){
+              $(this.element).removeClass('fixed');
+              sticky.css('top', '0');
+            }
+        },
+        offset: 140
+      });
 
     var ofz = stickyWrap.outerHeight() - sticky.outerHeight() - 280;
 

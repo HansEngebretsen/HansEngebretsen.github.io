@@ -31,6 +31,9 @@ $aqua: #3de5d2;
       min-height: 100vh; //sloppy fix for 16/9 version
     }
   }
+  .intro-wrap-container {
+    padding-top:40px;
+  }
 
   section.blue2 {
     background-color: $virb-dark; //darker shade of blue

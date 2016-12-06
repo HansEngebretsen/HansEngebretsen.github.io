@@ -118,10 +118,18 @@ body {
   .circle-scroll-crop {
     width: 400px;
     height: 400px;
-
-    @include breakpoint(tablet) {
+    @include breakpoint(big-screen){
+      width: 335px;
+      height: 335px;
+      margin-top:25px;
+    }
+    @include breakpoint(normal-screen){ // up until
+      width: 400px;
+      height: 400px;
+    }
+    @include breakpoint(tablet) { // up until
       width: 300px;
-      height: 300px;
+      height: 300px; 
     }
 
 
