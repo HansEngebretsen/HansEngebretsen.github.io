@@ -1,0 +1,25 @@
+---
+layout: default
+title: Wear This
+client: Garmin
+navColor: dark
+nav: left-align
+navOrientation: top-nav
+navColor: white
+handle: wearthis
+waypoints: true
+photo: wearthis/something.png
+type: project
+colorTheme: light
+maincolor: e54841
+secondaryColor: d4d4d4
+order: 1
+---
+<div class="project wearthis ">
+{% assign sorted_pages = (site.parts | sort: 'order') %}
+{% for page in sorted_pages %}
+  {% if page.parent == 'wearthis' %}
+    {% include section.html %}
+  {% endif %}
+{% endfor %}
+</div>
