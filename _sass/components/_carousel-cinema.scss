@@ -40,7 +40,10 @@
   height:100%;
   white-space:nowrap;
   &.no-scroll li.active {
-    max-height: 70%; // offset for no controls
+      max-height: 69%;
+    @include breakpoint(min-huge-screen){
+      max-height: 70%; // offset for no controls
+    }
     img {
         max-width: 100.5%;
     }
@@ -53,6 +56,7 @@
     top: 3.75%;
     left: 18%;
   }
+
   li {
     display:inline-block;
     width:43%;
@@ -63,7 +67,7 @@
     &.active {
       width: 81%;
       opacity:1;
-      margin-top:0;
+      margin-top:5px;
       max-height:60%;
       @include breakpoint(normal-screen){
         max-height: 55%;
@@ -73,6 +77,9 @@
       }
       @include breakpoint(phone){
         max-height: 50%;
+      }
+      @include breakpoint(min-huge-screen){
+        margin-top:0; // offset for no controls
       }
     }
     &:nth-child(3){
