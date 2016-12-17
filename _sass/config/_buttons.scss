@@ -93,7 +93,12 @@
   display:inline-block;
   width: 20px;
   height:25px;
+  border: 2px solid white;
   @extend %arrow-right;
+  padding: 16px;
+  border-radius: 100px;
+  background-size: 50%;
+  background-position:center center;
 
 }
 .btn-next {
