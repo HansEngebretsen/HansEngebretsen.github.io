@@ -251,28 +251,40 @@ $wt-yellow-intro: rgb(225,140,36);
 .mockups-outer.yellow-intro { background-color: $wt-yellow-intro; }
 
 .mockups-outer {
-  &.green, &.orange, &.purple, &.tomato, &.yellow, &.yellow-intro {
      h1, h4, p, span {
       color:white;
     }
-  }
+    p {
+      opacity:.9
+    }
+    a {
+      color:white;
+    }
 }
 
 .mockups-outer {
   transition: 700ms all ease;
 }
 .mockups-wrap {
-  padding-left:7%;
   max-width:100%;
+  position:relative;
   overflow:hidden;
+
 }
+
 .mockups-container {
   padding:0 20px;
   white-space:nowrap;
   margin:0;
   transition: 500ms all ease-out;
   text-align:left;
-  a {
+  padding: 0 15%;
+  @include breakpoint(normal-screen){
+    padding: 0 10%; 
+    overflow:scroll;
+    -webkit-overflow-scrolling: touch;
+  }
+  .mockup-container {
     display:inline-block;
     width:100%;
     position:relative;
@@ -283,5 +295,63 @@ $wt-yellow-intro: rgb(225,140,36);
 }
 .mockup-wrap {
   display:inline-block;
-  max-width: 90%;
+  width: 100%;
+  padding: 0 3%;
+  @include breakpoint(normal-screen){
+    width: 90%; 
+    padding: 0 1%;
+  }
+  .mockup-container {
+ // background-color:black;
+  }
+  img {
+    opacity:1;
+    transition: 500ms ease-out;
+  }
+  &.active {
+    img { opacity:2; }
+  }
+}
+
+.mockups-wrap {
+  .btn-next, .btn-prev, a.btn-next, a.btn-prev {
+    background-image: none; 
+    border-radius:none;
+    height: 100%;
+    width: 15%;
+    @include breakpoint(normal-screen){
+      width: 10%; 
+    }
+    border-radius:0;
+    padding:0;
+    right:0;
+    border:none;
+    position:absolute;
+    z-index:2;
+    opacity:0;
+    transition: 300ms all;
+    &:hover {
+      opacity:1;
+    }
+    &:after {
+      content: '';
+      display:block;
+      position:absolute;
+      @extend %btn-prev;
+      top:50%;
+      transform:translateY(-50%);
+      left: 30px;
+      @include breakpoint(normal-screen){
+        display:none;
+      }
+    }
+  }
+  .btn-prev, a.btn-prev {
+    right: auto;
+    left: 0;
+    &:after {
+      // left: auto;
+      // right: 30px;
+    }
+  }
 }

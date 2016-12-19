@@ -87,23 +87,28 @@
   transform: rotate(180deg);
   background-position: bottom;
 }
-.btn-prev, .btn-next {
+%btn-prev {
+  outline:none;
   position:relative;
   text-indent: -9999px;
   display:inline-block;
-  width: 20px;
-  height:25px;
+  width: 7px;
+  height:7px;
   border: 2px solid white;
   @extend %arrow-right;
+  background-image: url("../img/arrow-icon-white.svg");
   padding: 16px;
   border-radius: 100px;
   background-size: 50%;
   background-position:center center;
-
+}
+.btn-prev, .btn-next, a.btn-next, a.btn-prev {
+  @extend %btn-prev;
 }
 .btn-next {
   @extend %arrow-left;
 }
+
 .btn-scroll {
   @extend %arrow-left;
   transform: rotate(90deg);
