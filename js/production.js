@@ -372,7 +372,9 @@
     // Mockups
     var t = this;
     var el = t.elements;
-    if(el.outer.length > 0){ mockupToggle(); }
+    var mq = window.matchMedia('(min-width: 700px)');
+
+    if((el.outer.length > 0) && mq.matches){ mockupToggle(); }
     function mockupToggle(){
       var obj = el.wrap.find('.mockup-wrap:first');
       t.wid = obj[0].getBoundingClientRect().width;

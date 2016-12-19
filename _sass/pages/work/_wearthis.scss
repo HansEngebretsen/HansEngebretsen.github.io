@@ -321,6 +321,7 @@ $wt-yellow-intro: rgb(225,140,36);
     width: 15%;
     @include breakpoint(normal-screen){
       width: 10%; 
+      display:none;
     }
     border-radius:0;
     padding:0;
