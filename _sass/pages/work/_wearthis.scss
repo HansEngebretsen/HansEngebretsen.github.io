@@ -413,3 +413,29 @@ $wt-yellow-intro: rgb(225,140,36);
     }
   }
 }
+.wearthis {
+  .react {
+    position:relative;
+    overflow:hidden;
+    @include breakpoint(screen-xs){
+      padding-bottom:0;
+    }
+  }
+  .code-img {
+    position:absolute;
+    bottom:0;
+    height: 85%;
+    left:54%;
+    @include breakpoint(screen-xs){
+      position:relative;
+      height:auto;
+      left:auto;
+    }
+  }
+  .code-wrap {
+    position:inherit;
+    @include breakpoint(screen-xs){
+      line-height:0;
+   }
+  }
+}
