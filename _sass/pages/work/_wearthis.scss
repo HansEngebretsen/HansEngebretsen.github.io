@@ -28,9 +28,8 @@ $wt-dred: darken($wt-red, 3%);
     background-position: 0 -10%;
  }
  @include breakpoint(tablet-s){
-  background-size: 300px;
+    background-size: 300px;
     background-position: 0 -5%;
-
  }
 }
 img {
@@ -52,6 +51,12 @@ img {
     padding-bottom: 0;
     position: relative;
     min-height: 80vh;
+    @include breakpoint(screen){
+      min-height: 70vh;
+    }
+    @include breakpoint(tablet){
+      min-height: 80vh;
+    }
 
     &:after {
       content: '';
@@ -63,6 +68,11 @@ img {
       left: 0;
       background-size: cover;
       background-image: url("../img/projects/wearthis/bgHoliday-full2.jpg");
+      @include breakpoint(tablet ){
+        background-image: url("../img/projects/wearthis/bgHoliday-full2-tablet.jpg");
+      }
+      @include breakpoint(tablet-s){
+      }
       background-position: center top;
     }
   }
@@ -73,7 +83,7 @@ img {
     margin-top: 14vh;
 
     @include breakpoint(tablet) {
-      margin-top: 0;
+     // / margin-top: 0;
     }
   }
 
