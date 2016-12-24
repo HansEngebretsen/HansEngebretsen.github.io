@@ -4,7 +4,7 @@ $wt-red: #e54841;
 $wt-dred: darken($wt-red, 3%);
 .proj-wrap.wear-this {
  background-color:$wt-red;
- background-image: url("../img/projects/wearthis/backpack-2x.jpg");
+// background-image: url("../img/projects/wearthis/backpack-2x.jpg");
  background-repeat: no-repeat;
  background-position: 100% 150%;
  background-size: 450px;
@@ -19,6 +19,7 @@ $wt-dred: darken($wt-red, 3%);
  }
 // background-size:cover;
 &:after {
+  display:none;
     background-image: url("../img/projects/wearthis/bag-2x.jpg");
     background-size: 450px;
     background-position: 0 -18%;
@@ -33,9 +34,13 @@ $wt-dred: darken($wt-red, 3%);
  }
 }
 img {
-  position:absolute;
-  top:0;
-  left:0;
+ width: 50%;
+ top: 0;
+ transform:translateY(-45%);
+ @include breakpoint(tablet) {
+  width: 75%;
+  transform:translateY(-40px);
+ }
 }
 }
 .wearthis {
