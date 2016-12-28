@@ -15,7 +15,7 @@
   @else if $point == min-big-screen {
     @media (min-width: 950px) { @content; }
   }
-  @else if $point == screen{
+  @else if $point == screen {
     @media (max-width: 850px) { @content; }
   }
   @else if $point == screen-xs {

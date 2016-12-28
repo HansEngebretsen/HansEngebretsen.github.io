@@ -47,6 +47,7 @@ img {
   .moodboards {
     max-width: 1350px;
     margin:0 auto;
+    overflow:hidden;
     img:nth-child(2){
       top:0;
     }
