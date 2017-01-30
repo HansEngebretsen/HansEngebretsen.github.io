@@ -411,6 +411,10 @@ $wt-yellow-intro: rgb(225,140,36);
 .wearthis .photography {
   position:relative;
   min-height: 105vh;
+  .container {
+    z-index:1;
+    position:relative;
+  }
   @include breakpoint(screen-xs){
     min-height: 90vh;
   }
@@ -424,6 +428,7 @@ $wt-yellow-intro: rgb(225,140,36);
   transform: translateY(-40%);
   position:absolute;
   float:none;
+  z-index:0;
   right:-10%;
   @include breakpoint(screen-xs){
     transform: translateY(-20%);
