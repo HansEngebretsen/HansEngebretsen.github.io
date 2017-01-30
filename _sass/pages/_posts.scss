@@ -94,11 +94,11 @@ $green-tag: lighten($orange, 15%);
   font-size: .75em;
   background-color: $off-white;
 
-  &.design {
+  &.tag-design {
     background-color: $blue-tag;
   }
 
-  &.dev, &.project {
+  &.tag-dev, &.tag-project {
     background-color: $green-tag;
   }
 }
