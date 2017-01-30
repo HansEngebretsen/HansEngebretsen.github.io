@@ -1,50 +1,76 @@
-// Breakpoints
-@mixin breakpoint($point) {
-  @if $point == huge-screen {
-    @media (max-width: 1250px) { @content; }
-  }
-  @else if $point == min-mamoth-screen {
-    @media (min-width: 1400px) { @content; }
-  }
-  @else if $point == min-huge-screen {
-    @media (max-width: 1100px) { @content; }
-  }
-  @else if $point == big-screen {
-    @media (max-width: 950px) { @content; }
-  }
-  @else if $point == min-big-screen {
-    @media (min-width: 950px) { @content; }
-  }
-  @else if $point == screen {
-    @media (max-width: 850px) { @content; }
-  }
-  @else if $point == screen-xs {
-    @media (max-width: 767px) { @content; }
-  }
-  @else if $point == normal-screen {
-    @media (max-width: 750px) { @content; }
-  }
-  @else if $point == min-normal-screen {
-    @media (min-width: 800px) { @content; }
+/* ====================
+
+Breakpoints Mixin
+
+Imported by global.scss, included throughout sass\
+USAGE: In any sass declaration, to include breakpont use:
+    @include bp([breakpoint name]){ }
+
+======================= */
+$breakpoints: (
+
+  // Bootstrap breakpoints
+  'screen-xs'      : ( min-width: 480px ),
+  'screen-sm'      : ( min-width: 768px ),
+  'screen-ms'      : ( min-width: 860px ),
+  'screen-md'      : ( min-width: 992px ),
+  'max-screen-md'  : ( max-width: 992px ),
+  'screen-lg'      : ( min-width: 1200px ),
+
+
+  // Mobile, Phablet, Tablet, Desktop, TV
+  'mobile-s'      : ( min-width: 360px ),
+  'mobile-m'      : ( min-width: 520px ),
+  'mobile-l'      : ( min-width: 620px ),
+
+  // Tablet, Phablet, Desktop, TV
+  'tablet-s'      : ( min-width: 737px ),
+  'tablet-m'      : ( min-width: 900px ),
+  'tablet-l'      : ( min-width: 1000px ),
+
+  // Desktop, TV
+  'desktop-s'     : ( min-width: 1023px ),
+  'desktop-l'     : ( min-width: 1224px ),
+
+  // TV
+  'tv-s'          : ( min-width: 1350px ),
+  'tv-m'          : ( min-width: 1440px ),
+  'tv-l'          : ( min-width: 1824px ),
+
+  // Oldies
+
+  'huge-screen'       : (max-width: 1250px),
+  'min-mamoth-screen' : (min-width: 1400px),
+  'min-huge-screen'   : (max-width: 1100px),
+  'big-screen'        : (max-width: 950px),
+  'min-big-screen'    : (min-width: 950px),
+  'screen'            : (max-width: 850px),
+  'normal-screen'     : (max-width: 750px),
+  'min-normal-screen' : (min-width: 800px),
+  
+  'tablet'            : (max-width: 650px),
+  'min-tablet'        : (min-width: 650px),
+  'not-mobile'        : (min-width: 450px), 
+  'phone'             : (max-width: 450px), 
+  'baby-phone'        : (max-width: 370px) 
+
+);
+
+@mixin breakpoint($name) {
+  // If the key exists in the map
+  @if map-has-key($breakpoints, $name) {
+    // Prints a media query based on the value
+    @media #{inspect(map-get($breakpoints, $name))} {
+      @content;
+    }
   }
 
-  @if $point == tablet {
-    @media (max-width: 650px) { @content; }
-  }
-  @else if $point == min-tablet {
-    @media (min-width: 650px) { @content; }
-  }
-    @if $point == tablet-s {
-    @media (max-width: 550px) { @content; }
-  }
-  @else if $point == not-mobile {
-    @media (min-width: 450px)  { @content; }
-  }
-  @else if $point == phone {
-    @media (max-width: 450px)  { @content; }
-  }
-  @else if $point == baby-phone {
-    @media (max-width: 370px)  { @content; }
+  // If the key doesn't exist in the map
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$name}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
   }
 }
+
+
 
