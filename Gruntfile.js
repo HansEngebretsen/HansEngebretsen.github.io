@@ -4,20 +4,11 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-       shell: {
-        jekyllServe: {
-          command: "jekyll serve --baseurl="
-        },
-        jekyllBuild: {
-          command: "jekyll build --config _config.yml"
-        }
-       },
 
         concat: {
             // 2. Configuration for concatinating files goes here.
             dist: {
                    src: [
-                       // 'src/js/libs/*.js', // All JS in the libs folder
                        'js/main.js',
                        'js/modules/*.js'
 
@@ -108,7 +99,6 @@ module.exports = function(grunt) {
     // 3. Where we tell Grunt we plan to use this plug-in.
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-uglify');
-    grunt.loadNpmTasks('grunt-shell');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     // grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-sass');
