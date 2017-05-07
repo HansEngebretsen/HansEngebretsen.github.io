@@ -263,6 +263,7 @@
 @include breakpoint(min-tablet){
   .he-logo {
     margin: inherit;
+    margin-bottom: 20px;
   }
 .top-nav {
   &.global-header {
