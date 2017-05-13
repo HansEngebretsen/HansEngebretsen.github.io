@@ -8,7 +8,8 @@ ____________________________________________________________________
   width: 100%;
   min-height: 500px;
   height: 50vh;
-  margin-bottom: 10vh;
+  margin-bottom: 7vh;
+  position:relative;
 
   @include breakpoint(normal-screen) {
     min-height: inherit;
@@ -20,6 +21,17 @@ ____________________________________________________________________
   background-position: center center;
 }
 
+.articles {
+  .title-wrap {
+    position:absolute;
+    bottom:40px;
+    left: 40px;
+
+    h1, h2 {
+      color:white;
+    }
+  }
+}
 .posts {
   width: 80%;
   margin-left: 20%;
@@ -195,9 +207,15 @@ ____________________________________________________________________
 .article-controls {
   position: absolute;
   right: 0;
-
+  z-index:10;
   @extend .controls;
-
+  // 650 - 770 top: 50px
+  @include breakpoint(screen-xs) {
+    top:50px;
+  }
+  @include breakpoint(tablet){
+    top:0;
+  }
   @include breakpoint(normal-screen) {
     right: auto;
     left: 10px;
