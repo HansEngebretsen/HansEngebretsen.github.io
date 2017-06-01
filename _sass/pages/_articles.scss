@@ -273,3 +273,37 @@ ____________________________________________________________________
     }
   }
 }
+
+// Image right styles
+.paragraph-left {
+  width:63%;
+  display:inline-block;
+  vertical-align:middle;
+   @include breakpoint(phone){
+    width:100%;
+  }
+}
+%image-wrap {
+  max-width:33%;
+  padding-top: 1em; //bump for paragraph
+  position:relative;
+  display:inline-block;
+  //margin-top: 10px;
+  vertical-align:middle;
+  img {
+    width:100%;
+  }
+  @include breakpoint(phone){
+    max-width:100%;
+    display:inline-block;
+    margin: 0 auto;
+  }
+}
+.image-wrap-l {
+  @extend %image-wrap;
+  margin-right: 3%;
+}
+.image-wrap-r {
+  @extend %image-wrap;
+  margin-left: 3%;
+}
