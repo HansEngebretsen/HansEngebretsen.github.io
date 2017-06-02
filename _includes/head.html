@@ -16,7 +16,7 @@
   {% include analytics.html %}
 
   <meta property="og:type"               content="website" />
-  <meta property="og:title"              content="{{ site.name }}" />
+  <meta property="og:title"              content="{% if page.title %}{{ page.title }} — {{ site.name }} {% endif %}" />
   {% if page.description %}
     <meta property="og:description"        content="{{ page.description }}" />
   <meta name="description" content="{{ page.description }}">
