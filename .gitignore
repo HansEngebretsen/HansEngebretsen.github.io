@@ -12,3 +12,4 @@ app/bower_components
 _site/
 _site/*
 *.jekyll-metadata
+.jekyll-cache/
