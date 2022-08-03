@@ -92,6 +92,9 @@ article html {
 
   p {
     margin-bottom: 2em;
+    @include breakpoint(min-normal-screen) {
+      font-size: 1.1em;
+    }
   }
 
   h1 {
@@ -113,7 +116,7 @@ article html {
       text-align: left;
 
       @include breakpoint(min-normal-screen) {
-        font-size: 0.65em;
+        font-size: .85em;
       }
     }
   }
