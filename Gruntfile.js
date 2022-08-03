@@ -14,8 +14,7 @@ module.exports = function(grunt) {
    Load the NPM tasks from the package.json automatically.
    ==================== */
   require('load-grunt-tasks')(grunt);
-
-
+  const sass = require('sass');
   // 1. All configuration goes here
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -83,6 +82,7 @@ module.exports = function(grunt) {
       dist: {
         options: {
           outputStyle: 'compressed',
+          implementation: sass,
           sourceComments: 'true',
           sourcemap: 'file'
         },
