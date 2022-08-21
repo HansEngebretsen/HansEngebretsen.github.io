@@ -1,0 +1,121 @@
+I"�"<p>I started a project a few weeks ago, and decided it was high time to give ES6 / ES 2015 a whirl. This is just the practical set of stuff I used getting started, and how I thought about the differences – mostly just syntax highlighting with a little bit of ‘how to organize your JS’. Official terms, nomenclature, and ‘the right way’ aren’t always my forte, but getting the job done is, and this is no different. If you’ve used ES6 before, you probably already know most of this, and might even be able to correct me on some of it.</p>
+
+<h4 id="comparison">Comparison</h4>
+<p>If you’re just looking for an example, below is a direct side-by-side comparison of a I pen I re-wrote ES6 with the same exact functionality. It’s a good starting point for direct comparison.</p>
+
+<ul>
+  <li><a href="http://codepen.io/hans/pen/GqbmEZ">Here’s the original pen</a> (<a href="http://codepen.io/hans/pen/GqbmEZ">here</a> for just the JS)</li>
+  <li><a href="http://codepen.io/hans/pen/pEoNAB">Here’s the pen in ES6</a> (<a href="http://codepen.io/hans/pen/pEoNAB.js">here</a> for just the JS)</li>
+</ul>
+
+<hr />
+
+<h4 id="setup">Setup</h4>
+<p>The easiest way to get started right off the bat with ES6 is to use <a href="https://blog.codepen.io/2015/05/19/babel-now-on-codepen-write-es6-javascript-and-react-jsx/">CodePen</a>, and select the “babel” as a Javascript preprocessor.</p>
+
+<h4 id="variables-let-const-var-and-globals">Variables, let, const, var and globals</h4>
+<p>There’s been some debate over some of this (it’s a bit more complex than a 1-1 change), but here’s what I’ve gathered:
+<code class="language-plaintext highlighter-rouge">var</code> declares a function-scoped variable, and
+<code class="language-plaintext highlighter-rouge">let</code> declares a locally, block-scoped variable
+<code class="language-plaintext highlighter-rouge">const</code> declares a read-only variable, meaning you can’t do this <code class="language-plaintext highlighter-rouge">const = "foo"; const = "bar"</code>.</p>
+
+<h5 id="basically">Basically</h5>
+<p><code class="language-plaintext highlighter-rouge">let myVariable = "dustin" </code> is the new <code class="language-plaintext highlighter-rouge"> var myVariable = "dustin" </code>
+<code class="language-plaintext highlighter-rouge">const myVariable = "dustin"</code> is a new never-changing variable</p>
+
+<h5 id="when-to-use">When to Use</h5>
+<p>Just use <code class="language-plaintext highlighter-rouge">let</code> everywhere you would have used <code class="language-plaintext highlighter-rouge">var</code>.</p>
+
+<h4 id="strings-variables-and-template-literals">Strings, variables and template literals</h4>
+<p>The back-tick is the new cool kid in town when it comes to strings.  When you want to combine variables, or even logic with a string, you no longer have to use quote and <code class="language-plaintext highlighter-rouge">+</code>, you can simply wrap the string in a <code class="language-plaintext highlighter-rouge">`</code> (back-tick) and then wrap any variables or logical with <code class="language-plaintext highlighter-rouge">${}</code>. This makes concatenation a breeze. You can also do multi-line strings.</p>
+
+<h5 id="basically-1">Basically</h5>
+<p><code class="language-plaintext highlighter-rouge">"my name is" + user.name + user.lastname + " ."</code> can be simplified to <code class="language-plaintext highlighter-rouge">`my name is ${user.name user.lastname} .`</code></p>
+
+<h5 id="when-to-use-1">When to Use</h5>
+<p>Anytime you need to combine variables with strings, use back-ticks <code class="language-plaintext highlighter-rouge">`</code> and <code class="language-plaintext highlighter-rouge">${}</code>.</p>
+
+<h4 id="arrow-functions">Arrow Functions</h4>
+<p>For me, arrow functions were kinda ES6’s poster-boy. Mostly because they look so…functiony. There’s a few different ways you can write them (more shorthand options), but it’s all basically just replacing the word <code class="language-plaintext highlighter-rouge">function</code> with <code class="language-plaintext highlighter-rouge">=&gt;</code>. Bewares though, this changes the scope of ‘this’ (see below).</p>
+
+<h5 id="basically-2">Basically</h5>
+<pre><code class="language-Javascript">// old function expression
+var something = function(){ //do something }.
+
+// new arrow function expression
+let something = (parameters)=&gt; { //do something }.
+</code></pre>
+<h5 id="when-to-use-2">When to Use</h5>
+<p>Anytime you’re writing a function that you don’t want to have a new this scope, use an arrow function (see below).</p>
+
+<h4 id="this-scoping-with-arrow-functions">This, Scoping with Arrow functions</h4>
+<p>The scoping of ‘this’ is a bit different when using an arrow function. Put on your seatbelt: describing the Javascript keyword this while using the English demonstrative, this, gets a little hairy. Basically using an arrow function will pass <code class="language-plaintext highlighter-rouge">this</code> on through so that <code class="language-plaintext highlighter-rouge">this = this</code>. It’s still lexically scoped - meaning block-level stuff.</p>
+
+<p>The way you’re used to a new “this scope” being created every time you use the word “function”, still works the same, but doesn’t happen when you use an arrow function.</p>
+
+<h5 id="basically-3">Basically</h5>
+<pre><code class="language-Javascript">// old stuff
+$('a').click(function(){ console.log(this) }) // returns what you’d expect - what was clicked, in this case 'a'
+
+// ES6
+$('a').click((e)=&gt;{ console.log(this)} // returns the parent’s value for 'this', e.currentTarget returns what was clicked
+
+// old stuff equivalent
+var t = this; $('a').click(function(){ console.log(t); } // essentially the same but without the messiness.
+</code></pre>
+
+<h5 id="when-to-use-3">When to Use</h5>
+<p>Anytime you’re writing a function that you don’t want to have a new this scope, use an arrow function. You can use <code class="language-plaintext highlighter-rouge">event.currentTarget</code> for to get the clicked object in a click handler. Really helps with writing modular JS (below).</p>
+
+<h4 id="modular-stuff-imports-classes-extends-constructors-etc">Modular stuff: imports, classes, extends, constructors, etc.</h4>
+<p>We’re gonna get a little hairy on some of the more opinionated js stuff, but here goes: Remember when Sass first hit the masses, and people started using @import again to organize, and modularize their css/sass because it didn’t require an additional request? Well, you can basically do the same thing using imports and classes. Structurally, I’ve got one main.js that handles the loading/instantiation of everything, the separate independent modules. Like this:</p>
+
+<ul>
+  <li>main.js</li>
+  <li>modules
+    <ul>
+      <li>_carousel.js</li>
+      <li>_myFunction.js</li>
+    </ul>
+  </li>
+  <li>lib
+    <ul>
+      <li>jQuery.min.js</li>
+      <li>waypoints.min.js</li>
+      <li>gsap.min.js</li>
+    </ul>
+  </li>
+</ul>
+
+<h5 id="basically-4">Basically</h5>
+<p>I’d put these two lines in my main.js ( what I use to instantiates/call everything else)</p>
+
+<pre><code class="language-Javascript">import myFunction from './modules/myFunction'
+
+// On document load, or ready or whenever I want to run it
+let myFunction = new myFunction();
+</code></pre>
+
+<p>Then in each module (_myFunction.js),  I’ve got an init function that runs when it’s called so, and you wrap everything in a class export, using the constructor method (a special method) to start things off – like so:</p>
+<pre><code class="language-Javascript"> export default class {
+  constructor(){
+    this.init(); // Run the init whenever invoked
+  }
+  init() {
+    // do something
+  }
+}
+</code></pre>
+
+<h5 id="when-to-use-4">When to Use</h5>
+<p>For me, life is much clearer when I write my JS in a modular way (there’s several options, above is just one example). You’ll love it for the clarity, consistency, and readability it brings your JS.</p>
+
+<h4 id="other-stuff">Other stuff</h4>
+<p>There’s also a couple of things that help for dealing with numbers (I haven’t yet come across the need for them) like spread operators and rest parameters. Check out the links below for more on those.</p>
+
+<h4 id="resources">Resources</h4>
+<p><a href="https://www.sitepoint.com/setting-up-es6-project-using-babel-browserify/">A decent guide to setting up an ES6 / ES 2015 workflow</a> <br />
+<a href="https://github.com/airbnb/javascript">Airbnb’s JS style guide</a><br />
+<a href="https://css-tricks.com/lets-learn-es2015/">Css trick’s write-up on learning es2015</a><br />
+<a href="https://es6.io/">Wes Bos’ course</a> - Probably the most reputable training course/guide to ES6. It’ll run you around $100, but well worth the investment if you’re wanting to go deep.</p>
+:ET

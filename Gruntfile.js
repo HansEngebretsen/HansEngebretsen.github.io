@@ -9,12 +9,16 @@
   ==========
 */
 
+const Fiber = require('fibers');
+
 module.exports = function(grunt) {
   /* ====================
    Load the NPM tasks from the package.json automatically.
    ==================== */
   require('load-grunt-tasks')(grunt);
 
+  const sass = require('sass');
+  const npmFiber = require("fibers");
 
   // 1. All configuration goes here
   grunt.initConfig({
@@ -83,6 +87,8 @@ module.exports = function(grunt) {
       dist: {
         options: {
           outputStyle: 'compressed',
+          implementation: sass,
+          fiber: Fiber,
           sourceComments: 'true',
           sourcemap: 'file'
         },

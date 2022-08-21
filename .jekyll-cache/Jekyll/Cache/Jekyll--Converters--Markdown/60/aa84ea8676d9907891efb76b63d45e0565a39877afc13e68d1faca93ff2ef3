@@ -1,0 +1,77 @@
+I"�<p><a href="http://www.lukew.com/ff/entry.asp?1371">Bagcheck</a> was a startup (founded by Luke W., and later acquired by Twitter) that was dedicated to the concept of sharing your passions, or what’s in your bag. It was taken down a few years ago, but I thought it was a really neat concept . I most enjoyed checking out people’s default OS X setups and tools they couldn’t go without.</p>
+
+<p>In the same spirit of inspiration and discovery, below are some OS X / macOS productivity programs that I love. Working in front-end design &amp; development, I wouldn’t recommend these programs to everyone, but I can honestly say I’m a huge fan of them for my uses. Most all of the apps offer a freemium model, with a premium version well worth the cost.</p>
+
+<p><sub>**take note on some of the awesome names of the companies producing the apps: AgileBits, Mizage, Running with Crayons, Noodelsoft</sub></p>
+<section class="app">
+  <h4>Name Changer</h4>
+  <p class="first-paragraph">One of the timeless gems among the bunch, I couldn’t imagine clearing my desktop off without it. Programmatic decisions explained in human terms for batch file renaming. Name changer does it all: appending, pre-pending, sequences, find a and replace, the list goes on.</p>
+  <div class="image-wrap"><img alt="Image of wunderlist" src="/img-content/productivity/namechanger.png" /></div>
+
+  <hr />
+  <p><span class="dark">Free </span>| Available from <a href="http://mrrsoftware.com/namechanger/">MRR Software</a></p>
+</section>
+<section class="app">
+  <h4>1 Password</h4>
+  <p class="first-paragraph">I’ve been a 1Password fan for a few years now, and it’s an irreplaceable part of my workflow. I tried out a few different services, including LastPass, native OS X keychain, Google Chrome keychain etc, but nothing touched the cross-platform/browser integration, that 1Password offers.</p>
+  <div class="image-wrap"><img alt="Image of 1Password" src="/img-content/productivity/1password.png" /></div>
+
+  <hr />
+  <p><span class="dark">Free - $50 </span>| Available from <a href="https://agilebits.com/downloads">AgileBits</a> and on the App Store</p>
+</section>
+<section class="app">
+  <h4>Handbrake</h4>
+  <p class="first-paragraph">A longtime fan of the simplicity of HandBrake, I’ve used it countless times for (predominately) legal reasons. There’s no simpler way - that I know of - to rip/convert a DVD to a video file, and optimize it. The simple options and two step process had me before I even knew what the term ‘transcode’ meant.</p>
+  <div class="image-wrap"><img alt="Image of handbrake" src="/img-content/productivity/handbrake.png" /></div>
+
+  <hr />
+  <p><span class="dark">Free </span>| Available at <a href="https://handbrake.fr/">handbrake</a></p>
+</section>
+<section class="app">
+  <h4>Alfred 2</h4>
+  <p class="first-paragraph">The ultimate launcher for OSX - and it’s nothing like spotlight. 90% of Alfred’s usefulness comes from it’s ability to quickly automate and run tasks. For instance, we have an internal GitHub at Garmin - (we use <a href="https://www.atlassian.com/software/stash?utm_source=bitbucket&amp;utm_medium=link&amp;utm_campaign=homepage&amp;utm_content=bitbucket_for_enterprises">stash</a>, by Atlasssian), and we have a workflow that searches all repos in our stash, and links you directly to the selected repo. Below are a few of my most used tasks:</p>
+  <div class="image-wrap"><img alt="Image of alfred" src="/img-content/productivity/alfred.png" /></div>
+
+  <ul>
+    <li>
+      <p><code class="language-plaintext highlighter-rouge">ft</code> - Immediately opens a terminal window with the current directory at your last used finder window. Conversely, <code class="language-plaintext highlighter-rouge">tf</code> opens a finder at the current Terminal directory.
+<a href="https://github.com/LeEnno/alfred-terminalfinder">Check it out on Github</a></p>
+    </li>
+    <li>
+      <p><code class="language-plaintext highlighter-rouge">hide</code> - Hide Hidden files, show hidden files - instead of arduously running <code class="language-plaintext highlighter-rouge">defaults write com.apple.finder AppleShowAllFiles YES &amp;&amp; killall Finder</code> in terminal I open alfred and type “hide” or “show”, the rest is handled.
+<a href="https://github.com/BubiDevs/manage-hidden-files">Also on Github</a></p>
+    </li>
+    <li>
+      <p><code class="language-plaintext highlighter-rouge">edit</code> - Edit Project, a custom workflow that I made that takes the currently selected folder in finder, opens it in sublime, as well as terminal and runs <code class="language-plaintext highlighter-rouge">grunt watch</code> on the directory.</p>
+    </li>
+  </ul>
+
+  <hr />
+  <p><span class="dark">Free - $14.99 </span>| You’ll need the <a href="http://www.alfredapp.com/powerpack/">Power Pack</a> ($14.99) to add/use custom workflows.</p>
+</section>
+<section class="app">
+  <h4>Divvy</h4>
+  <p class="first-paragraph">Freemium software from Mizage for window management. I spend so time (albeit subconsciously) arranging the many windows I constantly have open. Attaching keyboard shortcuts to this has been huge, and with Divvy, it couldn’t be simpler, or allow you to get more specific with your window management.</p>
+  <div class="image-wrap"><img alt="Image of wunderlist" src="/img-content/productivity/divvy.png" /></div>
+
+  <hr />
+  <p><span class="dark">Free - $13.99 </span>| Available from <a href="http://mizage.com/divvy/">Mizage</a>, or on the App store</p>
+</section>
+<section class="app">
+
+  <h4>Wunderlist</h4>
+  <p class="first-paragraph">The world is still searching for the perfect task/to do list fix to once and for all replace the sticky note, but in the mean time, Wunderlist as an acceptable middle grounds. It’s simple, integrated, connected (I can easily share lists with coworkers, or my wife), and extremely satisfying to check off items.</p>
+  <div class="image-wrap"><img alt="Image of wunderlist" src="/img-content/productivity/wunderlist.svg" /></div>
+
+  <hr />
+  <p><span class="dark">Free </span>| Available from <a href="https://www.wunderlist.com/">Wunderlist</a> or on the App Store</p>
+</section>
+<section class="app">
+  <h4>Hazel</h4>
+  <p class="first-paragraph">Hazel is an app that one of my friends, <a href="http://andrewsaliga.com/">Andrew Saliga</a> led me on to. I’m not sure it contains any unique functionality, or anything you couldn’t accomplish with OSX’s built in Automator, but it certainly makes automation easier. You don’t need to know a language, or be a pro to run regular actions on folders, or tasks in general. For someone like me, that means it’s great for helping automatically organize and rename things like pictures by date, or keeping your downloads folder clean.</p>
+  <div class="image-wrap"><img alt="Image of wunderlist" src="/img-content/productivity/hazel.png" /></div>
+
+  <hr />
+  <p><span class="dark">Free trial - $29 </span>| Available from <a href="http://www.noodlesoft.com/hazel.php">Noodelsoft</a></p>
+</section>
+:ET
