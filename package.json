@@ -5,20 +5,33 @@
     "type": "git",
     "url": "git://github.com/username/repository.git"
   },
+  "scripts": {
+    "clean:site": "rm -rf _site",
+    "clean": "npm run clean:site",
+    "sass": "sass _sass/style.scss _site/css/style.css",
+    "sass:watch": "sass _sass/style.scss css/style.css --watch",
+    "lint": "js/main.js",
+    "uglify:build": "mkdir -p _site/js && uglifyjs js/main.js js/modules/*.js -m -o _site/js/production.min.js",
+    "uglify": "uglifyjs js/main.js js/modules/*.js -m -o js/production.min.js",
+    "imagemin": "imagemin img/**/*.{png,jpg,gif} _site/img -p",
+    "serve": " cd _site && browser-sync start --server --files '_site/css/*.css, _site/js/*.js, ../*'",
+    "watch:css": "onchange '_sass/*.scss' -- npm run sass",
+    "watch:js": "onchange 'js/**/*.js' -e 'js/*.min.js' 'js/production*' -- npm run uglify",
+    "build": " npm run uglify && npm run sass && jekyll build ",
+    "watch:all": "concurrently --kill-others \"npm run sass:watch\" \"npm run watch:js\" \"jekyll serve --livereload\""
+  },
   "devDependencies": {
-    "grunt": "~0.4.4",
-    "grunt-browser-sync": "^2.2.0",
-    "grunt-contrib-compass": "~0.7.1",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-sass": "~0.6.0",
-    "grunt-contrib-uglify": "~0.2.7",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-jekyll": "^0.4.2",
-    "grunt-sass": "^1.2.1",
-    "load-grunt-tasks": "^3.5.0",
+    "eslint": "^8.22.0",
     "sass": "^1.54.5"
   },
   "dependencies": {
-    "fibers": "^5.0.2"
+    "browser-sync": "^2.27.10",
+    "concat": "^1.0.3",
+    "concurrently": "^7.3.0",
+    "fibers": "^5.0.2",
+    "imagemin-cli": "^7.0.0",
+    "jekyll": "^3.0.0-beta1",
+    "onchange": "^7.1.0",
+    "uglify-js": "^3.17.0"
   }
 }
