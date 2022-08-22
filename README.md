@@ -6,7 +6,9 @@ Built on Jekyll. Uses grunt for sass compilation, and js concat etc.
 ## Get started
 - Ensure dependencies are installed 
 - Install NPM packages `npm i` 
-- 
+- run `npm run build` to build
+- run `npm run watch:all` to develop
+
 ## Dependencies
 - Node (current version v16 is fine)
 - Ruby (for Jekyll) use version 2.7 or below.
