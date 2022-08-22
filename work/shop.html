@@ -17,7 +17,7 @@ listing: false
 
 ---
 <div class="project shopexp" style="background-color: #{{ page.maincolor }}">
-{% assign sorted_pages = (site.parts | sort: 'order') %}
+{% assign sorted_pages = site.parts | sort:'order' %}
 {% for page in sorted_pages %}
   {% if page.parent == 'shop' %}
     {% include section.html %}

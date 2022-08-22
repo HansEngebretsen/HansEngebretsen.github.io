@@ -16,7 +16,7 @@ secondaryColor: d4d4d4
 order: 1
 ---
 <div class="project beatyesterday ">
-{% assign sorted_pages = (site.parts | sort: 'order') %}
+{% assign sorted_pages = site.parts | sort:'order' %}
 {% for page in sorted_pages %}
   {% if page.parent == 'beatyesterday' %}
     {% include section.html %}

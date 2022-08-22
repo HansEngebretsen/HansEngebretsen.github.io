@@ -16,7 +16,7 @@ secondaryColor: d6251d
 order: 0
 ---
 <div class="project wearthis">
-{% assign sorted_pages = (site.parts | sort: 'order') %}
+{% assign sorted_pages = site.parts | sort:'order' %}
 {% for page in sorted_pages %}
   {% if page.parent == 'wearthis' %}
     {% include section.html %}

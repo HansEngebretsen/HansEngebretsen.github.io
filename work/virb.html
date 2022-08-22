@@ -15,7 +15,7 @@ plax: true
 order: 3
 ---
 <div class="project virb" style="background-color: #{{ page.maincolor }}">
-{% assign sorted_pages = (site.parts | sort: 'order') %}
+{% assign sorted_pages = site.parts | sort:'order' %}
 {% for page in sorted_pages %}
   {% if page.parent == 'virb' %}
     {% include section.html %}

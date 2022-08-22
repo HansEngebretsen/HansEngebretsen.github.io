@@ -16,7 +16,7 @@ order: 5
 ---
 <link href="//fonts.googleapis.com/css?family=Cabin:400,500,600,700" rel="stylesheet" type="text/css">
 <div class="project turningpoints" style="background-color: #{{ page.maincolor }}">
-{% assign sorted_pages = (site.parts | sort: 'order') %}
+{% assign sorted_pages = site.parts | sort:'order' %}
 {% for page in sorted_pages %}
   {% if page.parent == 'turningpoints' %}
     {% include section.html %}
