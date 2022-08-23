@@ -40,7 +40,7 @@
   height:100%;
   white-space:nowrap;
   &.no-scroll li.active {
-      max-height: 69%;
+      max-height: 70%;
     @include breakpoint(min-huge-screen){
       max-height: 70%; // offset for no controls
     }
@@ -67,9 +67,11 @@
     &.active {
       width: 81%;
       opacity:1;
-      margin-top:5px;
+      background:black;
+     // margin-top:5px;
       max-height:60%;
-      @include breakpoint(normal-screen){
+      margin-top:0px;
+      @include breakpoint(normal-screen){ 
         max-height: 55%;
       }
       @include breakpoint(tablet-s){
@@ -79,7 +81,7 @@
         max-height: 50%;
       }
       @include breakpoint(min-huge-screen){
-        margin-top:0; // offset for no controls
+      //  margin-top:0; // offset for no controls
       }
     }
     &:nth-child(3){
