@@ -1,0 +1,25 @@
+---
+layout: default
+title: CiviForm
+client: Google.org
+navColor: dark
+nav: left-align
+navOrientation: top-nav
+navColor: white
+handle: civiform
+waypoints: true
+# photo: by/vivos.png
+type: project
+maincolor: 4FC5D6
+secondaryColor: d4d4d4
+order: 6
+---
+<link href="//fonts.googleapis.com/css?family=Cabin:400,500,600,700" rel="stylesheet" type="text/css">
+<div class="project turningpoints" style="background-color: #{{ page.maincolor }}">
+{% assign sorted_pages = site.parts | sort:'order' %}
+{% for page in sorted_pages %}
+  {% if page.parent == 'civiform' %}
+    {% include section.html %}
+  {% endif %}
+{% endfor %}
+</div>
