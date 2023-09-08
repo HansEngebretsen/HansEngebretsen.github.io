@@ -10,7 +10,7 @@
   &.left-align {
     font-size: 14px;
   }
-  max-width: 100px;
+  max-width: 130px;
   max-height: 200px;
   margin: 0 auto;
   padding-top: 120px;
@@ -103,7 +103,7 @@
       padding-left: 0.5em;
     }
     .social-clicked & a {
-      color: $orange;
+      font-weight:bold;
       @extend %close-x;
       &:after {
         margin-right:-5px;
@@ -171,7 +171,7 @@
   a {
     display: block;
     position: relative;
-    max-width: 31px;
+    max-width: 51px;
     padding: 0.4em;
     font-size: 15px;
     transition: padding-left 0.2s;
@@ -346,7 +346,7 @@
   .social-clicked .menu li:nth-child(4) {
     background-color: rgba(white, 0.1);
     a:hover {
-      color:$orange;
+    //  color:$orange;
     }
   }
   .social {

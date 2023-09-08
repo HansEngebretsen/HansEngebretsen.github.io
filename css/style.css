@@ -543,7 +543,7 @@ table {
     display: table-row !important;
   }
   th.visible-xs,
-td.visible-xs {
+  td.visible-xs {
     display: table-cell !important;
   }
 }
@@ -576,7 +576,7 @@ td.visible-xs {
     display: table-row !important;
   }
   th.visible-sm,
-td.visible-sm {
+  td.visible-sm {
     display: table-cell !important;
   }
 }
@@ -609,7 +609,7 @@ td.visible-sm {
     display: table-row !important;
   }
   th.visible-md,
-td.visible-md {
+  td.visible-md {
     display: table-cell !important;
   }
 }
@@ -642,7 +642,7 @@ td.visible-md {
     display: table-row !important;
   }
   th.visible-lg,
-td.visible-lg {
+  td.visible-lg {
     display: table-cell !important;
   }
 }
@@ -699,7 +699,7 @@ td.visible-lg {
     display: table-row !important;
   }
   th.visible-print,
-td.visible-print {
+  td.visible-print {
     display: table-cell !important;
   }
 }
@@ -2411,7 +2411,7 @@ article html {
 .global-header {
   font-size: 18px;
   z-index: 3;
-  max-width: 100px;
+  max-width: 130px;
   max-height: 200px;
   margin: 0 auto;
   padding-top: 120px;
@@ -2508,7 +2508,7 @@ article html {
   padding-left: 0.5em;
 }
 .social-clicked .menu li:nth-child(4) a {
-  color: #F08656;
+  font-weight: bold;
 }
 .social-clicked .menu li:nth-child(4) a:after {
   margin-right: -5px;
@@ -2573,7 +2573,7 @@ article html {
 .social a {
   display: block;
   position: relative;
-  max-width: 31px;
+  max-width: 51px;
   padding: 0.4em;
   font-size: 15px;
   transition: padding-left 0.2s;
@@ -2732,9 +2732,6 @@ article html {
   }
   .top-nav .social-clicked .menu li:nth-child(4) {
     background-color: rgba(255, 255, 255, 0.1);
-  }
-  .top-nav .social-clicked .menu li:nth-child(4) a:hover {
-    color: #F08656;
   }
   .top-nav .social {
     float: left;
