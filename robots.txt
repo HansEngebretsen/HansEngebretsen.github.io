@@ -1,3 +1,5 @@
 # robotstxt.org/
 
 User-agent: *
+# haaans.com/say is private-ish: served, but never crawled, indexed or used for training
+Disallow: /say
