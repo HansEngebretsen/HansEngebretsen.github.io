@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Sonos Mood</title>
+<style>
+  html { background: #f4f1ee; }
+  body { margin: 0; min-height: 100vh; display: grid; place-items: center; font: 16px/1.4 -apple-system, system-ui, sans-serif; color: #2a2522; -webkit-font-smoothing: antialiased; }
+  a { display: inline-block; margin-top: 12px; padding: 10px 18px; border-radius: 999px; background: #2a2522; color: #fff; text-decoration: none; transition: transform 100ms ease-out; }
+  a:active { transform: scale(.97); }
+</style>
+</head>
+<body>
+<main>
+  <p>Back to Sonos Mood…</p>
+  <a id="back" href="moods://callback">Open Sonos Mood</a>
+</main>
+<script>
+  // Sonos sends ?code=…&state=… here; hand them to the app. No keys live on this page.
+  var target = "moods://callback" + window.location.search;
+  document.getElementById("back").href = target;
+  window.location.replace(target);
+</script>
+</body>
+</html>
