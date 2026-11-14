@@ -127,7 +127,7 @@ class Stage{
   render(){const c=this.ctx;c.setTransform(1,0,0,1,0,0);c.clearRect(0,0,this.cv.width,this.cv.height);this.use(this.G);let v=this.G;
     c.lineCap=c.lineJoin='round';c.strokeStyle=c.fillStyle=INK;
     this.under&&this.under(c);
-    let mid=false;for(const s of this.strokes){const sv=s.hdr?this.H:this.G;if(sv!==v){v=sv;this.use(v)}if(s.front&&!mid){mid=true;if(this.mid){c.strokeStyle=c.fillStyle=INK;this.mid(c)}}const t=s.tf;
+    let mid=false;for(const s of this.strokes){if(s.hide)continue;const sv=s.hdr?this.H:this.G;if(sv!==v){v=sv;this.use(v)}if(s.front&&!mid){mid=true;if(this.mid){c.strokeStyle=c.fillStyle=INK;this.mid(c)}}const t=s.tf;
       if(t){const z=t.s||1;this.k=Math.pow(z,-.6);c.save();c.translate(s.cx+t.x,s.cy+t.y);c.rotate(t.r);c.scale((t.sx||1)*z,z);c.translate(-s.cx,-s.cy);this.path(s);c.restore();this.k=1}else this.path(s)}
     c.strokeStyle=c.fillStyle=INK;this.use(this.G);this.over&&this.over(c)}
 }
@@ -154,7 +154,7 @@ const ring=(x,y,R,tail)=>{const p=[];for(let a=0;a<=6.4;a+=.2)p.push([x+Math.cos
 const bb=s=>{let x0=1e9,x1=-1e9,y0=1e9,y1=-1e9;for(const p of s.pts){x0=Math.min(x0,p.x);x1=Math.max(x1,p.x);y0=Math.min(y0,p.y);y1=Math.max(y1,p.y)}return{x0,x1,y0,y1}};
 
 let k=0,won=false,run=0,ptr=null,pic,D,name='stick',fx=[],auto=false,score=0;
-let ptrH=null,flame=null,keyDown=null,keyUp=null,rays=null,resetOn=false,AC=null,shades=false,dressed=false,hat=null,look=null,tipping=false,overHat=false,grab=null,drop=null,near=null;
+let road=null,ptrH=null,flame=null,keyDown=null,keyUp=null,rays=null,resetOn=false,AC=null,shades=false,dressed=false,hat=null,look=null,tipping=false,overHat=false,grab=null,drop=null,near=null;
 
 const tip=()=>{if(tipping||!hat)return;tipping=true;tween(800,t=>{look.capR=Math.sin(t*Math.PI)*.26;st.draw();if(t>=1)tipping=false})};
 /* A nose and a mouth dress the face, all of it traced from Hans's drawings (FACE): the hair wipes in over the top of the O, the
@@ -352,38 +352,67 @@ const PICS={
       else{w.tf.x=bx+z*(o.lx*co-o.ly*si)-w.cx;w.tf.y=by+z*(o.lx*si+o.ly*co)-w.cy;w.tf.r=A+S.spin}}
     flame=turbo()?{x:wheels[0].w.tf.x+wheels[0].w.cx,y:wheels[0].w.tf.y+wheels[0].w.cy,a:A,r:90*z}:null}}},
 
- /* the minivan: join the dots, it gets wheels, windows and three passengers, then drives a winding road after the pointer
-    (or cruises it when left alone), picking up donuts */
- van:{fx:500,vw:700,C:[505,660],L:[505,535],
-  dots:[[255,615],[250,522],[292,440],[540,428],[640,492],[735,520],[756,575],[750,615]],
-  extras:r=>{const wheel=(cx,cy,wh)=>{const tf={x:0,y:0,r:0,s:1},o=more=>Object.assign({solo:1,late:1,wh,cx,cy,tf},more);
-      return[mk(ring(cx,cy,42),9,r,o({fill:'#ffffff'})),mk(ring(cx,cy,12),7,r,o()),mk([[cx-28,cy],[cx+28,cy]],4,r,o()),mk([[cx,cy-28],[cx,cy+28]],4,r,o())]};
-    const face=(x,y,R)=>[mk(ring(x,y,R),5,r,{late:1}),mk([[x-R*.5,y+R*.15],[x-R*.2,y+R*.5],[x+R*.25,y+R*.5],[x+R*.55,y+R*.15]],4,r,{late:1}),
-      {pts:[{x:x-R*.35,y:y-R*.3}],w:5,fixed:true,seed:1,boil:0,late:1},{pts:[{x:x+R*.35,y:y-R*.3}],w:5,fixed:true,seed:1,boil:0,late:1}];
-    return[mk([[306,456],[534,446],[616,498],[306,506],[306,456]],8,r),mk([[396,452],[396,602]],7,r),mk([[482,448],[484,602]],7,r),mk([[545,447],[560,600]],7,r),
-      mk([[412,540],[432,540]],6,r),mk([[500,538],[520,538]],6,r),mk(ring(722,543,10),6,r),mk([[256,528],[270,530],[269,552],[254,552]],6,r),
-      ...face(350,482,15),...face(385,476,12),...face(438,480,16),...face(515,474,18),...wheel(345,618,0),...wheel(662,618,1)]},
-  start(G,ex){const R=rng(21),wheels=[[ex.find(s=>s.wh===0),-160,-42],[ex.find(s=>s.wh===1),157,-42]];
-   const V=st.G,A=Math.min(390,(V.xr-V.xl)/2-80),cx=(V.xl+V.xr)/2,cy=565,B=100;
-   const road=u=>[cx+A*Math.cos(u),cy+B*Math.sin(u)+26*Math.sin(3*u+.6)];
-   const edge=o=>{const p=[];for(let u=0;u<=6.33;u+=.07){const[a,b]=road(u),[a2,b2]=road(u+.02),n=Math.hypot(a2-a,b2-b)||1;p.push([a-(b2-b)/n*o,b+(a2-a)/n*o])}return p};
-   for(const o of[-44,44]){const s=mk(edge(o),7,R,{solo:1,boil:.8});st.strokes.unshift(s);play(st,[s],6)}
-   const S={x:505,y:660,vx:0,vy:0,sx:1,spin:0,u:Math.PI/2,donuts:[]};
-   const gapTo=(a,b)=>Math.abs(((a-b)%6.283+9.4245)%6.283-3.1415);
-   const drop=()=>{let u,n=0;do{u=R()*6.283}while(n++<40&&(S.donuts.some(d=>gapTo(d.u,u)<.55)||Math.hypot(road(u)[0]-S.x,road(u)[1]-(S.y-25))<170));
-     const[x,y]=road(u);S.donuts.push({u,x,y,donut:1,seed:R()*9})};
-   for(let i=0;i<5;i++)drop();
-   grab=()=>true;
-   return f=>{const z=G.tf.s=ease(G.tf.s,.36,.07*f),hov=ptr&&!(ptrH&&inFace(ptrH.x,ptrH.y,1.45));let T=ptr;
-    if(!hov){S.u+=.011*f;const q=road(S.u);T={x:q[0],y:q[1]}}
-    const bx=S.x,by=S.y-80*z,dx=T.x-bx,dy=T.y-by,d=Math.hypot(dx,dy)||1,sp=Math.min(9,d*.07);
-    S.vx=ease(S.vx,dx/d*sp,.09*f);S.vy=ease(S.vy,dy/d*sp,.09*f);S.x+=S.vx*f;S.y+=S.vy*f;
-    if(Math.abs(S.vx)>.6)S.sx=S.vx>0?1:-1;
-    const v=Math.hypot(S.vx,S.vy),r=clamp(Math.atan2(S.vy,Math.abs(S.vx)+1.5)*.45,-.4,.4)*S.sx,co=Math.cos(r),si=Math.sin(r);
-    G.tf.x=S.x-505;G.tf.y=S.y-660;G.tf.r=r;G.tf.sx=S.sx;S.spin+=v*f/(42*z)*S.sx;
-    for(const[w,lx,ly]of wheels){const X=S.sx*z*lx,Yq=z*ly;w.tf.x=S.x+X*co-Yq*si-w.cx;w.tf.y=S.y+X*si+Yq*co-w.cy;w.tf.r=S.spin;w.tf.s=z}
-    for(const dn of S.donuts)if(Math.hypot(dn.x-bx,dn.y-by)<52){S.donuts.splice(S.donuts.indexOf(dn),1);tally();drop();break}
-    fx=S.donuts}}}
+ /* the minivan, from Hans's drawing (three-quarter view, passengers in the windows), redrawn in single lines: every
+    coordinate below is a pixel of that drawing and P() maps it into the scene. Then a game: donuts are scattered about and
+    the visitor DRAWS THE ROAD, a line from the ring at the van's nose; the van drives exactly that line, picking up what it
+    passes. A harsh turn or a big bump in the line (or a cone) throws the kids out of the windows and the run is over.
+    Donuts per run stack under the count, the best one bold (kept in localStorage). */
+ van:{fx:500,vw:720,C:[485,682],L:[490,560],
+  dots:[[63,236],[58,160],[76,100],[112,72],[270,53],[330,95],[384,152],[378,205]].map(([x,y])=>[285+(x-63)*1.35,400+(y-53)*1.35]),
+  extras:r=>{const P=(x,y)=>[285+(x-63)*1.35,400+(y-53)*1.35],L=(a,w,o)=>mk(a.map(q=>P(q[0],q[1])),w||7,r,o);
+    const arc=(cx,cy,R,a0,a1,ry)=>{const p=[];for(let a=a0;a<=a1+.01;a+=.2)p.push([cx+Math.cos(a)*R,cy+Math.sin(a)*(ry||R)]);return p};
+    const dot=(x,y)=>{const q=P(x,y);return{pts:[{x:q[0],y:q[1]}],w:4.5,fixed:true,seed:1,boil:0,late:1,kid:1}};
+    const head=(x,y,R)=>[L(arc(x,y,R,0,6.4),6,{late:1,kid:1}),L(arc(x,y+R*.1,R*.5,.5,2.6),4,{late:1,kid:1}),dot(x-R*.35,y-R*.25),dot(x+R*.35,y-R*.25)];
+    const wheel=(cx,cy,R,wh)=>{const[X,Y]=P(cx,cy),tf={x:0,y:0,r:0,s:1},o=more=>Object.assign({solo:1,late:1,wh,cx:X,cy:Y,tf},more),q=R*1.35;
+      return[mk(ring(X,Y,q),8,r,o({fill:'#ffffff'})),mk(ring(X,Y,q*.45),6,r,o()),mk([[X-q*.45,Y],[X+q*.45,Y]],4,r,o())]};
+    return[L([[76,165],[180,154],[290,142]]),L([[76,164],[101,112],[123,108]]),L([[124,160],[123,100],[200,88],[242,92],[258,102],[287,141]]),L([[200,89],[208,152]]),
+      L([[257,86],[283,61],[330,104],[303,138],[257,86]]),L([[303,138],[340,160]],5),L(arc(353,168,17,0,6.4,8),6),
+      L([[207,157],[215,226]]),L([[284,150],[286,176]]),L([[185,171],[199,169]],6),L([[214,167],[230,165]],6),L([[165,229],[262,221]]),
+      L([[60,186],[128,177]],5),L([[62,188],[72,187],[73,206],[62,208]],5),L(arc(298,222,39,3.2,5.9)),L(arc(125,240,41,3,6)),
+      ...head(150,137,14),...head(186,131,14),...head(243,124,17),...head(291,98,17),L([[236,143],[256,141]],5,{late:1}),L(arc(312,119,8,0,6.4,14),5,{late:1}),
+      ...wheel(125,240,31,0),...wheel(298,222,30,1)]},
+  start(G,ex){const R=rng(21),wheels=[[ex.find(s=>s.wh===0),-116,-30],[ex.find(s=>s.wh===1),117,-54]],kids=ex.filter(s=>s.kid);
+   const V=st.G,Z=.34,P=(x,y)=>[285+(x-63)*1.35,400+(y-53)*1.35],HEADS=[[150,137,14],[186,131,14],[243,124,17],[291,98,17]].map(([x,y,r])=>[...P(x,y),r*1.35]);
+   let mem={};try{mem=JSON.parse(localStorage.getItem('folio404-van'))||{}}catch(_){}
+   let best=mem.best||0,recent=Array.isArray(mem.recent)?mem.recent:[],zc=1;
+   const stack=()=>{const out=best?[{t:best,best:true}]:[];let used=false;for(const t of recent){if(t===best&&!used){used=true;continue}out.push({t})}return out.slice(0,6)};
+   const S={x:485,y:682,r:0,sx:1,spin:0,phase:'in',n:0,level:0,things:[],out:[],path:null,i:0,road:null,home:[V.xl+150,655]};
+   hud={count:0,list:stack(),f:String};
+   /* a point of the drawing (scene units, as drawn) to where it is now, the van being moved, turned, flipped and shrunk */
+   const world=(lx,ly)=>{const co=Math.cos(S.r),si=Math.sin(S.r),X=S.sx*zc*(lx-485),Yq=zc*(ly-682);return[S.x+X*co-Yq*si,S.y+X*si+Yq*co]};
+   const put=kind=>{for(let k=0;k<80;k++){const x=V.xl+120+R()*(V.xr-V.xl-240),y=415+R()*285;
+     if(Math.hypot(x-S.x,y-(S.y-30))>200&&!S.things.some(t=>Math.hypot(t.x-x,t.y-y)<(kind==='cone'?115:135))){S.things.push({x,y,[kind]:1,seed:R()*9});return}}};
+   const deal=()=>{S.things=[];for(let i=0;i<4;i++)put('donut');for(let i=0;i<Math.min(4,1+S.level);i++)put('cone')};
+   const unroad=()=>{const i=st.strokes.indexOf(S.road);if(i>=0)st.strokes.splice(i,1);S.road=S.path=null};
+   const start=()=>world(800,682);
+   road={from:p=>{if(S.phase!=='plan')return false;const q=start();return Math.hypot(p.x-q[0],p.y-q[1])<Math.max(70,36/V.s)},
+     done:s=>{if(S.phase!=='plan'){const i=st.strokes.indexOf(s);if(i>=0)st.strokes.splice(i,1);return}
+       const raw=[[S.x,S.y],...s.pts.map(q=>[q.x,q.y])],rs=[raw[0]];
+       for(let i=1;i<raw.length;i++){let[ax,ay]=rs[rs.length-1];const[bx,by]=raw[i];let d=Math.hypot(bx-ax,by-ay);while(d>=6){const u=6/d;ax+=(bx-ax)*u;ay+=(by-ay)*u;rs.push([ax,ay]);d=Math.hypot(bx-ax,by-ay)}}
+       S.road=s;if(rs.length<14){unroad();return}
+       /* the line as a road: evened out, a hand's jitter smoothed away; then how hard it turns at each step (the change of
+          heading across about 60 units), which is what throws the kids */
+       const sm=rs.map((q,i)=>{let x=0,y=0,n=0;for(let j=Math.max(0,i-3);j<=Math.min(rs.length-1,i+3);j++){x+=rs[j][0];y+=rs[j][1];n++}return[x/n,y/n]});
+       const ang=sm.map((q,i)=>{const a=sm[Math.max(0,i-1)],b=sm[Math.min(sm.length-1,i+1)];return Math.atan2(b[1]-a[1],b[0]-a[0])});
+       S.turn=sm.map((q,i)=>{let d=ang[Math.min(sm.length-1,i+5)]-ang[Math.max(0,i-5)];return Math.abs(Math.atan2(Math.sin(d),Math.cos(d)))});
+       S.path=sm;S.ang=ang;S.i=0;S.phase='drive'}};
+   const fail=()=>{S.phase='fail';kids.forEach(q=>{q.hide=1});
+     S.out=HEADS.map(([hx,hy,hr])=>{const[x,y]=world(hx,hy);return{kid:1,x,y,r:hr*zc,vx:(R()-.35)*6*S.sx,vy:-(4+R()*5),a:0,va:(R()-.5)*.5}});
+     later(2000,()=>{if(S.n>0){recent=[S.n,...recent].slice(0,5);if(S.n>best)best=S.n;try{localStorage.setItem('folio404-van',JSON.stringify({best,recent}))}catch(_){}hud.list=stack()}
+       S.n=0;S.level=0;kids.forEach(q=>{delete q.hide});unroad();S.out=[];S.x=S.home[0];S.y=S.home[1];S.r=0;S.sx=1;deal();S.phase='plan'})};
+   return(f,t)=>{
+    if(S.phase==='in'){const u=Math.min(1,t/1.1),e=u*u*(3-2*u);zc=1+(Z-1)*e;S.x=485+(S.home[0]-485)*e;S.y=682+(S.home[1]-682)*e;if(u>=1){S.phase='plan';deal()}}
+    else if(S.phase==='drive'){S.i+=5.4*f/6;const n=S.path.length-1,i=Math.min(n,Math.floor(S.i)),k=Math.min(1,S.i-i),a=S.path[i],b=S.path[Math.min(n,i+1)],an=S.ang[i],tx=Math.cos(an);
+      S.x=a[0]+(b[0]-a[0])*k;S.y=a[1]+(b[1]-a[1])*k;if(Math.abs(tx)>.3)S.sx=tx>0?1:-1;
+      let dr=(S.sx>0?an:Math.atan2(-Math.sin(an),-Math.cos(an)))-S.r;dr=Math.atan2(Math.sin(dr),Math.cos(dr));S.r+=dr*Math.min(1,.35*f);S.spin+=5.4*f/(41*Z)*S.sx;
+      const[bx,by]=world(505,575);let hit=false;
+      for(const th of S.things){const d=Math.hypot(th.x-bx,th.y-by);if(th.donut&&d<50){S.things.splice(S.things.indexOf(th),1);S.n++;break}if(th.cone&&d<34){hit=true;break}}
+      if(hit||(i>10&&S.turn[i]>1.15))fail();
+      else if(i>=n){S.phase='plan';unroad();if(!S.things.some(q=>q.donut)){S.level++;deal()}}}
+    for(const q of S.out){q.vy+=.4*f;q.x+=q.vx*f;q.y+=q.vy*f;q.a+=q.va*f;if(q.y>V.yb-q.r-6&&q.vy>0){q.y=V.yb-q.r-6;q.vy*=-.5;q.vx*=.8;q.va*=.7}}
+    hud.count=S.n;G.tf.s=zc;G.tf.x=S.x-485;G.tf.y=S.y-682;G.tf.r=S.r;G.tf.sx=S.sx;const co=Math.cos(S.r),si=Math.sin(S.r);
+    for(const[w,lx,ly]of wheels){const X=S.sx*zc*lx,Yq=zc*ly;w.tf.x=S.x+X*co-Yq*si-w.cx;w.tf.y=S.y+X*si+Yq*co-w.cy;w.tf.r=S.spin;w.tf.s=zc}
+    fx=[...S.things,...S.out];if(S.phase==='plan'&&!st.cur){const q=start(),n0=world(735,660);fx.push({hint:1,x:q[0],y:q[1],x0:n0[0],y0:n0[1]})}}}}
 };
 
 const win=()=>{won=true;const id=++run,ex=pic.extras(rng(4)),tf={x:0,y:0,r:0,s:1,sx:1},G={tf};
@@ -398,18 +427,18 @@ const canLine=p=>{if(won)return false;const n=D.length,R=Math.max(60,32/st.G.s);
 const onReset=p=>resetOn&&Math.hypot(p.x-resetAt[0],p.y-resetAt[1])<Math.max(38,24/st.H.s);
 st.onHover=(p,ph)=>{ptr=p;ptrH=ph;if(eyesAt>performance.now()&&inFace(ph.x,ph.y,1.05)){eyesAt=performance.now();st.draw()}
   if(hat){const o=overCap(ph);if(o&&!overHat)tip();overHat=o}
-  st.cv.style.cursor=st.cur?'':onReset(ph)?'pointer':inFace(ph.x,ph.y,won?1.45:1)||canLine(p)?'':won&&near&&near(p)?'grab':'default';
+  st.cv.style.cursor=st.cur?'':onReset(ph)?'pointer':inFace(ph.x,ph.y,won?1.45:1)||canLine(p)||(road&&road.from(p))?'':won&&near&&near(p)?'grab':'default';
   if(!won&&!st.cur)st.draw()};
 st.cv.addEventListener('pointerleave',()=>{ptr=ptrH=null;overHat=false;st.draw()});
 st.onGrab=(p,ph)=>{if(onReset(ph)){reset();return true}
   if(inFace(ph.x,ph.y,1))return false;
-  if(won){grab&&grab(p);return true}
+  if(won){if(road&&road.from(p))return false;grab&&grab(p);return true}
   return !canLine(p)};
-st.make=(p,ph)=>{showReset();const face=inFace(ph.x,ph.y,1);if(face){eyesAt=Math.min(eyesAt,performance.now());return{pts:[ph],w:LW,seed:Math.random()*99,face,boil:0,hdr:1}}return{pts:[p],w:11,seed:Math.random()*99}};
+st.make=(p,ph)=>{showReset();const face=inFace(ph.x,ph.y,1);if(face){eyesAt=Math.min(eyesAt,performance.now());return{pts:[ph],w:LW,seed:Math.random()*99,face,boil:0,hdr:1}}return won&&road?{pts:[p],w:9,seed:Math.random()*99,road:1,boil:.6,fixed:true}:{pts:[p],w:11,seed:Math.random()*99}};
 st.accept=p=>!st.cur.face||inFace(p.x,p.y,.96);
 st.onDrop=()=>{drop&&drop()};
 st.onPoint=p=>{if(won||(st.cur&&st.cur.face))return;const n=D.length;const R=Math.max(46,26/st.G.s);while(k<=n){const d=D[k%n];if(Math.hypot(p.x-d.x,p.y-d.y)<R)k++;else break}if(k>n)win()};
-st.onEnd=s=>{if(s.face)checkFace()};
+st.onEnd=s=>{if(s.face)checkFace();else if(s.road&&road)road.done(s)};
 st.under=c=>{{const V=st.H,h=Math.max(15,14/V.s),w=5*(h*.62+h*.24);st.use(V);c.globalAlpha=.85;scribble(c,'woops',V.xl+76/V.s+w,V.yt+26/V.s,h,h*.17);c.globalAlpha=1;st.use(st.G)}
   if(won||!D)return;const n=D.length,L=pic.L||pic.C,g=st.G.s,fs=Math.max(21,13/g),r0=Math.max(6,3.4/g),off=Math.max(30,16/g);
   c.font=`600 ${fs}px system-ui,sans-serif`;c.textAlign='center';c.textBaseline='middle';
@@ -422,10 +451,17 @@ const drawPuck=(c,b)=>{const ph=reduce?0:st.frame*1.9,W=(a,k)=>1+.07*Math.sin(a*
   c.beginPath();for(let a=-.5,i=0;a<=6.75;a+=.3,i++){const r=W(a,0)*(1-.012*a),x=Math.cos(a)*16.5*r,y=-4+Math.sin(a)*7*r;if(i)c.lineTo(x,y);else c.moveTo(x,y)}c.fill();c.stroke();
   c.restore();c.fillStyle=c.strokeStyle=INK;c.lineWidth=3};
 const drawDonut=(c,b)=>{const ph=reduce?0:st.frame*1.7+b.seed,W=(a,k)=>1+.06*Math.sin(a*3+k+b.seed)+.03*Math.sin(a*5+ph);
-  c.save();c.translate(b.x,b.y+Math.sin(performance.now()/420+b.seed)*2.5);c.rotate(-.15);c.lineWidth=3.6;c.strokeStyle=INK;c.fillStyle='#ffffff';
+  c.save();c.translate(b.x,b.y+(b.still?0:Math.sin(performance.now()/420+b.seed)*2.5));c.rotate(-.15);c.lineWidth=3.6;c.strokeStyle=INK;c.fillStyle='#ffffff';
   c.beginPath();for(let a=-.4,i=0;a<=6.6;a+=.3,i++){const r=W(a,0),x=Math.cos(a)*18*r,y=Math.sin(a)*13*r;if(i)c.lineTo(x,y);else c.moveTo(x,y)}c.fill();c.stroke();
   c.beginPath();c.ellipse(1,-1,6,3.6,0,0,7);c.stroke();c.beginPath();c.ellipse(0,0,12.5,8.5,0,3.5,5.1);c.stroke();
   c.restore();c.fillStyle=c.strokeStyle=INK;c.lineWidth=3};
+const drawKid=(c,b)=>{c.save();c.translate(b.x,b.y);c.rotate(b.a);c.lineWidth=2.6;c.strokeStyle=INK;c.fillStyle='#ffffff';c.beginPath();c.arc(0,0,b.r,0,7);c.fill();c.stroke();
+  c.beginPath();c.arc(0,b.r*.1,b.r*.5,.5,2.6);c.stroke();c.fillStyle=INK;for(const e of[-1,1]){c.beginPath();c.arc(e*b.r*.35,-b.r*.25,1.5,0,7);c.fill()}c.restore();c.fillStyle=c.strokeStyle=INK;c.lineWidth=3};
+const drawHint=(c,b)=>{const g=st.G.s,R=Math.max(17,9.5/g)*(1+.12*Math.sin(performance.now()/260));c.save();c.lineWidth=Math.max(2.5,1.4/g);c.setLineDash([7,9]);c.beginPath();c.moveTo(b.x0,b.y0);c.lineTo(b.x,b.y);c.stroke();c.setLineDash([]);
+  c.beginPath();c.arc(b.x,b.y,R,0,7);c.stroke();c.beginPath();c.arc(b.x,b.y,Math.max(6,3.4/g),0,7);c.fill();c.restore();c.lineWidth=3};
+const drawCone=(c,b)=>{c.save();c.translate(b.x,b.y);c.rotate(.08*Math.sin(b.seed*3));c.lineWidth=3.6;c.strokeStyle=INK;c.fillStyle='#ffffff';
+  c.beginPath();c.moveTo(-10,10);c.lineTo(-3,-17);c.lineTo(3,-17);c.lineTo(10,10);c.closePath();c.fill();c.stroke();
+  c.beginPath();c.moveTo(-15,11);c.lineTo(15,11);c.stroke();c.beginPath();c.moveTo(-6,-3);c.lineTo(6,-3);c.stroke();c.restore();c.fillStyle=c.strokeStyle=INK;c.lineWidth=3};
 st.mid=c=>{for(const b of fx)if(b.puck&&b.in)drawPuck(c,b)};
 st.over=c=>{st.use(st.H);const since=performance.now()-eyesAt;
   /* the eyes are drawn on, one then the other, each dot growing as a pen presses: 5 s after the page opens, or as soon as the 0 is hovered */
@@ -436,14 +472,15 @@ st.over=c=>{st.use(st.H);const since=performance.now()-eyesAt;
   if(flame){const n=performance.now()/45,L=34+Math.sin(n)*6+Math.sin(n*2.3)*3;c.save();c.translate(flame.x,flame.y);c.rotate(flame.a+Math.PI);c.translate(flame.r+4,0);
     c.lineWidth=LW;c.fillStyle='#ffffff';c.beginPath();c.moveTo(0,-9);c.quadraticCurveTo(L*.45,-13+Math.sin(n*1.7)*2,L,Math.sin(n*1.3)*3);c.quadraticCurveTo(L*.45,13,0,9);c.quadraticCurveTo(-5,0,0,-9);c.fill();c.stroke();
     const l=L*.5;c.lineWidth=LW*.7;c.beginPath();c.moveTo(2,-4);c.quadraticCurveTo(l*.5,-6,l,Math.sin(n*1.9)*2);c.quadraticCurveTo(l*.5,6,2,4);c.stroke();c.restore();c.fillStyle=c.strokeStyle=INK}
-  c.lineWidth=3;for(const b of fx){if(b.puck){if(!b.in)drawPuck(c,b);continue}if(b.donut){drawDonut(c,b);continue}
+  c.lineWidth=3;for(const b of fx){if(b.puck){if(!b.in)drawPuck(c,b);continue}if(b.donut){drawDonut(c,b);continue}if(b.cone){drawCone(c,b);continue}if(b.kid){drawKid(c,b);continue}if(b.hint){drawHint(c,b);continue}
     c.beginPath();c.ellipse(b.x,b.y,b.r,b.r*(b.sq||1),0,0,7);b.fill?c.fill():c.stroke()}
-  if(hud){const V=st.H,z=Math.max(1,.8/V.s),X=V.xr-36*z,T=V.yt+40*z;st.use(V);scribble(c,fmt(hud.t),X,T,24*z,3.5*z);
-    hud.list.forEach((e,i)=>{c.globalAlpha=e.best?1:.5;scribble(c,fmt(e.t),X,T+(44+i*25)*z,16*z,(e.best?2.9:2)*z)});c.globalAlpha=1;st.use(st.G)}
+  if(hud){const V=st.H,z=Math.max(1,.8/V.s),X=V.xr-36*z,T=V.yt+40*z,F=hud.f||fmt;let top=44;st.use(V);if(hud.t!==undefined)scribble(c,fmt(hud.t),X,T,24*z,3.5*z);
+    if(hud.count!==undefined){const n=String(hud.count),y0=hud.t===undefined?0:46;scribble(c,n,X,T+y0*z,24*z,3.5*z);c.save();c.translate(X-n.length*20.6*z-24*z,T+(y0+12)*z);c.scale(z*.9,z*.9);drawDonut(c,{x:0,y:0,seed:1,still:1});c.restore();top=y0+46}
+    hud.list.forEach((e,i)=>{c.globalAlpha=e.best?1:.5;scribble(c,F(e.t),X,T+(top+i*25)*z,16*z,(e.best?2.9:2)*z)});c.globalAlpha=1;st.use(st.G)}
   if(rays){c.lineWidth=5;c.beginPath();c.ellipse(rays.x,rays.y+5,13,17,0,0,7);c.fill();
     for(let i=0;i<8;i++){const a=i*Math.PI/4+rays.t*7;c.beginPath();c.moveTo(rays.x+Math.cos(a)*30,rays.y+Math.sin(a)*30);c.lineTo(rays.x+Math.cos(a)*50,rays.y+Math.sin(a)*50);c.stroke()}}};
 
-const reset=n=>{name=n||name;pic=PICS[name];if(eyesAt>1e11)eyesAt=performance.now()+5000;D=pic.dots.map(([x,y])=>({x,y}));k=0;won=false;auto=false;run++;fx=[];score=0;st.live=false;hud=null;flame=null;keyDown=keyUp=null;
+const reset=n=>{name=n||name;pic=PICS[name];if(eyesAt>1e11)eyesAt=performance.now()+5000;D=pic.dots.map(([x,y])=>({x,y}));k=0;won=false;auto=false;run++;fx=[];score=0;st.live=false;hud=null;flame=null;road=null;keyDown=keyUp=null;
   dressed=shades=resetOn=false;rays=null;hat=null;look=null;tipping=false;overHat=false;grab=drop=near=null;st.cv.style.cursor='';
   st.strokes=four04(X,Y,H,rng(11));st.strokes.forEach(q=>{q.boil=0});
   if(st.focus!==(pic.fx||500)||st.vw!==(pic.vw||800)){st.focus=pic.fx||500;st.vw=pic.vw||800;st.resize()}st.draw()};
