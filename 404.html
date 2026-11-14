@@ -94,7 +94,7 @@ class Stage{
     const s=Math.min(w/VW,h/VH);let G=this.view(s,(w/s-VW)/2,(h/s-VH)/2,w,h),Hd=G;this.portrait=h/w>1.2;
     if(this.portrait){
       /* the 404 block runs from y 50 (its hair and cap) to 336; it goes to the top, as wide as the screen allows */
-      const hs=Math.min(w/540,h*.42/286);Hd=this.view(hs,w/2/hs-500,64/hs-50,w,h);const hb=(336+Hd.oy)*hs;
+      const hs=Math.min(w/485,h*.42/286);Hd=this.view(hs,w/2/hs-500,64/hs-50,w,h);const hb=(336+Hd.oy)*hs;
       /* the game's part of the scene (y 330 to 760) fills the width, cropped a little round the picture's middle, in the
          space left under the 404 */
       const gs=Math.min(w/(this.vw||800),(h-hb-24)/430),top=hb+Math.max(0,(h-24-hb-430*gs)/2);G=this.view(gs,w/2/gs-(this.focus||500),top/gs-330,w,h);G.top=330}
@@ -167,12 +167,12 @@ const dress=(my,mx,mS)=>{dressed=true;const id=run,r=rng(31);hat=null;
   if(mS){let L=mS.pts[0],R=L,low=-1e9;for(const q of mS.pts){if(q.x<L.x)L=q;if(q.x>R.x)R=q;low=Math.max(low,q.y)}
     const w=R.x-L.x,a=(L.y+R.y)/2,d=low-a;
     if(w>18*K&&d>5*K){const lip=mk([[L.x,L.y],[(L.x+R.x)/2,a+d*.08],[R.x,R.y]],LW,r,{boil:0,hdr:1});st.strokes.push(lip);play(st,[lip],3)}}
-  tween(850,t=>{look.hair=t<.5?2*t*t:1-2*(1-t)*(1-t);st.draw();if(t<1||id!==run)return;
-    st.strokes.push(must);play(st,[must],20,()=>{if(id!==run)return;
-      look.capY=-190*K;tween(420,v=>{look.capY=-190*K*(1-v*v);st.draw();if(v>=1&&id===run){look.capY=0;hat=true;overHat=!!ptrH&&overCap(ptrH);later(350,sign)}})})})};
+  tween(650,t=>{look.hair=t<.5?2*t*t:1-2*(1-t)*(1-t);st.draw();if(t<1||id!==run)return;
+    st.strokes.push(must);play(st,[must],28,()=>{if(id!==run)return;
+      look.capY=-190*K;tween(340,v=>{look.capY=-190*K*(1-v*v);st.draw();if(v>=1&&id===run){look.capY=0;hat=true;overHat=!!ptrH&&overCap(ptrH);later(180,sign)}})})})};
 /* Hans's signature, signed under the face once it is done, stroke by stroke along his own pen route (FACE.sign) */
 const sign=()=>{const g=FACE.sign,h=56,k=h/g.h,x0=FX-g.w*k/2,y0=Y+H+4;
-  const strokes=g.strokes.map(q=>({pts:q.map(([a,b])=>({x:x0+a*k,y:y0+b*k})),w:3.8,fixed:true,seed:1,boil:0,hdr:1}));st.strokes.push(...strokes);play(st,strokes,5)};
+  const strokes=g.strokes.map(q=>({pts:q.map(([a,b])=>({x:x0+a*k,y:y0+b*k})),w:3.8,fixed:true,seed:1,boil:0,hdr:1}));st.strokes.push(...strokes);play(st,strokes,7)};
 const overCap=p=>{const h=FACE.capHit;return p.x>FX+h[0]*RY&&p.x<FX+h[2]*RY&&p.y>FY+h[1]*RY&&p.y<FY+h[3]*RY};
 const drawLook=c=>{if(!look)return;
   if(look.hair>0){const im=hairAt(look.hair),L=FACE.hair;if(im)c.drawImage(im,FX+L.x*RY,FY+L.y*RY,L.w*RY,L.h*RY)}
@@ -261,7 +261,7 @@ const PICS={
  /* the paper plane: join the dots, then it sits in a slingshot. Pull it back and let go (a few dots show the arc while
     pulling): it flies the opposite way, harder the further it was pulled. Two cans: in the recycling it is +1 and stays
     there, piling up; in the trash it is -1 and burns up. The cans swap sides of each other now and then. */
- plane:{fx:520,vw:780,C:[490,530],
+ plane:{fx:545,vw:860,C:[490,530],
   dots:[[720,500],[300,400],[410,525],[375,650],[480,565]],
   extras:r=>[mk([[410,525],[712,502]],8,r),
     ...[[[206,712],[208,646],[194,604]],[[208,646],[224,606]],[[194,712],[220,712]]].map(q=>mk(q,4,r,{solo:1,boil:0,color:'rgba(33,64,208,.5)'})),
