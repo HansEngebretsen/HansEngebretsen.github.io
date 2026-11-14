@@ -399,24 +399,34 @@ const PICS={
       side (one bend at first, an S after the first flag, wider with each level). The donuts sit along that curve, the cones
       on the lazy straight line it bends away from (and, later, outside the bend), so the route reads at a glance. The dotted
       example shown before the first road is that same curve. */
-   /* A course that makes sense is built round one good road that weaves: from the van's nose it bends one and a half to three
-      times (more with each level) on its way to a checkered flag on the far side, easing in from the van so it starts
-      straight. Donuts sit along the road, on and between the bends; a cone stands on the inside of each bend (and, later,
-      outside some), so cutting a corner hits one and the road reads as a slalom. The dotted example is that road. */
+   /* A course that makes sense is built round one good road that weaves from the van's nose to a checkered flag on the far
+      side, easing out of the van so it starts straight. Donuts sit along the road; cones stand beside it as slalom gates.
+      It gets harder a step at a time (LEVELS, by how many flags have been reached):
+        bends    how many times the road swings (1.5, then 2, 2.5, 3)
+        swing    how far it swings from the straight line
+        donuts   how many sit on it
+        inside   a cone on the inside of every bend, so cutting a corner hits it
+        outside  from the second course, cones outside the bends too (every other bend, then all)
+        middle   from the third, cones where the straight line would cross the road, so it has to weave
+        gap      how close the cones stand to the road, narrowing
+      The dotted example before the first road is that road. */
+   const LEVELS=[{bends:1.5,swing:70,donuts:3,outside:0,middle:0,gap:104},{bends:2,swing:80,donuts:4,outside:.5,middle:0,gap:98},
+     {bends:2.5,swing:90,donuts:4,outside:.5,middle:1,gap:92},{bends:3,swing:100,donuts:5,outside:1,middle:1,gap:86},{bends:3,swing:108,donuts:5,outside:1,middle:1,gap:78}];
    const deal=()=>{const a=start(),left=S.x>(V.xl+V.xr)/2,dir=left?-1:1,fx=left?V.xl+134:V.xr-134,fy=clamp(a[1]+(R()-.5)*170,470,680);
-     const waves=clamp(1.5+R()*.6+S.level*.5,1.5,3),ph=R()<.5?1:-1;let A=(70+R()*30+Math.min(30,S.level*8))*ph,line;
+     const Lv=LEVELS[Math.min(S.level,LEVELS.length-1)],waves=Lv.bends+(S.level>=LEVELS.length?(R()-.5)*.3:0),ph=R()<.5?1:-1;let A=Lv.swing*(.92+R()*.16)*ph,line;
      const base=t=>[a[0]+(fx-a[0])*t,a[1]+(fy-a[1])*t],ease=t=>Math.min(1,t*5),off=t=>A*Math.sin(Math.PI*waves*t)*ease(t);
      for(let k=0;k<12;k++){line=[];for(let i=0;i<=80;i++){const t=i/80,q=base(t);line.push([q[0],q[1]+off(t)])}
-       const L=lay([[S.x,S.y],...line]),ys=line.map(q=>q[1]);if(L&&Math.max(...L.turn.slice(10))<HARSH*.6&&Math.min(...ys)>428&&Math.max(...ys)<704)break;A*=.85}
+       const L=lay([[S.x,S.y],...line]),ys=line.map(q=>q[1]);if(L&&Math.max(...L.turn.slice(10))<HARSH*.62&&Math.min(...ys)>428&&Math.max(...ys)<704)break;A*=.86}
      const end=line[80];S.flag={x:end[0]+14*dir,y:end[1]};
-     const peaks=[];for(let k=0;k<Math.floor(waves);k++)peaks.push((k+.5)/waves);
-     const spots=[...peaks,...peaks.map(t=>t+.5/waves)].filter(t=>t>.12&&t<.92).sort((p,q)=>p-q);
-     S.things=spots.slice(0,5).map(t=>{const q=line[Math.round(t*80)];return{x:q[0],y:q[1],donut:1,seed:R()*9}});
-     const cone=(x,y)=>{y=clamp(y,412,716);if(!line.some(q=>Math.hypot(q[0]-x,q[1]-y)<92)&&!S.things.some(q=>Math.hypot(q.x-x,q.y-y)<70))S.things.push({x,y,cone:1,seed:R()*9})};
-     for(const t of peaks){const q=base(t),o=off(t);cone(q[0],q[1]+o-Math.sign(o)*100)}
-     if(S.level>0)for(const t of peaks.filter((q,i)=>i%2===S.level%2)){const q=base(t),o=off(t);cone(q[0],q[1]+o+Math.sign(o)*100)}
-     S.guide=S.roaded?null:line};
-   road={from:p=>{if(S.phase!=='plan')return false;const q=start();return Math.hypot(p.x-q[0],p.y-q[1])<Math.max(70,36/V.s)},
+     const peaks=[];for(let k=0;k<Math.floor(waves+.01);k++)peaks.push((k+.5)/waves);
+     const spread=[];for(let i=0;i<Lv.donuts;i++)spread.push(.16+.72*(i+.5)/Lv.donuts);
+     S.things=spread.map(t=>{const q=line[Math.round(t*80)];return{x:q[0],y:q[1],donut:1,seed:R()*9}});
+     const cone=(x,y,gap)=>{y=clamp(y,412,716);if(!line.some(q=>Math.hypot(q[0]-x,q[1]-y)<gap-8)&&!S.things.some(q=>Math.hypot(q.x-x,q.y-y)<64)&&Math.hypot(x-a[0],y-a[1])>110)S.things.push({x,y,cone:1,seed:R()*9})};
+     peaks.forEach((t,i)=>{const q=base(t),o=off(t),sg=Math.sign(o)||1;cone(q[0],q[1]+o-sg*Lv.gap,Lv.gap);
+       if(Lv.outside>=1||(Lv.outside>0&&i%2===S.level%2))cone(q[0],q[1]+o+sg*Lv.gap,Lv.gap)});
+     if(Lv.middle)for(let k=1;k<Math.floor(waves+.01);k++){const t=k/waves,q=base(t),o=off(t+.5/waves);cone(q[0],q[1]+(Math.sign(o)||1)*Lv.gap*.55,Lv.gap*.8)}
+     S.ideal=line;S.guide=S.roaded?null:line};
+   road={ideal:()=>S.ideal,from:p=>{if(S.phase!=='plan')return false;const q=start();return Math.hypot(p.x-q[0],p.y-q[1])<Math.max(70,36/V.s)},
      done:s=>{if(S.phase!=='plan'){const i=st.strokes.indexOf(s);if(i>=0)st.strokes.splice(i,1);return}
        S.road=s;const L=lay([[S.x,S.y],...s.pts.map(q=>[q.x,q.y])]);if(!L){unroad();return}
        S.path=L.sm;S.ang=L.ang;S.turn=L.turn;S.i=0;S.phase='drive';S.roaded=1}};
@@ -464,7 +474,7 @@ const PICS={
     for(const[w,lx,ly]of wheels.filter((q,i)=>i!==S.offW)){const X=S.sx*zc*lx,Yq=zc*ly;w.tf.x=S.x+X*co-Yq*si-w.cx;w.tf.y=S.y+X*si+Yq*co-w.cy;w.tf.r=S.spin;w.tf.s=zc}
     fx=[...S.things,...S.out];if(S.burst&&S.burst.t<.4)fx.push(S.burst);if(S.phase!=='in')fx.unshift({flag:1,x:S.flag.x,y:S.flag.y});if(S.guide&&!S.roaded&&S.phase==='plan'&&!st.cur)fx.unshift({ghost:1,pts:S.guide});
     if(S.phase==='plan'&&!st.cur){const q=start(),n0=world(735,660),g=V.s;fx.push({hint:1,x:q[0],y:q[1],x0:n0[0],y0:n0[1]});
-      cue=S.roaded?null:{left:1,x:q[0]-Math.max(18,10/g),y:q[1]+Math.max(26,15/g),lines:st.portrait?['draw a road','avoid the cones','get the donuts']:['draw a road','avoid the cones, get the donuts']}}else cue=null}}}
+      cue=S.roaded?null:{x:(V.xl+V.xr)/2,y:st.portrait?352:378,lines:st.portrait?['draw a road','avoid the cones','get the donuts']:['draw a road','avoid the cones, get the donuts']}}else cue=null}}}
 };
 
 const win=()=>{won=true;const id=++run,ex=pic.extras(rng(4)),tf={x:0,y:0,r:0,s:1,sx:1},G={tf};
@@ -538,8 +548,8 @@ st.over=c=>{st.use(st.H);const since=performance.now()-eyesAt;
     c.beginPath();c.arc(ex+ox,ey+oy,FACE.er*RY*g,0,7);c.fill()});
   drawLook(c);st.use(st.G);
   /* the one word that says what to do, centred on its spot, until the visitor has done it */
-  if(cue&&!st.cur){const g=st.G.s,h0=Math.max(15,13/g);c.globalAlpha=.75;(cue.lines||[cue.t]).forEach((t,i)=>{const h=i?h0*.84:h0;let w=0;for(const ch of t)w+=(ch===' '?h*.31:h*.62)+h*.24;
-      scribble(c,t,clamp(cue.left?cue.x:cue.x-w/2,st.G.xl+10,Math.max(st.G.xl+10,st.G.xr-w-10))+w,cue.y+i*h0*2.2,h,h*.17)});c.globalAlpha=1}
+  if(cue&&!st.cur){const g=st.G.s,h0=Math.max(15,13/g)*(cue.lines&&!cue.left?1.3:1);c.globalAlpha=.75;(cue.lines||[cue.t]).forEach((t,i)=>{const h=i?h0*.84:h0;let w=0;for(const ch of t)w+=(ch===' '?h*.31:h*.62)+h*.24;
+      scribble(c,t,clamp(cue.left?cue.x:cue.x-w/2,st.G.xl+10,Math.max(st.G.xl+10,st.G.xr-w-10))+w,cue.y+i*h0*(cue.left?2.2:1.9),h,h*.17)});c.globalAlpha=1}
   if(flame){const n=performance.now()/45,L=34+Math.sin(n)*6+Math.sin(n*2.3)*3;c.save();c.translate(flame.x,flame.y);c.rotate(flame.a+Math.PI);c.translate(flame.r+4,0);
     c.lineWidth=LW;c.fillStyle='#ffffff';c.beginPath();c.moveTo(0,-9);c.quadraticCurveTo(L*.45,-13+Math.sin(n*1.7)*2,L,Math.sin(n*1.3)*3);c.quadraticCurveTo(L*.45,13,0,9);c.quadraticCurveTo(-5,0,0,-9);c.fill();c.stroke();
     const l=L*.5;c.lineWidth=LW*.7;c.beginPath();c.moveTo(2,-4);c.quadraticCurveTo(l*.5,-6,l,Math.sin(n*1.9)*2);c.quadraticCurveTo(l*.5,6,2,4);c.stroke();c.restore();c.fillStyle=c.strokeStyle=INK}
