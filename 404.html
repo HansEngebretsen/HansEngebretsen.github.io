@@ -266,8 +266,9 @@ const PICS={
   extras:r=>[mk([[410,525],[712,502]],8,r),
     ...[[[206,712],[208,646],[194,604]],[[208,646],[224,606]],[[194,712],[220,712]]].map(q=>mk(q,4,r,{solo:1,boil:0,color:'rgba(33,64,208,.5)'})),
     ...[0,1].flatMap(j=>{const x0=j?820:640,o={solo:1,can:j?'rec':'trash'};
-      const box=[mk([[x0,590],[x0+110,588],[x0+94,716],[x0+16,718],[x0,590]],9,r,o),mk([[x0-6,584],[x0+116,582]],8,r,o)];
-      if(!j)return[...box,mk([[x0+30,592],[x0+38,716]],4,r,o),mk([[x0+56,590],[x0+56,716]],4,r,o),mk([[x0+82,590],[x0+76,716]],4,r,o),mk([[x0+36,570],[x0+76,570],[x0+76,582]],6,r,o)];
+      const box=[mk([[x0,590],[x0+110,588],[x0+94,716],[x0+16,718],[x0,590]],9,r,o)];
+      if(!j)return[...box,mk([[x0+30,592],[x0+38,716]],4,r,o),mk([[x0+56,590],[x0+56,716]],4,r,o),mk([[x0+82,590],[x0+76,716]],4,r,o)];
+      box.push(mk([[x0-6,584],[x0+116,582]],8,r,o));
       /* the recycling mark: three curved arrows chasing each other round a circle */
       const c=[x0+55,652],R0=25,ar=[];
       for(let i=0;i<3;i++){const a0=i*2.094-1.2,a1=a0+1.55,arc=[];for(let a=a0;a<=a1+.01;a+=.12)arc.push([c[0]+Math.cos(a)*R0,c[1]+Math.sin(a)*R0]);
@@ -281,7 +282,7 @@ const PICS={
    const POW=.17,MAX=150,aim=()=>{const p=S.pull,dx=seat[0]-p.x,dy=seat[1]-p.y,d=Math.hypot(dx,dy),k=Math.min(d,MAX)/(d||1);return[dx*k*POW,dy*k*POW]};
    near=q=>S.mode==='ready'&&Math.hypot(q.x-S.x,q.y-S.y)<90;
    grab=q=>{if(!near(q))return false;S.mode='pull';S.thrown=1;S.pull={x:S.x,y:S.y};return true};
-   drop=()=>{if(S.mode!=='pull')return;const[vx,vy]=aim();if(Math.hypot(vx,vy)<3){S.mode='ready';S.pull=null;return}S.vx=vx;S.vy=vy;S.mode='fly';S.pull=null;S.bank=0};
+   drop=()=>{if(S.mode!=='pull')return;const[vx,vy]=aim();if(Math.hypot(vx,vy)<3){S.mode='ready';S.pull=null;return}S.vx=vx;S.vy=vy;S.mode='fly';S.pull=null;S.bank=0;S.miss=0};
    const reload=()=>{S.s=.27;S.x=st.xl-60;S.y=520;S.h=0;S.mode='load';S.burn=0;
      /* every third throw the two cans trade places */
      if(++S.swap%3===0){const from=cans.map(c=>c.tf.x),to=[from[0]?0:180,from[1]?0:-180];tween(500,t=>{const e=t*t*(3-2*t);cans.forEach((c,i)=>{c.tf.x=from[i]+(to[i]-from[i])*e});st.draw()})}};
@@ -290,9 +291,12 @@ const PICS={
     else if(S.mode==='ready'){S.x=seat[0];S.y=seat[1]}
     else if(S.mode==='pull'&&ptr){let dx=ptr.x-seat[0],dy=ptr.y-seat[1];const d=Math.hypot(dx,dy);if(d>MAX){dx*=MAX/d;dy*=MAX/d}
       S.x=ease(S.x,seat[0]+dx,.5*f);S.y=ease(S.y,seat[1]+dy,.5*f);S.pull={x:S.x,y:S.y};const[vx,vy]=aim();S.h=Math.atan2(vy,vx)}
-    else if(S.mode==='fly'){S.vy+=.16*f;const d=Math.pow(.996,f);S.vx*=d;S.vy*=d;const py=S.y;S.x+=S.vx*f;S.y+=S.vy*f;S.h=Math.atan2(S.vy,S.vx);
+    else if(S.mode==='fly'){S.vy+=.16*f;const d=Math.pow(.996,f);S.vx*=d;S.vy*=d;const py=S.y,pxp=S.x;S.x+=S.vx*f;S.y+=S.vy*f;S.h=Math.atan2(S.vy,S.vx);
+      const cross=(a,b,c,d)=>{const r=(p,q,t)=>(q[0]-p[0])*(t[1]-p[1])-(q[1]-p[1])*(t[0]-p[0]);return r(a,b,c)*r(a,b,d)<0&&r(c,d,a)*r(c,d,b)<0};
+      if(!S.miss)for(const cn of cans){const x=cn.x0+cn.tf.x,walls=[[[x-2,586],[x+16,720]],[[x+112,584],[x+94,718]]];
+        if(walls.some(([a,b])=>cross([pxp,py],[S.x,S.y],a,b))){S.miss=1;S.x=pxp;S.y=py;S.vx=-S.vx*.25;S.vy=Math.max(1.5,Math.abs(S.vy)*.3);break}}
       if(S.x<st.xl+20||S.x>st.xr-20){S.vx*=-.4;S.x=clamp(S.x,st.xl+20,st.xr-20);S.bank=1}
-      const can=cans.find(c=>{const x=c.x0+c.tf.x;return py<590&&S.y>=590&&S.x>x+4&&S.x<x+106});
+      const can=!S.miss&&cans.find(c=>{const x=c.x0+c.tf.x;return py<590&&S.y>=590&&S.x>x+4&&S.x<x+106});
       if(can){const x=can.x0+can.tf.x,pts=can.kind==='rec'?(S.bank?2:1):-1;S.n+=pts;pop={t:(pts>0?'+':'')+pts,x:x+55,y:can.kind==='rec'?560:500,a:0};S.cx=x+55;
         if(can.kind==='rec'){S.mode='in';S.s=.2;S.tx=x+18+R()*74;S.ty=Math.max(602,672-pile.length*10);S.th=.9+R()*1.3;
           later(1100,()=>{const tf=Object.assign({},G.tf);grp.forEach(s=>{const q={pts:s.pts,w:s.w,fixed:true,seed:s.seed+S.n,cx:s.cx,cy:s.cy,tf};pile.push({q,can,dx:tf.x-can.tf.x});st.strokes.push(q)});reload()})}
