@@ -356,17 +356,20 @@ const PICS={
    const floorAt=x=>{let fl=base+44;for(const p of pieces)if(p.x1<x)fl=p.floor;return fl};
    const h=x=>{for(const p of pieces)if(x>=p.x0&&x<=p.x1)return hp(p.pts,x);return null};
    near=q=>!S.intro&&S.mode!=='crash'&&Math.hypot(q.x-S.x,q.y-(S.y-45))<90;
-   grab=q=>{if(!near(q))return false;S.tapped=1;if(S.air&&S.mode==='ride'&&!S.fresh){if(!S.flipping){S.flipping=true;S.flip=0;S.vy=Math.min(S.vy,-2.5)}return true}S.mode='held';S.vx=S.vy=0;return true};
+   /* a tap on the bike jumps it (in the air, it tries a flip); pressing and dragging it carries it instead */
+   grab=q=>{if(!near(q))return false;S.tapped=1;if(S.air&&S.mode==='ride'&&!S.fresh){if(!S.flipping){S.flipping=true;S.flip=0;S.vy=Math.min(S.vy,-2.5)}return true}
+     S.press={x:q.x,y:q.y};if(S.mode==='ride'&&!S.fresh&&!S.intro){S.air=true;S.grounded=false;S.vy=-8.5}return true};
    /* the space bar: tap to jump, tap again in the air to flip, hold for turbo (a flame out the back) */
    let held=0;const turbo=()=>held&&performance.now()-held>220&&S.mode==='ride'&&!S.intro;
    keyDown=()=>{held=performance.now();if(S.intro||S.mode!=='ride'||S.fresh)return;S.tapped=1;
      if(!S.air){S.air=true;S.grounded=false;S.vy=-8.5}else if(!S.flipping){S.flipping=true;S.flip=0;S.vy=Math.min(S.vy,-2.5)}};
    keyUp=()=>{held=0};
-   drop=()=>{if(S.mode!=='held')return;S.mode='ride';S.air=true;
+   drop=()=>{S.press=null;if(S.mode!=='held')return;S.mode='ride';S.air=true;
      if(Math.hypot(S.vx,S.vy)<1.5&&S.grounded)S.vy=-6.5;S.vx=clamp(S.vx,-8,8);S.vy=clamp(S.vy,-11,6)};
    return(f,t)=>{const u=Math.min(1,t/1.4),e=u*u*(3-2*u),Vn=V*e*(turbo()?1.9:1);S.intro=u<1;scroll+=Vn*f;TT.x=-scroll;while(wx<scroll+st.xr+300)gen();
     while(pieces.length&&pieces[0].x1<scroll+st.xl-300){for(const d of pieces.shift().strokes){const i=st.strokes.indexOf(d);if(i>=0)st.strokes.splice(i,1)}}
     const z=G.tf.s=1-.68*e,half=185*z;if(u<1)S.x=505-205*e;const gy=h(scroll+S.x),fl=floorAt(scroll+S.x);
+    if(S.press&&(S.mode!=='ride'||u<1))S.press=null;if(S.press&&ptr&&Math.hypot(ptr.x-S.press.x,ptr.y-S.press.y)>30){S.press=null;S.mode='held';S.vx=S.vy=0;S.air=false}
     if(u<1){S.y=715+((gy===null?base:gy)-715)*e;S.vx=S.vy=0;S.air=false;S.a=0}
     else if(S.mode==='crash'){S.x-=V*f;S.vy+=.35*f;S.y=Math.min(S.y+S.vy*f,gy===null?fl:gy);S.a=ease(S.a,.45,.15*f)}
     else if(S.mode==='held'&&ptr){const nx=ease(S.x,ptr.x,.45*f);let ny=ease(S.y,ptr.y+45,.45*f);if(gy!==null&&ny>gy)ny=gy;if(gy===null&&ny>fl-8)ny=fl-8;
