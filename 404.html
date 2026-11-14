@@ -350,7 +350,40 @@ const PICS={
       if(o.off){o.vy+=.35*f;o.x+=o.vx*f;o.y+=o.vy*f;const g=h(scroll+o.x),gr=(g===null?floorAt(scroll+o.x):g)-90*z;
         if(o.y>gr){o.y=gr;o.vy=-Math.abs(o.vy)*.55;o.vx*=.9}w.tf.x=o.x-w.cx;w.tf.y=o.y-w.cy;w.tf.r+=.3*f}
       else{w.tf.x=bx+z*(o.lx*co-o.ly*si)-w.cx;w.tf.y=by+z*(o.lx*si+o.ly*co)-w.cy;w.tf.r=A+S.spin}}
-    flame=turbo()?{x:wheels[0].w.tf.x+wheels[0].w.cx,y:wheels[0].w.tf.y+wheels[0].w.cy,a:A,r:90*z}:null}}}
+    flame=turbo()?{x:wheels[0].w.tf.x+wheels[0].w.cx,y:wheels[0].w.tf.y+wheels[0].w.cy,a:A,r:90*z}:null}}},
+
+ /* the minivan: join the dots, it gets wheels, windows and three passengers, then drives a winding road after the pointer
+    (or cruises it when left alone), picking up donuts */
+ van:{fx:500,vw:700,C:[505,660],L:[505,535],
+  dots:[[255,615],[250,522],[292,440],[540,428],[640,492],[735,520],[756,575],[750,615]],
+  extras:r=>{const wheel=(cx,cy,wh)=>{const tf={x:0,y:0,r:0,s:1},o=more=>Object.assign({solo:1,late:1,wh,cx,cy,tf},more);
+      return[mk(ring(cx,cy,42),9,r,o({fill:'#ffffff'})),mk(ring(cx,cy,12),7,r,o()),mk([[cx-28,cy],[cx+28,cy]],4,r,o()),mk([[cx,cy-28],[cx,cy+28]],4,r,o())]};
+    const face=(x,y,R)=>[mk(ring(x,y,R),5,r,{late:1}),mk([[x-R*.5,y+R*.15],[x-R*.2,y+R*.5],[x+R*.25,y+R*.5],[x+R*.55,y+R*.15]],4,r,{late:1}),
+      {pts:[{x:x-R*.35,y:y-R*.3}],w:5,fixed:true,seed:1,boil:0,late:1},{pts:[{x:x+R*.35,y:y-R*.3}],w:5,fixed:true,seed:1,boil:0,late:1}];
+    return[mk([[306,456],[534,446],[616,498],[306,506],[306,456]],8,r),mk([[396,452],[396,602]],7,r),mk([[482,448],[484,602]],7,r),mk([[545,447],[560,600]],7,r),
+      mk([[412,540],[432,540]],6,r),mk([[500,538],[520,538]],6,r),mk(ring(722,543,10),6,r),mk([[256,528],[270,530],[269,552],[254,552]],6,r),
+      ...face(350,482,15),...face(385,476,12),...face(438,480,16),...face(515,474,18),...wheel(345,618,0),...wheel(662,618,1)]},
+  start(G,ex){const R=rng(21),wheels=[[ex.find(s=>s.wh===0),-160,-42],[ex.find(s=>s.wh===1),157,-42]];
+   const V=st.G,A=Math.min(390,(V.xr-V.xl)/2-80),cx=(V.xl+V.xr)/2,cy=565,B=100;
+   const road=u=>[cx+A*Math.cos(u),cy+B*Math.sin(u)+26*Math.sin(3*u+.6)];
+   const edge=o=>{const p=[];for(let u=0;u<=6.33;u+=.07){const[a,b]=road(u),[a2,b2]=road(u+.02),n=Math.hypot(a2-a,b2-b)||1;p.push([a-(b2-b)/n*o,b+(a2-a)/n*o])}return p};
+   for(const o of[-44,44]){const s=mk(edge(o),7,R,{solo:1,boil:.8});st.strokes.unshift(s);play(st,[s],6)}
+   const S={x:505,y:660,vx:0,vy:0,sx:1,spin:0,u:Math.PI/2,donuts:[]};
+   const gapTo=(a,b)=>Math.abs(((a-b)%6.283+9.4245)%6.283-3.1415);
+   const drop=()=>{let u,n=0;do{u=R()*6.283}while(n++<40&&(S.donuts.some(d=>gapTo(d.u,u)<.55)||Math.hypot(road(u)[0]-S.x,road(u)[1]-(S.y-25))<170));
+     const[x,y]=road(u);S.donuts.push({u,x,y,donut:1,seed:R()*9})};
+   for(let i=0;i<5;i++)drop();
+   grab=()=>true;
+   return f=>{const z=G.tf.s=ease(G.tf.s,.36,.07*f),hov=ptr&&!(ptrH&&inFace(ptrH.x,ptrH.y,1.45));let T=ptr;
+    if(!hov){S.u+=.011*f;const q=road(S.u);T={x:q[0],y:q[1]}}
+    const bx=S.x,by=S.y-80*z,dx=T.x-bx,dy=T.y-by,d=Math.hypot(dx,dy)||1,sp=Math.min(9,d*.07);
+    S.vx=ease(S.vx,dx/d*sp,.09*f);S.vy=ease(S.vy,dy/d*sp,.09*f);S.x+=S.vx*f;S.y+=S.vy*f;
+    if(Math.abs(S.vx)>.6)S.sx=S.vx>0?1:-1;
+    const v=Math.hypot(S.vx,S.vy),r=clamp(Math.atan2(S.vy,Math.abs(S.vx)+1.5)*.45,-.4,.4)*S.sx,co=Math.cos(r),si=Math.sin(r);
+    G.tf.x=S.x-505;G.tf.y=S.y-660;G.tf.r=r;G.tf.sx=S.sx;S.spin+=v*f/(42*z)*S.sx;
+    for(const[w,lx,ly]of wheels){const X=S.sx*z*lx,Yq=z*ly;w.tf.x=S.x+X*co-Yq*si-w.cx;w.tf.y=S.y+X*si+Yq*co-w.cy;w.tf.r=S.spin;w.tf.s=z}
+    for(const dn of S.donuts)if(Math.hypot(dn.x-bx,dn.y-by)<52){S.donuts.splice(S.donuts.indexOf(dn),1);tally();drop();break}
+    fx=S.donuts}}}
 };
 
 const win=()=>{won=true;const id=++run,ex=pic.extras(rng(4)),tf={x:0,y:0,r:0,s:1,sx:1},G={tf};
@@ -388,6 +421,11 @@ const drawPuck=(c,b)=>{const ph=reduce?0:st.frame*1.9,W=(a,k)=>1+.07*Math.sin(a*
   c.beginPath();c.moveTo(-16.5,-4);c.lineTo(-15.5,5.5);for(let a=Math.PI;a>=-.01;a-=.3){const r=W(a,2);c.lineTo(Math.cos(a)*16*r,5.5+Math.sin(a)*7.2*r)}c.lineTo(16.8,-3.5);c.fill();c.stroke();
   c.beginPath();for(let a=-.5,i=0;a<=6.75;a+=.3,i++){const r=W(a,0)*(1-.012*a),x=Math.cos(a)*16.5*r,y=-4+Math.sin(a)*7*r;if(i)c.lineTo(x,y);else c.moveTo(x,y)}c.fill();c.stroke();
   c.restore();c.fillStyle=c.strokeStyle=INK;c.lineWidth=3};
+const drawDonut=(c,b)=>{const ph=reduce?0:st.frame*1.7+b.seed,W=(a,k)=>1+.06*Math.sin(a*3+k+b.seed)+.03*Math.sin(a*5+ph);
+  c.save();c.translate(b.x,b.y+Math.sin(performance.now()/420+b.seed)*2.5);c.rotate(-.15);c.lineWidth=3.6;c.strokeStyle=INK;c.fillStyle='#ffffff';
+  c.beginPath();for(let a=-.4,i=0;a<=6.6;a+=.3,i++){const r=W(a,0),x=Math.cos(a)*18*r,y=Math.sin(a)*13*r;if(i)c.lineTo(x,y);else c.moveTo(x,y)}c.fill();c.stroke();
+  c.beginPath();c.ellipse(1,-1,6,3.6,0,0,7);c.stroke();c.beginPath();c.ellipse(0,0,12.5,8.5,0,3.5,5.1);c.stroke();
+  c.restore();c.fillStyle=c.strokeStyle=INK;c.lineWidth=3};
 st.mid=c=>{for(const b of fx)if(b.puck&&b.in)drawPuck(c,b)};
 st.over=c=>{st.use(st.H);const since=performance.now()-eyesAt;
   /* the eyes are drawn on, one then the other, each dot growing as a pen presses: 5 s after the page opens, or as soon as the 0 is hovered */
@@ -398,7 +436,7 @@ st.over=c=>{st.use(st.H);const since=performance.now()-eyesAt;
   if(flame){const n=performance.now()/45,L=34+Math.sin(n)*6+Math.sin(n*2.3)*3;c.save();c.translate(flame.x,flame.y);c.rotate(flame.a+Math.PI);c.translate(flame.r+4,0);
     c.lineWidth=LW;c.fillStyle='#ffffff';c.beginPath();c.moveTo(0,-9);c.quadraticCurveTo(L*.45,-13+Math.sin(n*1.7)*2,L,Math.sin(n*1.3)*3);c.quadraticCurveTo(L*.45,13,0,9);c.quadraticCurveTo(-5,0,0,-9);c.fill();c.stroke();
     const l=L*.5;c.lineWidth=LW*.7;c.beginPath();c.moveTo(2,-4);c.quadraticCurveTo(l*.5,-6,l,Math.sin(n*1.9)*2);c.quadraticCurveTo(l*.5,6,2,4);c.stroke();c.restore();c.fillStyle=c.strokeStyle=INK}
-  c.lineWidth=3;for(const b of fx){if(b.puck){if(!b.in)drawPuck(c,b);continue}
+  c.lineWidth=3;for(const b of fx){if(b.puck){if(!b.in)drawPuck(c,b);continue}if(b.donut){drawDonut(c,b);continue}
     c.beginPath();c.ellipse(b.x,b.y,b.r,b.r*(b.sq||1),0,0,7);b.fill?c.fill():c.stroke()}
   if(hud){const V=st.H,z=Math.max(1,.8/V.s),X=V.xr-36*z,T=V.yt+40*z;st.use(V);scribble(c,fmt(hud.t),X,T,24*z,3.5*z);
     hud.list.forEach((e,i)=>{c.globalAlpha=e.best?1:.5;scribble(c,fmt(e.t),X,T+(44+i*25)*z,16*z,(e.best?2.9:2)*z)});c.globalAlpha=1;st.use(st.G)}
@@ -409,7 +447,7 @@ const reset=n=>{name=n||name;pic=PICS[name];if(eyesAt>1e11)eyesAt=performance.no
   dressed=shades=resetOn=false;rays=null;hat=null;look=null;tipping=false;overHat=false;grab=drop=near=null;st.cv.style.cursor='';
   st.strokes=four04(X,Y,H,rng(11));st.strokes.forEach(q=>{q.boil=0});
   if(st.focus!==(pic.fx||500)||st.vw!==(pic.vw||800)){st.focus=pic.fx||500;st.vw=pic.vw||800;st.resize()}st.draw()};
-/* every visit gets one of the three at random; the drawn reset arrow clears the sheet and keeps that one. ?pic=stick|plane|bike picks one. */
+/* every visit gets one of the three at random; the drawn reset arrow clears the sheet and keeps that one. ?pic=stick|plane|bike|van picks one. */
 const NAMES=Object.keys(PICS);
 /* for checks only: window.folio404.finish() joins the dots */
 window.folio404={finish(){if(auto||won)return;auto=true;showReset();const id=run,s={pts:densify([...D,D[0]].map(d=>[d.x,d.y]),9,rng(2)),w:11,seed:5};
