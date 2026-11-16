@@ -279,10 +279,22 @@ const PICS={
    const cans=[{kind:'trash',x0:640,parts:ex.filter(q=>q.can==='trash')},{kind:'rec',x0:820,parts:ex.filter(q=>q.can==='rec')}];
    cans.forEach(c=>{c.tf={x:0,y:0,r:0,s:1};c.parts.forEach(q=>{q.cx=c.x0;q.cy=650;q.tf=c.tf})});
    let pile=[],pop=null;
+   /* After three misses in a row (the ground, a can's side, or the trash), once per browser session: 'try a bank shot', and a
+      target on the wall at the spot that bounces into the recycling from where the cans are now, worked out with this
+      game's own flight. It stays while aiming and goes when that throw lands. */
+   let streak=0,bankTip=null;const seen=()=>{try{return sessionStorage.getItem('folio404-bank')==='1'}catch(_){return!!window.__folio404bank}};
+   const flight=(px,py)=>{let vx=-px*.17,vy=-py*.17,x=seat[0]+px,y=seat[1]+py,hit=null;
+     for(let i=0;i<500;i++){vy+=.16;vx*=.996;vy*=.996;const y0=y;x+=vx;y+=vy;if(x<st.xl+20||x>st.xr-20){if(hit)return null;hit={x:clamp(x,st.xl+20,st.xr-20),y};vx*=-.4;x=hit.x}
+       if(y0<590&&y>=590)return hit?{hit,x}:null;if(y>720||y<st.yt-400)return null}return null};
+   const tipFor=()=>{const rec=cans.find(c=>c.kind==='rec'),cx=rec.x0+rec.tf.x+55;let best=null;
+     for(let d=60;d<=150;d+=2)for(let a=-5;a<80;a+=1){const an=a*Math.PI/180,r=flight(-Math.cos(an)*d,Math.sin(an)*d);
+       if(r&&Math.abs(r.x-cx)<14&&r.hit.y>st.H.yt+(st.portrait?150:140)*Math.max(1,.8/st.H.s)*(st.H.s/st.G.s)&&r.hit.y<560&&(!best||r.hit.y<best.y))best=r.hit}return best};
+   const landed=good=>{if(bankTip&&bankTip.armed){bankTip=null}if(good){streak=0;return}
+     if(++streak>=3&&!seen()){const h=tipFor();if(h){bankTip={x:h.x,y:h.y,armed:0};try{sessionStorage.setItem('folio404-bank','1')}catch(_){window.__folio404bank=1}}}};
    const POW=.17,MAX=150,aim=()=>{const p=S.pull,dx=seat[0]-p.x,dy=seat[1]-p.y,d=Math.hypot(dx,dy),k=Math.min(d,MAX)/(d||1);return[dx*k*POW,dy*k*POW]};
    near=q=>S.mode==='ready'&&Math.hypot(q.x-S.x,q.y-S.y)<90;
    grab=q=>{if(!near(q))return false;S.mode='pull';S.thrown=1;S.pull={x:S.x,y:S.y};return true};
-   drop=()=>{if(S.mode!=='pull')return;const[vx,vy]=aim();if(Math.hypot(vx,vy)<3){S.mode='ready';S.pull=null;return}S.vx=vx;S.vy=vy;S.mode='fly';S.pull=null;S.bank=0;S.miss=0};
+   drop=()=>{if(S.mode!=='pull')return;const[vx,vy]=aim();if(Math.hypot(vx,vy)<3){S.mode='ready';S.pull=null;return}S.vx=vx;S.vy=vy;S.mode='fly';S.pull=null;S.bank=0;S.miss=0;if(bankTip)bankTip.armed=1};
    const reload=()=>{S.s=.27;S.x=st.xl-60;S.y=520;S.h=0;S.mode='load';S.burn=0;
      /* every third throw the two cans trade places */
      if(++S.swap%3===0){const from=cans.map(c=>c.tf.x),to=[from[0]?0:180,from[1]?0:-180];tween(500,t=>{const e=t*t*(3-2*t);cans.forEach((c,i)=>{c.tf.x=from[i]+(to[i]-from[i])*e});st.draw()})}};
@@ -298,10 +310,10 @@ const PICS={
       if(S.x<st.xl+20||S.x>st.xr-20){S.vx*=-.4;S.x=clamp(S.x,st.xl+20,st.xr-20);S.bank=1}
       const can=!S.miss&&cans.find(c=>{const x=c.x0+c.tf.x;return py<590&&S.y>=590&&S.x>x+4&&S.x<x+106});
       if(can){const x=can.x0+can.tf.x,pts=can.kind==='rec'?(S.bank?2:1):-1;S.n+=pts;pop={t:(pts>0?'+':'')+pts,x:x+55,y:can.kind==='rec'?560:500,a:0};S.cx=x+55;
-        if(can.kind==='rec'){S.mode='in';S.s=.2;S.tx=x+18+R()*74;S.ty=Math.max(602,672-pile.length*10);S.th=.9+R()*1.3;
+        landed(can.kind==='rec');if(can.kind==='rec'){S.mode='in';S.s=.2;S.tx=x+18+R()*74;S.ty=Math.max(602,672-pile.length*10);S.th=.9+R()*1.3;
           later(1100,()=>{const tf=Object.assign({},G.tf);grp.forEach(s=>{const q={pts:s.pts,w:s.w,fixed:true,seed:s.seed+S.n,cx:s.cx,cy:s.cy,tf};pile.push({q,can,dx:tf.x-can.tf.x});st.strokes.push(q)});reload()})}
         else{S.mode='burn';S.s=.22;S.tx=x+55;S.ty=600;later(2000,reload)}}
-      else if(S.y>702){S.y=702;S.mode='down';later(700,reload)}
+      else if(S.y>702){S.y=702;S.mode='down';landed(false);later(700,reload)}
       S.c+=f;if(S.c>4){S.c=0;fx.push({x:S.x,y:S.y,r:3,fill:1,life:45})}}
     else if(S.mode==='in'){S.x=ease(S.x,S.tx,.2*f);S.y=ease(S.y,S.ty,.12*f);S.h=ease(S.h,S.th,.15*f)}
     else if(S.mode==='burn'){S.burn=Math.min(1,S.burn+f/110);S.x=ease(S.x,S.tx,.2*f);S.y=ease(S.y,S.ty,.12*f);S.h+=.04*f;S.s=.22*(1-S.burn*.9)}
@@ -312,6 +324,7 @@ const PICS={
     else if(S.mode==='ready'||S.mode==='load')fx.push({band:1,a:fork[0],b:fork[1],p:seat,life:1});
     if(S.mode==='burn'&&S.burn<1)fx.push({fire:1,x:S.cx,y:590,t:S.burn,life:1});
     if(pop){pop.a+=f/60;pop.y-=.6*f;if(pop.a<1.3)fx.push({pop:1,...pop,life:1});else pop=null}
+    if(bankTip)fx.push({banktip:1,x:bankTip.x,y:bankTip.y,life:1});
     cue=!S.thrown&&S.mode==='ready'?{t:'pull back, and recycle',x:seat[0]+60,y:seat[1]-100}:null}}},
 
  bike:{fx:500,vw:620,C:[505,715],L:[505,560],
@@ -583,6 +596,11 @@ const drawFire=(c,b)=>{const n=performance.now()/55,u=b.t,grow=Math.min(1,u*7),h
   c.fillStyle=INK;for(let i=0;i<10;i++){const ph=(n*.025+i/10)%1,ex=Math.sin(i*2.3+n*.08)*40*(1-ph*.3),ey=-h*.6-ph*h*.9;c.globalAlpha=(1-ph)*(1-u*.6);c.beginPath();c.arc(ex,ey,2.6*(1-ph*.5),0,7);c.fill()}
   c.globalAlpha=.45*(1-u*.5);c.lineWidth=3;c.beginPath();for(let i=0;i<=20;i++){const t=i/20,x=Math.sin(t*9+n*.12)*10*t,y=-h-10-t*70;i?c.lineTo(x,y):c.moveTo(x,y)}c.stroke();
   c.restore();c.globalAlpha=1;c.lineWidth=3};
+const drawBankTip=(c,b)=>{const n=performance.now()/1000,g=st.G.s,pulse=1+.18*Math.sin(n*5),R=Math.max(16,9/g)*pulse;c.save();c.lineWidth=Math.max(3,1.6/g);c.lineCap='round';
+  c.beginPath();c.arc(b.x,b.y,R,0,7);c.stroke();c.beginPath();c.arc(b.x,b.y,R*.38,0,7);c.fill();
+  c.globalAlpha=.4;c.beginPath();c.arc(b.x,b.y,R*1.7,0,7);c.stroke();c.globalAlpha=1;
+  const h=Math.max(17,14/g),t='try a bank shot';let w=0;for(const ch of t)w+=(ch===' '?h*.31:h*.62)+h*.24;
+  scribble(c,t,b.x-R*2.2,b.y-h*.5,h,h*.17);c.restore();c.lineWidth=3};
 const drawFlag=(c,b)=>{const w=reduce?0:Math.sin(performance.now()/300)*2.5;c.save();c.translate(b.x,b.y);c.lineWidth=3.6;c.lineCap=c.lineJoin='round';c.strokeStyle=INK;
   c.beginPath();c.moveTo(0,0);c.lineTo(0,-76);c.moveTo(-11,0);c.lineTo(11,0);c.stroke();
   c.fillStyle='#ffffff';c.beginPath();c.moveTo(0,-76);c.lineTo(46,-72+w);c.lineTo(46,-42+w);c.lineTo(0,-46);c.closePath();c.fill();c.stroke();
@@ -606,7 +624,7 @@ st.over=c=>{st.use(st.H);const since=performance.now()-eyesAt;
   if(flame){const n=performance.now()/45,L=34+Math.sin(n)*6+Math.sin(n*2.3)*3;c.save();c.translate(flame.x,flame.y);c.rotate(flame.a+Math.PI);c.translate(flame.r+4,0);
     c.lineWidth=LW;c.fillStyle='#ffffff';c.beginPath();c.moveTo(0,-9);c.quadraticCurveTo(L*.45,-13+Math.sin(n*1.7)*2,L,Math.sin(n*1.3)*3);c.quadraticCurveTo(L*.45,13,0,9);c.quadraticCurveTo(-5,0,0,-9);c.fill();c.stroke();
     const l=L*.5;c.lineWidth=LW*.7;c.beginPath();c.moveTo(2,-4);c.quadraticCurveTo(l*.5,-6,l,Math.sin(n*1.9)*2);c.quadraticCurveTo(l*.5,6,2,4);c.stroke();c.restore();c.fillStyle=c.strokeStyle=INK}
-  c.lineWidth=3;for(const b of fx){if(b.puck){if(!b.in)drawPuck(c,b);continue}if(b.donut){drawDonut(c,b);continue}if(b.cone){drawCone(c,b);continue}if(b.kid){drawKid(c,b);continue}if(b.flag){drawFlag(c,b);continue}if(b.fire)continue;
+  c.lineWidth=3;for(const b of fx){if(b.puck){if(!b.in)drawPuck(c,b);continue}if(b.donut){drawDonut(c,b);continue}if(b.cone){drawCone(c,b);continue}if(b.kid){drawKid(c,b);continue}if(b.flag){drawFlag(c,b);continue}if(b.banktip){drawBankTip(c,b);continue}if(b.fire)continue;
     if(b.band){c.lineWidth=2;c.globalAlpha=.5;c.beginPath();c.moveTo(b.a[0],b.a[1]);c.lineTo(b.p[0],b.p[1]);c.lineTo(b.b[0],b.b[1]);c.stroke();c.globalAlpha=1;continue}
     if(b.pop){const h=46,w=b.t.length*h*.86-h*.24;c.globalAlpha=Math.max(0,Math.min(1,(1.3-b.a)*2.5));scribble(c,b.t,b.x+w/2,b.y-h/2-40,h,LW);c.globalAlpha=1;continue}if(b.burst){drawBurst(c,b);continue}if(b.ghost){drawGhost(c,b);continue}if(b.hint){drawHint(c,b);continue}
     c.beginPath();c.ellipse(b.x,b.y,b.r,b.r*(b.sq||1),0,0,7);b.fill?c.fill():c.stroke()}
