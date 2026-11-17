@@ -41,7 +41,8 @@
 <div id="stage"><canvas aria-label="A hand-drawn 404. Draw a face in the zero, or join the dots to play."></canvas></div>
 <a id="home" href="/" aria-label="Back to Hans's things"></a>
 <script>
-const VW=1000,VH=750,INK='#2140D0',MUTED='#6b7280';
+/* SMAX: the most a scene unit grows to (screen px), so a big monitor gets more room round the drawing, not a giant one */
+const VW=1000,VH=750,SMAX=1.25,INK='#2140D0',MUTED='#6b7280';
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const BACK='<svg viewBox="0 0 96 96" aria-hidden="true"><path d="M34.00 75.75C29.85 74.15 29.10 69.94 26.92 66.29C23.13 59.95 18.21 55.47 15.50 48.50M12.75 47.00C15.40 40.27 21.23 38.12 26.90 34.20C32.50 30.32 38.16 25.06 43.25 20.50M4.00 51.75C12.51 45.99 20.67 47.78 30.71 47.99C45.10 48.29 59.08 49.35 73.37 50.67C79.78 51.26 85.06 53.51 91.75 53.00"/></svg>';
 {const h=document.getElementById('home');h.innerHTML=BACK;if(window.FOLIO404_HOME)h.href=window.FOLIO404_HOME}
@@ -91,13 +92,13 @@ class Stage{
   /* a view maps scene units to the screen: s scale, ox/oy offset, xl..xr / yt..yb the scene units the screen shows */
   view(s,ox,oy,w,h){return{s,ox,oy,xl:-ox,xr:w/s-ox,yt:-oy,yb:h/s-oy}}
   resize(){const w=this.root.clientWidth||1,h=this.root.clientHeight||1;this.d=Math.min(window.devicePixelRatio||1,2);while(w*h*this.d*this.d>7e6&&this.d>1)this.d-=.25;
-    const s=Math.min(w/VW,h/VH);let G=this.view(s,(w/s-VW)/2,(h/s-VH)/2,w,h),Hd=G;this.portrait=h/w>1.2;
+    const s=Math.min(w/VW,h/VH,SMAX);let G=this.view(s,(w/s-VW)/2,(h/s-VH)/2,w,h),Hd=G;this.portrait=h/w>1.2;
     if(this.portrait){
       /* the 404 block runs from y 50 (its hair and cap) to 336; it goes to the top, as wide as the screen allows */
-      const hs=Math.min(w/485,h*.42/286);Hd=this.view(hs,w/2/hs-500,64/hs-50,w,h);const hb=(336+Hd.oy)*hs;
+      const hs=Math.min(w/485,h*.42/286,1.1);Hd=this.view(hs,w/2/hs-500,64/hs-50,w,h);const hb=(336+Hd.oy)*hs;
       /* the game's part of the scene (y 330 to 760) fills the width, cropped a little round the picture's middle, in the
          space left under the 404 */
-      const gs=Math.min(w/(this.vw||800),(h-hb-24)/430),top=hb+Math.max(0,(h-24-hb-430*gs)/2);G=this.view(gs,w/2/gs-(this.focus||500),top/gs-330,w,h);G.top=330}
+      const gs=Math.min(w/(this.vw||800),(h-hb-24)/430,SMAX),top=hb+Math.max(0,(h-24-hb-430*gs)*.4);G=this.view(gs,w/2/gs-(this.focus||500),top/gs-330,w,h);G.top=330}
     this.G=G;this.H=Hd;Object.assign(this,G);this.gTop=G.top??G.yt;
     this.cv.width=Math.round(w*this.d);this.cv.height=Math.round(h*this.d);this.render()}
   use(v){const k=this.d*v.s;this.ctx.setTransform(k,0,0,k,v.ox*k,v.oy*k)}
@@ -279,16 +280,19 @@ const PICS={
    const cans=[{kind:'trash',x0:640,parts:ex.filter(q=>q.can==='trash')},{kind:'rec',x0:820,parts:ex.filter(q=>q.can==='rec')}];
    cans.forEach(c=>{c.tf={x:0,y:0,r:0,s:1};c.parts.forEach(q=>{q.cx=c.x0;q.cy=650;q.tf=c.tf})});
    let pile=[],pop=null;
+   /* the side walls a plane banks off: the screen's edges, or on a wide screen a drawn wall 680 units out from the middle,
+      so a bank shot stays reachable however wide the screen */
+   const WL=()=>Math.max(st.xl,-180)+20,WR=()=>Math.min(st.xr,1180)-20;
    /* After three misses in a row (the ground, a can's side, or the trash), once per browser session: 'try a bank shot', and a
       target on the wall at the spot that bounces into the recycling from where the cans are now, worked out with this
       game's own flight. It stays while aiming and goes when that throw lands. */
    let streak=0,bankTip=null;const seen=()=>{try{return sessionStorage.getItem('folio404-bank')==='1'}catch(_){return!!window.__folio404bank}};
    const flight=(px,py)=>{let vx=-px*.17,vy=-py*.17,x=seat[0]+px,y=seat[1]+py,hit=null;
-     for(let i=0;i<500;i++){vy+=.16;vx*=.996;vy*=.996;const y0=y;x+=vx;y+=vy;if(x<st.xl+20||x>st.xr-20){if(hit)return null;hit={x:clamp(x,st.xl+20,st.xr-20),y};vx*=-.4;x=hit.x}
+     for(let i=0;i<500;i++){vy+=.16;vx*=.996;vy*=.996;const y0=y;x+=vx;y+=vy;if(x<WL()||x>WR()){if(hit)return null;hit={x:clamp(x,WL(),WR()),y};vx*=-.4;x=hit.x}
        if(y0<590&&y>=590)return hit?{hit,x}:null;if(y>720||y<st.yt-400)return null}return null};
    const tipFor=()=>{const rec=cans.find(c=>c.kind==='rec'),cx=rec.x0+rec.tf.x+55;let best=null;
      for(let d=60;d<=150;d+=2)for(let a=-5;a<80;a+=1){const an=a*Math.PI/180,r=flight(-Math.cos(an)*d,Math.sin(an)*d);
-       if(r&&Math.abs(r.x-cx)<14&&r.hit.y>st.H.yt+(st.portrait?150:140)*Math.max(1,.8/st.H.s)*(st.H.s/st.G.s)&&r.hit.y<560&&(!best||r.hit.y<best.y))best=r.hit}return best};
+       if(r&&Math.abs(r.x-cx)<14&&r.hit.y>st.H.yt+(st.portrait?150:140)*Math.max(1,.8/st.H.s)*(st.H.s/st.G.s)&&r.hit.y>170&&r.hit.y<560&&(!best||r.hit.y<best.y))best=r.hit}return best};
    const landed=good=>{if(bankTip&&bankTip.armed){bankTip=null}if(good){streak=0;return}
      if(++streak>=3&&!seen()){const h=tipFor();if(h){bankTip={x:h.x,y:h.y,armed:0};try{sessionStorage.setItem('folio404-bank','1')}catch(_){window.__folio404bank=1}}}};
    const POW=.17,MAX=150,aim=()=>{const p=S.pull,dx=seat[0]-p.x,dy=seat[1]-p.y,d=Math.hypot(dx,dy),k=Math.min(d,MAX)/(d||1);return[dx*k*POW,dy*k*POW]};
@@ -307,7 +311,7 @@ const PICS={
       const cross=(a,b,c,d)=>{const r=(p,q,t)=>(q[0]-p[0])*(t[1]-p[1])-(q[1]-p[1])*(t[0]-p[0]);return r(a,b,c)*r(a,b,d)<0&&r(c,d,a)*r(c,d,b)<0};
       if(!S.miss)for(const cn of cans){const x=cn.x0+cn.tf.x,walls=[[[x-2,586],[x+16,720]],[[x+112,584],[x+94,718]]];
         if(walls.some(([a,b])=>cross([pxp,py],[S.x,S.y],a,b))){S.miss=1;S.x=pxp;S.y=py;S.vx=-S.vx*.25;S.vy=Math.max(1.5,Math.abs(S.vy)*.3);break}}
-      if(S.x<st.xl+20||S.x>st.xr-20){S.vx*=-.4;S.x=clamp(S.x,st.xl+20,st.xr-20);S.bank=1}
+      if(S.x<WL()||S.x>WR()){S.vx*=-.4;S.x=clamp(S.x,WL(),WR());S.bank=1}
       const can=!S.miss&&cans.find(c=>{const x=c.x0+c.tf.x;return py<590&&S.y>=590&&S.x>x+4&&S.x<x+106});
       if(can){const x=can.x0+can.tf.x,pts=can.kind==='rec'?(S.bank?2:1):-1;S.n+=pts;pop={t:(pts>0?'+':'')+pts,x:x+55,y:can.kind==='rec'?560:500,a:0};S.cx=x+55;
         landed(can.kind==='rec');if(can.kind==='rec'){S.mode='in';S.s=.2;S.tx=x+18+R()*74;S.ty=Math.max(602,672-pile.length*10);S.th=.9+R()*1.3;
@@ -324,6 +328,7 @@ const PICS={
     else if(S.mode==='ready'||S.mode==='load')fx.push({band:1,a:fork[0],b:fork[1],p:seat,life:1});
     if(S.mode==='burn'&&S.burn<1)fx.push({fire:1,x:S.cx,y:590,t:S.burn,life:1});
     if(pop){pop.a+=f/60;pop.y-=.6*f;if(pop.a<1.3)fx.push({pop:1,...pop,life:1});else pop=null}
+    if(st.xl<-180)fx.push({wall:1,x:-180,life:1});if(st.xr>1180)fx.push({wall:1,x:1180,life:1});
     if(bankTip)fx.push({banktip:1,x:bankTip.x,y:bankTip.y,life:1});
     cue=!S.thrown&&S.mode==='ready'?{t:'pull back, and recycle',x:seat[0]+60,y:seat[1]-100}:null}}},
 
@@ -428,7 +433,7 @@ const PICS={
       ...head(166,123,10,1),...head(150,137,14,1),...head(186,131,14,1),...head(243,124,17),...head(291,98,17),L([[236,143],[256,141]],5,{late:1}),L(arc(312,119,8,0,6.4,14),5,{late:1}),
       ...wheel(125,240,31,0),...wheel(298,222,30,1)]},
   start(G,ex){const R=rng(21),wheels=[[ex.find(s=>s.wh===0),-116,-30],[ex.find(s=>s.wh===1),117,-54]],kids=ex.filter(s=>s.kid);
-   const V=st.G,Z=.34,P=(x,y)=>[285+(x-63)*1.35,400+(y-53)*1.35],HEADS=[[166,123,10],[150,137,14],[186,131,14]].map(([x,y,r])=>[...P(x,y),r*1.35]);
+   const V={...st.G,xl:Math.max(st.G.xl,-260),xr:Math.min(st.G.xr,1260)},Z=.34,P=(x,y)=>[285+(x-63)*1.35,400+(y-53)*1.35],HEADS=[[166,123,10],[150,137,14],[186,131,14]].map(([x,y,r])=>[...P(x,y),r*1.35]);
    let mem={};try{mem=JSON.parse(localStorage.getItem('folio404-van'))||{}}catch(_){}
    let best=mem.best||0,recent=Array.isArray(mem.recent)?mem.recent:[],zc=1;
    const stack=()=>{const out=best?[{t:best,best:true}]:[];let used=false;for(const t of recent){if(t===best&&!used){used=true;continue}out.push({t})}return out.slice(0,6)};
@@ -596,6 +601,8 @@ const drawFire=(c,b)=>{const n=performance.now()/55,u=b.t,grow=Math.min(1,u*7),h
   c.fillStyle=INK;for(let i=0;i<10;i++){const ph=(n*.025+i/10)%1,ex=Math.sin(i*2.3+n*.08)*40*(1-ph*.3),ey=-h*.6-ph*h*.9;c.globalAlpha=(1-ph)*(1-u*.6);c.beginPath();c.arc(ex,ey,2.6*(1-ph*.5),0,7);c.fill()}
   c.globalAlpha=.45*(1-u*.5);c.lineWidth=3;c.beginPath();for(let i=0;i<=20;i++){const t=i/20,x=Math.sin(t*9+n*.12)*10*t,y=-h-10-t*70;i?c.lineTo(x,y):c.moveTo(x,y)}c.stroke();
   c.restore();c.globalAlpha=1;c.lineWidth=3};
+const drawWall=(c,b)=>{c.save();c.globalAlpha=.5;c.lineWidth=LW;c.lineCap='round';c.beginPath();
+  for(let y=150;y<=702;y+=12){const x=b.x+Math.sin(y*.031+b.x)*1.6+Math.sin(y*.11)*.7;y===150?c.moveTo(x,y):c.lineTo(x,y)}c.stroke();c.restore()};
 const drawBankTip=(c,b)=>{const n=performance.now()/1000,g=st.G.s,pulse=1+.18*Math.sin(n*5),R=Math.max(16,9/g)*pulse;c.save();c.lineWidth=Math.max(3,1.6/g);c.lineCap='round';
   c.beginPath();c.arc(b.x,b.y,R,0,7);c.stroke();c.beginPath();c.arc(b.x,b.y,R*.38,0,7);c.fill();
   c.globalAlpha=.4;c.beginPath();c.arc(b.x,b.y,R*1.7,0,7);c.stroke();c.globalAlpha=1;
@@ -624,7 +631,7 @@ st.over=c=>{st.use(st.H);const since=performance.now()-eyesAt;
   if(flame){const n=performance.now()/45,L=34+Math.sin(n)*6+Math.sin(n*2.3)*3;c.save();c.translate(flame.x,flame.y);c.rotate(flame.a+Math.PI);c.translate(flame.r+4,0);
     c.lineWidth=LW;c.fillStyle='#ffffff';c.beginPath();c.moveTo(0,-9);c.quadraticCurveTo(L*.45,-13+Math.sin(n*1.7)*2,L,Math.sin(n*1.3)*3);c.quadraticCurveTo(L*.45,13,0,9);c.quadraticCurveTo(-5,0,0,-9);c.fill();c.stroke();
     const l=L*.5;c.lineWidth=LW*.7;c.beginPath();c.moveTo(2,-4);c.quadraticCurveTo(l*.5,-6,l,Math.sin(n*1.9)*2);c.quadraticCurveTo(l*.5,6,2,4);c.stroke();c.restore();c.fillStyle=c.strokeStyle=INK}
-  c.lineWidth=3;for(const b of fx){if(b.puck){if(!b.in)drawPuck(c,b);continue}if(b.donut){drawDonut(c,b);continue}if(b.cone){drawCone(c,b);continue}if(b.kid){drawKid(c,b);continue}if(b.flag){drawFlag(c,b);continue}if(b.banktip){drawBankTip(c,b);continue}if(b.fire)continue;
+  c.lineWidth=3;for(const b of fx){if(b.puck){if(!b.in)drawPuck(c,b);continue}if(b.donut){drawDonut(c,b);continue}if(b.cone){drawCone(c,b);continue}if(b.kid){drawKid(c,b);continue}if(b.flag){drawFlag(c,b);continue}if(b.wall){drawWall(c,b);continue}if(b.banktip){drawBankTip(c,b);continue}if(b.fire)continue;
     if(b.band){c.lineWidth=2;c.globalAlpha=.5;c.beginPath();c.moveTo(b.a[0],b.a[1]);c.lineTo(b.p[0],b.p[1]);c.lineTo(b.b[0],b.b[1]);c.stroke();c.globalAlpha=1;continue}
     if(b.pop){const h=46,w=b.t.length*h*.86-h*.24;c.globalAlpha=Math.max(0,Math.min(1,(1.3-b.a)*2.5));scribble(c,b.t,b.x+w/2,b.y-h/2-40,h,LW);c.globalAlpha=1;continue}if(b.burst){drawBurst(c,b);continue}if(b.ghost){drawGhost(c,b);continue}if(b.hint){drawHint(c,b);continue}
     c.beginPath();c.ellipse(b.x,b.y,b.r,b.r*(b.sq||1),0,0,7);b.fill?c.fill():c.stroke()}
