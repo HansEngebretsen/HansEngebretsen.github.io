@@ -3,3 +3,5 @@
 User-agent: *
 # haaans.com/say is private-ish: served, but never crawled, indexed or used for training
 Disallow: /say
+# haaans.com/cntrl is a demo of a private app: served, but never crawled or indexed
+Disallow: /cntrl
