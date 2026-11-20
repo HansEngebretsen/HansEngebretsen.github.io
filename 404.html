@@ -39,7 +39,7 @@
 <body>
 <h1 class="sr-only">Page not found</h1>
 <div id="stage"><canvas aria-label="A hand-drawn 404. Draw a face in the zero, or join the dots to play."></canvas></div>
-<a id="home" href="/" aria-label="Back to Hans's things"></a>
+<a id="home" href="https://henge.dev/things/" aria-label="Back to Hans's things"></a>
 <script>
 /* SMAX: the most a scene unit grows to (screen px), so a big monitor gets more room round the drawing, not a giant one */
 const VW=1000,VH=750,SMAX=1.25,INK='#2140D0',MUTED='#6b7280';
@@ -100,7 +100,7 @@ class Stage{
          space left under the 404 */
       const gs=Math.min(w/(this.vw||800),(h-hb-24)/430,SMAX),top=hb+Math.max(0,(h-24-hb-430*gs)*.4);G=this.view(gs,w/2/gs-(this.focus||500),top/gs-330,w,h);G.top=330}
     this.G=G;this.H=Hd;Object.assign(this,G);this.gTop=G.top??G.yt;
-    this.cv.width=Math.round(w*this.d);this.cv.height=Math.round(h*this.d);this.render()}
+    this.cv.width=Math.round(w*this.d);this.cv.height=Math.round(h*this.d);this.onResize&&this.onResize();this.render()}
   use(v){const k=this.d*v.s;this.ctx.setTransform(k,0,0,k,v.ox*k,v.oy*k)}
   make(p){return{pts:[p],w:11,seed:Math.random()*99}}
   pos(e,v){v=v||this.G;const r=this.cv.getBoundingClientRect();return{x:(e.clientX-r.left)/v.s-v.ox,y:(e.clientY-r.top)/v.s-v.oy}}
@@ -189,8 +189,13 @@ const horn=()=>{try{AC=AC||new(window.AudioContext||window.webkitAudioContext)()
   g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(.1,t+.05);g.gain.setValueAtTime(.1,t+1.3);g.gain.linearRampToValueAtTime(0,t+1.6);
   for(const fq of[146,185,220]){const o=AC.createOscillator();o.type='sawtooth';o.frequency.value=fq;o.connect(g);o.start(t);o.stop(t+1.65)}}catch(_){}};
 let resetAt=[945,712];
-const showReset=()=>{if(resetOn)return;resetOn=true;const V=st.H,X=V.xr-52-(st.portrait?6/V.s:0),Y=V.yb-32-(st.portrait?14/V.s:0),r=rng(9),a=[];resetAt=[X,Y];for(let t=.35;t<=5.6;t+=.25)a.push([X+Math.cos(t)*17,Y+Math.sin(t)*17]);
-  const ui=[mk(a,LW,r,{boil:0,hdr:1}),mk([[X+12,Y-24],[X+13.5,Y-10.5],[X+1,Y-15]],LW,r,{boil:0,hdr:1})];st.strokes.push(...ui);st.draw()};
+let resetUI=[];
+const resetXY=()=>{const V=st.H;return[V.xr-52-(st.portrait?6/V.s:0),V.yb-32-(st.portrait?14/V.s:0)]};
+const showReset=()=>{if(resetOn)return;resetOn=true;const[X,Y]=resetXY(),r=rng(9),a=[];resetAt=[X,Y];for(let t=.35;t<=5.6;t+=.25)a.push([X+Math.cos(t)*17,Y+Math.sin(t)*17]);
+  resetUI=[mk(a,LW,r,{boil:0,hdr:1}),mk([[X+12,Y-24],[X+13.5,Y-10.5],[X+1,Y-15]],LW,r,{boil:0,hdr:1})];st.strokes.push(...resetUI);st.draw()};
+/* the arrow stays in the window's bottom right corner: when the window or the view changes (a resize, a game with its
+   own width starting), it moves with the corner instead of staying where it was first drawn */
+const placeReset=()=>{if(!resetOn)return;const[X,Y]=resetXY(),dx=X-resetAt[0],dy=Y-resetAt[1];if(!dx&&!dy)return;resetAt=[X,Y];for(const s of resetUI)for(const q of s.pts){q.x+=dx;q.y+=dy}};
 /* the bike's clock: seconds survived, with past runs stacked under it (the best one bold), written as a hand would */
 const GL={0:[[.5,0],[.1,.3],[.05,.8],[.2,1.4],[.5,1.6],[.8,1.4],[.95,.8],[.9,.3],[.5,0]],1:[[.25,.35],[.55,0],[.55,1.6]],2:[[.1,.35],[.45,0],[.85,.3],[.7,.8],[.1,1.6],[.95,1.6]],
   3:[[.1,.15],[.6,0],[.85,.4],[.45,.75],[.9,1.1],[.6,1.6],[.1,1.45]],4:[[.7,1.6],[.7,0],[.05,1.05],[.98,1.05]],5:[[.85,0],[.2,0],[.12,.7],[.6,.6],[.9,1.05],[.6,1.6],[.1,1.45]],
@@ -298,7 +303,7 @@ const PICS={
    const POW=.17,MAX=150,aim=()=>{const p=S.pull,dx=seat[0]-p.x,dy=seat[1]-p.y,d=Math.hypot(dx,dy),k=Math.min(d,MAX)/(d||1);return[dx*k*POW,dy*k*POW]};
    near=q=>S.mode==='ready'&&Math.hypot(q.x-S.x,q.y-S.y)<90;
    grab=q=>{if(!near(q))return false;S.mode='pull';S.thrown=1;S.pull={x:S.x,y:S.y};return true};
-   drop=()=>{if(S.mode!=='pull')return;const[vx,vy]=aim();if(Math.hypot(vx,vy)<3){S.mode='ready';S.pull=null;return}S.vx=vx;S.vy=vy;S.mode='fly';S.pull=null;S.bank=0;S.miss=0;if(bankTip)bankTip.armed=1};
+   drop=()=>{if(S.mode!=='pull')return;const[vx,vy]=aim();if(Math.hypot(vx,vy)<3){S.mode='ready';S.pull=null;return}S.vx=vx;S.vy=vy;S.mode='fly';S.pull=null;S.bank=0;S.miss=0;S.faced=0;if(bankTip)bankTip.armed=1};
    const reload=()=>{S.s=.27;S.x=st.xl-60;S.y=520;S.h=0;S.mode='load';S.burn=0;
      /* every third throw the two cans trade places */
      if(++S.swap%3===0){const from=cans.map(c=>c.tf.x),to=[from[0]?0:180,from[1]?0:-180];tween(500,t=>{const e=t*t*(3-2*t);cans.forEach((c,i)=>{c.tf.x=from[i]+(to[i]-from[i])*e});st.draw()})}};
@@ -312,6 +317,13 @@ const PICS={
       if(!S.miss)for(const cn of cans){const x=cn.x0+cn.tf.x,walls=[[[x-2,586],[x+16,720]],[[x+112,584],[x+94,718]]];
         if(walls.some(([a,b])=>cross([pxp,py],[S.x,S.y],a,b))){S.miss=1;S.x=pxp;S.y=py;S.vx=-S.vx*.25;S.vy=Math.max(1.5,Math.abs(S.vy)*.3);break}}
       if(S.x<WL()||S.x>WR()){S.vx*=-.4;S.x=clamp(S.x,WL(),WR());S.bank=1}
+      /* Hans's face (Hans, 20 Nov): a plane that flies up into it bounces off, and leaves a little mark where it hit */
+      {const G=st.G,Hh=st.H,toH=(x,y)=>[(x+G.ox)*G.s/Hh.s-Hh.ox,(y+G.oy)*G.s/Hh.s-Hh.oy],[hx,hy]=toH(S.x,S.y);
+        if(!S.faced&&inFace(hx,hy,1)){S.faced=1;const nx=(hx-FX)/(RX*RX),ny=(hy-FY)/(RY*RY),nl=Math.hypot(nx,ny)||1,ux=nx/nl,uy=ny/nl,dot=S.vx*ux+S.vy*uy;
+          if(dot<0){S.vx=(S.vx-2*dot*ux)*.55;S.vy=(S.vy-2*dot*uy)*.55}S.x=pxp;S.y=py;
+          const r=rng(Math.round(hx*7+hy*3)),mx=FX+(hx-FX)*.92,my=FY+(hy-FY)*.92,a=Math.atan2(uy,ux),m=[];
+          for(let i=0;i<3;i++){const b=a+Math.PI/2+(i-1)*.55,l=5+r()*3;m.push(mk([[mx-Math.cos(b)*l,my-Math.sin(b)*l],[mx+Math.cos(b)*l,my+Math.sin(b)*l]],3,r,{boil:0,hdr:1,faceMark:1}))}
+          st.strokes.push(...m);if(typeof play==='function')play(st,m,4)}}
       const can=!S.miss&&cans.find(c=>{const x=c.x0+c.tf.x;return py<590&&S.y>=590&&S.x>x+4&&S.x<x+106});
       if(can){const x=can.x0+can.tf.x,pts=can.kind==='rec'?(S.bank?2:1):-1;S.n+=pts;pop={t:(pts>0?'+':'')+pts,x:x+55,y:can.kind==='rec'?560:500,a:0};S.cx=x+55;
         landed(can.kind==='rec');if(can.kind==='rec'){S.mode='in';S.s=.2;S.tx=x+18+R()*74;S.ty=Math.max(602,672-pile.length*10);S.th=.9+R()*1.3;
@@ -328,7 +340,10 @@ const PICS={
     else if(S.mode==='ready'||S.mode==='load')fx.push({band:1,a:fork[0],b:fork[1],p:seat,life:1});
     if(S.mode==='burn'&&S.burn<1)fx.push({fire:1,x:S.cx,y:590,t:S.burn,life:1});
     if(pop){pop.a+=f/60;pop.y-=.6*f;if(pop.a<1.3)fx.push({pop:1,...pop,life:1});else pop=null}
-    if(st.xl<-180)fx.push({wall:1,x:-180,life:1});if(st.xr>1180)fx.push({wall:1,x:1180,life:1});
+    /* the side walls: still lines in the stand's own pale ink and weight, never boiling (Hans, 20 Nov: they flickered) */
+    {const want=(st.xl<-180?'L':'')+(st.xr>1180?'R':'');if(want!==S.walls){S.walls=want;st.strokes=st.strokes.filter(q=>!q.wall);
+      for(const x of[want.includes('L')?-180:null,want.includes('R')?1180:null])if(x!=null){const pts=[];for(let y=150;y<=702;y+=46)pts.push([x+Math.sin(y*.031+x)*1.6,y]);
+        st.strokes.push(mk(pts,4,rng(x+7),{solo:1,boil:0,wall:1,color:'rgba(33,64,208,.5)'}))}}}
     if(bankTip)fx.push({banktip:1,x:bankTip.x,y:bankTip.y,life:1});
     cue=!S.thrown&&S.mode==='ready'?{t:'pull back, and recycle',x:seat[0]+60,y:seat[1]-100}:null}}},
 
@@ -559,6 +574,7 @@ st.onGrab=(p,ph)=>{if(onReset(ph)){reset();return true}
 st.make=(p,ph)=>{showReset();const face=inFace(ph.x,ph.y,1);if(face){eyesAt=Math.min(eyesAt,performance.now());return{pts:[ph],w:LW,seed:Math.random()*99,face,boil:0,hdr:1}}return won&&road?{pts:[p],w:9,seed:Math.random()*99,road:1,boil:.6,fixed:true}:{pts:[p],w:11,seed:Math.random()*99}};
 st.accept=p=>!st.cur.face||inFace(p.x,p.y,.96);
 st.onDrop=()=>{drop&&drop()};
+st.onResize=placeReset;
 st.onPoint=p=>{if(won||(st.cur&&st.cur.face))return;lastAct=performance.now();const n=D.length;const R=KD<1?32:Math.max(46,26/st.G.s);while(k<=n){const d=D[k%n];if(Math.hypot(p.x-d.x,p.y-d.y)<R)k++;else break}if(k>n)win()};
 st.onEnd=s=>{if(s.face)checkFace();else if(s.road&&road)road.done(s)};
 st.under=c=>{for(const b of fx)if(b.fire){drawFire(c,b)}
